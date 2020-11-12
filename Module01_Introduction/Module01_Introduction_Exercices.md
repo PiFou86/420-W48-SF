@@ -103,3 +103,24 @@ Créez un nouveau programme qui allume et éteigne la del à une fréquence suff
 ## Exercice 4 - SOS en morse
 
 Créez un nouveau programme qui se sert de la del afin d'afficher la séquence "SOS" qui en morse se traduit par "--- ... ---". Un "-" correspond à la durée de 3 ".". Le changement de lettre (ici, représenté par un espace " ") correspond à un temps équivalent à 3 points.
+
+## Exercice 5 - D’où viennent les valeurs LED_BUILTIN, HIGH, LOW, etc.
+
+La compilation de votre programme C/C++ passe par une phase préalable appelée précompilation qui va exécuter des instructions présentent dans le code. Ces instructions sont préfixées par le symbole "#". Nous reviendrons plus en détails dans les futurs modules.
+
+Pour l'exercice, sachez que le pré-compilateur retrouve les valeurs des constantes "LED_BUILTIN", "HIGH", "LOW" dans une librairie IMPLICITE. Au besoin, il remplace le nom de la constante par sa valeur avant de compiler le code en binaire.
+
+**!!!EXPLOREZ sans sauvegarder!!!**
+
+Sur votre PC (ou clé USB ou disque SSD), placez-vous à la base du répertoire contenant le programme Arduino IDE. Sous Windows, par défaut, le répertoire est "C:\Program Files(x86)\Arduino".
+
+Utilisez un éditeur de texte afin d'afficher le contenu du fichier "hardware\arduino\avr\cores\arduino\Arduino.h". Il est conseillé d'utiliser un éditeur de texte de type "Visual Studio Code" :
+
+- Observez le contenu du fichier **sans le modifier**.
+- Notez les valeurs des constantes suivantes :
+  - HIGH
+  - LOW
+  - LED_BUILTIN
+- Lisez la déclaration de la macro "sq", notez ses paramètres et son algorithme
+
+NOTE : les constantes implicites sont représentées en majuscules pour en faciliter le repérage dans les sketchs.
