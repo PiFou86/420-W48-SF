@@ -114,13 +114,13 @@ Pour l'exercice, sachez que le pré-compilateur retrouve les valeurs des constan
 
 Sur votre PC (ou clé USB ou disque SSD), placez-vous à la base du répertoire contenant le programme Arduino IDE. Sous Windows, par défaut, le répertoire est "C:\Program Files(x86)\Arduino".
 
-Utilisez un éditeur de texte afin d'afficher le contenu du fichier "hardware\arduino\avr\cores\arduino\Arduino.h". Il est conseillé d'utiliser un éditeur de texte de type "Visual Studio Code" :
-
-- Observez le contenu du fichier **sans le modifier**.
-- Notez les valeurs des constantes suivantes :
-  - HIGH
-  - LOW
-  - LED_BUILTIN
-- Lisez la déclaration de la macro "sq", notez ses paramètres et son algorithme
+- Utilisez un éditeur de texte afin d'afficher le contenu du fichier "hardware\arduino\avr\cores\arduino\Arduino.h". Il est conseillé d'utiliser un éditeur de texte de type "Visual Studio Code" :
+  - Observez le contenu du fichier **sans le modifier**.
+  - Notez les valeurs des constantes suivantes :
+    - HIGH
+    - LOW
+    - LED_BUILTIN
+  - Lisez la déclaration de la macro "sq", notez ses paramètres et son algorithme
+- Utilisez un éditeur de texte afin d'afficher le contenu du fichier "hardware\arduino\avr\variants\standard". Notez la valeur de la constante "LED_BUILTIN".
 
 NOTE : les constantes implicites sont représentées en majuscules pour en faciliter le repérage dans les sketchs.
