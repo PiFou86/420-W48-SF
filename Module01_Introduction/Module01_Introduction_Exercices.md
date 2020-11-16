@@ -121,6 +121,6 @@ Sur votre PC (ou clé USB ou disque SSD), placez-vous à la base du répertoire 
     - LOW
     - LED_BUILTIN
   - Lisez la déclaration de la macro "sq", notez ses paramètres et son algorithme
-- Utilisez un éditeur de texte afin d'afficher le contenu du fichier "hardware\arduino\avr\variants\standard". Notez la valeur de la constante "LED_BUILTIN".
+- Utilisez un éditeur de texte afin d'afficher le contenu du fichier "hardware\arduino\avr\variants\standard\pins_arduino.h". Notez la valeur de la constante "LED_BUILTIN".
 
 NOTE : les constantes implicites sont représentées en majuscules pour en faciliter le repérage dans les sketchs.
