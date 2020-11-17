@@ -17,7 +17,7 @@ Utilisez un multimètre, en position Ohm, pour tester vos valeurs.
 
 ### Objectif
 
-- Controller la luminosité d'une DEL avec la LMI
+Controller la luminosité d'une DEL avec la LMI
 
 ### Environnement et matériel
 
@@ -36,10 +36,10 @@ Les entrées numériques peuvent simuler une entrée analogique grâce à la teh
 
  ![feu de circulation](img/DutyCycle.png)
 
-La fonction analogWrite(NoBorne, valeur) permet cette fonctionnalité.
-Les valeurs possibles sont de 0 à 255. La valeur 0 équivaut à 0% d'intensité, la valeur 255 équivaut à l'éclairage maximal.
+La fonction analogWrite(*NoBorne*, *valeur*) permet cette fonctionnalité.
+Les valeurs peuvent varier de 0 à 255. La valeur 0 équivaut à 0% d'intensité, la valeur 255 équivaut à l'éclairage maximal.
 
-### Sketch Fade.ino
+### Sketch VariationMLI.ino
 
 #### Montage du circuit
 
@@ -49,14 +49,15 @@ Les valeurs possibles sont de 0 à 255. La valeur 0 équivaut à 0% d'intensité
 
  ![feu de circulation](img/FadeSchema.PNG)
 
-- représentation shcématique
+- représentation schématique
 
 -Vérifiez SANS brancher
 
-- Démarrez une nouvelle application Arduino. Nommez-la MLI.ino
-Programmez MLI.ino comme représentée dans la présentation PowerPoint. Si le sketch ne fonctionne pas, débranchez le câble USB.-
+- Démarrez une nouvelle application Arduino. Nommez-la VariationMLI.ino
+Programmez le sketch pour faire varier l'intensité de 0 à 255 avec un pas de 5. Si le sketch ne fonctionne pas, débranchez le câble USB.
 
-##### Dépannage
+<details>
+    <summary>Dépannage circuit</summary>
 
 1. Avez-vous polarisé la DEL dans le bon sens?
 2. La valeur des résistances est-elle 220 Ohms?
@@ -64,12 +65,16 @@ Programmez MLI.ino comme représentée dans la présentation PowerPoint. Si le s
     - par convention, le fil noir se branche à la terre
     le fil rouge à l'alimentation
 
-##### Usage de la structure for()
+Vérifiez votre circuit attentivement avec les points cités au-dessus.
+
+</details>
+
+#### Usage de la structure for()
 Remplacez la structure if par la structure for ()
-Consultez la rubrique 
+Consultez la rubrique
 https://www.arduino.cc/reference/en/ pour vous aider
 
-##### Questions de réflexion
+#### Questions de réflexion
 
 - Quelle est la valeur de la période du cycle pour fadeAmount= 5 ?  
 - Quelle doit être la valeur de fadeAmount pour une période de cycle de 75 % ?
@@ -129,6 +134,7 @@ Programmez FeuDeCirculation.ino selon les délais prescrits dans le tableau plus
 Si le sketch ne fonctionne pas, débranchez le câble USB.
 
 <details>
+
     <summary>Dépannage circuit</summary>
 
 Vérifiez votre circuit attentivement avec les points cités au-dessus.
@@ -142,3 +148,45 @@ Utilisez la technique suivante :
 - Remplacez le sketch par le sketch Blink.ino
 - Changez LED_BUILTIN par la valeur 12. Téléversez le sketch. La DEL rouge doit clignoter, sinon dépannez cette partie du circuit.
 - Faites de même pour les bornes 11 et 10.
+
+## Exercice 4 Code Morse
+
+### Objectif
+
+Transmettre une chaine de caractère en Morse
+
+### Environnement et matériel
+
+- Arduino UNO
+- Une platine d’essais
+- Une ampoule DEL rouge
+- 1 résistance de 220 Ohms
+- Coffret de pièces et outils
+
+- Directives :
+   -Toujours étaler les articles sur le tapis de protection avant de débuter.
+
+### Instructions
+
+- Démarrez une nouvelle application Arduino. Nommez-la CodeMorse.ino
+
+ Le sketch doit faire clignoter le texte d'une chaîne de caractères
+
+La fonction loop() appelle la fonction afficherChaine qui reçoit la chaîne de caractère au complet comme argument comme celle-ci
+void loop()
+{
+  afficherChaine("SOS");
+  delay(1000); // Wait for 1000 millisecond(s)
+}
+
+- utilisez un texte qui couvre l'ensemble des lettres de l'alphabet, majuscules et minuscules.
+
+<details>
+
+    <summary>Dépannage circuit</summary>
+
+Vérifiez votre circuit attentivement avec les points cités au-dessus.
+
+</details>
+
+fin des exercices
