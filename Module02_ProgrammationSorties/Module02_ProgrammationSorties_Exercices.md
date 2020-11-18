@@ -157,7 +157,7 @@ Utilisez la technique suivante :
 - La DEL rouge doit clignoter, sinon dépannez cette partie du circuit.
 - Faites de même pour les bornes 11 et 10.
 
-## Exercice 4 Code Morse
+## Exercice 4 - Code Morse
 
 ### Objectif
 
