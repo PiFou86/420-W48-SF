@@ -14,6 +14,15 @@
 
 Utilisez un multimètre, en position Ohm, pour valider vos valeurs.
 
+<details>
+    <summary>Solution</summary>
+
+- RRNNM : 220 Ohms +/- 1%
+- MNNMM : 1 000 Ohms +/- 1%
+- MNNRM : 10 000 Ohms +/- 1%
+
+</details>
+
 ## Exercice 2 - Contrôle de l'intensité de DELs
 
 Les entrées numériques peuvent simuler une entrée analogique grâce à la technologie LMI.
@@ -115,10 +124,10 @@ L’image suivante donne la séquence d’éclairage des feux de circulation. Vo
 
 |Séquence  |Image|Durées|Rouge   |Jaune   |Vert    |
 |:--------:|-----|------|--------|--------|--------|
-|startup() |1    |3 sec.|allumé  |éteinte |éteinte |
-|loop()	   |2	 |5 sec.|éteinte |allumé  |éteinte |
+|startup() |1    |5 sec.|allumé  |éteinte |éteinte |
+|loop()	   |2	 |1 sec.|allumé  |allumé  |éteinte |
 |          |3    |3 sec.|éteinte |éteinte |allumé  |
-|          |4    |2 sec.|allumé	 |allumé  |éteinte |
+|          |4    |1 sec.|éteinte |allumé  |éteinte |
 |          |1    |3 sec.|allumé	 |éteinte |éteinte |
 |          |...  |...   |...     |...     |...     |
 
@@ -133,7 +142,6 @@ L’image suivante donne la séquence d’éclairage des feux de circulation. Vo
 Représentation schématique:
 
 ![Représentation schématique](img/SchemaFeuCirculationBase.png)
-
 
 - Ce sont les bornes 12, 11 et 10 sont utilisées.
 - Vérifiez SANS brancher
@@ -232,6 +240,13 @@ Observer le comportement de deux résistances branchées en série. [Lire la dé
 - Effectez le montage sur la plaquette d'expérimentations, non alimenté
 - Mesurez la résistance globale avec un multimètre
 
+<details>
+    <summary>Solution</summary>
+
+Vous devriez mesurer une résistance d'environ 440 Ohms
+
+</details>
+
 ## Exercice 6 - Résistance en parallèle
 
 **L'exercice se passe sans Arduino, ni DELs, ni alimentation**
@@ -251,3 +266,10 @@ Observer le comportement de deux résistances branchées en parallèle. [Lire la
 - Sur papier, dessinez le circuit de deux résistances de 220 Ohms en série
 - Effectez le montage sur la plaquette d'expérimentations, non alimenté
 - Mesurez la résistance globale avec un multimètre
+
+<details>
+    <summary>Solution</summary>
+
+Vous devriez mesurer une résistance d'environ 110 Ohms
+
+</details>
