@@ -214,6 +214,8 @@ Regardez dans votre kit Arduino, vous avez deux buzzer. Un dit actif, l'autre pa
 
 ## Exercice 5 - Résistance en série
 
+**L'exercice se passe sans Arduino, ni DELs, ni alimentation**
+
 ### Objectif
 
 Observer le comportement de deux résistances branchées en série. [Lire la définition](https://fr.wikibooks.org/wiki/Électricité/Les_circuits_série_et_parallèles#Les_circuits_série_et_parallèle)
@@ -222,6 +224,7 @@ Observer le comportement de deux résistances branchées en série. [Lire la dé
 
 - Une platine d’essais
 - 2 résistance de 220 Ohms
+- Un multimètre
 
 ### Instructions
 
@@ -231,6 +234,8 @@ Observer le comportement de deux résistances branchées en série. [Lire la dé
 
 ## Exercice 6 - Résistance en parallèle
 
+**L'exercice se passe sans Arduino, ni DELs, ni alimentation**
+
 ### Objectif
 
 Observer le comportement de deux résistances branchées en parallèle. [Lire la définition](https://fr.wikibooks.org/wiki/Électricité/Les_circuits_série_et_parallèles#Les_circuits_série_et_parallèle)
@@ -239,6 +244,7 @@ Observer le comportement de deux résistances branchées en parallèle. [Lire la
 
 - Une platine d’essais
 - 2 résistance de 220 Ohms
+- Un multimètre
 
 ### Instructions
 
