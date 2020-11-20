@@ -9,6 +9,8 @@
 ### Environnement et matériel
 
 - Bandes de résistances
+- Code de couleurs des résistances
+- Un multimètre
 
 À l'aide du code de couleurs, étiquetez les bandes de résistances de votre ensemble expérimental.
 
@@ -23,7 +25,26 @@ Utilisez un multimètre, en position Ohm, pour valider vos valeurs.
 
 </details>
 
-## Exercice 2 - Contrôle de l'intensité de DELs
+## Exercice 2 - Platine d'expérimentation
+
+### Objectif
+
+Valider votre compréhension de la platine d'expérimentation
+
+### Environnement et matériel
+
+- Une platine d’essais
+- Un multimètre, avec les sondes et les câbles à pinces crocodile à double extrémité
+- Deux fils dupont mâle-mâle
+
+### Tests à effectuer
+
+- Connectez correctement vos sondes au multimètre
+- Connectez chaque cable à pinces crocodile sur une sonde
+- Connectez l'autre extrémité des pinces crocodile à un fils dupont
+- Sondez différent endroit de la platine d'expérimentation afin de valider la conductivité et par la même votre compréhension des chemins électriques
+
+## Exercice 3 - Contrôle de l'intensité de DELs
 
 Les entrées numériques peuvent simuler une entrée analogique grâce à la technologie LMI.
 
@@ -90,12 +111,12 @@ https://www.arduino.cc/reference/en/ pour vous aider
 
 #### Questions de réflexion
 
-- Quelle est la valeur de la période du cycle pour fadeAmount = 5 ?  
-- Quelle doit être la valeur de fadeAmount pour une période de cycle de 75 % ?
+- Quelle est la valeur de la période du cycle pour evolutionPas = 5 ?  
+- Quelle doit être la valeur de evolutionPas pour une période de cycle de 75 % ?
 - Quel effet se produit-il si la période de cycle est de 75 % ?
 - Changez la résistance du circuit pour 560 Ohms. Qu'observez-vous ?
 
-## Exercice 3 - Feux de circulation
+## Exercice 4 - Feux de circulation
 
 L’exercice présenté ici représente un carrefour urbain simple contrôlé par un système de signalisation: Rouge, Jaune, Verte.
 
@@ -165,7 +186,7 @@ Utilisez la technique suivante :
 - La DEL rouge doit clignoter, sinon dépannez cette partie du circuit.
 - Faites de même pour les bornes 11 et 10.
 
-## Exercice 4 - Code Morse
+## Exercice 5 - Code Morse
 
 ### Objectif
 
@@ -220,7 +241,7 @@ Vérifiez votre circuit attentivement avec les points cités au-dessus.
 
 Regardez dans votre kit Arduino, vous avez deux buzzer. Un dit actif, l'autre passif. Prenez le buzzer actif et branchez le à la place de votre led. Attention à la polarité !
 
-## Exercice 5 - Résistance en série
+## Exercice 6 - Résistance en série
 
 **L'exercice se passe sans Arduino, ni DELs, ni alimentation**
 
@@ -247,7 +268,7 @@ Vous devriez mesurer une résistance d'environ 440 Ohms
 
 </details>
 
-## Exercice 6 - Résistance en parallèle
+## Exercice 7 - Résistance en parallèle
 
 **L'exercice se passe sans Arduino, ni DELs, ni alimentation**
 
