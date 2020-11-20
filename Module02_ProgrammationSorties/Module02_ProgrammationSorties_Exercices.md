@@ -1,60 +1,94 @@
 # Module 02 - Programmation des sorties
 
-## Exercice 1
+## Exercice 1 - Étiqueter votre matériel
 
 ### Objectif
 
-- Étiqueter les bandes de résistance.
+Étiqueter les bandes de résistance.
 
 ### Environnement et matériel
 
-- bandes de résistances
+- Bandes de résistances
+- Code de couleurs des résistances
+- Un multimètre
 
 À l'aide du code de couleurs, étiquetez les bandes de résistances de votre ensemble expérimental.
-Utilisez un multimètre, en position Ohm, pour tester vos valeurs.
 
-## Exercice 2
+Utilisez un multimètre, en position Ohm, pour valider vos valeurs.
+
+<details>
+    <summary>Solution</summary>
+
+- RRNNM : 220 Ohms +/- 1%
+- MNNMM : 1 000 Ohms +/- 1%
+- MNNRM : 10 000 Ohms +/- 1%
+
+</details>
+
+## Exercice 2 - Platine d'expérimentation
 
 ### Objectif
 
-Controller la luminosité d'une DEL avec la LMI
+Valider votre compréhension de la platine d'expérimentation
+
+### Environnement et matériel
+
+- Une platine d’essais
+- Un multimètre, avec les sondes et les câbles à pinces crocodile à double extrémité
+- Deux fils dupont mâle-mâle
+
+### Tests à effectuer
+
+- Connectez correctement vos sondes au multimètre
+- Connectez chaque cable à pinces crocodile sur une sonde
+- Connectez l'autre extrémité des pinces crocodile à un fils dupont
+- Sondez différent endroit de la platine d'expérimentation afin de valider la conductivité et par la même votre compréhension des chemins électriques
+
+## Exercice 3 - Contrôle de l'intensité de DELs
+
+Les entrées numériques peuvent simuler une entrée analogique grâce à la technologie LMI.
+
+![Duty cycle](img/DutyCycle.png)
+
+### Objectif
+
+Contrôler la luminosité d'une DEL avec la LMI.
 
 ### Environnement et matériel
 
 - Arduino UNO
 - Une platine d’essais
-- Une ampoule DEL rouge
+- Une LED rouge
 - 1 résistance de 220 Ohms
 - Coffret de pièces et outils
 
-- Directives :
-   -Toujours étaler les articles sur le tapis de protection avant de débuter.
+### Directives
 
-### Introduction
-
-Les entrées numériques peuvent simuler une entrée analogique grâce à la tehcnologie LMI.
-
- ![feu de circulation](img/DutyCycle.png)
-
-La fonction analogWrite(*NoBorne*, *valeur*) permet cette fonctionnalité.
-Les valeurs peuvent varier de 0 à 255. La valeur 0 équivaut à 0% d'intensité, la valeur 255 équivaut à l'éclairage maximal.
+**Toujours étaler les articles sur le tapis de protection avant de débuter.**
 
 ### Sketch VariationMLI.ino
 
 #### Montage du circuit
 
- ![feu de circulation](img/MLIPysique.png)
+Représentation physique :
 
-- représentation physique
+![Représentation physique](img/MLIPysique.png)
 
- ![feu de circulation](img/FadeSchema.PNG)
+Représentation schématique :
 
-- représentation schématique
+![Représentation schématique](img/FadeSchema.PNG)
 
--Vérifiez SANS brancher
+- **AVANT d'alimenter votre circuite** :
+  - Validez vos connections
+  - Validez la valeur de votre résistance
+  - Validez le sens de connexion de la DEL
+  - Validez qu'il n'y a rien de conducteur / métallique qui pourrait créer un court-circuit dans votre montage
 
-- Démarrez une nouvelle application Arduino. Nommez-la VariationMLI.ino
-Programmez le sketch pour faire varier l'intensité de 0 à 255 avec un pas de 5. Si le sketch ne fonctionne pas, débranchez le câble USB.
+- Démarrez une nouvelle application Arduino IDE. Nommez-la "VariationMLI.ino"
+- Programmez le sketch pour faire varier l'intensité de 0 à 255 avec un pas de 5 toute les 50ms
+- Compilez le programme, corrigez les erreurs si nécessaire
+- Connectez votre plaquette de développement à votre ordinateur par le cable USB et compilez et téléverser le programme
+- ***Si le sketch ne fonctionne pas, débranchez le câble USB***
 
 <details>
     <summary>Dépannage circuit</summary>
@@ -69,18 +103,20 @@ Vérifiez votre circuit attentivement avec les points cités au-dessus.
 
 </details>
 
-#### Usage de la structure for()
-Remplacez la structure if par la structure for ()
-Consultez la rubrique
+#### Usage de la structure for
+
+- Consultez la rubrique
 https://www.arduino.cc/reference/en/ pour vous aider
+- Remplacez la structure "if" par la structure "for"
 
 #### Questions de réflexion
 
-- Quelle est la valeur de la période du cycle pour fadeAmount= 5 ?  
-- Quelle doit être la valeur de fadeAmount pour une période de cycle de 75 % ?
-- Quel effect se produit-il si la période de cycle est de 75 %?
+- Quelle est la valeur de la période du cycle pour evolutionPas = 5 ?  
+- Quelle doit être la valeur de evolutionPas pour une période de cycle de 75 % ?
+- Quel effet se produit-il si la période de cycle est de 75 % ?
+- Changez la résistance du circuit pour 560 Ohms. Qu'observez-vous ?
 
-## Exercice 3 - Feux de circulation
+## Exercice 4 - Feux de circulation
 
 L’exercice présenté ici représente un carrefour urbain simple contrôlé par un système de signalisation: Rouge, Jaune, Verte.
 
@@ -88,18 +124,19 @@ Le système passe périodiquement de Rouge au vert avec une transition préalabl
 
 ### Objectif
 
-Controller plusieurs DELs avec des durées variables
+Contrôler plusieurs DELs avec des durées variables.
 
 ### Environnement et matériel
 
 - Arduino UNO
 - Une platine d’essais
-- Une ampoule DEL rouge, ampoule DEL jaune et une ampoule DEL verte
-- 3 résistances de  220 Ohms
+- Une DEL rouge, une jaune et une verte
+- 3 résistances de 220 Ohms
 - Coffret de pièces et outils
 
-- Directives :
-   -Toujours étaler les articles sur le tapis de protection avant de débuter.
+### Directives
+
+**Toujours étaler les articles sur le tapis de protection avant de débuter.**
 
 ### Sketch FeuDeCirculation.ino
 
@@ -108,33 +145,32 @@ L’image suivante donne la séquence d’éclairage des feux de circulation. Vo
 
 |Séquence  |Image|Durées|Rouge   |Jaune   |Vert    |
 |:--------:|-----|------|--------|--------|--------|
-|startup() |1    |3 sec.|allumé  |éteinte |éteinte |
-|loop()	   |2	 |5 sec.|éteinte |allumé  |éteinte |
+|startup() |1    |5 sec.|allumé  |éteinte |éteinte |
+|loop()	   |2	 |1 sec.|allumé  |allumé  |éteinte |
 |          |3    |3 sec.|éteinte |éteinte |allumé  |
-|          |4    |2 sec.|allumé	 |allumé  |éteinte |
+|          |4    |1 sec.|éteinte |allumé  |éteinte |
 |          |1    |3 sec.|allumé	 |éteinte |éteinte |
+|          |...  |...   |...     |...     |...     |
 
 ### Montage du circuit
 
-- TOUJOURS débrancher la carte Arduino lorsque vous modifiez votre circuit
+**TOUJOURS débrancher la carte Arduino lorsque vous modifiez votre circuit**
 
 - Branchez le circuit de la façon suivante :
- ![feu de circulation](img/FeuxCirculationBase.png)
-- représentation physique
 
- ![feu de circulation](img/SchemaFeuCirculationBase.png)
+![Représentation physique](img/FeuxCirculationBase.png)
 
--représentation schématique
+Représentation schématique:
 
-Les bornes 12, 11 et 10 sont utilisées.
-Vérifiez SANS brancher
+![Représentation schématique](img/SchemaFeuCirculationBase.png)
 
-- Démarrez une nouvelle application Arduino. Nommez-la FeuDeCirculation.ino
-Programmez FeuDeCirculation.ino selon les délais prescrits dans le tableau plus haut.
-Si le sketch ne fonctionne pas, débranchez le câble USB.
+- Ce sont les bornes 12, 11 et 10 sont utilisées.
+- Vérifiez SANS brancher
+- Démarrez une nouvelle application Arduino. Nommez-la "FeuDeCirculation.ino"
+- Programmez FeuDeCirculation.ino selon les délais prescrits dans le tableau plus haut et envoyé votre programme sur la carte.
+- Si le sketch ne fonctionne pas, débranchez le câble USB.
 
 <details>
-
     <summary>Dépannage circuit</summary>
 
 Vérifiez votre circuit attentivement avec les points cités au-dessus.
@@ -145,15 +181,16 @@ Vérifiez votre circuit attentivement avec les points cités au-dessus.
 
 Utilisez la technique suivante :
 
-- Remplacez le sketch par le sketch Blink.ino
-- Changez LED_BUILTIN par la valeur 12. Téléversez le sketch. La DEL rouge doit clignoter, sinon dépannez cette partie du circuit.
+- Remplacez le programme de l'exercice 1 du module 1
+- Changez LED_BUILTIN par la valeur 12. Téléversez le sketch.
+- La DEL rouge doit clignoter, sinon dépannez cette partie du circuit.
 - Faites de même pour les bornes 11 et 10.
 
-## Exercice 4 Code Morse
+## Exercice 5 - Code Morse
 
 ### Objectif
 
-Transmettre une chaine de caractère en Morse
+Transmettre une chaîne de caractère en Morse
 
 ### Environnement et matériel
 
@@ -163,30 +200,97 @@ Transmettre une chaine de caractère en Morse
 - 1 résistance de 220 Ohms
 - Coffret de pièces et outils
 
-- Directives :
-   -Toujours étaler les articles sur le tapis de protection avant de débuter.
+### Directives
+
+**Toujours étaler les articles sur le tapis de protection avant de débuter.**
 
 ### Instructions
 
-- Démarrez une nouvelle application Arduino. Nommez-la CodeMorse.ino
+- Démarrez une nouvelle application Arduino. Nommez-la "CodeMorse.ino"
 
- Le sketch doit faire clignoter le texte d'une chaîne de caractères
+Le sketch doit faire clignoter le texte d'une chaîne de caractères : Considérez que vous avez simplement les caractères de a à z en majuscule ou minuscule et l'espace. Exemple : "bonjour a tous". La chaine de caractère doit pouvoir être modifiée sans avoir à réécrire tout le programme.
 
-La fonction loop() appelle la fonction afficherChaine qui reçoit la chaîne de caractère au complet comme argument comme celle-ci
+Pour manipuler des chaînes de caractères, n'utilisez pas la bibliothèques standard de C++, utilisez la classe "String" (notez le "S" majuscule !) définie par la bibliothèque fournie avec Arduino IDE.
+
+La fonction loop() appelle la fonction afficherChaine qui reçoit la chaîne de caractère au complet comme argument comme celle-ci :
+
+```cpp
 void loop()
 {
-  afficherChaine("SOS");
-  delay(1000); // Wait for 1000 millisecond(s)
+    String chaine = "bonjour a tous";
+    afficherChaine(chaine);
+    delay(1000);
 }
+```
 
-- utilisez un texte qui couvre l'ensemble des lettres de l'alphabet, majuscules et minuscules.
+Le code morse à coder est [le code international que vous trouverez sur l'image der wikipédia](https://fr.wikipedia.org/wiki/Code_Morse_international).
+
+Un "-" correspond à la durée de 3 ".". Le changement de lettre (ici, représenté par un espace " ") correspond à un temps équivalent à 3 points. Un espace est équivalent à 7 points.
+
+- Utilisez un texte qui couvre l'ensemble des lettres de l'alphabet, majuscules et minuscules.
+- Testez différents code comme le mot "SOS"
 
 <details>
-
     <summary>Dépannage circuit</summary>
 
 Vérifiez votre circuit attentivement avec les points cités au-dessus.
 
 </details>
 
-fin des exercices
+### Allez plus loin ?
+
+Regardez dans votre kit Arduino, vous avez deux buzzer. Un dit actif, l'autre passif. Prenez le buzzer actif et branchez le à la place de votre led. Attention à la polarité !
+
+## Exercice 6 - Résistance en série
+
+**L'exercice se passe sans Arduino, ni DELs, ni alimentation**
+
+### Objectif
+
+Observer le comportement de deux résistances branchées en série. [Lire la définition](https://fr.wikibooks.org/wiki/Électricité/Les_circuits_série_et_parallèles#Les_circuits_série_et_parallèle)
+
+### Environnement et matériel
+
+- Une platine d’essais
+- 2 résistance de 220 Ohms
+- Un multimètre
+
+### Instructions
+
+- Sur papier, dessinez le circuit de deux résistances de 220 Ohms en série
+- Effectez le montage sur la plaquette d'expérimentations, non alimenté
+- Mesurez la résistance globale avec un multimètre
+
+<details>
+    <summary>Solution</summary>
+
+Vous devriez mesurer une résistance d'environ 440 Ohms
+
+</details>
+
+## Exercice 7 - Résistance en parallèle
+
+**L'exercice se passe sans Arduino, ni DELs, ni alimentation**
+
+### Objectif
+
+Observer le comportement de deux résistances branchées en parallèle. [Lire la définition](https://fr.wikibooks.org/wiki/Électricité/Les_circuits_série_et_parallèles#Les_circuits_série_et_parallèle)
+
+### Environnement et matériel
+
+- Une platine d’essais
+- 2 résistance de 220 Ohms
+- Un multimètre
+
+### Instructions
+
+- Sur papier, dessinez le circuit de deux résistances de 220 Ohms en série
+- Effectez le montage sur la plaquette d'expérimentations, non alimenté
+- Mesurez la résistance globale avec un multimètre
+
+<details>
+    <summary>Solution</summary>
+
+Vous devriez mesurer une résistance d'environ 110 Ohms
+
+</details>
