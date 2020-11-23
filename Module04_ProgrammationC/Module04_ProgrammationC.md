@@ -187,7 +187,7 @@ TRUC pour faciliter le montage.
 Pliez une des broches de la résistance légèrement plus longue que l'autre.
 Écartez la broche + de la DEL pour l'insérer dans la planchette d'essais.
 
-![8DELs](imp/ResistanceEtDel.PNG)
+![ResistanceEtDel](imp/ResistanceEtDel.PNG)
 
      Formes pliées
 
