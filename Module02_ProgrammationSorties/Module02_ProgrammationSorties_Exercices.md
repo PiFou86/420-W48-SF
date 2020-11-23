@@ -9,12 +9,42 @@
 ### Environnement et matériel
 
 - Bandes de résistances
+- Code de couleurs des résistances
+- Un multimètre
 
 À l'aide du code de couleurs, étiquetez les bandes de résistances de votre ensemble expérimental.
 
 Utilisez un multimètre, en position Ohm, pour valider vos valeurs.
 
-## Exercice 2 - Contrôle de l'intensité de DELs
+<details>
+    <summary>Solution</summary>
+
+- RRNNM : 220 Ohms +/- 1%
+- MNNMM : 1 000 Ohms +/- 1%
+- MNNRM : 10 000 Ohms +/- 1%
+
+</details>
+
+## Exercice 2 - Platine d'expérimentation
+
+### Objectif
+
+Valider votre compréhension de la platine d'expérimentation
+
+### Environnement et matériel
+
+- Une platine d’essais
+- Un multimètre, avec les sondes et les câbles à pinces crocodile à double extrémité
+- Deux fils dupont mâle-mâle
+
+### Tests à effectuer
+
+- Connectez correctement vos sondes au multimètre
+- Connectez chaque cable à pinces crocodile sur une sonde
+- Connectez l'autre extrémité des pinces crocodile à un fils dupont
+- Sondez différent endroit de la platine d'expérimentation afin de valider la conductivité et par la même votre compréhension des chemins électriques
+
+## Exercice 3 - Contrôle de l'intensité de DELs
 
 Les entrées numériques peuvent simuler une entrée analogique grâce à la technologie LMI.
 
@@ -81,12 +111,12 @@ https://www.arduino.cc/reference/en/ pour vous aider
 
 #### Questions de réflexion
 
-- Quelle est la valeur de la période du cycle pour fadeAmount = 5 ?  
-- Quelle doit être la valeur de fadeAmount pour une période de cycle de 75 % ?
+- Quelle est la valeur de la période du cycle pour evolutionPas = 5 ?  
+- Quelle doit être la valeur de evolutionPas pour une période de cycle de 75 % ?
 - Quel effet se produit-il si la période de cycle est de 75 % ?
 - Changez la résistance du circuit pour 560 Ohms. Qu'observez-vous ?
 
-## Exercice 3 - Feux de circulation
+## Exercice 4 - Feux de circulation
 
 L’exercice présenté ici représente un carrefour urbain simple contrôlé par un système de signalisation: Rouge, Jaune, Verte.
 
@@ -115,10 +145,10 @@ L’image suivante donne la séquence d’éclairage des feux de circulation. Vo
 
 |Séquence  |Image|Durées|Rouge   |Jaune   |Vert    |
 |:--------:|-----|------|--------|--------|--------|
-|startup() |1    |3 sec.|allumé  |éteinte |éteinte |
-|loop()	   |2	 |5 sec.|éteinte |allumé  |éteinte |
+|startup() |1    |5 sec.|allumé  |éteinte |éteinte |
+|loop()	   |2	 |1 sec.|allumé  |allumé  |éteinte |
 |          |3    |3 sec.|éteinte |éteinte |allumé  |
-|          |4    |2 sec.|allumé	 |allumé  |éteinte |
+|          |4    |1 sec.|éteinte |allumé  |éteinte |
 |          |1    |3 sec.|allumé	 |éteinte |éteinte |
 |          |...  |...   |...     |...     |...     |
 
@@ -133,7 +163,6 @@ L’image suivante donne la séquence d’éclairage des feux de circulation. Vo
 Représentation schématique:
 
 ![Représentation schématique](img/SchemaFeuCirculationBase.png)
-
 
 - Ce sont les bornes 12, 11 et 10 sont utilisées.
 - Vérifiez SANS brancher
@@ -157,7 +186,7 @@ Utilisez la technique suivante :
 - La DEL rouge doit clignoter, sinon dépannez cette partie du circuit.
 - Faites de même pour les bornes 11 et 10.
 
-## Exercice 4 Code Morse
+## Exercice 5 - Code Morse
 
 ### Objectif
 
@@ -212,7 +241,9 @@ Vérifiez votre circuit attentivement avec les points cités au-dessus.
 
 Regardez dans votre kit Arduino, vous avez deux buzzer. Un dit actif, l'autre passif. Prenez le buzzer actif et branchez le à la place de votre led. Attention à la polarité !
 
-## Exercice 5 - Résistance en série
+## Exercice 6 - Résistance en série
+
+**L'exercice se passe sans Arduino, ni DELs, ni alimentation**
 
 ### Objectif
 
@@ -222,6 +253,7 @@ Observer le comportement de deux résistances branchées en série. [Lire la dé
 
 - Une platine d’essais
 - 2 résistance de 220 Ohms
+- Un multimètre
 
 ### Instructions
 
@@ -229,7 +261,16 @@ Observer le comportement de deux résistances branchées en série. [Lire la dé
 - Effectez le montage sur la plaquette d'expérimentations, non alimenté
 - Mesurez la résistance globale avec un multimètre
 
-## Exercice 6 - Résistance en parallèle
+<details>
+    <summary>Solution</summary>
+
+Vous devriez mesurer une résistance d'environ 440 Ohms
+
+</details>
+
+## Exercice 7 - Résistance en parallèle
+
+**L'exercice se passe sans Arduino, ni DELs, ni alimentation**
 
 ### Objectif
 
@@ -239,9 +280,17 @@ Observer le comportement de deux résistances branchées en parallèle. [Lire la
 
 - Une platine d’essais
 - 2 résistance de 220 Ohms
+- Un multimètre
 
 ### Instructions
 
 - Sur papier, dessinez le circuit de deux résistances de 220 Ohms en série
 - Effectez le montage sur la plaquette d'expérimentations, non alimenté
 - Mesurez la résistance globale avec un multimètre
+
+<details>
+    <summary>Solution</summary>
+
+Vous devriez mesurer une résistance d'environ 110 Ohms
+
+</details>
