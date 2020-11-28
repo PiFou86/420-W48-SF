@@ -122,7 +122,7 @@
 
 ### Montage du circuit
 
-![Montage ](imp/RUnQuartWatt.png)
+![Montage ](imp/CircuitSolutionnaire.png)
 
     Circuit de test
 
