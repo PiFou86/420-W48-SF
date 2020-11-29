@@ -107,13 +107,6 @@
 - Calculez le courant I total qui allimente le circuit
 - Calculez le courant qui circule dans chaque résistance
 
-
-
-
-
-
-
-
 ## Exercice 4 - Simulation TInkerCad
 
 ### Objectif Simuler divers circuits
@@ -122,16 +115,16 @@
 
 ### Montage du circuit
 
-![Montage ](imp/CircuitSolutionnaire.png)
+![MontageTinkerCad](imp/rs_220_440_660_A_V.png)
 
-    Circuit de test
+    Exemple de circuit de test
 
 - Matériel
 - - bloc d'alimentation
 
 - - 2 multimètres
 
-- - ensembles de résistances: 220 Ω ,440 Ω, 660 Ω
+- - ensembles de résistances: 220 Ω, 440 Ω, 660 Ω
 
 - Mettre en oeuvre le montale illustré dans TinkerCad
 - Placez la tension du bloc d'alimentation à 6 V
@@ -143,7 +136,7 @@
 
     3 Résistances en série
 
-- Insérez les 3 résistances du schéma dans le circuit TinketCad
+- Insérez les 3 résistances du schéma dans le circuit TinkerCad
 - Placez le voltmètre aux bornes de la première résistance.
 - Démarrez la simulation. Notez la valeur.
 - Placez successivement le voltmètre aux bornes des autres résistances et notez les valeurs.
@@ -155,8 +148,55 @@
 
     3 Résistances en parallèle
 
-- MOdifiez votre circuit pour représenter le schéma.
+- Modifiez votre circuit pour représenter le schéma.
 - Placez  l'ampèremètre dans  voltmètre sur chacune des résistances.
 - La tension mesurée devrait correspondre aux valeurs que vous avez calculées dans les exercices précédents, sinon revoir vos calculs.
 
+## Exercice 5 - Courbe de tension d'une del
 
+### Objectifs 
+
+1. Déterminer la tension de seuil
+2. Déterminer la tension de claquage
+
+Dans cet exercice, vous pourrez tracer la courbe de la fiche technique d'une del rouge, déterminer la tension de seuil et la tension de claquage sans risque!
+
+### Montage du circuit
+
+![CourbeDelRouge](imp/CourbeDelRouge.png)
+
+    circuit de test pour une del
+
+- Matériel
+- - bloc d'alimentation
+
+- - 2 multimètres
+
+- - del de couleur rouge
+
+- - résistance de 220 Ω
+
+### Étape 1 - Tension de seuil
+
+- Mettre en oeuvre le montale illustré dans TinkerCad
+- Placez la tension d'alimentation à 0 V
+- Placez le courant maximun à 1 A
+- tournez progressivement le bouton de tension jusqu'à ce que la del s'allume. Notez la valeur de la tension de seuil.
+- Pour une plus grande précision, utilisez la fenêtre de contrôle pour fixer la tension délivrée; utilisez un pas de 0,2 V entre chaque lecture.
+
+### Étape 2 - Tension de claquage
+
+- tournez progressivement le bouton de tension, avec un pas de 0.5 V, jusqu'à ce que TinkerCad fasse apparaître un message d'alerte.
+
+- Notez la tension de claquage.
+
+### Question
+
+- Avec une résistance de charge est de 440 Ω . . .
+
+1. la tension de seuil change-t-elle?
+2. la tension de claquage change-t-elle?
+
+- Avec une résistance de charge est de 440 Ω la tension de seuil change-t-elle?
+
+FIN DE L'EXERCICE
