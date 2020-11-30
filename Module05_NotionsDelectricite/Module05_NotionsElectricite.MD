@@ -192,11 +192,11 @@ Dans cet exercice, vous pourrez tracer la courbe de la fiche technique d'une del
 
 ### Question
 
-- Avec une résistance de charge est de 440 Ω . . .
+- Avec une résistance de charge de 440 Ω . . .
 
 1. la tension de seuil change-t-elle?
 2. la tension de claquage change-t-elle?
 
-- Avec une résistance de charge est de 440 Ω la tension de seuil change-t-elle?
+- Avec une résistance de charge  de 440 Ω la tension de seuil change-t-elle?
 
 FIN DE L'EXERCICE
