@@ -157,7 +157,7 @@ U2 = U3 = 220 * 0.0136 = 3V
 I2 = 3 / 440 = 6,8 mA   
 I3 = 3 / 440 = 6,8 mA
 
-![Solution Circuit combiné 2 3](img/rs_220_rp_440_440_Solution.png)
+![Solution Circuit combiné 2 3](img/rs_220_rp_440_440_solution.png)
 
 </details>
 
