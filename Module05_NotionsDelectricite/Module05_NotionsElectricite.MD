@@ -41,7 +41,7 @@
 À l'aide de l'illustration
 
 - Effectuez le calcul de la résistance équivalente
-- Calculez le courant I total qui allimente le circuit
+- Calculez le courant I total qui alimente le circuit
 - Calculez les 3 courants qui circulent dans chaque résistance
 
 ### Étape 2 - 3 Résistances en parallèle
@@ -53,7 +53,7 @@
 À l'aide de l'illustration
 
 - Effectuez le calcul de la résistance équivalente
-- Calculez le courant I total qui allimente le circuit
+- Calculez le courant I total qui alimente le circuit
 - Calculez les 3 courants qui circulent dans chaque résistance
 
 ## Exercice 3 - Circuits combinés
@@ -104,7 +104,7 @@
 À l'aide de l'illustration
 
 - Effectuez le calcul de la résistance équivalente totale Ret pour le circuit complet
-- Calculez le courant I total qui allimente le circuit
+- Calculez le courant I total qui alimente le circuit
 - Calculez le courant qui circule dans chaque résistance
 
 ## Exercice 4 - Simulation TInkerCad
@@ -120,15 +120,13 @@
     Exemple de circuit de test
 
 - Matériel
-- - bloc d'alimentation
+  - bloc d'alimentation
+  - 2 multimètres
+  - ensembles de résistances: 220 Ω, 440 Ω, 660 Ω
 
-- - 2 multimètres
-
-- - ensembles de résistances: 220 Ω, 440 Ω, 660 Ω
-
-- Mettre en oeuvre le montale illustré dans TinkerCad
+- Mettre en oeuvre le montage illustré dans TinkerCad
 - Placez la tension du bloc d'alimentation à 6 V
-- Placez le courant maximun à 1 Ampère
+- Placez le courant maximum à 1 Ampère
 
 ### Étape 1 - 3 Résistances en série
 
@@ -168,19 +166,16 @@ Dans cet exercice, vous pourrez tracer la courbe de la fiche technique d'une del
     circuit de test pour une del
 
 - Matériel
-- - bloc d'alimentation
-
-- - 2 multimètres
-
-- - del de couleur rouge
-
-- - résistance de 220 Ω
+  - bloc d'alimentation
+  - 2 multimètres
+  - del de couleur rouge
+  - résistance de 220 Ω
 
 ### Étape 1 - Tension de seuil
 
-- Mettre en oeuvre le montale illustré dans TinkerCad
+- Mettre en oeuvre le montage illustré dans TinkerCad
 - Placez la tension d'alimentation à 0 V
-- Placez le courant maximun à 1 A
+- Placez le courant maximum à 1 A
 - tournez progressivement le bouton de tension jusqu'à ce que la del s'allume. Notez la valeur de la tension de seuil.
 - Pour une plus grande précision, utilisez la fenêtre de contrôle pour fixer la tension délivrée; utilisez un pas de 0,2 V entre chaque lecture.
 
@@ -198,5 +193,3 @@ Dans cet exercice, vous pourrez tracer la courbe de la fiche technique d'une del
 2. la tension de claquage change-t-elle?
 
 - Avec une résistance de charge  de 440 Ω la tension de seuil change-t-elle?
-
-FIN DE L'EXERCICE
