@@ -17,7 +17,10 @@
 <details>
     <summary>Solution</summary>
 
-R = 440 &#8486; ; U1 = 220 * 13,43 = 3 V ; U2 = 220 * 13,43 = 3 V ; It = 6 / 440 = 13,6mA
+Rt = 220 + 220 = 440 &#8486;  
+U1 = 220 * 13,43 = 3 V  
+U2 = 220 * 13,43 = 3 V  
+It = 6 / 440 = 13,6 mA
 
 ![2 Resistances en Série - Solution](img/rs_220_220_solution.png)
 
@@ -38,7 +41,11 @@ R = 440 &#8486; ; U1 = 220 * 13,43 = 3 V ; U2 = 220 * 13,43 = 3 V ; It = 6 / 440
 <details>
     <summary>Solution</summary>
 
-R = 1320 &#8486; ; U1 = 4,6 * 220 = 1 V ; U2 = 4,6 * 440 = 2 V ; U3 = 4,6 * 660 = 3V ; It = 6 / 1320 = 4,6 mA
+Rt = 220 + 440 + 660 = 1320 &#8486;  
+U1 = 4,6 * 220 = 1 V  
+U2 = 4,6 * 440 = 2 V  
+U3 = 4,6 * 660 = 3 V  
+It = 6 / 1320 = 4,6 mA
 
 ![3 Résistances en Série - Solution](img/rs_220_440_660_solution.png)
 
@@ -50,7 +57,7 @@ R = 1320 &#8486; ; U1 = 4,6 * 220 = 1 V ; U2 = 4,6 * 440 = 2 V ; U3 = 4,6 * 660 
 
 ## Exercice 2 - Résistances en parallèle
 
-### Étape 1 - 3 Résistances en parallèle
+### Exercice 2.1 - 3 Résistances en parallèle
 
 ![3 Résistances en parallèle](img/rp_220_220_220.png)
 
@@ -65,13 +72,16 @@ R = 1320 &#8486; ; U1 = 4,6 * 220 = 1 V ; U2 = 4,6 * 440 = 2 V ; U3 = 4,6 * 660 
 <details>
     <summary>Solution</summary>
 
-R = 73,3 &#8486; ; U1 = 6 V ; U2 = 6 V ; U3 = 6V ; It = 6 / 73,3 = 81,9 mA ; I1 = I2 = I3 = 27,3 mA
+1 / Rt = 1 / 220 + 1 / 220 + 1 / 220 = 3 / 220 => Rt = 73,3 &#8486;  
+U1 = U2 = U3 = 6 V  
+It = 6 / 73,3 = 81,9 mA  
+I1 = I2 = I3 = 27,3 mA  
 
 ![3 Résistances en parallèle - Solution](img/rp_220_220_220_solution.png)
 
 </details>
 
-### Étape 2 - 3 Résistances en parallèle
+### Exercice 2.2 - 3 Résistances en parallèle
 
 ![3 Resistances en parallèle](img/rp_220_220_440.png)
 
@@ -86,15 +96,20 @@ R = 73,3 &#8486; ; U1 = 6 V ; U2 = 6 V ; U3 = 6V ; It = 6 / 73,3 = 81,9 mA ; I1 
 <details>
     <summary>Solution</summary>
 
-R = 88 &#8486; ; U1 = 6 V ; U2 = 6 V ; U3 = 6V ; It = 6 / 88 = 68,2 mA ; I1 = 27,3 mA ; I2 = 27,3 mA ; I3 = 13,6 mA
+1 / Rt = 1 / 220 + 1 / 220 + 1 / 440 = 5 / 440 => Rt = 88 &#8486;  
+U1 = U2 = U3 = 6 V  
+It = 6 / 88 = 68,2 mA  
+I1 = 27,3 mA  
+I2 = 27,3 mA  
+I3 = 13,6 mA
 
 ![3 Résistances en parallèle - Solution](img/rp_220_220_440_solution.png)
 
 </details>
 
-## Exercice 3 - Circuits combinés
+## Exercice 3 - Circuits combinés (Optionnel)
 
-### Étape 1 - 3 Résistances
+### Exercice 3.1 - 3 Résistances
 
 ![Circuit combiné 2 3](img/rs_220_rp_440_440.png)
 
@@ -105,7 +120,7 @@ R = 88 &#8486; ; U1 = 6 V ; U2 = 6 V ; U3 = 6V ; It = 6 / 88 = 68,2 mA ; I1 = 27
 - Effectuez le calcul de la résistance équivalente totale Ret pour le circuit complet
 
 <details>
-    <summary>indices</summary>
+    <summary>Indices 1 / 2</summary>
 
 1. Effectuez le calcul de la résistance équivalente en parallèle Rep pour les 2 résistances en parallèle
 
@@ -119,7 +134,7 @@ R = 88 &#8486; ; U1 = 6 V ; U2 = 6 V ; U3 = 6V ; It = 6 / 88 = 68,2 mA ; I1 = 27
 - Calculez la tension aux bornes des résistances de 440 Ω en parallèle
 
 <details>
-    <summary>indices</summary>
+    <summary>Indices 2 / 2</summary>
 
 1. la tension aux bornes de résistances en parallèle est la même. La tension peut être déduite de la tension totale et de la tension U aux bornes de la résistance de 220 Ω
 
@@ -131,7 +146,22 @@ R = 88 &#8486; ; U1 = 6 V ; U2 = 6 V ; U3 = 6V ; It = 6 / 88 = 68,2 mA ; I1 = 27
 
 </details>
 
-### Étape 2 - 5 Résistances (optionnel)
+<details>
+    <summary>Solution</summary>
+
+1 / Re1 = 1 / 440 + 1 / 440 = 1 / 220 => Re1 = 220 &#8486;  
+Rt = 440 &#8486;  
+It = 6 / 440 = 13,6 mA  
+U1 = 220 * 0.0136 = 3V  
+U2 = U3 = 220 * 0.0136 = 3V  
+I2 = 3 / 440 = 6,8 mA   
+I3 = 3 / 440 = 6,8 mA
+
+![Solution Circuit combiné 2 3](img/rs_220_rp_440_440_Solution.png)
+
+</details>
+
+### Exercice 3.2 - 5 Résistances
 
 ![Indice Circuit combiné 2 3](img/rs_580_220_rp_440_440_1K.png)
 
@@ -146,9 +176,16 @@ R = 88 &#8486; ; U1 = 6 V ; U2 = 6 V ; U3 = 6V ; It = 6 / 88 = 68,2 mA ; I1 = 27
 <details>
     <summary>Solution</summary>
 
-Re1 = 180.33 &#8486; ; Rt = 580 + 220 + 180.33 = 980.33 ; It = 6 / 980.33 = 6.1 mA; U1 = 580 * 0.0061 = 3,54 V ; U2 = 220 * 0.0061 = 1.34 V V ; Ue1 = U3 = U4 = U5 = 180.33 * 0.0061 = 1.1 V; I3 = I4 = 1.1 / 440 = 2.5mA ; I5 = 1.1/1000 = 1.1 mA 
+Re1 = 180.33 &#8486;  
+Rt = 580 + 220 + 180.33 = 980.33  
+It = 6 / 980.33 = 6.1 mA  
+U1 = 580 * 0.0061 = 3,54 V  
+U2 = 220 * 0.0061 = 1.34 V V  
+Ue1 = U3 = U4 = U5 = 180.33 * 0.0061 = 1.1 V  
+I3 = I4 = 1.1 / 440 = 2.5mA  
+I5 = 1.1/1000 = 1.1 mA 
 
-![Circuit combiné 2 3](img/rs_220_rp_440_440_solution.png)
+![Circuit combiné 2 3](img/rs_580_220_rp_440_440_1K_solution.png)
 
 </details>
 
@@ -195,6 +232,13 @@ Re1 = 180.33 &#8486; ; Rt = 580 + 220 + 180.33 = 980.33 ; It = 6 / 980.33 = 6.1 
 - Placez  l'ampèremètre dans  voltmètre sur chacune des résistances.
 - La tension mesurée devrait correspondre aux valeurs que vous avez calculées dans les exercices précédents, sinon revoir vos calculs.
 
+<details>
+    <summary>Solution</summary>
+
+![3 résistances en parallèle sous Tinkercad](img/rp_220_220_220_tinkercad_solution.png)
+
+</details>
+
 ## Exercice 5 - Courbe de tension d'une del
 
 ### Objectifs
@@ -234,10 +278,10 @@ Dans cet exercice, vous pourrez tracer la courbe de la fiche technique d'une del
 
 - Avec une résistance de charge de 440 Ω :
 
-1. La tension de seuil change-t-elle?
-2. La tension de claquage change-t-elle?
+1. La tension de seuil change-t-elle ?
+2. La tension de claquage change-t-elle ?
 
-- Avec une résistance de charge  de 440 Ω la tension de seuil change-t-elle?
+- Avec une résistance de charge  de 440 Ω la tension de seuil change-t-elle ?
 
 <details>
     <summary>Solution</summary>
