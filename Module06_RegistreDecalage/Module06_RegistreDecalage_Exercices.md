@@ -12,7 +12,7 @@ Reprenez le diagramme du cours et créez le sur Tinkercad.
 - 8 DELs
 - 8 résistances 500 Ohms
 - 1 arduino
-- 1 registre à décalage 75HC595N
+- 1 registre à décalage 74HC595N
 
 ### À coder
 
@@ -40,7 +40,7 @@ Reprenez le diagramme du cours et créez le sur Tinkercad.
 - 8 DELs
 - 8 résistances 500 Ohms
 - 1 arduino
-- 1 registre à décalage 75HC595N
+- 1 registre à décalage 74HC595N
 
 ### À coder
 
@@ -59,7 +59,7 @@ Reprenez votre montage précédent et votre classe "RegistreDecalage".
 - 8 DELs
 - 8 résistances 500 Ohms
 - 1 arduino
-- 1 registre à décalage 75HC595N
+- 1 registre à décalage 74HC595N
 
 ### À coder
 
@@ -75,7 +75,7 @@ Reprenez votre montage précédent et votre classe "RegistreDecalage".
 - 8 DELs
 - 8 résistances 500 Ohms
 - 1 arduino
-- 1 registre à décalage 75HC595N
+- 1 registre à décalage 74HC595N
 
 ### À coder
 
@@ -104,7 +104,7 @@ Reprenez votre montage précédent et votre classe "RegistreDecalage".
 - 8 DELs
 - 8 résistances 500 Ohms
 - 1 arduino
-- 1 registre à décalage 75HC595N
+- 1 registre à décalage 74HC595N
 
 ### À coder
 
