@@ -21,9 +21,16 @@ Effectuez le montage en vous inspirant du schéma suivant :
 
 ### Étape 2 : Programmation
 
-Le but du programme est de lire un message provenant de la console et qui l'enregistre en mémoire. Un maximum de 5 messages doivent être conservés et affichés.
+Le but du programme est de lire un message provenant de la console et qui l'enregistre en mémoire. Un maximum de 5 messages doivent être conservés et affichés : **si l'utilisateur envoie un 6 ième message, il est simplement ignoré**.  
+(Version optionnelle - levez cette contrainte et retenez simplement les 5 derniers messages. Pour cela inspirez-vous du [buffer circulaire](https://fr.wikipedia.org/wiki/Buffer_circulaire))
 
-Durant la boucle, si aucun texte est disponible à la console, la DEL verte est allumée. Lorsqu'un message est arrivé, la DEL rouge s'allume durant 1 seconde. Le message s'inscrit dans un tableau de 5 occurrences. Si le message reçu est "Lire", tous les messages enregistrés sont affichés à l'écran de la console. Les messages sont effacés. Un temps d'attente de 3 secondes suivra chaque séquence de lecture.
+Durant la boucle, si aucun texte est disponible à la console, la DEL verte est allumée. Lorsqu'un message est arrivé, la DEL rouge s'allume durant 1 seconde. 
+
+Si le message reçu est "Lire", tous les messages enregistrés sont affichés à l'écran de la console. Les messages sont effacés. 
+
+Sinon, le message s'inscrit dans un tableau de 5 occurrences.
+
+Un temps d'attente de 3 secondes suivra chaque séquence de lecture.
 
 *Version TinkerCad*
 
@@ -210,6 +217,13 @@ void loop()
 
 // fin de Affichage8DELs.cpp
 ```
+
+<details>
+<summary>Indice</summary>
+
+Inspirez vous de l'exemple du cours sur le codage d'une couleur RVB dans un entier. Ici, vous n'avez pas à traiter les informations par 8 bits, mais bit par bit. Le décalage et le masque seront donc relatifs à 1 bit au lieu des 8 du cours.
+
+</details>
 
 ## Exercice 5 - Programmation optionnelle de la classe Affichage8DELs
 
