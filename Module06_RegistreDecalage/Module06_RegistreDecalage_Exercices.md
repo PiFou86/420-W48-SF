@@ -21,12 +21,38 @@ Effectuez les actions suivantes :
 - Affichez la valeur 3 avec vos DELs et testez le
 - Affichez la valeur 4 avec vos DELs et testez le
 - Affichez la valeur 42 avec vos DELs et testez le
-- Généralisez une fonction qui prend une valeur en paramètre, les bornes et qui l'affiche
+- Généralisez une fonction qui prend les paramètres suivants: une valeur et les 3 bornes de connexion. La fonction affiche la valeur 
+avec vous DELs
 
 <details>
-<summary>Indice</summary>
+<summary>Indice 1</summary>
 
 Inspirez vous de l'exemple du cours du module 04 sur le codage d'une couleur RVB dans un entier. Ici, vous n'avez pas à traiter les informations par 8 bits, mais bit par bit. Le décalage et le masque seront donc relatifs à 1 bit au lieu des 8 du cours.
+
+</details>
+
+<details>
+<summary>Indice 2</summary>
+
+Inspirez vous du code du cours :
+
+```cpp
+// M1 : la valeur reste intacte. Le masque se déplace de gauche à droite.
+int valeur = 42;
+for (int i = 7; i >= 0; --i) {
+   Serial.print((valeur >> i) & 0x01);
+}
+Serial.println();
+```
+
+```cpp
+// M2: la valeur est détruite. La valeur se déplace de droite à gauche.
+for (int i = 0; i < 8; ++i) {
+   Serial.print((valeur & 0x80) != 0);
+   valeur <<= 1;
+}
+Serial.println();
+```
 
 </details>
 
