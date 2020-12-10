@@ -22,7 +22,7 @@ Effectuez les actions suivantes :
 - Affichez la valeur 4 avec vos DELs et testez le
 - Affichez la valeur 42 avec vos DELs et testez le
 - Généralisez une fonction qui prend les paramètres suivants: une valeur et les 3 bornes de connexion. La fonction affiche la valeur 
-avec vous DELs
+avec vos DELs
 
 <details>
 <summary>Indice 1</summary>
