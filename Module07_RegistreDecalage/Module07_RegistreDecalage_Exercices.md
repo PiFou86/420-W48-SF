@@ -2,6 +2,10 @@
 
 Dans les exercices suivants, chaque led représente un bit d'un entier codé sur 8 bits.
 
+Une démonstration de ce qui est attendu dans les exercices 2 à 4 est présente dans la vidéo suivante :
+
+[![Démonstration exercice 2 à 4](https://img.youtube.com/vi/J0NXhf6mlwI/0.jpg)](https://www.youtube.com/watch?v=J0NXhf6mlwI)
+
 ## Exercice 1 - Préparation du premier montage
 
 Reprenez le diagramme du cours et créez le sur Tinkercad.
@@ -21,8 +25,7 @@ Effectuez les actions suivantes :
 - Affichez la valeur 3 avec vos DELs et testez le
 - Affichez la valeur 4 avec vos DELs et testez le
 - Affichez la valeur 42 avec vos DELs et testez le
-- Généralisez une fonction qui prend les paramètres suivants: une valeur et les 3 bornes de connexion. La fonction affiche la valeur 
-avec vos DELs
+- Généralisez une fonction qui prend les paramètres suivants: une valeur et les 3 bornes de connexion. La fonction affiche la valeur avec vos DELs
 
 <details>
 <summary>Indice 1</summary>
@@ -56,7 +59,7 @@ Serial.println();
 
 </details>
 
-## Exercice 2 - Préparation du premier montage
+## Exercice 2 - Une classe pour s'aider !
 
 Reprenez le diagramme du cours et créez le sur Tinkercad.
 
@@ -72,12 +75,12 @@ Reprenez le diagramme du cours et créez le sur Tinkercad.
 
 Effectuez les actions suivantes :
 
-- Codez la classe "RegistreDecalage" qui permet d'envoyer un byte au registre.
+- Codez la classe "Affichage8DELsRegistre" qui permet d'envoyer un byte au registre.
 - Codez un sketch qui permet d'afficher un compteur de 0 à 255 et qui repart à 0 à la fin : chaque led correspond à l'affichage d'un bit
 
 ## Exercice 3 - Chenillard
 
-Reprenez votre montage précédent et votre classe "RegistreDecalage".
+Reprenez votre montage précédent et votre classe "Affichage8DELsRegistre".
 
 ### Matériel
 
@@ -93,7 +96,7 @@ Faites une animation qui permet de simuler un point qui se déplace de la droite
 
 ## Exercice 4 - K2000
 
-Reprenez votre montage précédent et votre classe "RegistreDecalage".
+Reprenez votre montage précédent et votre classe "Affichage8DELsRegistre".
 
 ### Matériel
 
@@ -105,7 +108,7 @@ Reprenez votre montage précédent et votre classe "RegistreDecalage".
 
 ### À coder
 
-Faites une animation qui permet de simuler trois points qui se déplacent de la droite vers la gauche et inversement quand le dernier point est arrivé à une extrémité.
+Faites une animation qui permet de simuler trois points qui se déplacent de la gauche vers la droite et inversement quand le dernier point est arrivé à une extrémité. Après chaque cycle gauche à droite, droite à gauche, attendez 6 fois le délai que vous aviez pris entre chaque affichage de DELs.
 
 <details>
     <summary>Indice</summary>
@@ -122,7 +125,7 @@ GGGG UUUU UUUU DDDD :
 
 ## Exercice 5 - Horloge binaire (Optionnel)
 
-Reprenez votre montage précédent et votre classe "RegistreDecalage".
+Reprenez votre montage précédent et votre classe "Affichage8DELsRegistre".
 
 ### Matériel
 
