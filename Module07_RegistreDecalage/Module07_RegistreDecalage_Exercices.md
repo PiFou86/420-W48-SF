@@ -4,7 +4,7 @@ Dans les exercices suivants, chaque led représente un bit d'un entier codé sur
 
 Une démonstration de ce qui est attendu dans les exercices 2 à 4 est présente dans la vidéo suivante :
 
-[![Alt text](https://img.youtube.com/vi/VID/0.jpg)](https://youtu.be/J0NXhf6mlwI)
+[![Démonstration exercice 2 à 4](https://img.youtube.com/vi/J0NXhf6mlwI/0.jpg)](https://www.youtube.com/watch?v=J0NXhf6mlwI)
 
 ## Exercice 1 - Préparation du premier montage
 
