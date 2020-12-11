@@ -186,7 +186,7 @@ Chaque bit du paramètre correspond à la position d'une DEL du montage qui doit
 
 Au moment de la création d'une occurrence de la classe, le constructeur reçoit les numéros des 8 bornes branchées aux 8 DELs.
 
-Avec TInkerCad, voici la structure de votre programme. Complétez le code.
+Avec TinkerCad, voici la structure de votre programme. Complétez le code.
 
 ```cpp
 // Début -- Affichage8DELs.h
