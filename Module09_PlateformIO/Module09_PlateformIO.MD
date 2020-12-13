@@ -206,4 +206,6 @@ dans Flasher.cpp
 
  ![InclureBibliotheque](imp/InclureBibliothequeFrasher.png)
 
+La bibliothèque est maintenant migré dans les librairées privées.
+
  FIN DE L'EXERCICE
