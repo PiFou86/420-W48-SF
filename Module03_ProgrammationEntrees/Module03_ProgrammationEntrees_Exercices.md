@@ -37,11 +37,6 @@ Avec une croissance régulière de la luminance, pouvez-vous affirmer que l'écl
 
 - Modifiez le sketch pour éteindre la DEL lorsque le bouton est enfoncé.
 
-- Utilisez la console pour afficher l'état de la DEL à chaque changement d'état. L'affichage doit se présenter sous 2 formes:
-
-1. valeur de l'état: 0 ou 1;
-2. texte "DEL allumée"  ou "DEL éteinte"
-
 ### Étape 2 : alimentation multiple.
 
 - Sur papier, dessinez un schéma équivalent pour illustrer l'alimentation de 2 DELs en parallèle et alimentées par la *même résistance*.
@@ -52,13 +47,11 @@ Avec une croissance régulière de la luminance, pouvez-vous affirmer que l'écl
 
 - Effectuez le montagede votre schéma. Adaptez le codedu sketch pour allumer les 2 DELs en opposition de phase.
 
-L'oeil perçoit-il l'éclairage plus intense ou moins intense avec 2 DELs dans ce cas-là? Pouvez-vous expliquer ce comportement?
-
 ### Question de réflexion
 
 L'oeil perçoit-il l'éclairage plus intense ou moins intense avec 2 DELs en parallèle? Pouvez-vous expliquer ce comportement?
 
-## Exercice 2 - bouton poussoir avec Pull-up
+## Exercice 3 - bouton poussoir avec Pull-up
 
 Dans ce montage, le bouton poussoir sera alimenté par la borne No 2, la DEL sera alimentée par la borne No 10.
 
@@ -86,7 +79,7 @@ Dans ce montage, le bouton poussoir sera alimenté par la borne No 2, la DEL ser
 
 2. Quelle méthode suggérez-vous pour affirmer que l'intensité lumineuse équivaut bien aux pourcentages produits par la LMI?
 
-## Exercice 3 -  bruits parasites
+## Exercice 4 -  bruits parasites
 
 Dans cet exercice, vous utilisez une borne analogique.
 
@@ -98,7 +91,7 @@ Dans cet exercice, vous utilisez une borne analogique.
 
 - À partir des valeurs obtenues à la console, expliquez le comportement de la borne A5.
 
-## Exercice 4 - Potentiomètre
+## Exercice 5 - Potentiomètre
 
 ### Étape 1 : Montage du circuit
 
@@ -129,10 +122,3 @@ Pour réaliser ce sketch, vous aurez besoin de la fonction map() d'Arduino.
 1. Quelle est l'intervalle de valeurs produites par une borne analogique?
 
 2. Pouvez-vous affirmer que la résistance variable du potentiomètre suit une courbe linéaire? Justifiez votre réponse.
-
-
-## Exercice 5 - détecteur infra-rouge
-
-Pour cet exercice, vous avez besoin du détecteur infra-rouge modèle LM35.
-
-![DetecteurTemperatureLM35](imp/DetecteurTemperatureLM35.png)
