@@ -54,7 +54,7 @@ Dans le dernier montage, l'oeil ne perçoit pas de différence car les deux DELs
 
 </details>
 
-## Exercice 2 - Bouton poussoir avec Pull-up
+## Exercice 3 - bouton poussoir avec Pull-up
 
 Dans ce montage, le bouton poussoir sera alimenté par la borne No 2, la DEL sera alimentée par la borne No 10.
 
@@ -84,7 +84,7 @@ Retournez voir le module 2 sur les sorties au niveau de la section sur le MLI (P
 - Ajoutez un nouveau bouton qui permet de lire les pressions sur la borne 4.
 - Créez un nouveau sketch pour que la luminosité diminue par pas de 25 % en cas de pression sur le bouton de la borne 2 et augment de 25 % en cas de pression sur le bouton de la borne 4.
 
-## Exercice 3 - Bruits parasites
+## Exercice 4 - Bruits parasites
 
 Dans cet exercice, vous utilisez une borne analogique.
 
@@ -126,7 +126,7 @@ La borne est dite flottante et se comporte comme une antenne.
 
 </details>
 
-## Exercice 4 - Potentiomètre
+## Exercice 5 - Potentiomètre
 
 ### Étape 1 : Montage du circuit
 

@@ -17,7 +17,7 @@ Sauvegarder des messages venant de la console.
 
 Effectuez le montage en vous inspirant du schéma suivant :
 
-![2DELs](imp/2DELs.png)
+![2DELs](img/2DELs.png)
 
 ### Étape 2 : Programmation
 
@@ -49,7 +49,7 @@ Un temps d'attente de 3 secondes suivra chaque séquence de lecture.
 
 Effectuez le montage en vous inspirant du schéma suivant :
 
-![2DELs](imp/2DELs.png)
+![2DELs](img/2DELs.png)
 
 ### Étape 2 : Programmation de la classe Flasher
 
@@ -103,7 +103,7 @@ https://www.w3schools.com/colors/colors_picker.asp
 - Utilisez TinkecCad pour la simulation.
 - Effectuez le montage en vous inspirant du schéma suivant :
 
-![2DELs](imp/DELRVB.png)
+![2DELs](img/DELRVB.png)
 
 ### Étape 2 : Programmation
 
@@ -167,7 +167,7 @@ Utilisez TinkecCad pour la simulation.
 
 Effectuez le montage en vous inspirant du schéma suivant.
 
-![8DELs](imp/8DELs.png)
+![8DELs](img/8DELs.png)
 
 Astuce pour faciliter le montage le montage physique :
 
@@ -176,7 +176,7 @@ Astuce pour faciliter le montage le montage physique :
 
 Formes pliées :
 
-![ResistanceEtDel](imp/ResistanceEtDel.png)
+![ResistanceEtDel](img/ResistanceEtDel.png)
 
 ### Étape 2 : Programmation
 
