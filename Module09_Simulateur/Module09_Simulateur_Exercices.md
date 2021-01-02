@@ -33,7 +33,7 @@
 - Compilez et téléversez le programme dans Arduino.
 - Testez le programme. Quelle température fait-il?
 
-### Questions (optionnel) 
+### Questions (optionnel)
 
 - Cherchez la "fiche technique" (datasheet)du détecteur LM35. Ce détecteur peut-il servir à mesurer la température corporelle?
 - Faites-vous de la température? Quel est votre état de santé?
