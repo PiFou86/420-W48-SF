@@ -24,7 +24,7 @@
 
 - Cliquez sur l'onglet Vue Schématique
 - Vérifiez les valeurs de résistance
-- Modifiez les noms des résistances pour représenterles positions de R0 à R7, de droite à gauche
+- Modifiez les noms des résistances pour représenter les positions de R0 à R7, de droite à gauche
 - Sauvegardez la simulation sur votre disque personnel
 
 ### Étape 3 Affichage de la température en oC ou en oF
@@ -39,9 +39,9 @@ Lorsque le bouton est relâché, l'affichage montre la température en oC.
 - Compilez et téléversez le programme dans Arduino.
 - Testez le programme. Quelle température fait-il?
 
-### Questions (optionnel) 
+### Questions (optionnel)
 
-- Cherchez la "fiche technique" (data sheet)du détecteur LM35. Ce détecteur peut-il servir à mesurer la température corporelle?
+- Cherchez la "fiche technique" (datasheet)du détecteur LM35. Ce détecteur peut-il servir à mesurer la température corporelle?
 - Faites-vous de la température? Quel est votre état de santé?
 
 ## Exercice 2 - Modélisation d'une application
