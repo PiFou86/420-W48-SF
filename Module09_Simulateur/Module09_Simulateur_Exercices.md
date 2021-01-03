@@ -49,3 +49,4 @@ Lorsque le bouton est relâché, l'affichage montre la température en oC.
 ### Étape 1 - Branchement du circuit
 
 - Reproduire le circuit Potentiomètre de l'exercice 05 du module 03 en référance à Github du cours
+
