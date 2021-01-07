@@ -8,7 +8,6 @@
 // 2. Affichage hexadécimale de 0x0 à 0xFFFF
 #define DEMO 1
 
-
 #include "Affichage4DigitsRegistre.h"
 #include "Affichage4Digits.h"
 #include "GestionEvenements.h"
@@ -32,8 +31,6 @@ Affichage4Digits adr(6, 7, 8, 9,
                      pinD1, pinD2, pinD3, pinD4);
 #endif
 
-GestionEvenements ge;
-
 #if DEMO == 1
 // Demo dec
 Affichage4DigitsAvecEvenement a4dae(adr);
@@ -47,11 +44,15 @@ Traitement t(a4dae, 0x00, 0xFFFF);
 void setup()
 {
   Serial.begin(9600);
-  ge.Ajouter(&a4dae);
-  ge.Ajouter(&t);
+  GestionEvenements.Ajouter(&a4dae);
+  GestionEvenements.Ajouter(&t);
+
+  GestionEvenements.Start();
 }
 
 void loop()
 {
-  ge.Executer();
+#ifndef UTILISER_TIMER1
+  GestionEvenements.Executer();
+#endif
 }

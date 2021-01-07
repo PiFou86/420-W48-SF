@@ -7,7 +7,7 @@ Affichage4DigitsAvecEvenement::Affichage4DigitsAvecEvenement(const Affichage4Dig
 }
 
 void Affichage4DigitsAvecEvenement::_executer() {
-    this->m_affichage4DigitsGen.Afficher(this->m_valeur, this->m_base);
+    this->m_affichage4DigitsGen.AfficherV2(this->m_valeur, this->m_base);
 }
 
 void Affichage4DigitsAvecEvenement::Valeur(int p_valeur) {

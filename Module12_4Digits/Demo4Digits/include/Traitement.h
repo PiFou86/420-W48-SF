@@ -6,7 +6,7 @@
 class Traitement : public EvenementHorloge {
 
 private:
-    long m_valeur;
+    volatile long m_valeur;
     long m_min;
     long m_max;
     Affichage4DigitsAvecEvenement &m_a4dae;
