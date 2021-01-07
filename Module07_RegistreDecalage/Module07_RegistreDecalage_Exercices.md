@@ -49,7 +49,7 @@ Serial.println();
 ```
 
 ```cpp
-// M2: la valeur est détruite. La valeur se déplace de droite à gauche.
+// M2 : la valeur est détruite. La valeur se déplace de droite à gauche.
 for (int i = 0; i < 8; ++i) {
    Serial.print((valeur & 0x80) != 0);
    valeur <<= 1;
@@ -142,3 +142,45 @@ La lecture de l'heure et des minutes s'effectuent par la console avec le format 
 Une fois définie, l'heure s'affiche sur les 8 DELs : on alterne l'affichage des heures et des minutes. Pour les différencier, on éteint les DELs une seconde, puis on affiche les heures une seconde, puis les minutes une seconde.
 
 Quel délai devez-vous mettre pour avoir une vrai seconde ?
+
+## Pratique soudure
+
+Programme de test :
+```cpp
+int borneST = 11;
+int borneSH = 8;
+int borneDS = 12;
+  
+void setup() 
+{
+  pinMode(borneST, OUTPUT);
+  pinMode(borneDS, OUTPUT);  
+  pinMode(borneSH, OUTPUT);
+}
+ 
+void loop() 
+{
+  for (int i = 0; i < 8; i++)
+  {
+    updateShiftRegister(1 << i);
+    delay(500);
+  }
+}
+ 
+void myShiftOut(int dataPin, int clockPin, byte leds) {
+
+}
+
+void updateShiftRegister(byte leds)
+{
+   digitalWrite(borneST, LOW);
+   for (int i = 0; i < 8; ++i) {
+     digitalWrite(borneSH, LOW);
+     digitalWrite(borneDS, leds & 1);
+     digitalWrite(borneSH, HIGH);
+     leds >>= 1;
+   }
+   digitalWrite(borneST, HIGH);
+   digitalWrite(borneST, LOW);
+}
+```

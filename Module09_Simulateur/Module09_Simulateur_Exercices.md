@@ -27,7 +27,13 @@
 - Modifiez les noms des résistances pour représenter les positions de R0 à R7, de droite à gauche
 - Sauvegardez la simulation sur votre disque personnel
 
-### Étape 3 (optionnel) Mise en service du détecteur de température
+### Étape 3 Affichage de la température en oC ou en oF
+
+- Ajoutez un bouton poussoir qui permet l'affichage à la console de la température en oC ou en oF.
+Lorsque le bouton est appuyé, l'affichage montre la température en oF.
+Lorsque le bouton est relâché, l'affichage montre la température en oC.
+
+### Étape 4 (optionnel) Mise en service du détecteur de température
 
 - Branchez le circuit  *"TemperaturSensorLM35.fzz*" sur votre matériel Breadbord et votre Arduino
 - Compilez et téléversez le programme dans Arduino.
@@ -43,3 +49,4 @@
 ### Étape 1 - Branchement du circuit
 
 - Reproduire le circuit Potentiomètre de l'exercice 05 du module 03 en référance à Github du cours
+
