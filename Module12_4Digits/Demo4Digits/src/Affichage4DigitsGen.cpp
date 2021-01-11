@@ -103,7 +103,7 @@ void Affichage4DigitsGen::AfficherV2(const int &p_valeur, const int &p_base) con
     int digitCourant = this->m_digitCourant;
     if (digitCourant == 0 && (p_valeur != this->m_valeurCache || p_base != this->m_baseCache))
     {
-
+        //Serial.println("Recalcul");
         if (p_base == DEC && p_valeur > 9999)
         {
             this->m_cache[0] = valeurSegmentTropGrand;
@@ -121,6 +121,7 @@ void Affichage4DigitsGen::AfficherV2(const int &p_valeur, const int &p_base) con
         else
         {
             this->m_valeurCache = p_valeur;
+            this->m_baseCache = p_base;
             switch (p_base)
             {
             case HEX:
@@ -159,7 +160,9 @@ void Affichage4DigitsGen::AfficherV2(const int &p_valeur, const int &p_base) con
     }
 
     byte valeurSegment = this->m_cache[digitCourant];
+
     this->AfficherDigit(valeurSegment, digitCourant);
+
     ++this->m_digitCourant;
 }
 
@@ -231,22 +234,27 @@ void Affichage4DigitsGen::AfficherDigits(const byte p_digits[4]) const
 
 void Affichage4DigitsGen::AfficherDigit(const byte &p_segments, const int &p_position) const
 {
-    digitalWrite(this->m_pinD[0], this->m_digitOff);
-    digitalWrite(this->m_pinD[1], this->m_digitOff);
-    digitalWrite(this->m_pinD[2], this->m_digitOff);
-    digitalWrite(this->m_pinD[3], this->m_digitOff);
+    int ancienDigit = (p_position == 0)?3: p_position - 1;
+    monDigitalWrite(this->m_pinD[ancienDigit], this->m_digitOff);
+
+   // monDigitalWrite(this->m_pinD[0], this->m_digitOff);
+   // monDigitalWrite(this->m_pinD[1], this->m_digitOff);
+   // monDigitalWrite(this->m_pinD[2], this->m_digitOff);
+   // monDigitalWrite(this->m_pinD[3], this->m_digitOff);
+
     this->EnvoyerValeur(p_segments);
+
     if (p_position < 4)
     {
-        digitalWrite(this->m_pinD[p_position], this->m_digitOn);
+        monDigitalWrite(this->m_pinD[p_position], this->m_digitOn);
     }
 }
 
 void Affichage4DigitsGen::Reset() const
 {
     this->EnvoyerValeur(0x00);
-    digitalWrite(this->m_pinD[0], this->m_digitOff);
-    digitalWrite(this->m_pinD[1], this->m_digitOff);
-    digitalWrite(this->m_pinD[2], this->m_digitOff);
-    digitalWrite(this->m_pinD[3], this->m_digitOff);
+    monDigitalWrite(this->m_pinD[0], this->m_digitOff);
+    monDigitalWrite(this->m_pinD[1], this->m_digitOff);
+    monDigitalWrite(this->m_pinD[2], this->m_digitOff);
+    monDigitalWrite(this->m_pinD[3], this->m_digitOff);
 }

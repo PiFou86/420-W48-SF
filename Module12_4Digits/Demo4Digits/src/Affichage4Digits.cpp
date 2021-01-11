@@ -17,10 +17,17 @@ Affichage4Digits::Affichage4Digits(const int &p_pinSegmentA, const int &p_pinSeg
 
 void Affichage4Digits::EnvoyerValeur(const byte &p_valeur) const
 {
-    //Serial.println(String("Affichage4Digits::EnvoyerValeur(") + p_valeur);
+   // for (int i = 0; i < 8; ++i)
+    //{
+    //    monDigitalWrite(this->m_pinSegments[i], ((p_valeur >> (7 - i)) & 1) ? this->m_segmentOn : this->m_segmentOff);
+    //}
 
-    for (int i = 0; i < 8; ++i)
-    {
-        digitalWrite(this->m_pinSegments[i], ((p_valeur >> (7 - i)) & 1) ? this->m_segmentOn : this->m_segmentOff);
-    }
+    monDigitalWrite(this->m_pinSegments[0], ((p_valeur >> (7)) & 1) ? this->m_segmentOn : this->m_segmentOff);
+    monDigitalWrite(this->m_pinSegments[1], ((p_valeur >> (6)) & 1) ? this->m_segmentOn : this->m_segmentOff);
+    monDigitalWrite(this->m_pinSegments[2], ((p_valeur >> (5)) & 1) ? this->m_segmentOn : this->m_segmentOff);
+    monDigitalWrite(this->m_pinSegments[3], ((p_valeur >> (4)) & 1) ? this->m_segmentOn : this->m_segmentOff);
+    monDigitalWrite(this->m_pinSegments[4], ((p_valeur >> (3)) & 1) ? this->m_segmentOn : this->m_segmentOff);
+    monDigitalWrite(this->m_pinSegments[5], ((p_valeur >> (2)) & 1) ? this->m_segmentOn : this->m_segmentOff);
+    monDigitalWrite(this->m_pinSegments[6], ((p_valeur >> (1)) & 1) ? this->m_segmentOn : this->m_segmentOff);
+    monDigitalWrite(this->m_pinSegments[7], ((p_valeur >> (0)) & 1) ? this->m_segmentOn : this->m_segmentOff);
 }

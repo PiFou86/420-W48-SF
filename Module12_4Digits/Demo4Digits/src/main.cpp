@@ -1,12 +1,13 @@
 #include <Arduino.h>
 
 // Commenter si vous n'utilisez pas le registre à décalage
-#define UTILISER_REGISTRE
+//#define UTILISER_REGISTRE
 
 // Démos :
 // 1. Affichage décimale de -11000 à 11000
 // 2. Affichage hexadécimale de 0x0 à 0xFFFF
-#define DEMO 1
+// 3. Affichage fixe décimale pour démo multiplexage. Changer compteur OCR1A à 8332;
+#define DEMO 3
 
 #include "Affichage4DigitsRegistre.h"
 #include "Affichage4Digits.h"
@@ -39,6 +40,10 @@ Traitement t(a4dae, -1020, 11000);
 // Demo hexa
 Affichage4DigitsAvecEvenement a4dae(adr, HEX);
 Traitement t(a4dae, 0x00, 0xFFFF);
+#elif DEMO == 3
+// Demo hexa
+Affichage4DigitsAvecEvenement a4dae(adr, DEC);
+Traitement t(a4dae, 1234, 0xFFFF);
 #endif
 
 void setup()

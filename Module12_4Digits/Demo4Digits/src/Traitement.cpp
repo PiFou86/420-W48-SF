@@ -10,7 +10,7 @@ void Traitement::_executer()
 {
     this->m_a4dae.Valeur(this->m_valeur);
 
-    ++this->m_valeur;
+    //++this->m_valeur;
     this->m_valeur = constrain(this->m_valeur, this->m_min, this->m_max);
     if (this->m_valeur >= this->m_max)
     {

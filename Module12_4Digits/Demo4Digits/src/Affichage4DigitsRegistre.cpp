@@ -13,15 +13,15 @@ Affichage4DigitsRegistre::Affichage4DigitsRegistre(const int& p_pinDS, const int
 void Affichage4DigitsRegistre::EnvoyerValeur(const byte& p_valeur) const
 {
     //Serial.println(String("Affichage4DigitsRegistre::EnvoyerValeur(") + p_valeur);
-    digitalWrite(this->m_pinST, LOW);
+    monDigitalWrite(this->m_pinST, LOW);
 
     for (int i = 0; i < 8; ++i)
     {
-        digitalWrite(this->m_pinSH, LOW);
-        digitalWrite(this->m_pinDS, ((p_valeur >> i) & 1) ? this->m_segmentOn : this->m_segmentOff);
-        digitalWrite(this->m_pinSH, HIGH);
+        monDigitalWrite(this->m_pinSH, LOW);
+        monDigitalWrite(this->m_pinDS, ((p_valeur >> i) & 1) ? this->m_segmentOn : this->m_segmentOff);
+        monDigitalWrite(this->m_pinSH, HIGH);
     }
 
-    digitalWrite(this->m_pinST, HIGH);
-    digitalWrite(this->m_pinST, LOW);
+    monDigitalWrite(this->m_pinST, HIGH);
+    monDigitalWrite(this->m_pinST, LOW);
 }
