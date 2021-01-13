@@ -10,9 +10,14 @@ EvenementHorloge::EvenementHorloge(unsigned long p_pasMillis)
 
 void EvenementHorloge::Executer()
 {
-    if (this->m_dernierMillis + this->m_pasMillis < millis())
+    unsigned long tempsCourant = millis();
+    if (this->m_dernierMillis + this->m_pasMillis < tempsCourant)
     {
-        this->m_dernierMillis += this->m_pasMillis;
+        while (this->m_dernierMillis + this->m_pasMillis < tempsCourant)
+        {
+            this->m_dernierMillis += this->m_pasMillis;
+        }
+
         this->_executer();
     }
 }
