@@ -1,4 +1,4 @@
-# Module 11 - Afficheur 7=Segments
+g# Module 11 - Afficheur 7=Segments
 
 ## Exercice 1 - Programme de test
 
@@ -105,13 +105,13 @@ https://www.tinkercad.com/things/1tZqUFVHNU9
 - votre version du programme
 https://www.tinkercad.com/things/1tZqUFVHNU9 
 
-- convertir votre programme pour un usage avec un objet nommé 7Segment
+- convertir votre programme pour un usage avec un objet nommé 7Segments
 
 ## Exercice 4 - Usage du registre à décalage(optionnel)
 
 ### Matériel
--  registre à décalage et objet 7Segment
+-  registre à décalage et objet 7Segments
 
 ### Étape 1 montage du registre à décalage
--  Utilisez le registre à décalage pour alimenter l'afficheur 7segment
+-  Utilisez le registre à décalage pour alimenter l'afficheur 7segments
 - Testez votre programme
