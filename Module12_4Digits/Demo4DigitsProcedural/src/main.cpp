@@ -183,8 +183,4 @@ void modifierValeur(int p_valeur)
     }
   }
 
-  Serial.println(cacheDigits[0]);
-  Serial.println(cacheDigits[1]);
-  Serial.println(cacheDigits[2]);
-  Serial.println(cacheDigits[3]);
 }

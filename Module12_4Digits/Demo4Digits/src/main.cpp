@@ -32,9 +32,12 @@ Traitement t(a4dae, VALEURDEBUT, VALEURFIN);
 void setup()
 {
   Serial.begin(9600);
+
+  DEBUG_A0_CONFIG;
+  DEBUG_A1_CONFIG;
+
   GestionEvenements.Ajouter(&a4dae);
   GestionEvenements.Ajouter(&t);
-
   GestionEvenements.Start();
 }
 

@@ -39,8 +39,33 @@
 // Utiliser pour débuger les temps sur l'oscilloscope avec l'entrée analogique A0 configurée en sortie
 #define DEBUG_TIMER                TRUE
 
+#if DEBUG_TIMER
+#define DEBUG_A0_CONFIG            pinMode(A0, OUTPUT);
+#define DEBUG_A0_START             digitalWrite(A0, HIGH);
+#define DEBUG_A0_STOP              digitalWrite(A0, LOW);
+
+#define DEBUG_A1_CONFIG            pinMode(A0, OUTPUT);
+#define DEBUG_A1_START             digitalWrite(A0, HIGH);
+#define DEBUG_A1_STOP              digitalWrite(A0, LOW);
+
+#else
+#define DEBUG_A0_CONFIG            ;
+#define DEBUG_A0_START             ;
+#define DEBUG_A0_STOP              ;
+
+#define DEBUG_A1_CONFIG            ;
+#define DEBUG_A1_START             ;
+#define DEBUG_A1_STOP              ;
+#endif
+
 // Nombre maximum d'événements à surveiller dans la gestion d'événements
 #define MAXIMUM_EVENEMENTS         16
+
+// Optimise modulo
+#define OPTIMISE_MODULO            TRUE
+
+// Enlever la boucle pour envoyer les valeurs ?
+#define OPTIMISE_BOUCLE_ENVOYERVALEUR TRUE
 
 // Utiliser directement les registres à la place des fonctions standard d'Arduino
 #define OPTIMISE_ENTREESSORTIES    TRUE
