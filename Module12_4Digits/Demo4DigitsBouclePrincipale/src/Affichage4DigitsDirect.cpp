@@ -81,10 +81,22 @@ void Affichage4DigitsDirect::Afficher(const int &p_valeurDigit1, const int &p_va
 
 void Affichage4DigitsDirect::EnvoyerValeur(const byte p_valeur) const
 {
+#if UTILISER_BOUCLE_AFFICHAGE
     for (size_t i = 0; i < 8; ++i)
     {
-        digitalWrite(this->m_pinSegments[i], ((p_valeur >> (7 - i)) & 1) ? this->m_segmentOn : this->m_segmentOff);
+        monDigitalWrite(this->m_pinSegments[i], ((p_valeur >> (7 - i)) & 1) ? this->m_segmentOn : this->m_segmentOff);
     }
+#else
+    monDigitalWrite(this->m_pinSegments[0], p_valeur & 0x80 ? this->m_segmentOn : this->m_segmentOff);
+    monDigitalWrite(this->m_pinSegments[1], p_valeur & 0x40 ? this->m_segmentOn : this->m_segmentOff);
+    monDigitalWrite(this->m_pinSegments[2], p_valeur & 0x20 ? this->m_segmentOn : this->m_segmentOff);
+    monDigitalWrite(this->m_pinSegments[3], p_valeur & 0x10 ? this->m_segmentOn : this->m_segmentOff);
+    monDigitalWrite(this->m_pinSegments[4], p_valeur & 0x08 ? this->m_segmentOn : this->m_segmentOff);
+    monDigitalWrite(this->m_pinSegments[5], p_valeur & 0x04 ? this->m_segmentOn : this->m_segmentOff);
+    monDigitalWrite(this->m_pinSegments[6], p_valeur & 0x02 ? this->m_segmentOn : this->m_segmentOff);
+    monDigitalWrite(this->m_pinSegments[7], p_valeur & 0x01 ? this->m_segmentOn : this->m_segmentOff);
+
+#endif
 }
 
 void Affichage4DigitsDirect::Executer() const
@@ -97,20 +109,23 @@ void Affichage4DigitsDirect::Executer() const
     {
         this->m_microsDernierChangement = horloge;
 #endif
-
         digitalWrite(A1, HIGH);
-        digitalWrite(this->m_pinD[this->m_digitCourant], this->m_digitOff);
+        monDigitalWrite(this->m_pinD[this->m_digitCourant], this->m_digitOff);
 
+#if !OPTIMISE_MODULO
         this->m_digitCourant = (this->m_digitCourant + 1) % 4;
-
+#else
+        if (++this->m_digitCourant >= 4) {
+            this->m_digitCourant = 0;
+        }
+#endif
         this->EnvoyerValeur(this->m_cache[this->m_digitCourant]);
 
-        digitalWrite(this->m_pinD[this->m_digitCourant], this->m_digitOn);
+        monDigitalWrite(this->m_pinD[this->m_digitCourant], this->m_digitOn);
         digitalWrite(A1, LOW);
 
 #if !UTILISER_INTERRUPTION
     }
 #endif
-
     digitalWrite(A0, LOW);
 }

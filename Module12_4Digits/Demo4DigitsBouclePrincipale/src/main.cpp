@@ -26,6 +26,14 @@ void setup()
 #endif
 
   adr.Afficher(1, 2, 3, 4);
+
+  // adr.Afficher(1234);
+  // adr.Afficher(-123);
+  // ___
+  // ¨¨¨
+  // adr.Afficher(1.2)
+  // adr.Afficher(1234, DEC);
+  // adr.Afficher(1234, HEX);
 }
 
 void loop()

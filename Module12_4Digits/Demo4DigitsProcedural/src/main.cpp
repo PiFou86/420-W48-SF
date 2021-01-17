@@ -97,7 +97,7 @@ const byte valeurSegmentMoins = valeurSegements[moins];
 
 ISR(TIMER1_COMPA_vect)
 {
-  digitalWrite(A0, HIGH);
+  digitalWrite(A1, HIGH);
 
   etatHaut(pinD[digitCourant]);
   ++digitCourant;
@@ -119,7 +119,7 @@ ISR(TIMER1_COMPA_vect)
   etatBas(pinD[digitCourant]);
 
 
-  digitalWrite(A0, LOW);
+  digitalWrite(A1, LOW);
 }
 
 void modifierValeur(int p_valeur)

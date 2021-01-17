@@ -3,8 +3,20 @@
 #include <Arduino.h>
 
 
-#define UTILISER_INTERRUPTION   1
+#define UTILISER_INTERRUPTION     1
+#define UTILISER_BOUCLE_AFFICHAGE 0
+#define OPTIMISE_MODULO           1
+#define OPTIMISE_ENTREESSORTIES   1
 
+
+#if OPTIMISE_ENTREESSORTIES
+// code adapté de Cyrob : https://www.youtube.com/watch?v=ZXcmeEMK730
+#define etatHaut(pin)            ( (pin) < 8 ? PORTD |=  (1 << (pin)) : PORTB |=  (1 << (pin - 8)))
+#define etatBas(pin)             ( (pin) < 8 ? PORTD &= ~(1 << (pin)) : PORTB &= ~(1 << (pin - 8)))
+#define monDigitalWrite(pin, etat)  ( (etat)?etatHaut(pin):etatBas(pin))
+#else 
+#define monDigitalWrite(pin, etat)  (digitalWrite(pin, etat))
+#endif
 
 class Affichage4DigitsDirect
 {
