@@ -2,8 +2,7 @@
 
 #include "Evenement.h"
 
-#define UTILISER_TIMER1
-#define MAXIMUM_EVENEMENTS 32
+#include "Config.h"
 
 class GestionEvenementsClass {
 
