@@ -1,15 +1,14 @@
 #include "GestionEvenements.h"
 #include <Arduino.h>
 
+#include "Config.h"
 #include "OptimiserEntreesSorties.h"
-
-#define DEBUG_TIMER
 
 GestionEvenementsClass::GestionEvenementsClass()
     : m_nombreEvenement(0)
 {
     ;
-#ifdef DEBUG_TIMER
+#if DEBUG_TIMER
     pinMode(A0, OUTPUT);
 #endif
 }
@@ -30,7 +29,7 @@ void GestionEvenementsClass::Executer()
 
 void GestionEvenementsClass::Start()
 {
-#ifdef UTILISER_TIMER1
+#if UTILISER_TIMER1
     // Basé sur https://www.instructables.com/Arduino-Timer-Interrupts/
     // Et : https://www.youtube.com/watch?v=2kr5A350H7E
     cli();
@@ -39,8 +38,8 @@ void GestionEvenementsClass::Start()
     TCCR1B = 0; // same for TCCR1B
     TCNT1 = 0;  //initialize counter value to 0
     // set compare match register for 1000hz increments
-    OCR1A = 249; // = (16*10^6) / (64*1000) - 1 (must be <65536)
-   // OCR1A =  8332; // = (16*10^6) / (64*1000) - 1 (must be <65536)
+    OCR1A = TIMER1_VALEUR_A_COMPARER; // = (16*10^6) / (64*1000) - 1 (must be <65536)   // 1000Hz
+    // OCR1A =  8332; // = (16*10^6) / (64*30) - 1 (must be <65536) // 30 Hz
     // turn on CTC mode
     TCCR1B |= (1 << WGM12);
     // Set CS10 and CS11 bits for 64 prescaler
@@ -51,16 +50,12 @@ void GestionEvenementsClass::Start()
 #endif
 }
 
-#ifdef UTILISER_TIMER1
+#if UTILISER_TIMER1
 ISR(TIMER1_COMPA_vect)
 {
-#ifdef DEBUG_TIMER
-    digitalWrite(A0, HIGH);
-#endif
+    DEBUG_A0_START;
     GestionEvenements.Executer();
-#ifdef DEBUG_TIMER
-    digitalWrite(A0, LOW);
-#endif
+    DEBUG_A0_STOP;
 }
 #endif
 
