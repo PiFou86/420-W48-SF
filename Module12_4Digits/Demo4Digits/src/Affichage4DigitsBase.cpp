@@ -2,9 +2,6 @@
 
 #include "OptimiserEntreesSorties.h"
 
-int Affichage4DigitsBase::TROP_PETIT = 0b00010000;
-int Affichage4DigitsBase::TROP_GRAND = 0b10000000;
-
 static const byte valeurSegments[] = {
     //  Segements ABCDEFGP
     0b11111100, // 0   '0'           AAA
