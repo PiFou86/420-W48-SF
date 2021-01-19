@@ -8,8 +8,6 @@ class GestionEvenementsClass {
 
 private:
     Evenement *m_evenements[MAXIMUM_EVENEMENTS];
-
-public:
     volatile int m_nombreEvenement;
 
 public:

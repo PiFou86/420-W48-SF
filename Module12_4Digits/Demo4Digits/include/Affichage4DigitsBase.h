@@ -18,8 +18,6 @@ protected:
     int m_segmentOff;
     int m_segmentOn;
 
-    static int TROP_PETIT;
-    static int TROP_GRAND;
 private:
     int m_pinD[4];
 
