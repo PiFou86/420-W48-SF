@@ -6,14 +6,14 @@
 
 ### Matériel
 
-- TinkerCad avec le programme [420-W48-SF Base LCD - Pub](https://www.tinkercad.com/things/5TKA2kCZLcS-/editel)
+- TinkerCad avec le programme [420-W48-SF Base LCD - Pub](https://www.tinkercad.com/things/6aCJ66So2yC)
 - Exécutez le programme en faisant varier le rétro-éclairage avec le potentiomètre.
 
 ### Étape 2 - Méthodes disponibles pour la librairie LiquidCristal.h
 
 ### Matériel
 
--  [420-W48-SF méthodes de l'objet LCD](https://www.arduino.cc/en/Reference/LiquidCrystal)
+- [420-W48-SF méthodes de l'objet LCD](https://www.arduino.cc/en/Reference/LiquidCrystal)
 - Établissez la liste des méthodes disponibles de la librairie "LiquidChristal.h", leur rôle, et leurs paramètres d'entrée offrant une variété d'affichage
 - Quelles sont les deux méthodes à utiliser pour faire clignoter le cursur à une position donnée de l'écran ?
 - Quelles méthodes offrent le déroulement horizontal du texte?
@@ -22,7 +22,7 @@
 
 ### Matériel
 
-- TinkerCad avec le programme [420-W48-SF Base LCD - Pub](https://www.tinkercad.com/things/5TKA2kCZLcS-/editel)
+- TinkerCad avec le programme [420-W48-SF Base LCD - Pub](https://www.tinkercad.com/things/6aCJ66So2yC)
 
 ### Étape 1 - Affichage latéral
 
@@ -40,7 +40,7 @@
 
 ### Matériel
 
-- TinkerCad avec le programme [420-W48-SF Base LCD - Pub](https://www.tinkercad.com/things/5TKA2kCZLcS-/editel)
+- TinkerCad avec le programme [420-W48-SF Base LCD - Pub](https://www.tinkercad.com/things/6aCJ66So2yC)
 - Composant "capteur de distance par ultrasons"
 
 Le capteur par ultrasons utilise l'écho pour déterminer la distance séparant les objets.
