@@ -51,7 +51,7 @@ C'est un composant équipé d'un émetteur et d'un récepteur à ultrason. Par i
 - Sauvegardez le programme sous le nom "AffichageDistances"
 - Ajoutez un composant "capteur de distance par ultrasons"
 
-![Capteur ultra-sonique](img/CapteurUltrason.png)
+![Capteur ultra-sonique](img/CapteurUltrason.PNG)
 
 - Branchez la sonde du capteur sur la borne No7 d'Arduino. Polarisez le capteur aves ses bornes + et -
 
@@ -82,13 +82,13 @@ Dans cet exercice, vous  installerez  l'exercice précédent ("balayage horizont
 
 - Installez le composant LCD sur la breadboard
 
-![Montage LCD](img/LCD_Base.png)
+![Montage LCD](img/LCD_Base.PNG)
 
 - Créez un projet PlateformIO en important le programme "balayage horizontal" de l'exercice précédent
 - Installez les librairies suivantes dans platformio.ini selon les directives suivantes
 - [420-W48-SF Installation librairies LCD](https://platformio.org/lib/show/887/LiquidCrystal/installation).
 
-![Montage LCD](img/LibrairiesLCD.png)
+![Montage LCD](img/LibrairiesLCD.PNG)
 
 ## Exercice 5 - Caractères fantaissistes (optionnel)
 
