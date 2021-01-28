@@ -63,7 +63,7 @@ void loop() {
 
 - Circuit TinkerCad avec potentiomètre et afficheur 4X 7Digits
 
-![2 MultimetreArduino](img\AffichagePotentiometre.PNG)
+![2 MultimetreArduino](img/AffichagePotentiometre.PNG)
 
 - Affichez la valeur de résistance'un potentiomètre, entre 0000 et 1023, à différentes positions.  
 
