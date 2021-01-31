@@ -35,6 +35,6 @@ Depannage_Installation_I2C_LCD.png
 
 Si vous obtenez une réponse semblable à
 
-![Montage LCD](img/Depannage_Installation_I2C_LCD.PNG)
+![Montage LCD](img/Depannage_Installation_I2C_LCD.png)
  
 Reprenez depuis le début
