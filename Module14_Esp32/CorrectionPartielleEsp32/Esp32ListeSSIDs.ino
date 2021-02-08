@@ -9,7 +9,7 @@
 
 void setup()
 {
-    Serial.begin(9600);
+    Serial.begin(115200);
 
     // Set WiFi to station mode and disconnect from an AP if it was previously connected
     WiFi.mode(WIFI_STA);
