@@ -4,14 +4,18 @@
 
 #include <Arduino.h>
 #include <Credential.h>
-
-#include <SPI.h>
 #include <WiFi.h>
+
+void printWifiStatus();
 
 const char* ssid = MYSSID ;
 const char* password = MYPSW ;
 
 int status = WL_IDLE_STATUS;
+
+char server[] = "ipinfo.io"; 
+
+WiFiClient client;
 
 void setup() {
   //Initialize serial and wait for port to open:

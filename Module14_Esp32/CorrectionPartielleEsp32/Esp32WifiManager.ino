@@ -3,6 +3,10 @@ Wifi Manager
 */
 #include <Arduino.h>
 #include <Credential.h>
+#include <WiFi.h>
+#include <Update.h>
+#include <WebServer.h>
+#include <DNSServer.h>
 #include <WifiManager.h>
 
 // LED on GPIO2

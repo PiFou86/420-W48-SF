@@ -7,7 +7,8 @@
   DroneBot Workshop 2020
   https://dronebotworkshop.com
 */
- 
+#include <Arduino.h>
+
 // LED on GPIO2
 int ledPin = 2;
  
