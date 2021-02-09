@@ -1,5 +1,19 @@
 # Module 14 - Introduction au microcontrôleur ESP-32
 
+## Préambule - Fichier de configuration
+
+Dans les codes que vous allez tester aujourd'hui, le fichier "Credential.h" est inclus dans le fichier source mais non inclus. Ce fichier doit contenir votre configuration réseau et doit faire parti de votre fichier ".gitignore" si vous utilisez un gestionnaire de source.
+
+Pour créer ce fichier, placez-vous dans le répertoire "include" et créez le fichier "Credential.h" qui contient la configuration de votre routeur :
+
+```cpp
+#pragma once
+
+#define MYSSID "mon_ssid"
+#define MYPSW  "Mon_mot_de_passe_hyper_securisé"
+```
+
+
 ## Exercice 1 - Programme de test
 
 Ce programme fait clignoter la DELs soudée sur la carte Esp32. Cette DEL est reliée à la borne GPIO 02 (non à la NO 13 comme dans Arduino).
@@ -114,15 +128,6 @@ Dans cet exercice, votre ESP-32 servira de serveur web. Votre PC ou votre cellul
 
 - Créez un nouveau projet dans PlateformIO nommé Esp32_Web_server
 - Utilisez l'exercice précédent pour ajuster votre environnement de développement
-- Dans le répertoire, créez le fichier Credential.h qui contient la configuration de votre routeur :
-
-```cpp
-#pragma once
-
-#define MYSSID "mon_ssid"
-#define MYPSW  "Mon_mot_de_passe_hyper_securisé"
-```
-
 - Entrez le code du programme [Esp32_Web_server.ino](CorrectionPartielleEsp32/Esp32_Web_server.ino)
 - Exécutez et déboguez votre environnement de développement
 
