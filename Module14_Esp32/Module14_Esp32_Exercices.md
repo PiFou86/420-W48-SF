@@ -13,7 +13,6 @@ Pour créer ce fichier, placez-vous dans le répertoire "include" et créez le f
 #define MYPSW  "Mon_mot_de_passe_hyper_securisé"
 ```
 
-
 ## Exercice 1 - Programme de test
 
 Ce programme fait clignoter la DELs soudée sur la carte Esp32. Cette DEL est reliée à la borne GPIO 02 (non à la NO 13 comme dans Arduino).
