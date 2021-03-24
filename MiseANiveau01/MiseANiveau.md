@@ -1,13 +1,11 @@
-# Module 00 - Mathématiques pour microcontrôleurs 
+# Mise à niveau 01 - Mathématiques pour microcontrôleurs 
 
 ## Exercice 1 - Conversion de base
 
 - NOTE: pour que l'exercice soit représentatif, utilisez une feuille de papaier et NON un logiciel de  conversion!
 
 ### Étape 1 - Conversion de base 10 aux base 2 et 16
-- Convertir les nombres suivants de la base 10 vers les bases 2 et 16
-
-- au besoin, combler les chiffres avec des zéro sgnificatifs à gauche
+- Convertir les nombres suivants de la base 10 vers les bases 2 et 16. Au besoin, combler les chiffres avec des zéro sgnificatifs à gauche
 
 |base 10|   base 2  | base 16 |
 |:-----:|-----------|---------|
@@ -19,9 +17,7 @@
 
 |base 10   |       base 2      |    base 16   |
 |:-------:|--------------------|--------------|
-
 |292      |xxxx xxxx xxxx xxxx |0x00 00 00 00 |
-
 |2729     |xxxx xxxx xxxx xxxx |0x00 00 00 00 |
 
 ### Étape 2 - Conversion de base 2 à base 10
@@ -30,11 +26,8 @@
 
 |   base 2  | base 10|
 |:---------:|------|
-
 | 0001 1001 | XXXX |
-
 | 0101 1001 | XXXX |
-
 | 1111 1111 | XXXX |
 
 ## Exercice 2 - Pictogrammes de caractères
@@ -53,13 +46,14 @@
 
 <details>
     <summary>Structure d'un Pictogramme</summary>
-byte[] chiffre1 = new byte[] {
 
+```csharp
+byte[] chiffre1 = new byte[] {
     0b0000 0100,
-    
     0b0000 1100,
-    
-     ... }
+     ... 
+}
+```
 
 </details>
 
@@ -71,14 +65,8 @@ byte[] chiffre1 = new byte[] {
 
 ![decalage a droite](img/DecalageADroite.PNG)
 
-- 80 >>3
-
-- Quelle est la valeur décimale résultante?
-
-- 140 >> 4
-
-- Quelle est la valeur décimale résultante?
-
+- ```80 >> 3``` : Quelle est la valeur décimale résultante ?
+- ```140 >> 4``` : Quelle est la valeur décimale résultante ?
 - En vous inspirant de ces deux résultats, déterminer une équation équivalente.
 
 ### Étape 2 - Décalage à gauche
@@ -87,18 +75,9 @@ byte[] chiffre1 = new byte[] {
 
 ![decalage a gauche](img/DecalageAGauche.PNG)
 
--  43 << 2
-
-- Quelle est la valeur décimale résultante?
-
--  13 << 3
-
-- Quelle est la valeur décimale résultante?
-
-- 141 << 3
-
-- Quelle est la valeur décimale résultante?
-
+-  ```43 << 2``` : Quelle est la valeur décimale résultante ?
+-  ```13 << 3``` : Quelle est la valeur décimale résultante ?
+- ```141 << 3``` : Quelle est la valeur décimale résultante ?
 - En vous inspirant de ces résultats, pouvez-vous déterminer une équation équivalente.
 
 ### Étape 3 - Compression de données
@@ -116,7 +95,7 @@ Résultat = (premier_chiffre << 4) | deuxiême_chiffre
 <details>
     <summary>Réponse</summary>
 
-   intervalle est [ 0 à  F] 
+   Intervalle est [ 0 à F] 
    
    parce que dans ce mode de compresson, chaque chiffre est limité à 4 bits
 
