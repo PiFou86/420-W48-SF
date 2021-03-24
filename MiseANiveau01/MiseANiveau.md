@@ -69,7 +69,7 @@ byte[] chiffre1 = new byte[] {
 
 - Effecuter les opérations suivantes en vous servant du gabarit suivant sur papier
 
-![decalage a droite](img/DecalageADroite.png)
+![decalage a droite](img/DecalageADroite.PNG)
 
 - 80 >>3
 
