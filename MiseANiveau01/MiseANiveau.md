@@ -45,7 +45,7 @@
 
 - Calculer la représentation des pictogrammes suivants.
 
-![pictogrammes](img/PIctogrammes.png)
+![pictogrammes](img/PIctogrammes.PNG)
 
 ### Étape 2 - Représentation d'un pictogramme en mémoire
 
@@ -81,11 +81,11 @@ byte[] chiffre1 = new byte[] {
 
 - En vous inspirant de ces deux résultats, déterminer une équation équivalente.
 
-### Étape 1 - Décalage à gauche
+### Étape 2 - Décalage à gauche
 
 - Effecuter les opérations suivantes en vous servant du gabarit suivant sur papier
 
-![decalage a gauche](img/DecalageAGauche.png)
+![decalage a gauche](img/DecalageAGauche.PNG)
 
 -  43 << 2
 
@@ -109,7 +109,7 @@ Résultat = (premier_chiffre << 4) | deuxiême_chiffre
 
 - Appliquez cette fonction pour compresser les chiffres 5 avec 10
 
-![compression](img/Compression2Chiffres.png )
+![compression](img/Compression2Chiffres.PNG )
 
 - Quel est l'intervalle de valeurs des variables premier_chiffre et deuxième_chiffre que peut utiliser cette fonction sans erreur?
 
