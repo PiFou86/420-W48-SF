@@ -1,74 +1,153 @@
 # Module 00 - Mathématiques pour microcontrôleurs 
 
-## Exercice 1 - conversion de base
+## Exercice 1 - Conversion de base
 
-### Étape 1 - conversion de base 10 à base 2
-voir cours Syst. Expl.
+- NOTE: pour que l'exercice soit représentatif, utilisez une feuille de papaier et NON un logiciel de  conversion!
 
-### Étape 2 - conversion de base 2 à base 10
-voir cours Syst. Expl.
+### Étape 1 - Conversion de base 10 aux base 2 et 16
+- Convertir les nombres suivants de la base 10 vers les bases 2 et 16
 
-### Étape 3 - conversion de base 2 à base 16
-voir cours Syst. Expl.
+- au besoin, combler les chiffres avec des zéro sgnificatifs à gauche
 
-## Exercice 2 - pictogrammes de caractères
+|base 10|   base 2  | base 16 |
+|:-----:|-----------|---------|
+|7      | 0000 0111 | 0x00 07 |
+|123    | xxxx xxxx | 0x00 00 |
+|128    | xxxx xxxx | 0x00 00 |
+|252    | xxxx xxxx | 0x00 00 |
+|255    | xxxx xxxx | 0x00 00 |
 
-### Étape 1 - calculs d'un pictogramme
+|base 10   |       base 2      |    base 16   |
+|:-------:|--------------------|--------------|
 
-à l'aide du fichier ModelisateurPictogramme.pdf
+|292      |xxxx xxxx xxxx xxxx |0x00 00 00 00 |
 
-### Étape 2 - représentation d'un pictogramme en mémoire
-ici, structure avec le langage du cours de programmation
+|2729     |xxxx xxxx xxxx xxxx |0x00 00 00 00 |
 
-## Exercice 3 -  opérateur de décalage de bits en mémoire
+### Étape 2 - Conversion de base 2 à base 10
 
-### Étape 1 - décalage à gauche
+- Convertir les nombres suivants de la base 2 vers la base 10
 
-décaler un nombre sans overflow
-établir la relation * 2(n) 
+|   base 2  | base 10|
+|:---------:|------|
 
-### Étape 2 - décalage à droite
+| 0001 1001 | XXXX |
 
-décaler un nombre sans overflow
-établir la relation / 2(n)
+| 0101 1001 | XXXX |
 
-### Étape 3 - optionnelle débordement
+| 1111 1111 | XXXX |
 
-décaler un nombre avec  overflow
+## Exercice 2 - Pictogrammes de caractères
 
-## Exercice 3 -  opérateur OU sur les bits en mémoire
+- Utilisez le fichier ModelisateurPictogramme.pdf et une feuille de papier
 
-### Étape 1 - forcer un bit sur un octet 
+### Étape 1 - Calculs d'un pictogramme
 
-## Exercice 3 -  opérateur ET sur les bits en mémoire
+- Calculer la représentation des pictogrammes suivants.
 
-### Étape 1 - tester un bit d'un octet
+![pictogrammes](img/PIctogrammes.png)
 
+### Étape 2 - Représentation d'un pictogramme en mémoire
 
-
-
-
-
-
-
-IMAGES 
--------
-![2 Resistances en Série](img/rs_220_220.png)
-IMAGE ICI
---------
-    2 Résistances en série
-
-
-CACHES DEBUT
--------
+- Traduire le résultat dans une structure comme celle-ci
 
 <details>
-    <summary>Solution</summary>
+    <summary>Structure d'un Pictogramme</summary>
+byte[] chiffre1 = new byte[] {
 
-CODE ICI
+    0b0000 0100,
+    
+    0b0000 1100,
+    
+     ... }
 
 </details>
 
+## Exercice 3 -  Opérateurs de décalage de bits en mémoire
 
-CACHES FIN
---------
+### Étape 1 - Décalage à droite
+
+- Effecuter les opérations suivantes en vous servant du gabarit suivant sur papier
+
+![decalage a droite](img/DecalageADroite.png)
+
+- 80 >>3
+
+- Quelle est la valeur décimale résultante?
+
+- 140 >> 4
+
+- Quelle est la valeur décimale résultante?
+
+- En vous inspirant de ces deux résultats, déterminer une équation équivalente.
+
+### Étape 1 - Décalage à gauche
+
+- Effecuter les opérations suivantes en vous servant du gabarit suivant sur papier
+
+![decalage a gauche](img/DecalageAGauche.png)
+
+-  43 << 2
+
+- Quelle est la valeur décimale résultante?
+
+-  13 << 3
+
+- Quelle est la valeur décimale résultante?
+
+- 141 << 3
+
+- Quelle est la valeur décimale résultante?
+
+- En vous inspirant de ces résultats, pouvez-vous déterminer une équation équivalente.
+
+### Étape 3 - Compression de données
+
+- Pour comprimer deux chiffres dans un octet, nous effectuons la fonction suivante
+
+Résultat = (premier_chiffre << 4) | deuxiême_chiffre
+
+- Appliquez cette fonction pour compresser les chiffres 5 avec 10
+
+![compression](img/Compression2Chiffres.png )
+
+- Quel est l'intervalle de valeurs des variables premier_chiffre et deuxième_chiffre que peut utiliser cette fonction sans erreur?
+
+<details>
+    <summary>Réponse</summary>
+
+   intervalle est [ 0 à  F] 
+   
+   parce que dans ce mode de compresson, chaque chiffre est limité à 4 bits
+
+</details>
+
+## Exercice 3 -  Opérateurs logiques
+
+### Étape 1 - Opérateur OU 
+
+https://everycircuit.com/circuit/4835472285892608
+
+### Étape 2 - Opérateur ET 
+
+https://everycircuit.com/circuit/5763413663547392
+
+### Étape 3 - Operateurs ET avec OU combinés
+
+https://everycircuit.com/circuit/6545510028279808
+
+- Circuit L = a & b & ( c | d )
+![CircuitDeBase](img/FonctionsET-OU_combines.png)
+
+- fonction L = a & b & c
+![CircuitLimite](img/FonctionA_ET_B_ET_C.png)
+
+- fonction L = a & b & d
+![CircuitLimite](img/FonctionA_ET_B_ET_D.png)
+
+- fonction L = a & b & ( c| d )
+![Destruction](img/FonctionA_ET_B_OU_C_ET_D.png)
+
+
+
+
