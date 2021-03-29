@@ -17,77 +17,128 @@ Les objectifs des activités suivantes sont :
 - Avoir une première approche des langages C/C++
 - Découvrir quelques fonctionnalités de la carte arduino et des bibliothèques de base
 
-## Préalable - Installation Arduino
+## Préalable - Installations de la plateforme de développement
 
-Le logiciel Arduino IDE (Integradted Development Environment) est une interface graphique permettant de configurer, programmer et tester vos sketchs et montages Arduino. Assurez-vous d’avoir entre vos mains la clef USB dans votre boîte individuelle ou votre ordinateur portable.
+### Étape 1 - Installer Visual Studio Code
 
-Les instructions suivantes s'appliquent à un poste Windows 10. Elles peuvent être adaptées pour un poste macOS ou Linux.
+Si Visual Studio Code est déjà installé, rendez-vous à l'étape 2
 
-### Installation d'Arduino studio
+- Accédez au site de [VisualStudio Code](https://code.visualstudio.com)
 
-- Ouvrez votre navigateur web et allez sur le site informationnel d'Arduino https://www.arduino.cc
-- Sur ce site vous pourrez télécharger le logiciel "Arduino studio" :
-  - Rendez-vous dans la section "software/Downloads"
-  - Téléchargez la version adaptée à notre environnement :
-    - Si vous avez un ordinateur portable, choisissez la version "Win 7 and newer"
-    - Si vous n'avez pas d'ordinateur portable et que vous allez utiliser une clef USB, choisissez la version archive "ZIP"
-  - Choisissez "Just download" dans l'écran suivant
-- Suivant votre choix précédent, installez ou décompressez l'application
+- Découvrez les avantages de cet environnement de développement
 
-## Exercice 1 - Connexion de l'Arduino et premier programme
+- Installez VS Code sur votre PC
 
-- Ouvrez l'application "Arduino studio" que vous venez d'installer
-- Créez un nouveau
-- Reprenez le code du cours suivant
+### Étape 2 - Installer PlateformIO IDE
 
-```c++
-void setup() {
-  pinMode(LED_BUILTIN, OUTPUT);
-}
+![Installation PlatformIO](img/pio_install.png)
 
-void loop() {
-  allumerLedInterne(500);
-  eteindreLedInterne(500);
-}
+1. Ouvrez le gestionnaire d'extension de Visual Studio Code
+2. Cherchez "platformio"
+3. Intallez PlatformIO IDE
 
-void allumerLedInterne(int p_delay) {
-  digitalWrite(LED_BUILTIN, HIGH);
-  delay(p_delay);  
-}
+NOTE: pour simplifier, nous abrégeons PlateformIO par *pio*
 
-void eteindreLedInterne(int p_delay) {
-  digitalWrite(LED_BUILTIN, LOW);
-  delay(p_delay);  
-}
+## Exercice 1 - Développer un programme Arduino dans PIO
+
+### Étape 1 - Créer un programme Arduino dans PlateformIO
+
+- Ouvrez PlatformeIO :
+
+  ![Lancement PlatformIO par les extensions](img/lancer_pio01.png)
+
+  1. Cliquez sur l'icône PlatformIO dans la liste des extension (partie gauche de l'écran VSD)
+
+  2. Cliquez sur "Open"
+
+  Ou :
+
+  ![Lancement PlatformIO par l'icône de la barre de statut](img/lancer_pio02.png)
+
+  1. Cliquez sur la "maison" présent dans la barre de statut.
+
+- Créez un nouveau projet pio
+
+- Remplissez les cases demandées
+![Test Arduino](img/PremierPorgrammeArduino.png)
+
+- Cliquez sur Finish
+
+La structure suivante a été générée :
+
+![Structurepio](img/StructureEnvironnementPio.png)
+
+- Cliquez sur le chemin *src*. Vous obtenez un fichier *main.cpp* qui englobera le code *arduino*.
+
+- Remplacez tout le code par :
+
+![Premier programme](img/premiercode.png)
+
+### Étape 2 - Compiler un programme Arduino dans pio
+
+- Compilez le code par le bouton *Build*
+
+![Bouton compiler](img/BuildPio.png)
+
+- Dans la console, vous constaterez peut-être des erreurs de compilation. Et c'est normal à cette étape-ci ! Corrigez vos erreurs et Compilez le code à nouveau
+- Observez la console *pio*. Elle donne un état de cette action.
+
+Le message « SUCCESS » doit apparaître avant de poursuivre!
+
+![Success](img/SuccessCompile.png)
+
+### Étape 3 - Téléverser le code dans Arduino
+
+- Branchez le câble USB entre la carte et le PC
+
+- Le bouton **Upload** est désigné pour téléverser le code binaire dans l'Arduino
+
+- Vous devriez pouvoir identifier le port série (COMx) associé à l'Arduino
+
+<details>
+    <summary>Dépannage</summary>
+
+DANS CERTAINS CAS, *pio* ne détecte pas le pilote du câble USB de téléchargement
+
+![erreurConnexionUSB](img/ErreurPort.png)
+
+1. Assurez-vous que le câble USB est fonctionnel
+2. Port non détecté
+
+Parfois, pio ne réussit pas à trouver automatiquement le pilote associé au port de la carte d'Arduino
+
+Il faut alors passer par en mode manuel, de la façon suivante :
+
+1. Dans le menu depio, cliquez sur le chemin platformIO.ini
+
+2. Repérez la structure  "\[env:uno]"
+
+3. Ajouter l'instruction suivante :
+
+```ini
+upload_port = com [*noPort*]
 ```
 
-- Touchez une surface métallique autre que vos composants électronique, l'idéal étant que la surface soit reliée à la terre
-- Reliez votre poste de travail et la carte Arduino avec le cable USB fourni avec votre kit
-- Téléversez le montage sur votre carte Arduino
-- Validez que le tout fonctionne
-
-<details>
-    <summary>Débogage - Erreur de code</summary>
-
-Recherchez des indices dans le message d'erreur. Minimalement, vous allez avoir le numéro de la ligne avec une description sommaire. Comme toujours, validez les accolades, parenthèses, points virgules, déclaration de variables, etc.
+4. Sauvegardez le fichier plarformIO.ini
+5. Tentez le téléchargement à nouveau !
 
 </details>
 
-<details>
-    <summary>Débogage - Erreur de communication</summary>
+- Ouvrez un "Terminal" par l'onglet TERMINAL (bas de l'écran)
+- Rechercher « platformio device list »
 
-- Validez que vous avez bien branché votre carte Arduino à votre poste avec le cable USB fourni dans votre kit
-- Validez vos paramètres de communication :
-  - Type de carte : "Arduino Uno"
-  - Port : validez que la carte est bien détectée et sélectionnez le port correspondant à votre carte
+La commande est *platformio device list* abrégée (*pio device list*)
+Le téléversement doit avoir réussi
 
-Si la carte n'est pas affichée dans la section "Outils/Port", essayez d'installer le pilote fourni avec "Arduino Studio" en suivant les étapes suivantes :
+ ![ConnexionUSBOK](img/ConnexionUSB.png)
 
-- Ouvrez l’explorateur Windows. Recherchez "C:\Program Files(X86)\Arduino\drivers"
-- Recherchez le programme "dpinst-amd64.exe"
-- Lancez-le et suivez les instructions pour installer le pilote
+- Demandez de l'aide au besoin !
 
-</details>
+À la fin, la DEL numéro 13 clignote.
+
+Bravo!
+
+Vous avez réussi à interfacer pio avec Arduino !
 
 ## Exercice 2 - Variation de motifs
 
@@ -112,15 +163,13 @@ Pour l'exercice, sachez que le pré-compilateur retrouve les valeurs des constan
 
 **!!!EXPLOREZ sans sauvegarder!!!**
 
-Sur votre PC (ou clé USB ou disque SSD), placez-vous à la base du répertoire contenant le programme Arduino IDE. Sous Windows, par défaut, le répertoire est "C:\Program Files(x86)\Arduino".
+À partir de votre fichier "main.cpp", faites un clic droit sur le nom du fichier de votre "include <Arduino.h>" et choisissez "Go to definition"
 
-- Utilisez un éditeur de texte afin d'afficher le contenu du fichier "hardware\arduino\avr\cores\arduino\Arduino.h". Il est conseillé d'utiliser un éditeur de texte de type "Visual Studio Code" :
-  - Observez le contenu du fichier **sans le modifier**.
-  - Notez les valeurs des constantes suivantes :
-    - HIGH
-    - LOW
-    - LED_BUILTIN
-  - Lisez la déclaration de la macro "sq", notez ses paramètres et son algorithme
-- Utilisez un éditeur de texte afin d'afficher le contenu du fichier "hardware\arduino\avr\variants\standard\pins_arduino.h". Notez la valeur de la constante "LED_BUILTIN".
+- Observez le contenu du fichier **sans le modifier**.
+- Notez les valeurs des constantes suivantes :
+  - HIGH
+  - LOW
+- Retournez fans votre fichier "main.cpp", placez vous sur la constante LED_BUILTIN et faites un "Go to definition" et notez la valeur
+- Lisez la déclaration de la macro "sq", notez ses paramètres et son algorithme
 
-NOTE : les constantes implicites sont représentées en majuscules pour en faciliter le repérage dans les sketchs.
+NOTE : les constantes implicites sont représentées en majuscules pour en faciliter le repérage dans le code.
