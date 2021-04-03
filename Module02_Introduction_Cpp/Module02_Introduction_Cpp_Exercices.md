@@ -20,8 +20,22 @@ Exemple :
 
 - Créez le projet "AMOC_Module02_EssaisPortSerie"
 - Tapez le code de l'exemple, corrigez les erruers et téléversez le programme compilé dans votre Arduino
+- Allez visionner le résultat sur la console du port série. Pour cela cliquez sur l'icône en forme de prise qui se situe à côté du bouton de téléversement du code ([1]). Cela va ouvrir une console où les textes vont s'afficher ([2]) :
 
+![Console série](img/moniteur_serie.png)
 
+- Vous devriez obtenir un résultat proche de l'image suivante :
+
+![Résultat console](img/moniteur_serie_exemple_resultat.png)
+
+- À partir de votre résultat, en vous concentrant sur les deux derniers entiers qui sont affichés, validez la taille d'un entier.
+
+<details>
+    <summary>Indice #1</summary>
+
+Faites la soustraction des deux adresses correspondantes aux entiers.
+
+</details>
 
 ## Exercice 1 - Création de vos premières fonctions et manipulation de la structure du projet
 
