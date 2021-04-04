@@ -103,7 +103,7 @@ Exemple :
 ![Démo écriture sur le port série](img/moniteur_serie_exemple_code.png)
 
 - Créez le projet "AMOC_Module02_EssaisPortSerie"
-- Tapez le code de l'exemple, corrigez les erruers et téléversez le programme compilé dans votre Arduino
+- Tapez le code de l'exemple, corrigez les erreurs et téléversez le programme compilé dans votre Arduino
 - Allez visionner le résultat sur la console du port série. Pour cela cliquez sur l'icône en forme de prise qui se situe à côté du bouton de téléversement du code ([1]). Cela va ouvrir une console où les textes vont s'afficher ([2]) :
 
 ![Console série](img/moniteur_serie.png)
@@ -240,17 +240,44 @@ void Flasher::FaireClignoter(int p_nombreCycles) (0x4cc)
 
 - Testez-la
 
-### Exercice 3.3 - Classe Morse - À vous !
+### Exercice 3.3 - Après la morsure, l'héritage !
 
-- Créez la classe "Morse" :
-  - void afficherPoint() : méthode virtuelle pure
-  - void afficherTrait() : méthode virtuelle pure
-  - void afficherSOS() : méthode qui appelle les deux précédentes afin d'afficher son message
-  - Méthode IndiquerS
-  - Elle a deux méthodes "allumer" et 
-- Créez un constructeur
+En C++, vous devez indiquer qu'une méthode peut-être redéfinie en précédent sa déclaration par le mot clef "virtual". Ce mot clef n'est pas présent au moment de la définition. Le caractère virtuel d'une méthode est automatiquement hérité : il n'est alors pas obligatoire de le spécifier dans les déclarations des méthodes dans les classes filles. Cependant, comme bonne pratique, nous allons toujours l'indiquer de manière explicite.
 
-Dans cet exercice, vous allez 
-Classe SOS avec pin en ctor
+Une méthode peut être considérée comme abstraite si elle est virtuelle et que sa déclaration se termine par "= 0". On parle alors de méthode virtuelle pure. Une méthode abstraire n'est jamais définie. Une classe contenant une méthode abstraite est abstraite. Une classe abstraite ne peut pas être instanciée.
 
-Héritage - prendre exemple sos avec fonction virtuelle pour affichage trait et point => un pour del un pour port série
+Contrairement à d'autres langage, C++ ne permet pas de définir des interfaces. La classe abstraite est donc le plus haut niveau d'abstraction.
+
+Exemple de déclaration : ```virtual maMethode() = 0```.
+
+Pour hériter d'une classe en C++, il vous suffit de l'indiquer à la déclaration de votre classe comme ceci : ```class MaClasseFille : public MaClasseMere```. En C++, l'héritage peut être soit ```public```, ```protected``` ou ```private```. ```public``` ne modifie pas les modifieurs d'accès de la classe mère. ```protected``` restreint l'accès de tous les membres à au moins ```protected```, c'est à dire que si la classe mère à des membres ```public```, à partir de la classe fille, ils auront un accès de type ```protected```. Il en va de même pour ```private```.
+
+#### Exercice 3.3.1 - Classe Morse
+
+- Créez la classe abstraite ```Morse``` :
+  - Un constructeur qui contient la durée du point : base de tout (entre deux lettres un durée d'un point, un trait est d'une durée de trois points)
+  - ```+ void afficherPoint()``` : méthode virtuelle pure
+  - ```+ void afficherTrait()``` : méthode virtuelle pure
+  - ```+ void afficherSOS()``` : méthode qui appelle les deux précédentes afin d'afficher son message
+  - ```+ int getDureePoint() const``` : accesseur qui renvoie la durée d'un point
+
+#### Exercice 3.3.2 - Classe MorseSerie
+
+- Créez la classe concrète ```MorseSerie``` :
+  - Elle hérite de la classe Morse
+  - Elle redéfinit les méthodes ```afficherPoint``` et ```afficherTrait``` : elles affichent respectivement un point et un trait sur la console série
+
+#### Exercice 3.3.3 - Classe MorseDEL
+
+- Créez la classe concrète ```MorseDEL``` :
+  - Elle hérite de la classe Morse
+  - Elle a un constructure d'initialisation qui prend la pin d'une DEL pour l'affichage
+  - Elle redéfinit les méthodes ```afficherPoint``` et ```afficherTrait``` : la durée d'allumage de la DEL détermine si c'est un point ou un trait
+
+#### Exercice 3.3.4 - Utilisons nos classes
+
+- Dans la fonction ```setup```, déclarez la variable globale ```morse``` de type pointeur de ```Morse```
+- Toujours dans la fonction ```setup```, créez un objet de type ```MorseSerie``` sur le tas (new) et affectez le à la variable ```morse```
+- Testez l'affichage du SOS
+- Modifiez la création de l'objet pour créer un objet de type ```MorseDEL```
+- Testez l'affichage du SOS

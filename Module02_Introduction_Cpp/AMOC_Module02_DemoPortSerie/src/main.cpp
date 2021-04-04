@@ -3,8 +3,11 @@
 #include "passageParametres.h"
 #include "Flasher.h"
 
-Flasher flasher(LED_BUILTIN, 500);
+#include "Morse.h"
+#include "MorseSerie.h"
+#include "MorseDEL.h"
 
+Flasher flasher(LED_BUILTIN, 500);
 void setup()
 {
     Serial.end();
@@ -37,6 +40,22 @@ void setup()
     passageDeParametresCopie(flasher);
     passageDeParametresReference(flasher);
     passageDeParametresPointeur(&flasher);
+    Serial.println();
+
+    Morse* morse;
+    Serial.println("Test du MorseSerie");
+    morse = new MorseSerie(500);
+    morse->afficherSOS();
+    delete morse;
+    morse = NULL;
+    Serial.println();
+
+    Serial.println("Test du MorseDEL");
+    morse = new MorseDEL(500, LED_BUILTIN);
+    morse->afficherSOS();
+    delete morse;
+    morse = NULL;
+    Serial.println();
 }
 
 void loop()
