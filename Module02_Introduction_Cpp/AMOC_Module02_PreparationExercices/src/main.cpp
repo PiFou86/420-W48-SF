@@ -24,3 +24,5 @@ void loop()
   Serial.println(calculerMinimum(2 + 3, 4 + 7));
   Serial.println(calculerMaximum(2.0 + 3, 4.0 + 7));
 }
+
+

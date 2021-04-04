@@ -8,35 +8,6 @@ Pour l'ensemble de ces exercices, vous allez utiliser :
 - Un café ou thé
 - De la patience ;)
 
-## Préambule - Affichage d'information sur le moniteur série
-
-Afin d'afficher de l'information, nous allons écrire du texte sur le port série simulé par votre Arduino. Avant de pouvoir écrire sur votre port série, vous devez configurer la vitesse de connexion du port série. Pour cela, dans la fonction "setup", appelez la méthode "begin" de l'objet accessible à partir de la variable globale "Serial". Pour cela, ajoutez l'instruction suivante ```Serial.begin(9600)```.
-
-À partir du moment où le port est initialisé, vous pouvez utiliser les méthodes "print" et "println" accessible à partir de la variable globale "Serial".
-
-Exemple :
-
-![Démo écriture sur le port série](img/moniteur_serie_exemple_code.png)
-
-- Créez le projet "AMOC_Module02_EssaisPortSerie"
-- Tapez le code de l'exemple, corrigez les erruers et téléversez le programme compilé dans votre Arduino
-- Allez visionner le résultat sur la console du port série. Pour cela cliquez sur l'icône en forme de prise qui se situe à côté du bouton de téléversement du code ([1]). Cela va ouvrir une console où les textes vont s'afficher ([2]) :
-
-![Console série](img/moniteur_serie.png)
-
-- Vous devriez obtenir un résultat proche de l'image suivante :
-
-![Résultat console](img/moniteur_serie_exemple_resultat.png)
-
-- À partir de votre résultat, en vous concentrant sur les deux derniers entiers qui sont affichés, validez la taille d'un entier.
-
-<details>
-    <summary>Indice #1</summary>
-
-Faites la soustraction des deux adresses correspondantes aux entiers.
-
-</details>
-
 ## Exercice 1 - Création de vos premières fonctions et manipulation de la structure du projet
 
 ### Exercice 1.1 - Séparation des déclarations et définitions
@@ -119,11 +90,67 @@ Dans cet exemple l'utilisation du paramètre ```x``` est encadrée par des paren
 
 Dans cet exercice, vous allez jouer avec les références et les pointeurs afin de mieux comprendre de quoi il en retourne.
 
+### Exercice 2.1 - Préambule - Affichage d'information sur le moniteur série
 
+Afin d'afficher de l'information, nous allons écrire du texte sur le port série simulé par votre Arduino. Avant de pouvoir écrire sur votre port série, vous devez configurer la vitesse de connexion du port série. Pour cela, dans la fonction "setup", appelez la méthode "begin" de l'objet accessible à partir de la variable globale "Serial". Pour cela, ajoutez l'instruction suivante ```Serial.begin(9600)```.
 
-### Exercice 2.2
+À partir du moment où le port est initialisé, vous pouvez utiliser les méthodes "print" et "println" accessible à partir de la variable globale "Serial".
 
+Exemple :
 
+![Démo écriture sur le port série](img/moniteur_serie_exemple_code.png)
+
+- Créez le projet "AMOC_Module02_EssaisPortSerie"
+- Tapez le code de l'exemple, corrigez les erruers et téléversez le programme compilé dans votre Arduino
+- Allez visionner le résultat sur la console du port série. Pour cela cliquez sur l'icône en forme de prise qui se situe à côté du bouton de téléversement du code ([1]). Cela va ouvrir une console où les textes vont s'afficher ([2]) :
+
+![Console série](img/moniteur_serie.png)
+
+- Vous devriez obtenir un résultat proche de l'image suivante :
+
+![Résultat console](img/moniteur_serie_exemple_resultat.png)
+
+- À partir de votre résultat, en vous concentrant sur les deux derniers entiers qui sont affichés, validez la taille d'un entier.
+
+<details>
+    <summary>Indice #1</summary>
+
+Faites la soustraction des deux adresses correspondantes aux entiers.
+
+</details>
+
+### Exercice 2.2 - Observations
+
+- Ajoutez la fonction suivante en répartissant la déclaration et la définition dans les fichiers "passageParametres.(cpp/h)"
+
+![Objservation des passages de paramètres](img/sortes_passage_parametres_code.png)
+
+- Modifiez le code de l'exercice précédent afin d'y intégrer l'appel à votre nouvelle fonction
+
+![Appel de passageDeParametres](img/sortes_passage_parametres_code_appel.png)
+
+- Vous devriez avoir un affichage similaire au suivant :
+
+![Affichage des adresses suivant l'affichage](img/sortes_passage_parametres_resultat.png)
+
+- Dessinez la mémoire et surtout ici la pile en vous basant sur les adresses affichées
+
+- Qu'observez-vous pour :
+  - La variable passée par copie
+  - La variable passée par référence
+  - La variable passée par copie de pointeur
+
+### Exercice 2.3 - À vous !
+
+- Écrivez la fonction "passageDeParametres2" qui prend en paramètres :
+  - Une référence de pointeur et qui modifie le pointeur en créant un nouvel entier sur le tas
+  - Un pointeur de pointeur et modifie le pointeur pointé en créant un nouvel entier sur le tas
+- Écrivez un appel à cette fonction :
+  - Affichez les valeurs avant l'appel
+  - Durant l'appel
+  - Après l'appel
+
+## Exercice 3 - On programme avec classe, c'est l'objet de l'exercice !
 
 
 Classe SOS avec pin en ctor
