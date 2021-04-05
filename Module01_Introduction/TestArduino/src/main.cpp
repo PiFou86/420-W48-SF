@@ -1,24 +1,24 @@
 #include <Arduino.h>
 
-void allumerLedInterne(int p_delay);
-void eteindreLedInterne(int p_delay);
+void allumerDELInterne(int p_duree);
+void eteindreDELInterne(int p_duree);
 
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
 }
 
 void loop() {
-  allumerLedInterne(500);
-  eteindreLedInterne(500);
+  allumerDELInterne(500);
+  eteindreDELInterne(500);
 }
 
-void allumerLedInterne(int p_delay) {
+void allumerDELInterne(int p_duree) {
   digitalWrite(LED_BUILTIN, HIGH);
-  delay(p_delay);  
+  delay(p_duree);  
 }
 
-void eteindreLedInterne(int p_delay) {
+void eteindreDELInterne(int p_duree) {
   digitalWrite(LED_BUILTIN, LOW);
-  delay(p_delay);  
+  delay(p_duree);  
 }
 
