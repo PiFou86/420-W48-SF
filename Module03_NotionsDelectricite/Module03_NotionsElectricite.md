@@ -1,5 +1,7 @@
 # Module 03 - Notions d'Électricité
 
+Dans ce module vous allez simuler certains montages dans le simulateur [Tinkercad](https://www.tinkercad.com/). Pour l'utiliser, vous devez créer un compte et créer un nouveau circuit. Les composants à votre disposition se situent à droite de l'espace de travail. Pour démarrer la simulation, cliquer simplement sur le bouton "Démarrer la simulation".
+
 ## Exercice 1 - Résistances en série
 
 ### Étape 1 - 2 Résistances en série
