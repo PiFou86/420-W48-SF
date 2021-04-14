@@ -106,6 +106,10 @@ Vous devriez mesurer une résistance totale d'environ 1/2 de la valeur des rési
 
 ## Exercice 5 - Observation du LMI
 
+Les entrées numériques peuvent simuler une entrée analogique grâce à la technologie LMI.
+
+![Duty cycle](img/DutyCycle.png)
+
 ### Objectif
 
 Observer le LMI à l'oscilloscope.
@@ -130,10 +134,6 @@ Observer le LMI à l'oscilloscope.
 - Modifiez votre programme pour avoir un rapport cyclique de 75% et validez ce qui a changé à l'affichage dans l'oscilloscope
 
 ## Exercice 6 - Contrôle de l'intensité de DELs
-
-Les entrées numériques peuvent simuler une entrée analogique grâce à la technologie LMI.
-
-![Duty cycle](img/DutyCycle.png)
 
 ### Objectif
 
