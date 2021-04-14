@@ -1,4 +1,4 @@
-# Module 02 - Programmation des sorties
+# Module 04 - Programmation des sorties
 
 ## Exercice 1 - Platine d'expérimentation
 
@@ -17,7 +17,7 @@ Valider votre compréhension de la platine d'expérimentation
 - Connectez correctement vos sondes au multimètre
 - Connectez chaque cable à pinces crocodile sur une sonde
 - Connectez l'autre extrémité des pinces crocodile à un fils dupont
-- Mettez le multimètre en position ohmmètre (Symbole Ω)
+- Mettez le multimètre en position ohmmètre (Symbole Ω)
 - Sondez différent endroit de la platine d'expérimentation afin de valider la conductivité et par la même votre compréhension des chemins électriques
 
 ## Exercice 2 - Résistance en série - On est tous solidaires !
@@ -43,7 +43,7 @@ Observer le comportement de deux résistances branchées en série. [Lire la dé
 <details>
     <summary>Solution</summary>
 
-Vous devriez mesurer une résistance totale d'environ du double de la valeur de chaque résistance (Ex. : avec deux 220 Ω, vous aurez 440 Ω)
+Vous devriez mesurer une résistance totale d'environ du double de la valeur de chaque résistance (Ex. : avec deux 220 Ω, vous aurez 440 Ω)
 
 </details>
 
@@ -70,7 +70,7 @@ Observer le comportement de deux résistances branchées en parallèle. [Lire la
 <details>
     <summary>Solution</summary>
 
-Vous devriez mesurer une résistance totale d'environ 1/2 de la valeur des résistances (Ex. : avec deux 220 Ω, vous aurez 110 Ω)
+Vous devriez mesurer une résistance totale d'environ 1/2 de la valeur des résistances (Ex. : avec deux 220 Ω, vous aurez 110 Ω)
 
 </details>
 
