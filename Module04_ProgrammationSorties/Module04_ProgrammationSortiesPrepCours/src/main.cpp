@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-#define DEMO 3
+#define DEMO 1
 
 #if DEMO == 1
 #define DEMO_MESURE_TEMPS
@@ -51,12 +51,18 @@ void setup()
 #ifdef DEMO_MESURE_TEMPS
     MesureDuTempsExecutionSetup();
 #endif
+#ifdef DEMO_POTENTIOMETRE
+    DemoPotentiometrePWMSetup();
+#endif
 }
 
 void loop()
 {
 #ifdef DEMO_MESURE_TEMPS
     MesureDuTempsExecution();
+#endif
+#ifdef DEMO_POTENTIOMETRE
+    DemoPotentiometrePWM();
 #endif
 }
 
@@ -70,12 +76,12 @@ void PWMSurLes5SortiesSetup(void)
     pinMode(pinPWM5, OUTPUT);
     pinMode(pinPWM6, OUTPUT);
 
-    digitalWrite(pinPWM1, 128);
-    digitalWrite(pinPWM2, 128);
-    digitalWrite(pinPWM3, 128);
-    digitalWrite(pinPWM4, 128);
-    digitalWrite(pinPWM5, 128);
-    digitalWrite(pinPWM6, 128);
+    analogWrite(pinPWM1, 128);
+    analogWrite(pinPWM2, 128);
+    analogWrite(pinPWM3, 128);
+    analogWrite(pinPWM4, 128);
+    analogWrite(pinPWM5, 128);
+    analogWrite(pinPWM6, 128);
 }
 #endif
 
@@ -99,7 +105,7 @@ void MesureDuTempsExecution(void)
 #ifndef OPTIMISATION
     valeurIncrement = valeurIncrement % 8;
 #else
-    if (valeurIncrement > 8)
+    if (valeurIncrement >= 8)
     {
         valeurIncrement -= 8;
     }
