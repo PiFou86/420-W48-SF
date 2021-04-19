@@ -4,7 +4,7 @@ Pour l'ensemble de ces exercices, vous allez utiliser :
 
 - Visual studio code avec PlatformIO
 - Votre plaquette de développement Arduino UNO
-- Son cable USB
+- Son câble USB
 - Un café ou thé
 - De la patience ;)
 
@@ -18,7 +18,7 @@ Dans cet exercice, nous allons reprendre le code de votre premier programme Ardu
 
 Nous allons chercher à séparer correctement les déclarations des fonctions "allumerDELInterne" et "eteindreDELInterne" en déclarations et en définitions. Nous allons ensuite utiliser ce code dans la fonction "main" qui se situe dans le fichier "main.cpp".
 
-Dans PIO, tous vos fichiers d'en-tête (ou de déclarations) doivent se situer dans le répertoire "include". Ils seront accessibles grace aux instructions de précompilation ```#include "Nom du fichier"```. Les fichiers d'en-tête du système ou des bibliothèques que vous utiliserez plus tard sont accessibles grace aux instruction de prépomcpilation ```#include <Nom du fichier>``` comme par exemple la bibliothèque "Arduino" avec les instructions ```#include <Arduino.h>```.
+Dans PIO, tous vos fichiers d'en-tête (ou de déclarations) doivent se situer dans le répertoire "include". Ils seront accessibles grâce aux instructions de précompilation ```#include "Nom du fichier"```. Les fichiers d'en-tête du système ou des bibliothèques que vous utiliserez plus tard sont accessibles grâce aux instructions de prépomcpilation ```#include <Nom du fichier>``` comme par exemple la bibliothèque "Arduino" avec les instructions ```#include <Arduino.h>```.
 
 ***Version courte :***
 
@@ -35,15 +35,15 @@ Dans PIO, tous vos fichiers d'en-tête (ou de déclarations) doivent se situer d
   - Déclarez vos deux fonctions
 - Ouvrez le fichier "main.cpp"
   - Grâce à la directive de précompilation, incluez le fichier d'en-tête précédemment créé
-  - Placez vous dans la fonction "loop" et appelez les fonctions "allumerDELInterne" et "eteindreDELInterne" comme dans votre premier programme Arduino
+  - Placez-vous dans la fonction "loop" et appelez les fonctions "allumerDELInterne" et "eteindreDELInterne" comme dans votre premier programme Arduino
 
 Dans toutes les versions, corrigez les erreurs de compilation, connectez la carte Arduino sur votre station de développement, téléversez et testez votre programme.
 
 ### Exercice 1.2 - Un peu de constance dans ce monde de brutes
 
-Si vous avez suivi les étapes fournies, votre programme principal contient des "valeurs magiques" qui sont utilisées comme paramètres des appelles aux fonctions (allumer/eteindre)DELInterne.
+Si vous avez suivi les étapes fournies, votre programme principal contient des "valeurs magiques" qui sont utilisées comme paramètres des appels aux fonctions (allumer/eteindre)DELInterne.
 
-Nous allons modifier le code afin de supprimer les deux valeurs numériques "500". Ces deux valeurs représentent respectivement la durée de l'éclairage de la DEL et la durée d'instinction de la DEL.
+Nous allons modifier le code afin de supprimer les deux valeurs numériques "500". Ces deux valeurs représentent respectivement la durée de l'éclairage de la DEL et la durée d'extinction de la DEL.
 
 On utilise principalement deux façons en C/C++ pour déclarer des constantes :
 
@@ -55,6 +55,8 @@ On utilise principalement deux façons en C/C++ pour déclarer des constantes :
 Pour déclarer une macro, il suffit d'écrire le nom de la macro suivi de caractères de type espace/tabulation suivi de la macro. Vous avez vu des exemples de telles déclarations dans le fichier "Arduino.h".
 
 Pour déclarer une macro sans paramètre, utilisez la syntaxe suivante ```#define MA_CONSTANTE 1234```.
+
+Pour distinguer une macro, la règle d'écriture en majuscules est recommandée.
 
 - Dans votre projet, créez le fichier "Configuration.h"
 - Dans ce fichier, déclarez les macros/constantes "DUREE_DEL_ALLUMEE" et "DUREE_DEL_ETEINTE"
@@ -69,7 +71,7 @@ Pour déclarer une constante, il vous suffit de la déclarer et de la définir d
 
 #### Exercice 1.2.3 - Déclaration d'une macro avec paramètres
 
-Pour déclarer une macro de précompilation avec des paramètres, la syntaxe est très similaire à la syntaxe des fonctions : ajoutez simplement des paramètres après le nom de la macro. Les parenthèse contiennent les noms des paramètres séparés par une virgule. Les paramètres des macros n'ont pas de type.
+Pour déclarer une macro de précompilation avec des paramètres, la syntaxe est très similaire à la syntaxe des fonctions : ajoutez simplement des paramètres après le nom de la macro. Les parenthèses contiennent les noms des paramètres séparés par une virgule. Les paramètres des macros n'ont pas de type.
 
 Exemple extrait du fichier "Arduino.h" : ```#define sq(x) ((x)*(x))```
 
@@ -94,14 +96,14 @@ Dans cet exercice, vous allez jouer avec les références et les pointeurs afin 
 
 Afin d'afficher de l'information, nous allons écrire du texte sur le port série simulé par votre Arduino. Avant de pouvoir écrire sur votre port série, vous devez configurer la vitesse de connexion du port série. Pour cela, dans la fonction "setup", appelez la méthode "begin" de l'objet accessible à partir de la variable globale "Serial". Pour cela, ajoutez l'instruction suivante ```Serial.begin(9600)```.
 
-À partir du moment où le port est initialisé, vous pouvez utiliser les méthodes "print" et "println" accessible à partir de la variable globale "Serial".
+À partir du moment où le port est initialisé, vous pouvez utiliser les méthodes ```print``` et ```println``` accessible à partir de la variable globale ```Serial```.
 
 Exemple :
 
 ![Démo écriture sur le port série](img/moniteur_serie_exemple_code.png)
 
 - Créez le projet "AMOC_Module02_EssaisPortSerie"
-- Tapez le code de l'exemple, corrigez les erruers et téléversez le programme compilé dans votre Arduino
+- Tapez le code de l'exemple, corrigez les erreurs et téléversez le programme compilé dans votre Arduino
 - Allez visionner le résultat sur la console du port série. Pour cela cliquez sur l'icône en forme de prise qui se situe à côté du bouton de téléversement du code ([1]). Cela va ouvrir une console où les textes vont s'afficher ([2]) :
 
 ![Console série](img/moniteur_serie.png)
@@ -152,9 +154,130 @@ Faites la soustraction des deux adresses correspondantes aux entiers.
 
 ## Exercice 3 - On programme avec classe, c'est l'objet de l'exercice !
 
+Dans vos projet PIO, nous vous demandons d'avoir une classe par couple de fichiers. Le nom d'une classe débute par une majuscule. Les noms de fichiers sont, par convention, "NomClasse.cpp" et "NomClasse.h".
 
-Classe SOS avec pin en ctor
+### Exercice 3.1 - Classe Flasher
 
-Héritage - prendre exemple sos avec fonction virtuelle pour affichage trait et point => un pour del un pour port série
+### Exercice 3.1.1 - Déclaration
 
-Exercice sur * et &
+- Reprenez la classe Flasher du cours avec les ajouts proposés ici et implantez la
+
+![Déclaration flasher](img/flasher_declaration.png)
+
+![Définition flasher](img/flasher_definition.png)
+
+- Testez votre classe en déclarant la variable "flasher" avec le type "Flasher" en dehors de toute fonction
+
+![Déclaration simple d'un flasher](img/flasher_utilisation1.png)
+
+- Quels sont les constructeurs / opérateurs / méthodes appelées ?
+- Déplacez la déclaration de la variable "flasher" avant la fonction "setup"
+- Dans la fonction "setup", ajoutez la creation de la variable "flasherDuSetup" avec la même DEL mais 200ms de temporisation :
+
+![Operateur d'affection](img/flasher_ctor_affectation.png)
+
+- Quels sont les constructeurs / opérateurs / méthodes appelées ?
+
+### Exercice 3.1.2 - Passe par copie
+
+- Dans les fichiers "passageParametres", créez la fonction "passageDeParametresCopie" qui prend le type "Flasher" en paramètres (pas de pointeur ou de référence ici)
+- Dans cette fonction, affichez l'adresse du paramètre. Comparez là à celle de l'objet passé en paramètre avant son appel
+- Quels sont les constructeurs / opérateurs / méthodes appelées ?
+
+### Exercice 3.1.3 - Passe par référence
+
+- Dans les fichiers "passageParametres", créez la fonction "passageDeParametresReference" qui prend le type "Flasher" en paramètres (pas de pointeur ou de référence ici)
+- Dans cette fonction, affichez l'adresse du paramètre. Comparez là à celle de l'objet passé en paramètre avant son appel
+- Quels sont les constructeurs / opérateurs / méthodes appelées ?
+
+### Exercice 3.1.4 - Passe par pointeur
+
+- Dans les fichiers "passageParametres", créez la fonction "passageDeParametresPointeur" qui prend le type "Flasher" en paramètres (pas de pointeur ou de référence ici)
+- Dans cette fonction, affichez l'adresse passée en paramètres. Comparez là à celle de l'objet passé en paramètre avant son appel
+- Quels sont les constructeurs / opérateurs / méthodes appelées ?
+
+<details>
+    <summary>Exemple d'affichage à la fin de cette partie</summary>
+
+```
+Flasher::Flasher(int, int) (0x4cc)
+
+Tests de l'affichage sur la console
+42
+Bonjour à tous !
+2a
+0x2a
+int valeur1 (int * : 0x8fa) = 42
+int valeur2 (int * : 0x8f8) = 13
+
+Appel de passageDeParametres1(valeur1, valeur1, &valeur2);
+int p_v1 (int * : 0x8f6) = 42
+int &p_r1 (int * : 0x8fa) = 42
+int *p_p1 (int ** : 0x8f4) adresse : 0x8f8 = 13
+
+Déclaration d'un objet local et affectation à l'objet global
+Flasher::Flasher(int, int) (0x8ee)
+Flasher& Flasher::operator=(const Flasher &) (0x4cc) - source : (0x8ee)
+
+Appel des fonctions avec différents mode de passage avec flasher
+flasher (flasher * : 0x4cc)
+Flasher::Flasher(const Flasher &) (0x8e8)
+passageDeParametresCopie - Flasher p_flasher (Flasher* : 0x8e8)
+passageDeParametresReference - Flasher& p_flasher (Flasher* : 0x4cc)
+passageDeParametresPointeur - Flasher* p_flasher (Flasher* : 0x4cc)
+void Flasher::FaireClignoter(int p_nombreCycles) (0x4cc)
+void Flasher::FaireClignoter(int p_nombreCycles) (0x4cc)
+[...]
+```
+
+</details>
+
+### Exercice 3.2 - Classe DEL - À vous !
+
+- Créez la classe "DEL"
+
+![Classe DEL](img/del_declaration.png)
+
+- Testez-la
+
+### Exercice 3.3 - Après la morsure, l'héritage !
+
+En C++, vous devez indiquer qu'une méthode peut-être redéfinie en précédent sa déclaration par le mot clef "virtual". Ce mot clef n'est pas présent au moment de la définition. Le caractère virtuel d'une méthode est automatiquement hérité : il n'est alors pas obligatoire de le spécifier dans les déclarations des méthodes dans les classes filles. Cependant, comme bonne pratique, nous allons toujours l'indiquer de manière explicite.
+
+Une méthode peut être considérée comme abstraite si elle est virtuelle et que sa déclaration se termine par "= 0". On parle alors de méthode virtuelle pure. Une méthode abstraire n'est jamais définie. Une classe contenant une méthode abstraite est abstraite. Une classe abstraite ne peut pas être instanciée.
+
+Contrairement à d'autres langage, C++ ne permet pas de définir des interfaces. La classe abstraite est donc le plus haut niveau d'abstraction.
+
+Exemple de déclaration : ```virtual maMethode() = 0```.
+
+Pour hériter d'une classe en C++, il vous suffit de l'indiquer à la déclaration de votre classe comme ceci : ```class MaClasseFille : public MaClasseMere```. En C++, l'héritage peut être soit ```public```, ```protected``` ou ```private```. ```public``` ne modifie pas les modifieurs d'accès de la classe mère. ```protected``` restreint l'accès de tous les membres à au moins ```protected```, c'est à dire que si la classe mère à des membres ```public```, à partir de la classe fille, ils auront un accès de type ```protected```. Il en va de même pour ```private```.
+
+#### Exercice 3.3.1 - Classe Morse
+
+- Créez la classe abstraite ```Morse``` :
+  - Un constructeur qui contient la durée du point : base de tout (entre deux lettres un durée d'un point, un trait est d'une durée de trois points)
+  - ```+ void afficherPoint()``` : méthode virtuelle pure
+  - ```+ void afficherTrait()``` : méthode virtuelle pure
+  - ```+ void afficherSOS()``` : méthode qui appelle les deux précédentes afin d'afficher son message
+  - ```+ int getDureePoint() const``` : accesseur qui renvoie la durée d'un point
+
+#### Exercice 3.3.2 - Classe MorseSerie
+
+- Créez la classe concrète ```MorseSerie``` :
+  - Elle hérite de la classe Morse
+  - Elle redéfinit les méthodes ```afficherPoint``` et ```afficherTrait``` : elles affichent respectivement un point et un trait sur la console série
+
+#### Exercice 3.3.3 - Classe MorseDEL
+
+- Créez la classe concrète ```MorseDEL``` :
+  - Elle hérite de la classe Morse
+  - Elle a un constructure d'initialisation qui prend la pin d'une DEL pour l'affichage
+  - Elle redéfinit les méthodes ```afficherPoint``` et ```afficherTrait``` : la durée d'allumage de la DEL détermine si c'est un point ou un trait
+
+#### Exercice 3.3.4 - Utilisons nos classes
+
+- Dans la fonction ```setup```, déclarez la variable globale ```morse``` de type pointeur de ```Morse```
+- Toujours dans la fonction ```setup```, créez un objet de type ```MorseSerie``` sur le tas (new) et affectez le à la variable ```morse```
+- Testez l'affichage du SOS
+- Modifiez la création de l'objet pour créer un objet de type ```MorseDEL```
+- Testez l'affichage du SOS
