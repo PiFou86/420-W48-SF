@@ -84,18 +84,14 @@ Utilisez un fil volant pour relier la borne "triger" à la borne No 10 de l'Ardu
 
 Composez le programme ```"AfficherDistance.ino"``` pour afficher la distance qui sépare l'Arduino des obstacles à proximité.
 
-Utilisez un obstacle simple devant le sonar pour afficher la distance qui le sépare de l'écran (en cm). Utilisez une règle pour calibrer l'équipement.
-
-Ajouter du code pour afficher aussi la distance en pouces.
+Utilisez un obstacle simple devant le détecteur pour afficher la distance qui le sépare de l'écran (en cm). Utilisez une règle pour calibrer l'équipement.
 
 ### Exercice 2.3  - Sigaux d'alertes
 
-Les trois vidéos présentés sur GitHub résument le prochain exercice.
 Quand l'obstacle est loin de l'Arduino, la DEL verte est allumée.
-Quand l'obstacle est à moins de 8 cm de l'Arduino, la DEL rouge est allumée, la verte s'éteind.
-Quand l'obstacle est à moins de 4 cm de l'Arduino, la DEL rouge clignote aux 0,5 secomdes.
+Quand l'obstacle est à moins de 4 cm de l'Arduino, la DEL jaune est allumée, la rouge s'éteind.
 
-Complétez le branchement en intégrant deux DELs de votre plaquette d'expérimentation à l'Arduino, une rouge et une verte. N'oubliez pas d'ajouter un fil de prise de terre entre les équipements. Relier la breadboard à la prise GND de la plaquette d'expérimentation fait bien l'affaire.
+Complétez le branchement en intégrant trois DELs de votre plaquette d'expérimentation à l'Arduino, une rouge, une jaune et une verte. N'oubliez pas d'ajouter un fil de prise de terre entre les équipements. Relier la breadboard à la prise GND de la plaquette d'expérimentation fait bien l'affaire.
 
 ![BranchementDetecteurSonar](img/CircuitHC-SR04_Et_2LEDs.png)
 
