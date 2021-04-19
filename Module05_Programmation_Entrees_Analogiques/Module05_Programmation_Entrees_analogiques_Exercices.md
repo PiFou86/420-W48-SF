@@ -99,15 +99,13 @@ Complétez le branchement en intégrant deux DELs de votre plaquette d'expérime
 
 ![BranchementDetecteurSonar](img/CircuitHC-SR04_Et_2LEDs.png)
 
-Vues avec le logiciel Fritzing
+Vues avec le logiciel Fritzing pour 2 DELs
 
 ![VueAvecFritzing](img/schemaHC-SR04_Et_2LEDsVUeFritzing.png)
 
-
 ![VueAvecFritzing](img/CircuitHC-SR04_Et_2LEDsVUeFritzing.png)
 
-
- Composez le programme ```"SignalerDanger.ino"``` pour respecter les trois conditions illustrées dans les vidéos de l'exercice.
+Composez le programme ```"SignalerDanger.ino"``` pour respecter les trois conditions illustrées dans les vidéos de l'exercice.
 - la DEL verte est allumée en situation sécuritaire: 8 cm et +.
-- la DEL rouge est allumée en situation de danger: entre 4 cm et 8 cm. La DEL verte est éteinte.
-- la DEL rouge clignote à toutes les demis-secondes; moins de 4 cm.
+- la DEL jaune est allumée en situation de danger: entre 4 cm et 8 cm. La DEL verte est éteinte.
+- la DEL rouge est allumée en situation extrême de danger: moins de 4 cm. La DEL rouge est éteinte.
