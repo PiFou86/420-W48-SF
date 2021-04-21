@@ -1,0 +1,42 @@
+@startuml dc_Bouton
+skinparam maxMessageSize 50
+
+class Program {
+    - m_bouton : Bouton*
+    + ctor()
+    + void loop()
+}
+
+class Bouton {
+    - m_pin : uint8_t
+    - m_actionBoutonPresse : Action*
+    + ctor(p_pinBouton : int, p_actionBoutonPresse : Action*)
+    + void tick()
+}
+
+abstract class Action {
+    + void executer() {abstract}
+}
+
+class ActionModifierIntesiteDEL {
+    - m_DEL : DEL*
+    - m_pourcentageAllumee : uint8_t
+    + void executer()
+}
+
+Action <|-- ActionModifierIntesiteDEL
+
+class DEL {
+    - m_pin : uint8_t
+    + ctor(p_pin : uint8_t)
+    + allumer()
+    + allumer(p_pourcentage : uint8_t)
+    + eteindre()
+}
+
+DEL "1" <-- "1" ActionModifierIntesiteDEL
+Bouton "1" <-left- "1" Program
+ActionModifierIntesiteDEL "1" <-left- "1" Bouton
+
+
+@enduml

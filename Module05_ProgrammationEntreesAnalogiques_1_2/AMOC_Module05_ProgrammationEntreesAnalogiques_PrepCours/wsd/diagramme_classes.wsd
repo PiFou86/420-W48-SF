@@ -1,7 +1,7 @@
 @startuml dc_DetecteurDistance
 skinparam maxMessageSize 50
 
-class Temporisation {
+abstract class Temporisation {
     + void tick() {abstract}
 }
 
@@ -27,7 +27,7 @@ class DetecteurDistanceHCSR04 {
     + double obtenirDistanceMetres()
 }
 
-class Action {
+abstract class Action {
     + void executer() {abstract}
 }
 
