@@ -1,0 +1,36 @@
+@startuml diagramme_classes_LCD
+
+
+class LCD1602 {
+    + ctor(p_proxy : LCD1602Proxy*)
+    + definirPositionCurseur(p_colonne : int, p_ligne : int) const
+    + afficher(p_texte : const String&) const
+    + effacer() const
+    - m_proxy : LCD1602Proxy*
+}
+
+interface LCD1602Proxy {
+    + definirPositionCurseur(p_colonne : int, p_ligne : int) const
+    + afficher(p_texte : const String&) const
+    + effacer() const
+}
+
+class LCD1602ProxyI2C {
+    + ctor()
+    + definirPositionCurseur(p_colonne : int, p_ligne : int) const
+    + afficher(p_texte : const String&) const
+    + effacer() const
+    - m_lcd : LiquidCrystal_I2C*
+}
+
+class Program {
+    + ctor()
+    + loop()
+    - m_LCD : LCD1602*
+}
+
+LCD1602 "1" -right-> "1" LCD1602Proxy
+LCD1602Proxy <|.. LCD1602ProxyI2C
+LCD1602ProxyI2C "1" -right-> "1" LiquidCrystal_I2C
+Program  "1" -right-> "1" LCD1602
+@enduml
