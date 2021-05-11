@@ -1,0 +1,31 @@
+@startuml diagramme_classes_LCD
+
+class Program {
+    + ctor()
+    + loop()
+    - m_affichage4Digits : Affichage4Digits*
+}
+
+class Affichage4Digits {
+    + ctor(p_proxy : Affichage4DigitsProxy*)
+    + afficher(p_d1 : uint8_t, p_d2 : uint8_t, p_d3 : uint8_t, p_d4 : uint8_t)
+    + afficherEntier(p_valeur : uint16_t)
+    - Affichage4DigitsProxy *m_proxy
+}
+
+interface Affichage4DigitsProxy {
+    + afficher(p_d1 : uint8_t, p_d2 : uint8_t, p_d3 : uint8_t, p_d4 : uint8_t) {abstract}
+}
+
+class Affichage4DigitsProxyTM1637 {
+    + ctor(p_pinHorloge : int, p_pinDonnees : int)
+    + afficher(p_d1 : uint8_t, p_d2 : uint8_t, p_d3 : uint8_t, p_d4 : uint8_t)
+    - m_tm1637 : TM1637Display*
+}
+
+Affichage4Digits "1" -right-> "1" Affichage4DigitsProxy
+Affichage4DigitsProxy <|.. Affichage4DigitsProxyTM1637
+Affichage4DigitsProxyTM1637 "1" -right-> "1" TM1637Display
+Program  "1" -right-> "1" Affichage4Digits
+
+@enduml
