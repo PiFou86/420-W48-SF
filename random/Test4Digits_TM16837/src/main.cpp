@@ -11,7 +11,7 @@ const uint8_t tousEteints[] = {0x00, 0x00, 0x00, 0x00};
 
 const uint8_t fin[] = {
     SEG_A | SEG_E | SEG_F | SEG_G,  // F
-    SEG_B | SEG_C,                  // i
+    SEG_E,                          // i
     SEG_C | SEG_E | SEG_G,          // n
     SEG_B | SEG_C | SEG_DP          // !
 };
@@ -72,6 +72,8 @@ void loop() {
   for (int valeur = -1200; valeur < 11000; ++valeur) {
     display.showNumberDec(valeur, true);
   }
+
+  display.setSegments(fin);
 
   delay(5000);
 }
