@@ -67,7 +67,7 @@ void setup() {
 void loop() { ; }
 
 void demoDeserialiserJSON() {
-  const char* input =
+  const char* json =
       "{"
       "  \"menu\": {"
       "    \"id\": \"file\","
@@ -91,7 +91,7 @@ void demoDeserialiserJSON() {
       "  }"
       "}";
   DynamicJsonDocument doc(1024);
-  DeserializationError error = deserializeJson(doc, input);
+  DeserializationError error = deserializeJson(doc, json);
 
   if (error) {
     Serial.print(F("deserializeJson() failed: "));
@@ -158,7 +158,6 @@ void demoSerialiserJSON() {
   // File file = xyz.open(filename, FILE_WRITE);
   // serializeJson(doc, file);
   // file.close();
-  // serializeJson(doc, file);
   // ou
   // serializeJson(doc, Serial);
   char chaineTmp[1024];
@@ -166,7 +165,7 @@ void demoSerialiserJSON() {
   Serial.println(chaineTmp);
 }
 
-String obtenirIPExterne() {
+String obtenirIPPublique() {
   String res = "";
   if (WiFi.status() == WL_CONNECTED) {
     String url = "https://ifconfig.co/json";
@@ -186,7 +185,7 @@ String obtenirIPExterne() {
   return res;
 }
 
-void afficherInformationIPExterneAPartirJSON(const String& json) {
+void afficherInformationIPPubliqueAPartirJSON(const String& json) {
   DynamicJsonDocument doc(1024);
   DeserializationError error = deserializeJson(doc, json);
 
@@ -204,9 +203,9 @@ void afficherInformationIPExterneAPartirJSON(const String& json) {
 }
 
 void demoIfconfig() {
-  String json = obtenirIPExterne();
+  String json = obtenirIPPublique();
   if (json != "") {
-    afficherInformationIPExterneAPartirJSON(json);
+    afficherInformationIPPubliqueAPartirJSON(json);
   } else {
     Serial.println("Erreur d'obtention de l'adresse externe");
   }
