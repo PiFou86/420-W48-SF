@@ -61,11 +61,11 @@ Modifiez l'application platformIO ```AMOC_Module10_VariationMLI```.
 
 ### Brancher le matériel
 
-- branchement des bornes I2c entre EPS32 et le LCD.
+- branchement des bornes I2c entre ESP32 et le LCD.
 
 #### Étape 1 - Connexion internet 
 
-- Créez le projet Platformio ```Module10_Client_Web```
+- Créez le projet Platformio ```AMOC_Module10_Client_Web```
 - Le programme doit fonctionner comme suit :
     - À l'aide de la  méthode Wifi.begin de la librairie Wifi.h, établir une connexion Wifi sur votre ESP32 et votre routeur domestique.
     - Ajouter une boucle pour 30 tentatives.  En cas d'échec, le programme se termine avec un message d'erreur.
@@ -79,7 +79,7 @@ Modifiez l'application platformIO ```AMOC_Module10_VariationMLI```.
 
 #### Étape 3 - Afficher les adresses IP locale et publique sur l'écran LCD 
 - Le programme se poursuit de la façon suivante:
-    - Le programme affiche les données JSON disponible sur le moniteur  Série.
+    - Le programme affiche les données JSON disponibles sur le moniteur  Série.
     - Les adresses IP locale et publique sont affichées sur l'écran LCD.
 
 ## Exercice 4 - "Fera-t-il beau, fera-t-il chaud, c'est le secret de la météo?" (optionnel)
@@ -89,7 +89,7 @@ Le but de ce programme est d'extraire des données météo pour les afficher dan
 
 #### Étape 1 - Obtenir des informations météo
 
-- Créez le projet Platformio ```Module10_Meteo_Montreal```
+- Créez le projet Platformio ```AMOC_Module10_Meteo_Montreal```
 - Le programme doit fonctionner comme suit :
   - Basez-vous sur l'exercice précédent pour obtenir des données JSON du site web ```www.metaweather.com/api/location/3534/```.
 
