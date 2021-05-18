@@ -3,6 +3,7 @@
 #include <Arduino.h>
 #include <SPIFFS.h>
 #include <WebServer.h>
+#include <detail/RequestHandlersImpl.h>
 
 ServeurWeb::ServeurWeb() {
   SPIFFS.begin();
@@ -10,7 +11,9 @@ ServeurWeb::ServeurWeb() {
   pinMode(2, OUTPUT);
 
   this->m_webServer = new WebServer();
-  this->m_webServer->begin();
+
+  this->ajouterFichiersStatiques("/");
+
   this->m_webServer->on("/", HTTPMethod::HTTP_GET,
                         [this]() { this->afficherRacine(); });
   this->m_webServer->on("/allumer", HTTPMethod::HTTP_GET,
@@ -18,7 +21,9 @@ ServeurWeb::ServeurWeb() {
   this->m_webServer->on("/eteindre", HTTPMethod::HTTP_GET,
                         [this]() { this->eteindre(); });
   this->m_webServer->onNotFound(
-      [this]() { this->renvoyerRessource(this->m_webServer->uri()); });
+      [this]() { this->ressourceNonTrouvee(this->m_webServer->uri()); });
+
+  this->m_webServer->begin();
 }
 
 void ServeurWeb::tick() { this->m_webServer->handleClient(); }
@@ -27,30 +32,42 @@ void ServeurWeb::afficherRacine() {
   Serial.println("Réception requête");
   Serial.println(this->m_webServer->uri());
 
-  this->renvoyerRessource("/index.html");
+  this->m_webServer->sendHeader("Location", "index.html", true);
+  this->m_webServer->send(301, "text/plain", "");
 }
 
-void ServeurWeb::renvoyerRessource(const String& p_nomRessource) {
-  String contentType = obtenirContentType(p_nomRessource);
+void ServeurWeb::ajouterFichiersStatiques(String const& p_debutNomFichier) {
+  File racine = SPIFFS.open("/");
+  ajouterFichiersStatiques(p_debutNomFichier, racine);
+}
 
-  if (SPIFFS.exists(p_nomRessource)) {
-    File fichier = SPIFFS.open(p_nomRessource, "r");
-    size_t sent = this->m_webServer->streamFile(fichier, contentType);
+void ServeurWeb::ajouterFichiersStatiques(String const& p_debutNomFichier,
+                                          File& p_repertoire) {
+  if (!p_repertoire) return;
+
+  File fichier = p_repertoire.openNextFile();
+  while (fichier) {
+    String nomFichier = String(fichier.name());
+    if (fichier.isDirectory()) {
+      ajouterFichiersStatiques(p_debutNomFichier, fichier);
+    } else {
+      if (nomFichier.startsWith(p_debutNomFichier)) {
+        Serial.println(String("Ajout du fichier statique: " + nomFichier));
+        this->m_webServer->serveStatic(nomFichier.c_str(), SPIFFS,
+                                       nomFichier.c_str());
+      }
+    }
     fichier.close();
-  } else {
-    this->m_webServer->send(404, "text/plain",
-                            "Ressource " + p_nomRessource + " non trouvée !");
+    fichier = p_repertoire.openNextFile();
   }
+
+  p_repertoire.close();
 }
 
-String ServeurWeb::obtenirContentType(const String& p_nomRessource) {
-  if (p_nomRessource.endsWith(".html"))
-    return "text/html";
-  else if (p_nomRessource.endsWith(".js"))
-    return "application/javascript";
-  else if (p_nomRessource.endsWith(".css"))
-    return "text/css";
-  return "text/plain";
+void ServeurWeb::ressourceNonTrouvee(const String& p_nomRessource) {
+  Serial.println("Ressource '" + p_nomRessource + "' non trouvée !");
+  this->m_webServer->send(404, "text/plain",
+                          "Ressource '" + p_nomRessource + "' non trouvée !");
 }
 
 void ServeurWeb::allumer() {

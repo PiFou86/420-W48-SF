@@ -1,18 +1,24 @@
 #pragma once
 #include <Arduino.h>
+#include <FS.h>
 
 class WebServer;
+
 class ServeurWeb {
  public:
   ServeurWeb();
   void tick();
-  void renvoyerRessource(const String& p_nomFichier);
 
  private:
   WebServer* m_webServer;
+  
   void afficherRacine();
-  void afficherFichiersStatiques();
-  String obtenirContentType(const String& p_nomRessource);
+
+  void ajouterFichiersStatiques(String const& p_debutNomFichier);
+  void ajouterFichiersStatiques(String const& p_debutNomFichier,
+                                File& p_fichier);
+                                
+  void ressourceNonTrouvee(String const& p_nomFichier);
 
   void allumer(void);
   void eteindre(void);
