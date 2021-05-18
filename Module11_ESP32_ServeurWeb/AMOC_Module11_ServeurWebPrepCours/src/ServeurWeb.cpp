@@ -5,6 +5,11 @@
 #include <WebServer.h>
 #include <detail/RequestHandlersImpl.h>
 
+// Note: pour bootstrap, nous pourrions utiliser un CDN ce qui
+// - économiserait de l'espace
+// - permettrait de gagner du temps de traitement car
+// potentiellement déjà dans la cache du navigateur
+
 ServeurWeb::ServeurWeb() {
   SPIFFS.begin();
 
