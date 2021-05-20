@@ -13,7 +13,7 @@ Program::Program() {
   // Configurer l'ensemble de vos actionneurs.
   // Ici je n'ai mis que des DELs et j'ai triché en utilisant que la DEL qui
   // est soudé sur l'ESP32
-  // DEL(idUnique, "description", allumée?)
+  // DEL(idUnique, "description", pin, allumée?)
   // La configuration des actions pourraient même être enregistrée dans un fichier json.
   // Les routes sont :
   // GET /actionneurs    -> renvoie la liste des actionneurs avec le statut
