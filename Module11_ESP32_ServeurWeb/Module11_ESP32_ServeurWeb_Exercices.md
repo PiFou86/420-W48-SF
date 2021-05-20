@@ -202,6 +202,15 @@ Modifier les routes "/allumer" et "/eteindre" pour n'avoir plus que la seule rou
 
 Dans cet exercice, nous allons généraliser la notion d'actionneurs ainsi que le nombre d'actionneurs disponibles sur une page.
 
+Pour cet exercice, nous vous demandons de vous baser sur le diagramme de classes ci-dessous :
+
+<details>
+    <summary>Diagramme de classes</summary>
+
+![](img/diagramme_classes_Actionneurs.png)
+
+</details>
+
 - Vous allez devoir créer une classe abstraite "Actionneur" qui contient un identifiant et une description
 - Votre classe "DEL" doit maintenant hériter de la classe "Actionneur"
 - Votre classe "ServeurWeb" doit maintenant prendre en paramètres un "std::vector<Actionneur*>" avec un passage par référence. Cette collection provient d'une données membre du même type qui est remplie dans le constructeur de la classe "Program" :
