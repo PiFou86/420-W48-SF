@@ -12,12 +12,13 @@ Program::Program() {
 
   // Configurer l'ensemble de vos actionneurs.
   // Ici je n'ai mis que des DELs et j'ai triché en utilisant que la DEL qui
-  // est soudé sur l'ESP32
+  // est soudée sur l'ESP32
   // DEL(idUnique, "description", pin, allumée?)
   // La configuration des actions pourraient même être enregistrée dans un fichier json.
   // Les routes sont :
   // GET /actionneurs    -> renvoie la liste des actionneurs avec le statut
-  // PUT /actionneurs/id -> permet de mettre à jour un actionneur avec la struture exemples : {"id":1,"statut":"eteint"}, {"id":1,"statut":"allume"}
+  // PUT /actionneurs/id -> permet de mettre à jour un actionneur avec la struture 
+  // exemples : {"id":1,"statut":"eteint"}, {"id":1,"statut":"allume"}
   this->m_actionneurs.push_back(new DEL(1, "DEL 1", 2, false));
   this->m_actionneurs.push_back(new DEL(2, "DEL 2", 2, false));
   this->m_actionneurs.push_back(new DEL(3, "DEL 3", 2, false));
