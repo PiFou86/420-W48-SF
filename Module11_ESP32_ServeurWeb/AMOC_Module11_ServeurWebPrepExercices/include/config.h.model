@@ -1,0 +1,6 @@
+#pragma once
+
+// Fichier à copier vers config.h
+
+#define WIFI_SSID     "votre_ssid"
+#define WIFI_PASSWORD "votre_mot_de_passe"

@@ -1,0 +1,56 @@
+@startuml diagramme_classes_Actionneurs
+
+
+class Actionneur {
+    + ctor(p_id: int const &, p_description: String const& )
+    + description() const : const String&
+    + id() const : int
+    + virtual allumer() {abstract}
+    + virtual eteindre() {abstract}
+    + virtual estAllume() const : bool {abstract}
+    - m_id :int
+    - m_description : String
+}
+
+class DEL {
+    + ctor(p_id: int const&, p_description: String const&, p_pin: int, p_estAllumee : bool = false)
+    + virtual allumer()
+    + virtual eteindre()
+    + virtual estAllume() const : bool
+
+    - m_pin : int
+    - m_estAllumee : bool
+}
+
+Actionneur <|-- DEL
+
+
+class Program {
+    + ctor()
+    + loop()
+    + connexionReseau()
+
+    - m_serveurWeb: ServeurWeb*
+    - m_actionneurs: std::vector<Actionneur*>
+}
+
+class ServeurWeb {
+    + ServeurWeb(std::vector<Actionneur*> const& p_actionneurs)
+    + tick()
+
+    - m_actionneurs: std::vector<Actionneur*> const&
+    - m_webServer: WebServer*
+    - afficherRacine()
+    - ajouterFichiersStatiques(p_debutNomFichier: String const&)
+    - ajouterFichiersStatiques(p_debutNomFichier: String const&, p_fichier: File&)
+    - ressourceNonTrouvee(p_nomFichier: String const&);
+    - actionner(p_id: int const&)
+    - statuts() const
+}
+
+Program "1" -right-> "n" Actionneur
+Program "1" -left-> "1" ServeurWeb
+ServeurWeb "1" -left-> "1" WebServer
+ServeurWeb "1" -left-> "n" Actionneur
+
+@enduml

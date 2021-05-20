@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Actionneurs !</title>
+</head>
+
+<body>
+    <main>
+        <div class="container col-xl-10">
+            <div class="row align-items-center g-lg-5 py-5">
+                <div class="col-md-10 mx-auto col-lg-5">
+                    <div class="p-4 p-md-5 border rounded-3 bg-light">
+                        <div class="mb-3">
+                            Actionneurs
+                        </div>
+                        <div id="actionneurs"></div>
+                        <hr class="my-4">
+                        <small class="text-muted">Site diffusé par votre ESP32.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        function listerActionneurs() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = () => {
+                if (xhttp.readyState == 4) {
+                    if (xhttp.status == 200) {
+                        var json = xhttp.response;
+                        var actionneurs = JSON.parse(json);
+                        var divActionneurs = document.getElementById("actionneurs")
+
+                        actionneurs.forEach(actionneur => {
+                            var div = document.createElement("div");
+                            div.classList.add("mb-3");
+                            div.classList.add("form-check");
+                            div.classList.add("form-switch");
+
+                            var input = document.createElement("input");
+                            var inputId = "actionneur_" + actionneur.id;
+                            input.id = inputId;
+                            input.dataset.id = actionneur.id;
+                            input.type = "checkbox";
+                            input.checked = actionneur.statut == "allume";
+                            input.classList.add("form-check-input");
+                            input.onchange = function () {
+                                modifierEtat(this.checked, this.dataset.id);
+                            };
+
+                            var label = document.createElement("label");
+                            label.classList.add("form-check-label");
+                            label.for = inputId;
+                            label.innerText = actionneur.description;
+
+                            div.appendChild(input);
+                            div.appendChild(label);
+
+                            divActionneurs.appendChild(div);
+                        });
+                    } else {
+                        console.log("Erreur: " + xhttp.responseText);
+                    }
+                }
+            }
+            xhttp.open("GET", "actionneurs", true);
+            xhttp.send();
+        }
+
+        function modifierEtat(allume, p_id) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = () => {
+                if (xhttp.readyState == 4) {
+                    if (xhttp.status == 200) {
+                        var json = xhttp.response;
+                        var actionneur = JSON.parse(json);
+                        
+                        document.getElementById("actionneur_" + actionneur.id).checked = actionneur.statut == "allume";
+                    } else {
+                        console.log("Erreur: " + xhttp.responseText);
+                    }
+                }
+            }
+            xhttp.open("PUT", "actionneurs/" + p_id, true);
+            xhttp.setRequestHeader('Content-type', 'text/json');
+            xhttp.send(JSON.stringify({
+                id: p_id,
+                statut: allume?"allume":"eteint"
+            }));
+        }
+
+        window.onload = listerActionneurs;
+    </script>
+</body>
+
+</html>

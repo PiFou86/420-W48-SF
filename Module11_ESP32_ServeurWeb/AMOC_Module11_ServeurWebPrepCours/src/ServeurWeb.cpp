@@ -50,6 +50,9 @@ void ServeurWeb::ajouterFichiersStatiques(String const& p_debutNomFichier,
                                           File& p_repertoire) {
   if (!p_repertoire) return;
 
+  Serial.println(String("Traitement du répertoire: ") + p_repertoire.name());
+
+
   File fichier = p_repertoire.openNextFile();
   while (fichier) {
     String nomFichier = String(fichier.name());
