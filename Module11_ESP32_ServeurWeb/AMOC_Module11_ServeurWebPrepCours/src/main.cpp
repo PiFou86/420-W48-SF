@@ -10,12 +10,7 @@ void setup() {
   program = new Program();
 }
 
-// https://tttapa.github.io/ESP8266/Chap11%20-%20SPIFFS.html
 void loop() {
-  // void loop(void) {
-  //   server.handleClient();
-  // }
-
   program->loop();
 }
 
