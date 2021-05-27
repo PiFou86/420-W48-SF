@@ -122,7 +122,7 @@ Quand l'état est au repos, la DEL rouge est éteinte. Quand l'état est actifi,
 
 Le deuxième montage comprend un ESP32, un bouton et deux DELs (une rouge, une verte).
 
-Ce montage doit envoyer les demandes d'allumage ou d'instinction d'un appareil. Pour ce faire ce montage va appeler l'API exposée sur le premier montage.
+Ce montage doit envoyer les demandes d'allumage ou d'extinction d'un appareil. Pour ce faire ce montage va appeler l'API exposée sur le premier montage.
 
 À l'appuie sur le bouton poussoir, une requête ```PUT``` est envoyé sur l'API :
 
