@@ -87,3 +87,46 @@ La façon conventionnelle de faire cette opération consiste à appuyer sur un b
 - Appuyez sur le bouton "reset" pour amorcer le programme depuis le début
 
 Le programme devrait passer en mode équivalente à l'étape 2
+
+## Exercice 4 - On coupe le fil !
+
+Ce travail doit s'effectuer à deux avec deux ESP32.
+
+### Exercice 4.1 - Périphérique serveur
+
+Le premier montage comprend un ESP32 et une DEL rouge.
+
+Le programme interne doit créer le point d'accès "IoT_M13_Ex04_<numéroMatricule>" et exposer un site sur le port 80.
+
+L'API du site doit être comme suit :
+
+| Ressource       | Méthode | Résultat                                              |
+|-----------------|---------|-------------------------------------------------------|
+| /coeur-reacteur | GET     | Renvoie l'état du coeur du réacteur - code 200        |
+| /coeur-reacteur | PUT     | Permet de modifier l'état du coeur et renvoie le nouvel état - code 200|
+
+L'objet d'état doit être au format suivant :
+```json
+{
+    "etat": "actif"
+}
+OU
+{
+    "etat": "repos"
+}
+```
+
+Quand l'état est au repos, la DEL rouge est éteinte. Quand l'état est actifi, la DEL rouge est allumée.
+
+### Exercice 4.2 - Périphérique client
+
+Le deuxième montage comprend un ESP32, un bouton et deux DELs (une rouge, une verte).
+
+Ce montage doit envoyer les demandes d'allumage ou d'extinction d'un appareil. Pour ce faire ce montage va appeler l'API exposée sur le premier montage.
+
+À l'appuie sur le bouton poussoir, une requête ```PUT``` est envoyé sur l'API :
+
+- Si le coeur est déjà actif, envoyez une requête de mise en repos
+- Si le coeur est au repos, envoyez une requêtre d'activation
+
+Si le coeur est dans l'état actif, la DEL rouge est allumée. Si le coeur est inactif, la DEL verte est allumée. Vous devez valider l'état du coeur au moins une fois toutes les secondes.
