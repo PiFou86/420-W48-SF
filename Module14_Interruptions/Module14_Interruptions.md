@@ -1,20 +1,14 @@
 # Module 14 - Interruptions
 
- librairie ```WifiManager```
-
-![PremierDemarrage](img/PremierDemarrage.png)
-
-bornes esp32
-
 ## Objectifs
 
 Dans ces exercices, vous allez mettre en oeuvre une routine d'interruption qui réagit à l'appui d'un bouton-poussoir.
 
 Votre routine de base compte le nombre d'appuis du bouton et l'affiche sur la console. Par la suite, vous allez y incorporer du code pour éliminer les rebonds.
 
-Enfin, vous allez y ajouter trois mécanismes pour augmenter la fiabilité des résultats.
+Enfin, vous allez y ajouter des mécanismes pour augmenter la fiabilité des résultats.
 
-Rappelons que les routines d'interruption ne sont reliées au programme en cours d'exécution que par un passage obligé avec les registres du processeur. Cette contrainte fait en sorte qu'il peut arriver une différence entre la valeur d'une variable dans RAM et dans le processeur.
+Rappelons que les routines d'interruption ne sont reliées au programme en cours d'exécution que par un passage obligé avec les registres du processeur. Cette contrainte fait en sorte qu'il peut arriver une différence entre la valeur d'une variable durant l'interruption et durant le traitement principal.
 
 ## Exercice 1 - Interruption de base
 
@@ -22,7 +16,7 @@ Rappelons que les routines d'interruption ne sont reliées au programme en cours
 
 Branchez votre plaquette à votre ESP32 de la façon suivante :
 
-- Borne No 14 à une des trois bornes des boutons-poussoir
+- Borne No 14 à une des trois bornes des boutons-poussoirs
 - Alimentation ```3,3V``` du ESP32 vers alimentation de la plaquette (VCC)
 - Prise de terre du ESP32 vers la prise de terre de la plaquette (GND)
 
@@ -30,14 +24,14 @@ Branchez votre plaquette à votre ESP32 de la façon suivante :
 
 - Créez la nouvelle application platformIO ```AMOC_M014_ESP32_Interruption```
 - Ajoutez les instructions d'une routine d'interruption permettant de détecter et de compter le nombre de fois que le bouton poussoir a été appuyé. Le bouton poussoir doit être correctement relié à la borne digitale No 14 du ESP32
-- Le décompte des appuis doit se faire au moment du relachement du bouton
+- Le décompte des appuis doit se faire au moment de l'appui du bouton
 - Ajoutez les instructions pour afficher ce décompte à toutes les 2 secondes. Au passage, faire clignoter la DEL No 2 pour marquer le temps.
 
 ## Exercice 2 - Mécanisme sans rebond
 
 ### Étape 1 - Programmation du bouton poussoir sans rebond
 
-- Ajoutez le code pour mettre en place la robustesse sans rebond
+- Ajoutez le code pour mettre en place le décompte des appuis sans rebond
 
 ### Étape 2 - partage de la valeur du décompte
 
@@ -45,11 +39,11 @@ Branchez votre plaquette à votre ESP32 de la façon suivante :
 
 Le temps d'affichage par les instructions ```Serial.print``` et ```Serial.println``` est comparativement très long par rapport à l'exécution de l'interruption. Si une interruption survient durant l'affichage de la valeur du décompte, il n'est pas possible de savoir si la console indique la valeur avant ou après l'interruption
 
-Ajoutez le code pour  résoudre cette possibilité.
+Ajoutez les instructions pour résoudre cette possibilité.
 
 ### Étape 3 -  Fiabilité de l'interruption
 
-Ajoutez les 3 mécanismes pour augmenter la fiabilité de la donnée
+Ajoutez les instructions de protection de la donnée durant l'interruption.
 
 ## Exercice 4 - Contrôler les arrêts/reprises d'une interruption
 
@@ -71,16 +65,21 @@ Il arrive souvent que l'interruption doit être désactivée dans certaines circ
 
 #### Scénario
 
-Vous habitez dans la région de la centrale nucléaire ! Votre matériel est équipé d'un système de détection d'avions mettant en danger la sécurité de la population. Le bouton de votre matériel permet d'envoyer des messages SMS aux populations si certains seuils sont atteints.
+Vous habitez dans la région d'une centrale nucléaire ! Votre mandat consiste à programmer votre équipement pour détecter des radiations mettant en danger la santé de la population.
+
+Lorsque le niveau radiation atteint un seuil, votre équipement active l'interruption du bouton pendant la période de risque. Le bouton doit être désactivé en temps normal; ceci évite les fausses alertes.
+
+L'équipement de détection de radiations sera simulé par votre détecteur à ultra-sons HC-SR04 qui mesure des distances.
 
 #### Montage
 
 - Ajoutez un détecteur ultrasonique HC-SR04 à votre montage
-- Utilisez les bornes 16 et 17 pour Echo et Trigger
-- ***UTILISEZ LA TENSION 3,3 V*** pour alimenter le détecteur
+- Utilisez les bornes ```16``` et ```17``` pour Echo et Trigger
+- ***UTILISEZ LA TENSION ```3,3 V```*** pour alimenter le détecteur
 
 #### Programmation
 
-- Programmez le détecteur pour faire clignoter la DEL NO 2 lorsque les avions menacent la sécurité (distance entre "l'avion" et vous se situe dans l'intervalle [ 0-8 ] cm)
-- Dans ces conditions, l'interruption est activée. A chaque appui du bouton, une sirène retentit
-- Lorsque la menace est passée, l'interruption est désactivée pour éviter de fausse alertes à la population
+- Programmez le détecteur ultra-sonique pour faire clignoter la DEL NO 2 lorsque la distance mesurée se situe dans l'intervalle [ 0-8 ] cm.
+- Dans ces conditions, l'interruption est activée. A chaque appui du bouton, une sirène retentit !
+- Lorsque la menace est passée (intervalle > 8 cm), l'interruption est désactivée pour éviter de fausses alertes à la population
+- Votre console affiche un journal des tests
