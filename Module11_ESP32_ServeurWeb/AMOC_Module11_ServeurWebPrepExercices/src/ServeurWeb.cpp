@@ -21,15 +21,13 @@ ServeurWeb::ServeurWeb(std::vector<Actionneur*> const& p_actionneurs)
     : m_actionneurs(p_actionneurs) {
   SPIFFS.begin();
 
-  pinMode(2, OUTPUT);
-
   this->m_webServer = new WebServer();
 
   this->ajouterFichiersStatiques("/");
 
   this->m_webServer->on("/", HTTPMethod::HTTP_GET,
                         [this]() { this->afficherRacine(); });
-  this->m_webServer->on(UriBraces("/actionneurs"), HTTPMethod::HTTP_GET,
+  this->m_webServer->on(Uri("/actionneurs"), HTTPMethod::HTTP_GET,
                         [this]() { this->statuts(); });
   this->m_webServer->on(UriBraces("/actionneurs/{}"), HTTPMethod::HTTP_PUT,
                         [this]() {
@@ -151,7 +149,7 @@ void ServeurWeb::actionner(int const& p_id) {
       this->m_webServer->send(200, "text/json", serialiserInformationActionneur(*ia));
     }
 
-    if (ia == nullptr) {
+    if (ia != nullptr) {
       delete ia;
       ia = nullptr;
     }
