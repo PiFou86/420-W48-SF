@@ -7,7 +7,6 @@ box Ordinateur
     participant Navigateur
 end box
 
-
 box ESP32
     participant ServeurWeb
     participant SPIFFS
