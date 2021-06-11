@@ -1,0 +1,18 @@
+@startuml exercice1_acces_page_web
+
+hide footbox
+
+'box Navigateur
+'     participant Navigateur
+' end box
+
+' box ESP32
+'     participant ESP32
+' end box
+
+Utilisateur -> Navigateur : demande http://192.168.23.1/
+Navigateur -> ESP32 : GET /
+return Bonjour à partir de mon ESP32 !
+Navigateur --> Utilisateur : Affiche
+
+@enduml

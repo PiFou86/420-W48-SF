@@ -1,0 +1,54 @@
+@startuml exercice3_controle_del
+
+hide footbox
+
+box Ordinateur
+    participant Utilisateur
+    participant Navigateur
+end box
+
+
+box ESP32
+    participant ServeurWeb
+    participant SPIFFS
+    participant DEL
+end box
+
+== Requête et chargement de la page ==
+
+Utilisateur -> Navigateur : demande http://192.168.23.1/"
+Navigateur -> ServeurWeb : GET /
+return redirect /index.html
+Navigateur -> ServeurWeb : GET /index.html
+ServeurWeb -> SPIFFS : open/read/close
+return contenu fichier
+ServeurWeb --> Navigateur : code HTML de la page
+
+loop Pour toute ressource du document HTML
+    Navigateur -> ServeurWeb : GET /ressource
+    ServeurWeb -> SPIFFS : open/read/close
+    return contenu fichier
+    ServeurWeb --> Navigateur : données de la ressource
+end loop
+
+Navigateur --> Utilisateur : Affiche
+...
+
+== L'utilisateur veut allumer ==
+
+Utilisateur -> Navigateur : Clique sur "Allumer"
+Navigateur -> ServeurWeb : GET /allumer
+ServeurWeb -> DEL : allumer()
+ServeurWeb --> Navigateur : "DEL allumée"
+Navigateur --> Utilisateur : Affiche
+...
+
+== L'utilisateur veut éteindre ==
+
+Utilisateur -> Navigateur : Clique sur "Éteindre"
+Navigateur -> ServeurWeb : GET /eteindre
+ServeurWeb -> DEL : eteindre()
+ServeurWeb --> Navigateur : "DEL éteinte"
+Navigateur --> Utilisateur : Affiche
+
+@enduml

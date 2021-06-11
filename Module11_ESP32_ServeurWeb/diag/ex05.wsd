@@ -1,0 +1,58 @@
+@startuml exercice5_controle_actionneurs
+
+hide footbox
+
+box Ordinateur
+    participant Utilisateur
+    participant Navigateur
+end box
+
+
+box ESP32
+    participant ServeurWeb
+    participant SPIFFS
+    participant DEL
+end box
+
+== Requête et chargement de la page ==
+
+Utilisateur -> Navigateur : demande http://192.168.23.1/"
+Navigateur -> ServeurWeb : GET /
+return redirect /index.html
+Navigateur -> ServeurWeb : GET /index.html
+ServeurWeb -> SPIFFS : open/read/close
+return contenu fichier
+ServeurWeb --> Navigateur : code HTML de la page
+
+loop Pour toute ressource du document HTML
+    Navigateur -> ServeurWeb : GET /ressource
+    ServeurWeb -> SPIFFS : open/read/close
+    return contenu fichier
+    ServeurWeb --> Navigateur : données de la ressource
+end loop
+
+Navigateur -> Navigateur : page chargée
+Navigateur -> ServeurWeb : GET /actionneurs
+ServeurWeb --> Navigateur : [{"id" : 1,"etat": "eteint", "description":"DEL 1"},\n{"id" : 2,"etat": "eteint", "description":"DEL 2"}\n...\n{"id" : 6,"etat": "eteint", "description":"DEL 6"}]
+
+Navigateur --> Utilisateur : Affiche
+...
+
+== L'utilisateur veut allumer l'actionneur 3 (DEL 3) ==
+
+Utilisateur -> Navigateur : Clique sur le bouton de basculement de l'actionneur "DEL 3"
+Navigateur -> ServeurWeb : PUT /actionneurs/3 {"id" : 3,"etat": "allume", "description":"DEL 3"}
+ServeurWeb -> DEL : allumer()
+ServeurWeb --> Navigateur : {"id" : 3,"etat": "allume"}
+Navigateur --> Utilisateur : Affiche le bouton avec le bon statut
+...
+
+== L'utilisateur veut éteindre l'actionneur 3 (DEL 3) ==
+
+Utilisateur -> Navigateur : Clique sur le bouton de basculement de l'actionneur "DEL 3"
+Navigateur -> ServeurWeb : PUT /actionneurs/3 {"id" : 3,"etat": "eteint", "description":"DEL 3"}
+ServeurWeb -> DEL : eteindre()
+ServeurWeb --> Navigateur : {"id" : 3,"etat": "eteint"}
+Navigateur --> Utilisateur : Affiche le bouton avec le bon statut
+
+@enduml

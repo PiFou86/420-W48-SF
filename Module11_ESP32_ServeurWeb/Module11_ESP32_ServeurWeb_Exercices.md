@@ -48,26 +48,33 @@ Si cela ne fonctionne pas :
 
 </details>
 
+<details>
+    <summary>Diagramme de séquence</summary>
+
+![Diagramme de séquence exercice 1](../out/Module11_ESP32_ServeurWeb/diag/ex01/exercice1_acces_page_web.png)
+
+</details>
+
 ## Exercice 2 - Initialisation du serveur web ESP32 - 30 mins
 
-### Étape 1 - Installation du système de fichiers SPIFSS pour ESP32
+### Étape 1 - Installation du système de fichiers SPIFFS pour ESP32
 
-Dans cette étape, vous allez tester la mise en place des fichiers CSS, JavaScript et HTML dans le système SPIFSS de votre serveur web.
+Dans cette étape, vous allez tester la mise en place des fichiers CSS, JavaScript et HTML dans le système SPIFFS de votre serveur web.
 
 - Créez une nouvelle application platformIO ```AMOC_Module11_ServeurWeb```.
 - À la racine du projet, créez un répertoire ```data```
 
-![Structure SPIFSS](img/structure_SPIFSS.png)
+![Structure SPIFFS](img/structure_SPIFFS.png)
 
 - Copiez la structure ```data``` se trouvant dans le gitHub  ... /AMOC_Module11_ServeurWebPrepCours/data/. **RESPECTEZ le nom des répertoires et fichiers**
 
-![Mise à jour de l'image SPIFSS](img/miseAJourSPIFSS.png)
+![Mise à jour de l'image SPIFFS](img/miseAJourSPIFFS.png)
 
 - Construisez et téléversez l'image du système de fichiers par les boutons "Build Filesystemimage" et "Upload Filesystemimage". Le résultat devrait donner:
 
-![Téléversement de l'image dans l'ESP32](img/BuildSPIFSS.png)
+![Téléversement de l'image dans l'ESP32](img/BuildSPIFFS.png)
 
-### Étape 2 - Tester le système de fichiers SPIFSS pour ESP32
+### Étape 2 - Tester le système de fichiers SPIFFS pour ESP32
 
 - Utilisez le code suivant pour lister les fichiers présents dans votre mémoire flash :
 
@@ -139,44 +146,58 @@ void listFilesInDir(File dir, int numTabs) {
 }
 ``` -->
 
-![](img/code_lister_fichiers_1_2.png)
+![Code setup](img/code_lister_fichiers_1_2.png)
 
-![](img/code_lister_fichiers_2_2.png)
+![Code lister fichiers](img/code_lister_fichiers_2_2.png)
 
 </details>
 
 Vous devriez avoir le résultat suivant dans votre moniteur série :
 
-![MAJ_SPIFSS](img/JournalSPIFSS.png)
+![MAJ_SPIFFS](img/JournalSPIFFS.png)
+
+<details>
+    <summary>Diagramme de séquence</summary>
+
+![Diagramme de séquence exercice 2](../out/Module11_ESP32_ServeurWeb/diag/ex02/exercice2_serveur_web.png)
+
+</details>
 
 ## Exercice 3 - Contrôler une DEL à distance - 15 mins
 
 - Reprenez le projet Pio "AMOC_Module11_ServeurWebPrepCours" présent à la racine du module
 - Téléversez et exécutez le programme
 
-![MAJ_SPIFSS](img/consoleWebServeur.png)
+![MAJ_SPIFFS](img/consoleWebServeur.png)
 
 - Notez l'adresse IP du serveur Web.
 
 - À l'aide de votre cellulaire ou de votre PC, ouvrez un navigateur web. Entrez l'adresse IP du serveur web. Vous pourrez alors allumer ou éteindre la DEL No2 sur la carte ESP32. Les boutons Allumer et Éteindre sont déjà programmés et fonctionnels.
 
+<details>
+    <summary>Diagramme de séquence</summary>
+
+![Diagramme de séquence exercice 3](../out/Module11_ESP32_ServeurWeb/diag/ex03/exercice3_controle_del.png)
+
+</details>
+
 ## Exercice 4 - Afficher un état à distance - 1h
 
 ### Étape 1 - Ajout d'une route
 
-Dans cette étape, vous devez modifier votre programme pour ajouter la route "/statut" avec le verbe "GET" qui renvoie le document json suivant :
+Dans cette étape, vous devez modifier votre programme pour ajouter la route "/actionneur" avec le verbe "GET" qui renvoie le document json suivant :
 
 ```json
 {
     "id" : 1,
-    "etat": "eteinte"
+    "etat": "eteint"
 }
 ```
 
 ```json
 {
     "id" : 1,
-    "etat": "allumee"
+    "etat": "allume"
 }
 ```
 
@@ -196,7 +217,14 @@ Modifier les routes "/allumer" et "/eteindre" pour n'avoir plus que la seule rou
 
 - Modifiez l'interface pour élimer les deux boutons et les remplacer par un bouton unique à changement d'état comme illustré dans l'image :
 
-![](img/boutons_changement_etat.png)
+![](img/boutons_changement_etat1.png)
+
+<details>
+    <summary>Diagramme de séquence</summary>
+
+![Diagramme de séquence exercice 4](../out/Module11_ESP32_ServeurWeb/diag/ex04/exercice4_controle_del.png)
+
+</details>
 
 ## Exercice 5 - Paramétrer l'application (Optionnel) - 3h
 
@@ -207,7 +235,7 @@ Pour cet exercice, nous vous demandons de vous baser sur le diagramme de classes
 <details>
     <summary>Diagramme de classes</summary>
 
-![](img/diagramme_classes_Actionneurs.png)
+![Diagramme de classes actionneurs](img/diagramme_classes_Actionneurs.png)
 
 </details>
 
@@ -215,7 +243,7 @@ Pour cet exercice, nous vous demandons de vous baser sur le diagramme de classes
 - Votre classe "DEL" doit maintenant hériter de la classe "Actionneur"
 - Votre classe "ServeurWeb" doit maintenant prendre en paramètres un "std::vector<Actionneur*>" avec un passage par référence. Cette collection provient d'une données membre du même type qui est remplie dans le constructeur de la classe "Program" :
 
-![](img/serveurweb_gen.png)
+![Enregistrement des actionneurs](img/serveurweb_gen.png)
 
 - Vous devez modifier les routes de l'exercices précédent afin que l'identifiant ne soit plus codé en dur dans l'URI. Pour cela, un enregistrement de ressource similaire à :
 
@@ -238,5 +266,12 @@ this->m_webServer->on(UriBraces("/actionneurs/{}"), HTTPMethod::HTTP_PUT,
     <summary>Solution</summary>
 
 Voir le code du projet "AMOC_Module11_ServeurWebPrepExercices" présent à la racine du module.
+
+</details>
+
+<details>
+    <summary>Diagramme de séquence</summary>
+
+![Diagramme de séquence exercice 5](../out/Module11_ESP32_ServeurWeb/diag/ex05/exercice5_controle_actionneurs.png)
 
 </details>
