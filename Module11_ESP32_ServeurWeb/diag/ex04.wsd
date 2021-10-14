@@ -1,0 +1,57 @@
+@startuml exercice4_controle_del
+
+hide footbox
+
+box Ordinateur
+    participant Utilisateur
+    participant Navigateur
+end box
+
+
+box ESP32
+    participant ServeurWeb
+    participant SPIFFS
+    participant DEL
+end box
+
+== Requête et chargement de la page ==
+
+Utilisateur -> Navigateur : demande http://192.168.23.1/"
+Navigateur -> ServeurWeb : GET /
+return redirect /index.html
+Navigateur -> ServeurWeb : GET /index.html
+ServeurWeb -> SPIFFS : open/read/close
+return contenu fichier
+ServeurWeb --> Navigateur : code HTML de la page
+
+loop Pour toute ressource du document HTML
+    Navigateur -> ServeurWeb : GET /ressource
+    ServeurWeb -> SPIFFS : open/read/close
+    return contenu fichier
+    ServeurWeb --> Navigateur : données de la ressource
+end loop
+
+Navigateur -> Navigateur : page chargée
+Navigateur -> ServeurWeb : GET /actionneurs
+ServeurWeb --> Navigateur : [{"id" : 1,"etat": "eteint"}]
+
+Navigateur --> Utilisateur : Affiche
+...
+
+== L'utilisateur veut allumer ==
+
+Utilisateur -> Navigateur : Clique sur le bouton de basculement
+Navigateur -> ServeurWeb : PUT /actionneurs/1 {"id" : 1,"etat": "allume"}
+ServeurWeb -> DEL : allumer()
+ServeurWeb --> Navigateur : {"id" : 1,"etat": "allume"}
+Navigateur --> Utilisateur : Affiche le bouton avec le bon statut
+
+== L'utilisateur veut éteindre ==
+
+Utilisateur -> Navigateur : Clique sur le bouton de basculement
+Navigateur -> ServeurWeb : PUT /actionneurs/1 {"id" : 1,"etat": "eteint"}
+ServeurWeb -> DEL : eteindre()
+ServeurWeb --> Navigateur : {"id" : 1,"etat": "eteint"}
+Navigateur --> Utilisateur : Affiche le bouton avec le bon statut
+
+@enduml
