@@ -271,7 +271,7 @@ Pour hériter d'une classe en C++, il vous suffit de l'indiquer à la déclarati
 
 - Créez la classe concrète ```MorseDEL``` :
   - Elle hérite de la classe Morse
-  - Elle a un constructure d'initialisation qui prend la pin d'une DEL pour l'affichage
+  - Elle a un constructeur d'initialisation qui prend la pin d'une DEL pour l'affichage
   - Elle redéfinit les méthodes ```afficherPoint``` et ```afficherTrait``` : la durée d'allumage de la DEL détermine si c'est un point ou un trait
 
 #### Exercice 3.3.4 - Utilisons nos classes
