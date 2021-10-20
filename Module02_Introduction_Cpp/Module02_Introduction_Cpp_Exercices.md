@@ -244,7 +244,7 @@ void Flasher::FaireClignoter(int p_nombreCycles) (0x4cc)
 
 En C++, vous devez indiquer qu'une méthode peut-être redéfinie en précédent sa déclaration par le mot clef "virtual". Ce mot clef n'est pas présent au moment de la définition. Le caractère virtuel d'une méthode est automatiquement hérité : il n'est alors pas obligatoire de le spécifier dans les déclarations des méthodes dans les classes filles. Cependant, comme bonne pratique, nous allons toujours l'indiquer de manière explicite.
 
-Une méthode peut être considérée comme abstraite si elle est virtuelle et que sa déclaration se termine par "= 0". On parle alors de méthode virtuelle pure. Une méthode abstraire n'est jamais définie. Une classe contenant une méthode abstraite est abstraite. Une classe abstraite ne peut pas être instanciée.
+Une méthode peut être considérée comme abstraite si elle est virtuelle et que sa déclaration se termine par "= 0". On parle alors de méthode virtuelle pure. Une méthode abstraite n'est jamais définie. Une classe contenant une méthode abstraite est abstraite. Une classe abstraite ne peut pas être instanciée.
 
 Contrairement à d'autres langage, C++ ne permet pas de définir des interfaces. La classe abstraite est donc le plus haut niveau d'abstraction.
 
@@ -271,7 +271,7 @@ Pour hériter d'une classe en C++, il vous suffit de l'indiquer à la déclarati
 
 - Créez la classe concrète ```MorseDEL``` :
   - Elle hérite de la classe Morse
-  - Elle a un constructure d'initialisation qui prend la pin d'une DEL pour l'affichage
+  - Elle a un constructeur d'initialisation qui prend la pin d'une DEL pour l'affichage
   - Elle redéfinit les méthodes ```afficherPoint``` et ```afficherTrait``` : la durée d'allumage de la DEL détermine si c'est un point ou un trait
 
 #### Exercice 3.3.4 - Utilisons nos classes
