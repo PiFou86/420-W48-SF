@@ -1,10 +1,14 @@
-# Module 03 - Notions d'Électricité
+# Module 03 - Notions d'Électricité - Laboratoire #2 - Vive la résistance !
 
 Objectifs :
 
 - Assembler des circuits de résistances en série, en parallèle ou en circuits combinés
 - Mesurer les valeurs de résistance
 - Comparer les valeurs mesurées aux valeurs calculées
+
+![Rejoignez la résistance !](./img/resistance_meme.png)
+
+(Auteur inconnu : image Facebook)
 
 ## Vue globale du montage final à la fin des exercices Schéma complet du montage
 
