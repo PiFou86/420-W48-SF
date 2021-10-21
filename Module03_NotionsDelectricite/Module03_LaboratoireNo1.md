@@ -1,4 +1,4 @@
-# Module 03 - Notions d'électricité - Laboratoire #1
+# Module 03 - Notions d'électricité - Laboratoire #1 - U = RI
 
 Objectifs :
 
