@@ -133,9 +133,9 @@ Votre oscilloscope est capable d'appliquer des fonctions mathématiques sur un s
 
 - Positionnez-vous sur le réglage de la sortie 1
 - Réglez la forme d'onde du GbF sur "SIN"
-- Choisissez une fréquence de 1 MHz
+- Choisissez une fréquence de 10 KHz
 - Connectez la sortie 1 sur la voie 1 de l'oscilloscope
-- Réglez l'échelle horizontale (B) afin d'avoir beaucoup de période de signal. Si l'affichage n'est pas stable, pensez à utiliser les boutons de réglage du déclencheur (E)
+- Réglez l'échelle horizontale (B) afin d'avoir beaucoup de périodes de signal (environ 8 à 10 cycles). Si l'affichage n'est pas stable, pensez à utiliser les boutons de réglage du déclencheur (E)
 - Appuyez sur le bouton "Math" (D)
 - Choisissez l'opération FFT et appliquez l'opération sur la source (voie) 1
 - Choisissez le mode de fenêtre "Rectangle"
@@ -149,7 +149,7 @@ Votre oscilloscope est capable d'appliquer des fonctions mathématiques sur un s
 
 - Positionnez-vous sur le réglage de la sortie 1
 - Réglez la forme d'onde du GbF sur "ARB1"
-- Gardez une fréquence de 1 MHz
+- Gardez une fréquence de 10 KHz
 - Réglez l'échelle horizontale afin d'avoir beaucoup de période de signal.
 - Affichez la FFT de la voie 1. Ajustez les paramètres d'affichage afin de pouvoir observer les fréquences du signal.
 - Dessinez la forme du signal d'entré ainsi que sa FFT dans votre cahier de laboratoire.
@@ -169,7 +169,7 @@ Votre oscilloscope est capable d'appliquer des fonctions mathématiques sur un s
 
 Sur la FFT, vous devriez voir plusieurs pics. Celui qui a le plus d'amplitude correspond à la fréquence fondamentale et doit correspondre à la fréquence que vous avez choisi sur le GbF. Les autres pics sont d'amplitude plus faible et correspondent aux harmoniques. Une harmonique est une fréquence qui est multiple de la fréquence fondamentale. 
 
-Les harmoniques sont intéressantes en musique, elles donnent un son différent à un La de (440Hz) pour un piano ou une guitare. 
+Les harmoniques sont intéressantes en musique, elles donnent un son différent à un La de (440Hz) pour un piano ou une guitare.
 
 Les harmoniques peuvent aussi poser des problèmes comme dans le cas d'une transmission radio.
 
