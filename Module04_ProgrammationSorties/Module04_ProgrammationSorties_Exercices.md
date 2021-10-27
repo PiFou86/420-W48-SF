@@ -59,9 +59,7 @@ Contrôler la luminosité d'une DEL avec la MLI.
 
 **Toujours étaler les articles sur le tapis de protection avant de débuter.**
 
-### Sketch AMOC_Module04_VariationMLI
-
-#### Montage du circuit si fait sur la platine d'essais
+### Montage du circuit si fait sur la platine d'essais
 
 Représentation physique :
 
