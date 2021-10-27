@@ -179,6 +179,8 @@ void delay(unsigned long ms)
     - Il existe aussi une fonction millis. Quelle est sa fonction ?
     - Que représente la variable start ?
     - Que font les deux boucles ?
+    - Que fait la fonction durant l'attente ?
+    - Votre programme s'exécute directement par le MCU, il n'est pas géré par un système d'exploitation comme un ordinateur. D'après vous, pourquoi faut-il éviter d'utiliser cette fonction ?
   - Écrivez l'algorithme de cette fonction
 - En s'inspirant de cette fonction et en considérant que la fonction "loop" est similaire à une boucle, on peut déduire le programme impératif suivant :
 
