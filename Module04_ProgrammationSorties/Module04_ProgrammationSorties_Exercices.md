@@ -63,13 +63,13 @@ Contrôler la luminosité d'une DEL avec la MLI.
 
 Représentation physique :
 
-![Représentation physique](img/MLIPysique.png)
+![Représentation physique](img/MLIPlatine.png)
 
 Représentation schématique :
 
 ![Représentation schématique](img/FadeSchema.PNG)
 
-- **AVANT d'alimenter votre circuite** :
+- **AVANT d'alimenter votre circuit** :
   - Connectez la pin GND de votre arduino à la pin GND de votre platine d'expérimentation
   - Connectez la pin 9 de votre arduino à la pin 0 de votre platine d'expérimentations.
 
@@ -128,7 +128,7 @@ Vous pouvez même simplifier encore les macros en écrivant directement :
 
 ## Exercice 4 - On évite les boucles
 
-### Exercice 4.1 - On supprimer la fonction delay
+### Exercice 4.1 - On supprime la fonction delay
 
 L'objectif est ici de faire clignoter une DEL sans utiliser la fonction "delay". Pour cela, observez la fonction "delay" :
 
@@ -191,7 +191,7 @@ int etapeCycle = 0;
 int dureeAllumee = 1000;  // ms
 int dureeEteinte = 500;   // ms
 void setup() {
-  pinMode(LED_BUILTIN, INPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
   dateDernierDecrementdureeActionMs = micros();
 }
 
@@ -208,7 +208,7 @@ void loop() {
         dureeActionMS = dureeAllumee;
         ++etapeCycle;
         break;
-      case 1:
+      case 1:  // éteindre
         digitalWrite(LED_BUILTIN, LOW);
         dureeActionMS = dureeEteinte;
         etapeCycle = 0;
