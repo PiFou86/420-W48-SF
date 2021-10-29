@@ -226,7 +226,7 @@ void loop() {
 Dans cette partie, nous allons créer la classe "DELClignotante" qui aura pour responsabilité de gérer le clignotement d'une DEL sans perturber, outre quelques micro-secondes, le fonctionnement du programme principal. Plusieurs instances de cette classe peuvent exister dans un même programme. Le but à la fin et d'avoir deux DELs qui ont des temps de cycle différents.
 
 - Récupérez votre classe DEL du module 02
-- Créez la classe "DELClignotante" qui hérite de la classe DEL et qui implante le code de l'exercice précédent dans les méthodes suivantes :
+- Créez la classe "DELClignotante" qui hérite de la classe DEL et qui implante le code de l'exercice précédent dans les méthodes suivantes (Diagramme de classes ci-après) :
   - Constructeur d'initialisation :
     - prend en paramètre la pin de la DEL
     - prend en paramètre un rapport de cycle en % pour l'intensité de la DEL
@@ -245,5 +245,7 @@ Dans cette partie, nous allons créer la classe "DELClignotante" qui aura pour r
 - Créez deux objets de type DELClignotante :
   - Le premier a une dureeAllumee = 500 et une dureeEteinte = 500
   - Le second a une dureeAllumee = 600 et une dureeEteinte = 600
+
+![Diagramme de classes](../images/Module04_ProgrammationSorties/diag/DELClignotante/DELClignotante_diagclasses.png)
 
 Fin !
