@@ -1,0 +1,47 @@
+@startuml DELClignotante_diagclasses
+
+class "main_cpp" {
+    + setup()
+    + loop()
+}
+
+note left of main_cpp 
+    Ce n'est pas une classe, c'est le fichier
+    main.cpp et les fonctions setup / loop.
+     - Déclarez un pointeur de Program
+     - Dans la fonction setup : 
+        - Allouer un Program et l'affecter au pointeur
+        - Appelez la méthode setup du pointeur
+     - Dans la fontion loop :
+        - Appelez la méthode loop du pointeur
+end note
+
+class Program {
+    + setup()
+    + loop()
+}
+
+class DEL {
+    - p_pin : int
+    ...
+    + DEL(p_pin : int)
+    + allumer()
+    + eteindre()
+}
+
+class DELClignotante {
+    - m_pin : int
+    - m_rapportCycle : float
+    - m_dureeAllumee : int
+    - m_dureeEteinte : int
+    ...
+    + DELClignotante(p_pin : int, p_rapportCycle : float, p_dureeAllumee : int, p_dureeEteinte : int)
+    + loop()
+}
+
+main_cpp --> Program : create
+Program --> DELClignotante : create
+
+DEL <|-- DELClignotante
+
+@enduml
