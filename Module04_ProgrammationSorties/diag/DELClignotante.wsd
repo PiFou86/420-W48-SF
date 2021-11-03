@@ -23,15 +23,15 @@ class Program {
 
 class DEL {
     - p_pin : int
+    - m_rapportCycle : float
     ...
-    + DEL(p_pin : int)
+    + DEL(p_pin : int, p_rapportCycle : float)
     + allumer()
     + eteindre()
 }
 
 class DELClignotante {
     - m_pin : int
-    - m_rapportCycle : float
     - m_dureeAllumee : int
     - m_dureeEteinte : int
     ...
