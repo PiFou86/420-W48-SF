@@ -1,8 +1,8 @@
 #pragma once
 #include <Arduino.h>
 #include "Temporisation.h"
-#include "DetecteurDistance.h"
-#include "Action.h"
+#include "Detecteurs/DetecteurDistance.h"
+#include "Actions/Action.h"
 
 class AlerteDistance : public Temporisation {
 private:

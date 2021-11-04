@@ -1,6 +1,6 @@
 #pragma once
 
-#include "DetecteurDistance.h"
+#include "Detecteurs/DetecteurDistance.h"
 #include "DEL.h"
 #include "AlerteDistance.h"
 
