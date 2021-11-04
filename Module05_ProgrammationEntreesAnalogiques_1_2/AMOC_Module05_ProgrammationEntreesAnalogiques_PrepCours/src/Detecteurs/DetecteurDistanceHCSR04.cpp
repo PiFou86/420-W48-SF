@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-#include "DetecteurDistanceHCSR04.h"
+#include "Detecteurs/DetecteurDistanceHCSR04.h"
 
 DetecteurDistanceHCSR04::DetecteurDistanceHCSR04(uint8_t p_pinTrigger, uint8_t p_pinEcho)
     : m_pinTrigger(p_pinTrigger), m_pinEcho(p_pinEcho)
