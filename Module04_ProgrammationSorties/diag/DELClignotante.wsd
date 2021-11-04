@@ -28,10 +28,11 @@ class DEL {
     + DEL(p_pin : int, p_rapportCycle : float)
     + allumer()
     + eteindre()
+    + rapportCycle(p_rapportCycle) << set >>
+    + rapportCycle() : float << get >>
 }
 
 class DELClignotante {
-    - m_pin : int
     - m_dureeAllumee : int
     - m_dureeEteinte : int
     ...
