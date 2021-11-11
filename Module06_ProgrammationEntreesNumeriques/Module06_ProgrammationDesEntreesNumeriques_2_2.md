@@ -2,6 +2,7 @@
 
 Pour l'ensemble de ces exercices, vous allez utiliser :
 
+- Un oscilloscope pour deux
 - Visual studio code avec PlatformIO
 - Votre plaquette de développement Arduino UNO
 - Ou votre plaquette d'expérimentation
@@ -9,7 +10,76 @@ Pour l'ensemble de ces exercices, vous allez utiliser :
 - Autres accessoires nécessaires
 - De la patience ;)
 
-## Exercice 1 - Bouton poussoir avec Pull-up
+## Exercice 1 - Observation des rebonds
+
+### Étape 1 - Calculs et hypothèses
+
+- Sur votre cahier de laboratoire, calculez le temps minimal d'exécution d'une instruction sachant que l'Arduino Uno tourne à 16 Mhz
+- En admettant qu'une instruction s'exécute toujours avec cette base de temps (ce qui est faux !), toujours sur votre cahier de laboratiore, calculez combien d'instructions s'exécutent en 1 μs et en 100 μs ?
+- Si un carreau d'oscilloscope représente 100 μs, combien d'instructions pourraient s'exécuter sur la durée mesurée sur tout l'écran ?
+
+<details>
+    <summary>Conversion mesures</summary>
+
+- 1s = 1e3 ms = 1 000 ms
+- 1s = 1e6 μs = 1 000 000 μs
+- 1s = 1e9 ns = 1 000 000 000 ns
+
+</details>
+
+<details>
+    <summary>Réponse</summary>
+
+Fréquence = 16 MHz
+
+Unité de temps = 1 / 16e6
+
+= 6,25e-8 s
+
+= 0,0000000625 s
+
+= 0,0000625 ms
+
+= 0,0625 μs
+
+= 62,5 ns
+
+Fréquence = 16 MHz => 16 000 000 unités d'instruction / s
+
+=> 16 instructions en 1 μs
+
+=> 1 600 instructions en 1 μs
+</details>
+
+### Étape 2 - Montage du circuit
+
+![](img/oscilloscoope.png)
+
+- Mettre sonde 1 (Jaune) sur le bouton 1 et la masse sur la masse du circuit
+- Branchez votre circuit à une source d'alimentation
+
+### Étape 3 - Réglages oscilloscope
+
+- Allumez l'oscilloscope
+- Appuyez sur le bouton "Default Setup" puis "Auto"
+- Choisissez une échelle "Horizontal" de 100μs
+- Appuyez sur le bouton "Trig Menu" qui se trouve à droite avec les autres options de déclenchement.
+- Validez ou modifiez la configuration pour que :
+  - Type = Edge
+  - Source = CH1
+  - Slope = front descendant
+  - Mode = Single
+- Utilisez le bouton rotatif "Position" de la section Horizontal afin de déplacer le "T" qui se trouve actuellement en haut au centre vers la fin du premier carré du cadriage
+
+### Étape 4 - Expérimentation
+
+- Appuyez sur le bouton poussoir de votre platine d'essais : le bouton "Run/stop" doit passer au rouge : la saisie des mesures est arrêtée, les données sont figées.
+  - En appuyant sur ce même bouton, vous pouvez remettre l'affichage en fonction
+- Sur votre cahier de laboratoire, dessiner la forme d'onde obtenue
+- Recommencez la saisie de nouvelles formes d'ondes pour avoir au moins des dessins de rebonds
+- Dans vos expérimentations, vous pouvez modifier votre échelle de temps
+
+## Exercice 2 - Bouton poussoir avec Pull-up
 
 Dans ce montage, le bouton poussoir sera alimenté par la borne no 2, la DEL sera alimentée par la borne no 10.
 
@@ -18,10 +88,6 @@ Dans ce montage, le bouton poussoir sera alimenté par la borne no 2, la DEL ser
 - Effectuez le montage en vous inspirant du schéma suivant.
 
 ![Resistance Pull-Up - Schéma](img/del_commandee_par_bouton_schema.png)
-
-![Resistance Pull-Up - Physique](img/del_commandee_par_bouton_physique.png)
-
-Ou :
 
 ![Resistance Pull-Up - Plaquette](img/del_commandee_par_bouton_plaquette.png)
 
@@ -49,7 +115,7 @@ Retournez voir [le module 4 sur les sorties au niveau de la section sur le MLI (
 - Ajoutez un nouveau bouton qui permet de lire les pressions sur la borne 4.
 - Modifiez votre programme pour que la luminosité diminue par pas de 25 % en cas de pression sur le bouton de la borne 2 et augment de 25 % en cas de pression sur le bouton de la borne 4.
 
-## Exercice 2 - On va faire plus classe !
+## Exercice 3 - On va faire plus classe !
 
 ![Diagramme de classes du bouton](../out/Module06_ProgrammationEntreesNumeriques/wsd/diagramme_classes/dc_Bouton.png)
 
@@ -58,15 +124,6 @@ Retournez voir [le module 4 sur les sorties au niveau de la section sur le MLI (
 - Écrivez la classe "Bouton"
 - Écrivez la classe "Program"
 - Testez votre code !
-
-## Exercice 3 - Le multi-tâche, c'est simplement faire une partie de chaque tâche à tour de rôle !
-
-- Créez le projet "AMOC_Module06_ProgrammationEntreesNumeriques_DEL_MultiFrequence"
-- Dessinez sur un circuit sur un schéma qui permet de contrôler deux DELs à partir d'un Arduino UNO
-- Montez votre circuit en utilisant votre plaquette d'expérimentation ou votre breadboard
-- Codez une version procédurale (non objet) qui permet de faire clignoter les deux DELs à des fréquences différentes :
-  - DEL1 : 300ms allumée / 300ms éteinte
-  - DEL2 : 500ms allumée / 500ms éteinte
 
 ## Exercice 4 - Le multi-tâche, c'est simplement faire une partie de chaque tâche à tour de rôle !
 
