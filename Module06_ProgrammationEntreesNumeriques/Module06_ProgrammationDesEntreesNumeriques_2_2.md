@@ -121,7 +121,7 @@ Retournez voir [le module 4 sur les sorties au niveau de la section sur le MLI (
 
 ## Exercice 3 - On va faire plus classe !
 
-![Diagramme de classes du bouton](../out/Module06_ProgrammationEntreesNumeriques/wsd/diagramme_classes/dc_Bouton.png)
+![Diagramme de classes du bouton](../images/Module06_ProgrammationEntreesNumeriques/wsd/diagramme_classes/dc_Bouton.png)
 
 - Écrivez la classe abstraite "Action"
 - Écrivez la classe "DEL"
