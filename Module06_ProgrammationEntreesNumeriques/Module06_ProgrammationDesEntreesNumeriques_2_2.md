@@ -15,7 +15,7 @@ Pour l'ensemble de ces exercices, vous allez utiliser :
 ### Étape 1 - Calculs et hypothèses
 
 - Sur votre cahier de laboratoire, calculez le temps minimal d'exécution d'une instruction sachant que l'Arduino Uno tourne à 16 Mhz
-- En admettant qu'une instruction s'exécute toujours avec cette base de temps (ce qui est faux !), toujours sur votre cahier de laboratiore, calculez combien d'instructions s'exécutent en 1 μs et en 100 μs ?
+- En admettant qu'une instruction s'exécute toujours avec cette base de temps (ce qui est faux !), toujours sur votre cahier de laboratoire, calculez combien d'instructions s'exécutent en 1 μs et en 100 μs ?
 - Si un carreau d'oscilloscope représente 100 μs, combien d'instructions pourraient s'exécuter sur la durée mesurée sur tout l'écran ?
 
 <details>
@@ -123,15 +123,19 @@ Retournez voir [le module 4 sur les sorties au niveau de la section sur le MLI (
 
 ![Diagramme de classes du bouton](../images/Module06_ProgrammationEntreesNumeriques/wsd/diagramme_classes/dc_Bouton.png)
 
+Dans cet exercice, vous allez passer votre code impératif en code objet. Pour cela vous allez coder les classes du diagramme précédent. La classe "Program" permet de "ranger" le code de "main.cpp". Le constructeur de "Program" correspond à la fonction "setup", la méthode "loop" de "Program" correspond à la fonction "loop".
+
+- Copiez le répertoire de votre projet "AMOC_Module06_ProgrammationEntreesNumeriques_Gradateur" vers un nouveau projet "AMOC_Module06_ProgrammationEntreesNumeriques_GradateurClasses"
 - Écrivez la classe abstraite "Action"
 - Écrivez la classe "DEL"
 - Écrivez la classe "Bouton"
+- Écrivez la classe abstraite "ActionModifierIntensiteDEL"
 - Écrivez la classe "Program"
 - Testez votre code !
 
 ## Exercice 4 - Le multi-tâche, c'est simplement faire une partie de chaque tâche à tour de rôle !
 
-- Réouvrez le projet "AMOC_Module06_ProgrammationEntreesNumeriques_Gradateur"
+- Copiez le répertoire de votre projet "AMOC_Module06_ProgrammationEntreesNumeriques_GradateurClasses" vers un nouveau projet "AMOC_Module06_ProgrammationEntreesNumeriques_GradateurClignotantClasses"
 - Modifiez la classe "DEL" afin qu'elle implante une nouvelle méthode qui permet de faire clignoter une DEL. La méthode doit prendre en paramètres le temps où la DEL est allumée et le temps où la DEL est éteinte.
 - Modifiez la classe "Program" ainsi que les autres classes nécessaires afin que la pression sur le bouton fasse clignoter une DEL de votre choix avec un temps dépendant de l'intensité sélectionnée :
   - 0% : DEL allumée

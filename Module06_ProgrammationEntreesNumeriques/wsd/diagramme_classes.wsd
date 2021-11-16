@@ -22,8 +22,9 @@ abstract class Action {
 
 class ActionModifierIntesiteDEL {
     - m_DEL : DEL*
-    - m_pourcentageAllumee : uint8_t
-    ...
+    - m_pourcentageIntensite : float
+    - m_pas : float
+    + ctor(p_DEL : DEL*)
     + void executer()
 }
 
@@ -34,13 +35,15 @@ class DEL {
     ...
     + ctor(p_pin : uint8_t)
     + allumer()
-    + allumer(p_pourcentage : uint8_t)
+    + allumer(p_pourcentageIntensite : float)
     + eteindre()
 }
 
-DEL "1" <-- "1" ActionModifierIntesiteDEL
+DEL "1" <-right- "1" ActionModifierIntesiteDEL
 Bouton "1" <-left- "1" Program
 ActionModifierIntesiteDEL "1" <-left- "1" Bouton
-
+Program ..> DEL : create
+Program ..> Bouton : create
+Program ..> ActionModifierIntesiteDEL : create
 
 @enduml
