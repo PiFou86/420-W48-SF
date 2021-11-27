@@ -113,7 +113,7 @@ Composez le projet ```"AMOC_Module05_SignalerDanger"``` pour respecter les trois
 
 Soit le diagramme de classes suivant :
 
-![Diagramme de classes](./AMOC_Module05_ProgrammationEntreesAnalogiques_PrepCours/out/wsd/diagramme_classes/dc_DetecteurDistance.png)
+![Diagramme de classes](../images/Module05_ProgrammationEntreesAnalogiques_1_2/diag/diagramme_classes/dc_DetecteurDistance.png)
 
 - Écrivez la classe "Program". Pour le moment vous ne pourrez pas écrire le code du constructeur ni de la méthode "loop". Le constructeur contiendra toutes les configurations que l'on trouve normalement dans la fonction "setup". La méthode "loop" contient toutes les instructions que l'on trouve normalement dans la fonction "loop"
 - Dans le fichier "main.cpp" :

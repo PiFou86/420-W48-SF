@@ -72,7 +72,7 @@ DEL "1" <-- "1" ActionAvertissement
 DEL "1" <-- "1" ActionSecuritaire
 
 
-Program "1" -right-> "1" DetecteurDistance
+Program "1" -left-> "1" AlerteDistance
 
 class AlerteDistance {
     - m_detecteurDistance : DetecteurDistance*
