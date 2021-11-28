@@ -4,21 +4,25 @@
 // pour scanner les adresses I2C
 
 #include <Adafruit_BME280.h>
+#include <Adafruit_BMP280.h>
 #include <Adafruit_Sensor.h>
 #include <Arduino.h>
 #include <SPI.h>
 #include <Wire.h>
 
-#define TESTADRESSES
-#define TESTBME280
+//#define TESTADRESSES
+//#define TESTBME280
+#define TESTBMP280
 
 #define SEALEVELPRESSURE_HPA (1013.25)
 
 void testerAdresses();
 void printValues();
+void printValuesBMP();
 
 Adafruit_BME280 bme;
-unsigned long delayTime = 5000;
+Adafruit_BMP280 bmp;
+unsigned long delayTime = 500;
 
 void setup() {
 #ifdef TESTADRESSES
@@ -41,6 +45,18 @@ void setup() {
   }
   Serial.println();
 #endif
+
+#ifdef TESTBMP280
+  Serial.println(F("BMP280 test"));
+
+  unsigned status = bmp.begin(0x76);  // 0x76 => adresse de mon BME280
+  if (!status) {
+    Serial.println(
+        "Could not find a valid BMP280 sensor, check wiring, address, sensor "
+        "ID!");
+  }
+  Serial.println();
+#endif
 }
 
 void loop() {
@@ -51,7 +67,26 @@ void loop() {
 #ifdef TESTBME280
   printValues();
 #endif
+#ifdef TESTBMP280
+  printValuesBMP();
+#endif
   delay(delayTime);
+}
+
+void printValuesBMP() {
+  Serial.print(F("Temperature = "));
+  Serial.print(bmp.readTemperature());
+  Serial.println(F(" *C"));
+
+  Serial.print(F("Pressure = "));
+  Serial.print(bmp.readPressure());
+  Serial.println(F(" Pa"));
+
+  Serial.print(F("Altitude = "));
+  Serial.print(bmp.readAltitude(SEALEVELPRESSURE_HPA));
+  Serial.println(F(" m"));
+
+  Serial.println();
 }
 
 void printValues() {
