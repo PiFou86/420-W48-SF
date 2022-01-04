@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Coeur Réacteur !</title>
+</head>
+
+<body>
+    <main>
+        <div class="container col-xl-10">
+            <div class="row align-items-center g-lg-5 py-5">
+                <div class="col-md-10 mx-auto col-lg-5">
+                    <div class="p-4 p-md-5 border rounded-3 bg-light">
+                        <div class="mb-4">
+                            Coeur réacteur : <div id="URICoeur"></div>
+                        </div>
+                        <div class="mb-4">
+                            <div id="etatCoeurImg" style="font-size: x-large;"></div>
+                        </div>
+                        <div class="mb-4">
+                            <div id="etatCoeurDateStatut"></div>
+                        </div>
+                        <hr class="my-4">
+                        Adresse du serveur (vide ou http://&lt;AdresseIPESP32&gt;) : 
+                        <input type="text" id="URIAPI" class="form-control" placeholder="localhost">
+                        <hr class="my-4">
+                        <div class="mb-3">
+                            <button type="button" class="btn btn-success" onclick="activerCoeur()">Activer le
+                                coeur</button>
+                        </div>
+                        <div class="mb-3">
+                            <button type="button" class="btn btn-danger" onclick="desactiverCoeur()">Désactiver le
+                                coeur</button>
+                        </div>
+                        <small class="text-muted">Site diffusé par votre ordinateur pour simuler l'ESP32.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        function demarrage() {
+            setInterval(mettreAJourStatutCoeur, 3000);
+            mettreAJourStatutCoeur();
+        }
+
+        function URIAPI() {
+            let URI = document.getElementById("URIAPI").value + "/coeur-reacteur";
+            return URI;
+        }
+
+        function mettreAJourStatutCoeur() {
+            fetch(URIAPI(), {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                mode: 'cors'
+            })
+                .then(response => response.json())
+                .then(etatCoeur => {
+                    definirDessinEtat(etatCoeur);
+                })
+                .catch(error => {
+                    erreurRequete();
+                    console.error(error);
+                });
+        }
+
+        function definirDessinEtat(etatCoeur) {
+            document.getElementById('URICoeur').innerHTML = URIAPI();
+            document.getElementById('etatCoeurImg').innerHTML = (etatCoeur.etat == 'actif') ? '&#x2622; - Actif' : '&#x267b; - Repos' 
+            document.getElementById('etatCoeurDateStatut').innerHTML = (new Date()).toTimeString();
+        }
+
+        function erreurRequete() {
+            document.getElementById('URICoeur').innerHTML = URIAPI();
+            document.getElementById('etatCoeurImg').innerHTML = '&#x26A0; - Erreur';
+            document.getElementById('etatCoeurDateStatut').innerHTML = (new Date()).toTimeString();
+        }
+
+        function activerCoeur() {
+            fetch(URIAPI(), {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    etat: 'actif'
+                }),
+                mode: 'cors'
+            })
+                .then(response => response.json())
+                .then(etatCoeur => {
+                    definirDessinEtat(etatCoeur);
+                })
+                .catch(error => {
+                    erreurRequete();
+                    console.error(error);
+                });
+        }
+
+        function desactiverCoeur() {
+            fetch(URIAPI(), {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    etat: 'repos'
+                }),
+                mode: 'cors'
+            })
+                .then(response => response.json())
+                .then(etatCoeur => {
+                    definirDessinEtat(etatCoeur);
+                })
+                .catch(error => {
+                    erreurRequete();
+                    console.error(error);
+                });
+        }
+
+        window.onload = demarrage;
+    </script>
+</body>
+
+</html>
