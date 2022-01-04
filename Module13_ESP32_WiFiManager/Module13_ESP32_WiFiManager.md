@@ -189,7 +189,7 @@ Dans vos routes, il faut ajouter les headers CORS. Pour cela, avant d'appeler la
 
 #### Exercice 4.1.5 - Votre collègue n'est pas prêt ou vous travaillez seul de chez vous ?
 
-Si votre collègue n'est pas prêt ou que la situation ne vous permet pas de travailler seul, vous pouvez utiliser un serveur web local. Pour cela, vous allez devoir connecter votre ESP32 à votre réseau WiFi local. Ce point est traité dans le point 4.1.1. La première étape est donc de valider que vous y arrivez bien et que votre ESP32 et votre ordinateur sont sur le même réseau. Pour vous aidez, récupérez l'adresse IP de votre ESP32 sur votre trace ainsi que l'adresse IP de votre ordinateur à l'aide des commandes ```ipconfig``` (Windows), ```ifconfig``` (Mac / Linux) ou ```ip a``` (Linux si ifconfig non installé).
+Si votre collègue n'est pas prêt ou que la situation vous oblige à travailler seul, vous pouvez utiliser un serveur web local. Pour cela, vous allez devoir connecter votre ESP32 à votre réseau WiFi local. Ce point est traité dans le point 4.1.1. La première étape est donc de valider que vous y arrivez bien et que votre ESP32 et votre ordinateur sont sur le même réseau. Pour vous aidez, récupérez l'adresse IP de votre ESP32 sur votre trace ainsi que l'adresse IP de votre ordinateur à l'aide des commandes ```ipconfig``` (Windows), ```ifconfig``` (Mac / Linux) ou ```ip a``` (Linux si ifconfig non installé).
 
 Ensuite récupérez la solution Visual Studio "M13_CoeurReacteurCSharp" qui se trouve à la racine de ce module.
 
@@ -249,7 +249,7 @@ Le deuxième montage comprend un ESP32, un bouton et deux DELs (une rouge, une v
 
 #### Exercice 4.2.4 - Votre collègue n'est pas prêt ou vous travaillez seul de chez vous ?
 
-Si votre collègue n'est pas prêt ou que la situation ne vous permet pas de travailler seul, vous pouvez utiliser un serveur web local. Pour cela, vous allez devoir connecter votre ESP32 à votre réseau WiFi local. Ce point est traité dans le point 4.2.1. La première étape est donc de valider que vous y arrivez bien et que votre ESP32 et votre ordinateur sont sur le même réseau. Pour vous aidez, récupérez l'adresse IP de votre ESP32 sur votre trace ainsi que l'adresse IP de votre ordinateur à l'aide des commandes ```ipconfig``` (Windows), ```ifconfig``` (Mac / Linux) ou ```ip a``` (Linux si ifconfig non installé).
+Si votre collègue n'est pas prêt ou que la situation vous oblige à travailler seul, vous pouvez utiliser un serveur web local. Pour cela, vous allez devoir connecter votre ESP32 à votre réseau WiFi local. Ce point est traité dans le point 4.2.1. La première étape est donc de valider que vous y arrivez bien et que votre ESP32 et votre ordinateur sont sur le même réseau. Pour vous aidez, récupérez l'adresse IP de votre ESP32 sur votre trace ainsi que l'adresse IP de votre ordinateur à l'aide des commandes ```ipconfig``` (Windows), ```ifconfig``` (Mac / Linux) ou ```ip a``` (Linux si ifconfig non installé).
 
 Ensuite récupérez la solution Visual Studio "M13_CoeurReacteurCSharp" qui se trouve à la racine de ce module.
 
