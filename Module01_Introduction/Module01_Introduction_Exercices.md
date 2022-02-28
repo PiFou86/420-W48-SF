@@ -96,7 +96,7 @@ Le message « SUCCESS » doit apparaître avant de poursuivre!
 - Vous devriez pouvoir identifier le port série (COMx) associé à l'Arduino
 
 <details>
-    <summary>Dépannage</summary>
+    <summary>Dépannage 01</summary>
 
 DANS CERTAINS CAS, *pio* ne détecte pas le pilote du câble USB de téléchargement
 
@@ -105,14 +105,15 @@ DANS CERTAINS CAS, *pio* ne détecte pas le pilote du câble USB de télécharge
 1. Assurez-vous que le câble USB est fonctionnel
 2. Port non détecté
 
-Parfois, pio ne réussit pas à trouver automatiquement le pilote associé au port de la carte d'Arduino
+Parfois, pio ne réussit pas à trouver automatiquement le pilote associé au port de la carte d'Arduino. Il faut alors passer par en mode manuel, de la façon suivante :
 
-Il faut alors passer par en mode manuel, de la façon suivante :
+- Ouvrez un "Terminal" par l'onglet TERMINAL (bas de l'écran)
+- Tapez la commande ```pio device list```
 
-1. Dans le menu depio, cliquez sur le chemin platformIO.ini
+ ![ConnexionUSBOK](img/ConnexionUSB.png)
 
+1. De retour dans Visual Studio Code, dans le menu des fichiers du projet, cliquez sur le fichier "platformIO.ini"
 2. Repérez la structure  "\[env:uno]"
-
 3. Ajouter l'instruction suivante :
 
 ```ini
@@ -120,17 +121,18 @@ upload_port = com [*noPort*]
 ```
 
 4. Sauvegardez le fichier plarformIO.ini
-5. Tentez le téléchargement à nouveau !
-
+5. Tentez le téléchargement à nouveau !  
+  
+Le téléversement doit avoir réussi !
+  
 </details>
 
-- Ouvrez un "Terminal" par l'onglet TERMINAL (bas de l'écran)
-- Rechercher « platformio device list »
-
-La commande est *platformio device list* abrégée (*pio device list*)
-Le téléversement doit avoir réussi
-
- ![ConnexionUSBOK](img/ConnexionUSB.png)
+<details>
+    <summary>Dépannage 02 - Si le syndrome persiste ou que le port n'est pas détecté !</summary>
+  
+Allez à l'adresse suivante : [https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all](https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all) et suivez les instructions d'installation et recommencez le téléversement.
+  
+</details>
 
 - Demandez de l'aide au besoin !
 
