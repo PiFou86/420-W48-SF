@@ -96,7 +96,7 @@ Le message « SUCCESS » doit apparaître avant de poursuivre!
 - Vous devriez pouvoir identifier le port série (COMx) associé à l'Arduino
 
 <details>
-    <summary>Dépannage</summary>
+    <summary>Dépannage 01</summary>
 
 DANS CERTAINS CAS, *pio* ne détecte pas le pilote du câble USB de téléchargement
 
@@ -120,8 +120,15 @@ upload_port = com [*noPort*]
 ```
 
 4. Sauvegardez le fichier plarformIO.ini
-5. Tentez le téléchargement à nouveau !
+5. Tentez le téléchargement à nouveau !  
+  
+</details>
 
+<details>
+    <summary>Dépannage 02 - Si le syndrome persiste !</summary>
+  
+Allez à l'adresse suivante : [https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all](https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all) et suivez les instructions d'installation et recommencez le téléversement.
+  
 </details>
 
 - Ouvrez un "Terminal" par l'onglet TERMINAL (bas de l'écran)
