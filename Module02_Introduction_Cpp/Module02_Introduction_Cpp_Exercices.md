@@ -186,13 +186,13 @@ Dans vos projet PIO, nous vous demandons d'avoir une classe par couple de fichie
 
 ### Exercice 3.1.3 - Passe par référence
 
-- Dans les fichiers "passageParametres", créez la fonction "passageDeParametresReference" qui prend le type "Flasher" en paramètres (pas de pointeur ou de référence ici)
+- Dans les fichiers "passageParametres", créez la fonction "passageDeParametresReference" qui prend le type "Flasher" en paramètres (référence ici)
 - Dans cette fonction, affichez l'adresse du paramètre. Comparez là à celle de l'objet passé en paramètre avant son appel
 - Quels sont les constructeurs / opérateurs / méthodes appelées ?
 
 ### Exercice 3.1.4 - Passe par pointeur
 
-- Dans les fichiers "passageParametres", créez la fonction "passageDeParametresPointeur" qui prend le type "Flasher" en paramètres (pas de pointeur ou de référence ici)
+- Dans les fichiers "passageParametres", créez la fonction "passageDeParametresPointeur" qui prend le type "Flasher" en paramètres (pointeur ici)
 - Dans cette fonction, affichez l'adresse passée en paramètres. Comparez là à celle de l'objet passé en paramètre avant son appel
 - Quels sont les constructeurs / opérateurs / méthodes appelées ?
 
