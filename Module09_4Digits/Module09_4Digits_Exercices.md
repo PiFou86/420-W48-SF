@@ -64,7 +64,7 @@ Effectuez le montage de votre affichage 4 digits. Connectez aussi un bouton pous
 
 - Créez le projet Platformio "Module09_4Digits_Compteur"
 - Le programme doit fonctionner comme suit :
-  - À chaque pression d'un bouton un compteur doit être imcrémenté
+  - À chaque pression d'un bouton un compteur doit être incrémenté
   - Le compteur doit être affiché et mis à jour après chaque pression
   - (optionnel) Au bout de 10 secondes d'inactivité, le 4 digits doit s'éteindre afin d'économiser de l'énergie
   - (optionnel) À chaque pression, le nombre de pression est sauvegardé dans l'EEPROM. Au démarrage de votre montage, la valeur de départ du compteur est prise dans l'EEPROM.
