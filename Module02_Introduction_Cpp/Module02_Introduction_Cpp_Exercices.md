@@ -276,7 +276,7 @@ Pour hériter d'une classe en C++, il vous suffit de l'indiquer à la déclarati
 
 #### Exercice 3.3.4 - Utilisons nos classes
 
-- Dans la fonction ```setup```, déclarez la variable globale ```morse``` de type pointeur de ```Morse```
+- Dans la fonction ```setup```, déclarez la variable ```morse``` de type pointeur de ```Morse```
 - Toujours dans la fonction ```setup```, créez un objet de type ```MorseSerie``` sur le tas (new) et affectez le à la variable ```morse```
 - Testez l'affichage du SOS
 - Modifiez la création de l'objet pour créer un objet de type ```MorseDEL```
