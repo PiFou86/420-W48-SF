@@ -256,9 +256,9 @@ Pour hériter d'une classe en C++, il vous suffit de l'indiquer à la déclarati
 
 - Créez la classe abstraite ```Morse``` :
   - Un constructeur qui contient la durée du point : base de tout (entre deux lettres un durée d'un point, un trait est d'une durée de trois points)
-  - ```+ void afficherPoint()``` : méthode virtuelle pure
-  - ```+ void afficherTrait()``` : méthode virtuelle pure
-  - ```+ void afficherSOS()``` : méthode qui appelle les deux précédentes afin d'afficher son message
+  - ```+ void afficherPoint() const``` : méthode virtuelle pure
+  - ```+ void afficherTrait() const``` : méthode virtuelle pure
+  - ```+ void afficherSOS() const``` : méthode qui appelle les deux précédentes afin d'afficher son message
   - ```+ int getDureePoint() const``` : accesseur qui renvoie la durée d'un point
 
 #### Exercice 3.3.2 - Classe MorseSerie
