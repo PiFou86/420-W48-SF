@@ -129,7 +129,7 @@ Dans cet exercice, vous allez passer votre code impératif en code objet. Pour c
 - Écrivez la classe abstraite "Action"
 - Écrivez la classe "DEL"
 - Écrivez la classe "Bouton"
-- Écrivez la classe abstraite "ActionModifierIntensiteDEL"
+- Écrivez la classe "ActionModifierIntensiteDEL"
 - Écrivez la classe "Program"
 - Testez votre code !
 
