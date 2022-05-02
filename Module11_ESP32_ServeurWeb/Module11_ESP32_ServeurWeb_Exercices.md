@@ -15,22 +15,29 @@ Vous aurez à modifier les classes "Program.cpp", "Webserveur.cpp" et "index.htm
 
 ## Exercice 1 - Mon premier serveur web sur l'ESP32 - 30 mins
 
-Pour cet exercice, ne cherchez pas à faire un modèle objet, allez au plus simple !
+Pour cet exercice, vous devez reprendre le code des notes de cours et les simplifier afin de répondre à une requête HTTP avec le verbe GET (Ex. enlever la partie sur la gestion de fichiers).
 
 ### Étape 1 - Installation d'un serveur web
 
 Dans cette étape, votre serveur web ESP32 affichera un court message HTML sur un client web. Ce client web peut être utilisé à partir de votre cellulaire ou à partir de votre PC.
 
-- Créez une nouvelle application platformIO ```AMOC_Module11_HelloWeb```. Utilisez le fichier . . ./AMOC_Module11_ServeurWebPrepCours/src/hello.cpp  dans Github
+- Créez une nouvelle application platformIO ```AMOC_Module11_HelloWeb```.
 - Écrivez le code pour vous connecter à votre réseau local avec votre SSID ainsi que votre mot de passe (Voir module 10)
 - Affichez le statut de votre connexion WiFi et l'adresse IP de l'ESP sur le port série
-- Écrivez un serveur web minimum qui affiche "Bonjour à partir de mon ESP32 !" à la demande d'affichage de la page "/" (Voir méthode ```on``` de la classe ```WebServer```)
+- Écrivez un serveur web minimum qui affiche "Bonjour à partir de mon ESP32 !" à la demande d'affichage de la page "/" (Voir méthode ```on``` de la classe ```WebServer``` du cours)
 
 ### Étape 2 - Affichage d'une page web sur un client web
 
 - Ouvrez un navigateur web
 - Entrez l'adresse du serveur web
-- Le programme fonctionne si le texte "Bonjour à partir de mon ESP32 !" apparaît
+- Le programme fonctionne si le texte "Bonjour à partir de mon ESP32 !" apparaît.
+
+<details>
+    <summary>Diagramme de classes</summary>
+
+![Diagramme de classes](../images/Module11_ESP32_ServeurWeb/diag/ex01_diagClasses/exercice1_acces_page_web_diag_classes.png)
+
+</details>
 
 <details>
     <summary>Débogage</summary>

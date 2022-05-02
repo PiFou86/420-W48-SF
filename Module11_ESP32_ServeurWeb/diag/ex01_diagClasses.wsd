@@ -1,0 +1,23 @@
+@startuml exercice1_acces_page_web_diag_classes
+
+class Program {
+    + ctor()
+    + loop()
+    + connexionReseau()
+
+    - m_serveurWeb: ServeurWeb *
+}
+
+class ServeurWeb {
+    + ctor()
+    + tick()
+
+    - m_webServer: WebServer*
+    - ressourceNonTrouvee(p_nomFichier: String const&)
+    - afficherBonjour()
+}
+
+Program "1" -right-> "1" ServeurWeb
+ServeurWeb "1" -right-> "1" WebServer
+
+@enduml
