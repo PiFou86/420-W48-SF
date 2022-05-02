@@ -11,7 +11,7 @@ Pour l'ensemble de ces exercices, vous allez utiliser :
 - Visual studio code avec PlatformIO
 - Votre plaquette de développement Arduino UNO
 - Votre plaquette d'expérimentation
-- Votre afficheur LCD, modèle AAAA
+- Votre afficheur LCD, modèle 1602A
 - Fils de branchement
 - Autres accessoires nécessaires
 - De la patience ;)
@@ -33,13 +33,16 @@ Son branchement et sa programmation sont facilités par l'usage du protocole I2C
 Branchez les fils en respectant la convention :
 
 - Rouge pour alimentation 5 V (couleur peut varié selon la disponibilité)
-noir pour retour du courant (GND) (couleur peut varié selon la disponibilité)
+
+- noir pour retour du courant (GND) (couleur peut varié selon la disponibilité)
+
 - CouleurX pour SCL (pour moi, il s'agit d'orange)
+
 - CouleurY pour SDA (pour moi, il s'agit de vert)
 
 ![circuitPhysiqueLCDI2C](img/circuitPhysiqueLCDI2C.png)
 
-Complétez le montage en reliant le composant 1602.IIC à votre plaquette. Observez que 3 composants I2C peuvent être branchés simultanément sur la plaquette. Votre afficheur LCD pourra occuper une place sur 4 broches comme dans l'illustration.
+Complétez le montage en reliant le composant 1602_IIC à votre plaquette. Observez que plusieurs composants I2C peuvent être branchés simultanément sur la plaquette. Votre afficheur LCD occupe une série sur 4 broches comme dans l'illustration.
 
 ![circuitelectriniqueI2C](img/SchemaLCDI2C.png)
 
@@ -59,7 +62,7 @@ Vous trouverez l'adresse I2C en sortie dans l'écran de la console :
 <details>
     <summary>Indice</summary>
 
-Le protocole I2C a une plage d'adresse sur 7 bits. La limite supérieure est donc 127. les 3 premières bits sont réservées pour des commandes spécifiques du protocole. Elles ne peuvent donc pas servir pour identifier un périphérique.
+Le protocole I2C a une plage d'adresse sur 7 bits. La limite supérieure est donc 127. Les 3 premiers bits sont réservés pour des commandes spécifiques du protocole. Elles ne peuvent donc pas servir pour identifier un périphérique.
 
 </details>
 
@@ -69,7 +72,7 @@ VOUS NE POUVEZ PAS POURSUIVRE si vous ne connaissez pas l'adresse I2C de votre p
 
 ### Étape 1 - Installation d'une librairie LiquidCrystal_I2C
 
-- Importez le projet ```TestLCD``` dans PlateformIO.  Vous trouverez ce projet sur github.com/PiFou86/420-W48-SF dans random/TestLCD/
+- Importez le projet ```TestLCD``` dans PlateformIO.  Vous trouverez ce projet sur github.com/PiFou86/420-W48-SF/ dans random/TestLCD/
 
 - Aidez-vous des directives de librairies dans https://platformio.org/lib/show/576/LiquidCrystal_I2C/installation
 
@@ -95,23 +98,23 @@ Plusieurs méthodes permettent le contrôle et l'affichage d'un écran LCD
 
 - Consultez https://www.arduino.cc/reference/en/libraries/liquidcrystal-i2c/
 
-- Un lien vers ```Read the documentation``` offre de  l'aide sur les méthodes disponibles de la librairie
+- Un lien vers ```Read the documentation``` offre de  l'aide sur les méthodes disponibles de la librairie. Vous pourrez compter jusqu'à 20 méthodes différentes.
 
 Quelle méthode efface les caractères et positionne le curseur en position (0,0) de l'écran?
-
+ 
 <details>
     <summary>Indice</summary>
 
  objet.clear();
-
+ 
 </details>
 
-Quelle méthode positionne le curseur dans une position (x,y) de l'écran?
+ Quelle méthode déplace le texte vers la droite?
 
 <details>
     <summary>Indice</summary>
 
- objet.setCursor(colonne, rangee);
+ objet.scrollDisplayRight();
 
 </details>
 
