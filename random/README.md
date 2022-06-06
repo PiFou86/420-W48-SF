@@ -15,3 +15,23 @@ Certains couples "Point d'accès" et "Carte réseau WiFi" fonctionnent mal ensem
 ## Système de fichiers
 
 SPIFFS a modifié sa façon de transiger avec les répertoires À VALIDER. Une solution est de retourner sur l'ancienne version du module ESP32 (attention que d'autres versions plus récentes ne soient pas installées)
+
+## Home assistant
+
+Depuis la version 2022.06, la déclaration des capteurs (sensors) de type mqtt a été modifiée ([2022.06 - Breaking Changes](https://www.home-assistant.io/blog/2022/06/01/release-20226/#breaking-changes)). Elle passe de :
+
+```yaml
+sensor:
+  - platform: "mqtt"
+    name: "My sensor"
+    state_topic: "some-state-topic"
+```
+
+à
+
+```yaml
+mqtt:
+  sensor:
+    - name: "My sensor"
+      state_topic: "some-state-topic"
+```
