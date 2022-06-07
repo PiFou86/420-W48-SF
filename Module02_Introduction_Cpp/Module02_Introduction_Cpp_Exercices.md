@@ -1,4 +1,4 @@
-# Module 02 - Introduction au C++
+# Module 02 - Introduction au C++ - Vous allez avoir des étoiles plein les yeux !
 
 Pour l'ensemble de ces exercices, vous allez utiliser :
 
