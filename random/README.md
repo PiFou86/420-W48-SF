@@ -37,3 +37,15 @@ mqtt:
     - name: "My sensor"
       state_topic: "some-state-topic"
 ```
+
+## Consommation d'énergie
+
+L'autonomie éhergétique est importante pour les clients. Elle répond aux questions suivantes:
+#### durée de charge de la pile
+Pour y arriver, il faut déterminer la consommation moyenne de votre Station Météo, (pussiance (courant, tension) par unité de temps versus la puissance disponible de la pile à pleine capacité). ceci détermine le temps d'autonomie entre 2 chargements
+#### méthode de recharge
+à chercher
+#### autres sources de courant
+pannaux solaires, éoliennes, etc
+
+Depuis la version 2022.06, la déclaration des capteurs (sensors) de type mqtt a été modifiée ([2022.06 - Breaking Changes](https://www.home-assistant.io/blog/2022/06/01/release-20226/#breaking-changes)). Elle passe de :
