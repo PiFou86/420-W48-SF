@@ -42,8 +42,8 @@ mqtt:
 
 L'autonomie éhergétique est importante pour les clients. Elle répond aux questions suivantes:
 #### durée de charge de la pile
-Pour y arriver, il faut déterminer la consommation moyenne de votre Station Météo, (pussiance (courant, tension) par unité de temps versus la puissance disponible de la pile à pleine capacité). ceci détermine le temps d'autonomie entre 2 chargements
-#### méthode de recharge
+Pour y arriver, il faut déterminer la consommation moyenne de votre Station Météo, (puisance (courant, tension)) par unité de temps versus la puissance disponible de la pile à pleine capacité). ceci détermine le temps d'autonomie entre 2 chargements
+#### méthodes de recharge
 à chercher
 #### autres sources de courant
 pannaux solaires, éoliennes, etc
