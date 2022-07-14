@@ -68,6 +68,8 @@ Le protocole I2C a une plage d'adresse sur 7 bits. La limite supérieure est don
 
 VOUS NE POUVEZ PAS POURSUIVRE si vous ne connaissez pas l'adresse I2C de votre périphérique.
 
+- Utilisez le programme Identification_LCD.cpp pour cela
+
 ## Exercice 2 -  Programmes de test
 
 ### Étape 1 - Installation d'une librairie LiquidCrystal_I2C
@@ -91,13 +93,13 @@ L'onglet Headers donne l'entête ```#include``` de la librairie à ajouter dans 
 - Compilez et exécutez le programme dans TestLCD/src/main.cpp
 
 <details>
-    <summary>Connection I2C</summary>
+    <summary>connexion I2C</summary>
 
-Pour tester une connection I2C, utilisez le code suivant, au démarrage:
+Pour tester une connexion I2C, utilisez le code suivant, au démarrage:
 
     Wire.beginTransmission();  
     if (!Wire.endTransmission(<adresseI2C>) == 0) {
-        Serial.println("Erreur de connection I2C");
+        Serial.println("Erreur de connexion I2C");
         return;
     }
 </details>
