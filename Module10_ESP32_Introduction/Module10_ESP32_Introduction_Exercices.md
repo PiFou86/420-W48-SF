@@ -89,9 +89,11 @@ Le but de ce programme est d'extraire des données météo pour les afficher dan
 #### Étape 1 - Obtenir des informations météo
 
 - Créez le projet Platformio ```AMOC_Module10_Meteo_Montreal```
-- Basez-vous sur l'exercice précédent pour obtenir des données JSON du site web ```www.metaweather.com/api/location/3534/```.
+- Basez-vous sur l'exercice précédent pour obtenir des données JSON du lien  ```https://api.open-meteo.com/v1/forecast?latitude=45.5017&longitude=-73.5672&hourly=temperature_2m```.
 
 #### Étape 2 - Extraire des données  météo
 
-- Extraire les données quant aux températures minimale et maximale les plus récentes (prenez les données en indice 0 du tableau)
+- Extraire les données nécessaires pour calculer la température minimale moyenne et la température maximale moyenne d'une semaine
 - Afficher les valeurs sur l'écran LCD (optionnel)
+
+![AdresseIPPublique](img/tmpMinMax.png)

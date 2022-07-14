@@ -198,8 +198,8 @@ void afficherInformationIPPubliqueAPartirJSON(const String& json) {
   Serial.println(String("Adresse IP publique: ") + (const char*)doc["ip"]);
   Serial.println(String("Pays: ") + (const char*)doc["country"]);
   Serial.println(String("Région: ") + (const char*)doc["region_name"]);
-  Serial.println(String("Latitude: ") + (const char*)doc["latitude"]);
-  Serial.println(String("Longitude: ") + (const char*)doc["longitude"]);
+  Serial.println(String("Latitude: ") + (float) doc["latitude"]);
+  Serial.println(String("Longitude: ") + (float) doc["longitude"]);}
 }
 
 void demoIfconfig() {
@@ -214,7 +214,7 @@ void demoIfconfig() {
 String obtenirMeteoMontreal() {
   String res = "";
   if (WiFi.status() == WL_CONNECTED) {
-    String url = "https://www.metaweather.com/api/location/3534/";
+    String url ="https://api.open-meteo.com/v1/forecast?latitude=45.5088&longitude=-73.5616&hourly=temperature_2m";
     HTTPClient httpClient;
     httpClient.begin(url);
     int codeStatut = httpClient.GET();
@@ -232,7 +232,7 @@ String obtenirMeteoMontreal() {
 }
 
 void afficherInformationMeteoAPartirJSON(const String& json) {
-  DynamicJsonDocument doc(4096);
+  DynamicJsonDocument doc(12000);
   DeserializationError error = deserializeJson(doc, json);
 
   if (error) {
@@ -241,14 +241,8 @@ void afficherInformationMeteoAPartirJSON(const String& json) {
     return;
   }
 
-  Serial.println(String("Ville: ") + (const char*)doc["title"]);
-  Serial.println(
-      String("Prévision: ") +
-      (const char*)doc["consolidated_weather"][0]["weather_state_name"]);
-  Serial.println(String("Température minimum: ") +
-                 (float)doc["consolidated_weather"][0]["min_temp"]);
-  Serial.println(String("Température maximum: ") +
-                 (float)doc["consolidated_weather"][0]["max_temp"]);
+  Serial.println(String("Température debut périonde: ") +  (float)doc["hourly"]["temperature_2m"][0].as<float>());
+  Serial.println(String("Température fin   période : ") +  (float)doc["hourly"]["temperature_2m"][167].as<float>());
 }
 
 void afficherMeteoMontreal() {
