@@ -10,19 +10,20 @@ Dans ce module vous allez calculer les valeurs d'intensité, tension et résista
 
 À l'aide de l'illustration
 
-- Effectuez le calcul de la résistance équivalente
-- Calculez le courant I qui circule dans le circuit
+- Effectuez le calcul de R<sub> T</sub>, la résistance équivalente
+- Calculez le courant I<sub> T</sub> qui circule dans le circuit
 - Calculez la tension aux bornes de chaque résistance
 
 <details>
     <summary>Solution</summary>
 
-Rt = 220 + 220 = 440 &#8486;  
-U1 = 220 * 13,43 = 3 V  
-U2 = 220 * 13,43 = 3 V  
-It = 6 / 440 = 13,6 mA
+R<sub> T</sub> = 220 &#8486; + 220 &#8486; = 440 &#8486;  
+I<sub> T</sub> = 6 V / 440 &#8486; = 13,6 mA
 
-![2 Resistances en Série - Solution](img/rs_220_220_solution.png)
+U1 = 220 mA * 13,43 &#8486; = 3 V  
+U2 = 220 mA * 13,43 &#8486; = 3 V  
+
+**Simulation** sur : https://everycircuit.com/embed/6709376909574144
 
 </details>
 
@@ -32,26 +33,22 @@ It = 6 / 440 = 13,6 mA
 
 À l'aide de l'illustration
 
-- Effectuez le calcul de la résistance équivalente
-- Calculez le courant I qui circulera dans le circuit
+- Effectuez le calcul de R<sub> T</sub>
+- Calculez le courant I<sub> T</sub> qui circulera dans le circuit
 - Calculez la tension aux bornes de chaque résistance
 
 <details>
     <summary>Solution</summary>
 
-Rt = 220 + 440 + 660 = 1320 &#8486;  
-U1 = 4,6 * 220 = 1 V  
-U2 = 4,6 * 440 = 2 V  
-U3 = 4,6 * 660 = 3 V  
-It = 6 / 1320 = 4,6 mA
+R<sub> T</sub> = 220 + 440 + 660 = 1320 &#8486;  
 
-![3 Résistances en Série - Solution](img/rs_220_440_660_solution.png)
+**Simulation** sur : https://everycircuit.com/embed/4906884441833472
 
 </details>
 
 ### Qestions
 
-- Quel est le rapport de tensions entre la résistance de 660 Ω et de 220 Ω?
+- Quel est le rapport de tensions entre la résistance de 660 Ω et de 220 Ω ? Expliquez
 
 ## Exercice 2 - Résistances en parallèle
 
@@ -61,19 +58,17 @@ It = 6 / 1320 = 4,6 mA
 
 À l'aide de l'illustration
 
-- Effectuez le calcul de la résistance équivalente
-- Calculez le courant I total qui alimente le circuit
+- Effectuez le calcul de R<sub> T</sub>
+- Calculez le courant I<sub> T</sub> qui alimente le circuit
 - Calculez les 3 courants qui circulent dans chaque résistance
 
 <details>
     <summary>Solution</summary>
 
-1 / Rt = 1 / 220 + 1 / 220 + 1 / 220 = 3 / 220 => Rt = 73,3 &#8486;  
+R<sub> T</sub> = 73,3 &#8486;  
 U1 = U2 = U3 = 6 V  
-It = 6 / 73,3 = 81,9 mA  
-I1 = I2 = I3 = 27,3 mA  
 
-![3 Résistances en parallèle - Solution](img/rp_220_220_220_solution.png)
+**Simulation** sur : https://everycircuit.com/circuit/6639643174633472
 
 </details>
 
@@ -84,20 +79,18 @@ I1 = I2 = I3 = 27,3 mA
 À l'aide de l'illustration
 
 - Effectuez le calcul de la résistance équivalente
-- Calculez le courant I total qui alimente le circuit
+- Calculez le courant I<sub> T</sub> qui alimente le circuit
 - Calculez les 3 courants qui circulent dans chaque résistance
 
 <details>
     <summary>Solution</summary>
 
-1 / Rt = 1 / 220 + 1 / 220 + 1 / 440 = 5 / 440 => Rt = 88 &#8486;  
+R<sub> T</sub> = 88 &#8486;  
 U1 = U2 = U3 = 6 V  
-It = 6 / 88 = 68,2 mA  
-I1 = 27,3 mA  
-I2 = 27,3 mA  
-I3 = 13,6 mA
 
-![3 Résistances en parallèle - Solution](img/rp_220_220_440_solution.png)
+**Simulation** sur : https://everycircuit.com/circuit/5388164933615616
+
+Une petite erreur volontaire s'est glissée dans le branchement. Pouvez-vous la détecter?
 
 </details>
 
@@ -107,20 +100,21 @@ I3 = 13,6 mA
 
 ![Circuit combiné 2 3](img/rs_220_rp_440_440.png)
 
+
 À l'aide de l'illustration
 
-- Effectuez le calcul de la résistance équivalente totale Ret pour le circuit complet
+- Effectuez le calcul de R<sub>T</sub> pour le circuit complet
 
 <details>
     <summary>Indices 1 / 2</summary>
 
-1. Effectuez le calcul de la résistance équivalente en parallèle Rep pour les 2 résistances en parallèle
+1. Effectuez le calcul de R<sub>équivalent</sub> pour les 2 résistances en parallèle
 
-2. La résistance Ret totale est donné par la  résistance de 220 Ω en série avec la résistance Rep
+2. La résistance R<sub>T</sub> est donné par la résistance de 220 Ω en série avec R<sub>équivalent</sub>.
 
 </details>
 
-- Calculez le courant It total qui circule dans le circuit
+- Calculez le courant I<sub>T</sub> qui circule dans le circuit
 - Calculez la tension aux bornes de la résistance de 220 Ω
 
 - Calculez la tension aux bornes des résistances de 440 Ω en parallèle
@@ -139,15 +133,10 @@ I3 = 13,6 mA
 <details>
     <summary>Solution</summary>
 
-1 / Re1 = 1 / 440 + 1 / 440 = 1 / 220 => Re1 = 220 &#8486;  
-Rt = 440 &#8486;  
-It = 6 / 440 = 13,6 mA  
 U1 = 220 * 0.0136 = 3V  
-U2 = U3 = 220 * 0.0136 = 3V  
-I2 = 3 / 440 = 6,8 mA   
-I3 = 3 / 440 = 6,8 mA
+U2 = U3 = 220 * 0.0136 = 3V  (220 = R<sub> équivalent</sub>)
 
-![Solution Circuit combiné 2 3](img/rs_220_rp_440_440_solution.png)
+**Simulation** sur : https://everycircuit.com/circuit/6459937783545856
 
 </details>
 
@@ -159,22 +148,15 @@ I3 = 3 / 440 = 6,8 mA
 
 À l'aide de l'illustration
 
-- Effectuez le calcul de la résistance équivalente totale Ret pour le circuit complet
-- Calculez le courant I total qui alimente le circuit
+- Effectuez le calcul de R<sub> et</sub> pour le circuit complet
+- Calculez le courant I<sub> T</sub> qui alimente le circuit
 - Calculez le courant qui circule dans chaque résistance
 
 <details>
     <summary>Solution</summary>
 
-Re1 = 180.33 &#8486;  
-Rt = 580 + 220 + 180.33 = 980.33  
-It = 6 / 980.33 = 6.12 mA  
-U1 = 580 * 0.00612 = 3,55 V  
-U2 = 220 * 0.00612 = 1.35 V   
-Ue1 = U3 = U4 = U5 = 180.33 * 0.00612 = 1.1 V   
-I3 = I4 = 1.1 / 440 = 2.5mA  
-I5 = 1.1/1000 = 1.1 mA 
+R<sub> T</sub> = 980  &#8486;
 
-![Circuit combiné 2 3](img/rs_580_220_rp_440_440_1K_solution.png)
+**Simulation** sur : https://everycircuit.com/circuit/5048864597606400
 
 </details>

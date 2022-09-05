@@ -151,29 +151,31 @@ Faites différentes version de votre programme pour que :
 
 ## Exercice 3 - Persistance rétinienne
 
-Créez un nouveau programme qui allume et éteigne la del à une fréquence suffisante pour que vos yeux ne constatent pas les changements d'états à cause de l'effet de la persistance rétinienne. Notez cette valeur.
+Créez un nouveau programme qui allume et éteigne la del à une fréquence suffisante pour que vos yeux ne constatent pas les changements d'états à cause de l'effet de la  ```persistance rétinienne ```. Notez cette valeur.
 
 ## Exercice 4 - SOS en morse
 
-
-Créez un nouveau programme qui se sert de la del afin d'afficher la séquence  ```SOS ``` qui en morse se traduit par 
-"...---...  ". Un "-", appelé un *"long"* correspond à la durée de 3 "." appelé un *"court"*. Le changement de lettre (ici, représenté par un espace " ") correspond à un temps équivalent à 3 *"courts"*. Considérez la durée *0,2 seconde* équivalente à un *"court"*.
+Créez un nouveau programme qui se sert de la del afin d'afficher la séquence  ```SOS ``` qui, en morse, se traduit par   ```...---...```". Un ```tiret -```, appelé  ```long``` correspond à la durée de un ```point .``` appelé  ```court```. Le changement de lettre (ici, représenté par un espace ("  ") correspond à un temps équivalent à 3 ```court```. Considérez une durée de *0,2 seconde* équivalente à un ```court```.
 
 ## Exercice 5 - D’où viennent les valeurs LED_BUILTIN, HIGH, LOW, etc.
 
-La compilation de votre programme C/C++ passe par une phase préalable appelée précompilation qui va exécuter des instructions présentent dans le code. Ces instructions sont préfixées par le symbole "#". Nous reviendrons plus en détails dans les futurs modules.
-
-Pour l'exercice, sachez que le pré-compilateur retrouve les valeurs des constantes "LED_BUILTIN", "HIGH", "LOW" dans une librairie IMPLICITE. Au besoin, il remplace le nom de la constante par sa valeur avant de compiler le code en binaire.
+À partir de votre fichier "main.cpp", faites un clic droit sur la consigne "#include <Arduino.h>" et choisissez "Go to definition".
 
 **!!!EXPLOREZ sans sauvegarder!!!**
-
-À partir de votre fichier "main.cpp", faites un clic droit sur le nom du fichier de votre "include <Arduino.h>" et choisissez "Go to definition"
 
 - Observez le contenu du fichier **sans le modifier**.
 - Notez les valeurs des constantes suivantes :
   - HIGH
   - LOW
-- Retournez dans votre fichier "main.cpp", placez vous sur la constante LED_BUILTIN et faites un "Go to definition" et notez la valeur
-- Lisez la déclaration de la macro "sq", notez ses paramètres et son algorithme
+- Retournez dans votre fichier "main.cpp", placez vous sur la constante LED_BUILTIN et faites un "Go to definition" et notez la valeur.
+- Lisez la déclaration de la macro  ```sqr```, notez ses paramètres et son algorithme.
 
-NOTE : les constantes implicites sont représentées en majuscules pour en faciliter le repérage dans le code.
+Les programmes en C/C++ compilés avec PlatformIO demandent d'inclure l'instruction ```#include <Arduino.h>```. Cette consigne informe le compilateur que des informations incluses dans le fichier <Arduino.h> sont nécessaires au programme. C'est le cas pour les constantes HIGH, LOW et bien d'autres.
+
+Les fichiers, comme <Arduino.h>, portent le nom de fichier d'entête (HEADER FILE).  Les mots comme HIGH s'appellent  constantes implicites. Elles sont représentées en majuscules pour en faciliter le repérage dans le code.
+
+La compilation de votre programme C/C++ passe par une phase préalable appelée précompilation.
+
+Une des actions de la précompilation est de rechercher les mots  dans le code source et le remplacer par la valeur trouvée dans le fichier d'entête (HIGH devient 1).
+
+

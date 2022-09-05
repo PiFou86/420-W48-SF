@@ -34,14 +34,17 @@ Objectifs :
 
 Dans cette étape, vous allez construire un circuit pour alimenter une DEL et mesurer le courant qui circule dans le circuit.
 
-- Branchez 2 connecteurs à prise alligator sur le bloc d'alimentation
-- Construire le circuit d'alimentation de la DEL en série avec une résistance de 680 &#8486; sur la Breadboard
+- Branchez les deux connecteurs à prise alligator sur le bloc d'alimentation comme dans l'exercice précédent.
+- Construisez le circuit d'alimentation de la DEL en série avec une résistance de 680 &#8486; sur la Breadboard.
+- Alimentez le circuit; la DEL doit s'allumer, sinon dépannez votre circuit.
 
 ![Mesure de la tension](img/laboratoireUneDEL.png)
 
 ### Étape 3 - Mesure de la tension
 
-- Branchez le multimètre en mode "Voltmètre" entre les 2 bornes de la résistance (vous devez le positionner sur le symbole V-CC (V-DC) et non V-AC); utilisez deux connecteurs de type crochets.
+- Sur le multimètre, tournez le sélecteur en position V-CC (V-DC) (**non** sur V-AC).
+
+- Branchez le multimètre entre les 2 bornes de la résistance à l'aide de connecteurs de type crochets.
 
 <details>
     <summary>Branchement du Voltmètre</summary>
@@ -50,10 +53,10 @@ Dans cette étape, vous allez construire un circuit pour alimenter une DEL et me
 
 </details>
 
-- Alimentez le circuit; la DEL doit s'allumer, sinon dépannez votre circuit
-- Notez la valeur de la tension dans votre cahier de laboratoire
-- Fermez l'alimentation
-- Débranchez le voltmètre
+- Alimentez le circuit; la DEL doit s'allumer, sinon dépannez votre circuit.
+- Notez la valeur de la tension dans votre cahier de laboratoire.
+- Fermez l'alimentation.
+- Débranchez le multimètre.
 - Calculez le courant avec la loi d'Ohm.
 
 ### Étape 4 - Mesure du courant
@@ -61,7 +64,7 @@ Dans cette étape, vous allez construire un circuit pour alimenter une DEL et me
 La vidéo https://youtu.be/nh9mXn2TT9U doit avoir été visionnée auparavant.
 
 - Configurez le multimètre en mode ampèremètre.
-- Branchez-le en série avec la borne négative du bloc d'alimentation
+- Branchez-le **en série**. avec la borne négative du bloc d'alimentation
 
 <details>
     <summary>Mesure du courant</summary>
@@ -70,13 +73,13 @@ La vidéo https://youtu.be/nh9mXn2TT9U doit avoir été visionnée auparavant.
 
 </details>
 
-- Alimentez le circuit
-- Notez la valeur du courant total dans votre cahier de laboratoire
-- Fermez l'alimentation
+- Alimentez le circuit.
+- Notez la valeur du courant total dans votre cahier de laboratoire.
+- Fermez l'alimentation.
 
-### Étape 5 - Calculs et conclusion
+### Étape 5 - Calculs de la loi d'Ohm et conclusion
 
-- Les calculs de la d'Ohm correspondent-ils aux mesures ? Expliquez
+-La valeur mesurée est-elle comparable à la valeur calculée à l'étape précédente? Expliquez.
 
 ## Exercice 2 - Assemblage d'un circuit à deux DELs
 
@@ -88,13 +91,15 @@ La vidéo https://youtu.be/nh9mXn2TT9U doit avoir été visionnée auparavant.
 <details>
     <summary>Schéma du circuit</summary>
 
+![circuit 2 DELs](img/Circuit2DELs.png)
+
 ![circuit 2 DELs](img/deuxDELs.png)
 
 </details>
 
 ### Étape 2 - Mesure du courant
 
-- Notez la valeur du courant total dans votre cahier de laboratoire
-- Mesurez le courant du circuit de la DEL verte seule
-- Notez la valeur du courant dans votre cahier de laboratoire
+- Notez la valeur du courant total dans votre cahier de laboratoire.
+- Mesurez le courant du circuit de la DEL verte seule.
+- Notez la valeur du courant dans votre cahier de laboratoire.
 - Comparez la valeur du courant total avec les valeurs du courant du circuit des DELs rouge et verte. Quelle conclusion pouvez-vous tirer?
