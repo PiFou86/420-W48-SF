@@ -38,7 +38,18 @@ Dans cette étape, vous allez construire un circuit pour alimenter une DEL et me
 - Construisez le circuit d'alimentation de la DEL en série avec une résistance de 680 &#8486; sur la Breadboard.
 - Alimentez le circuit; la DEL doit s'allumer, sinon dépannez votre circuit.
 
-![Mesure de la tension](img/laboratoireUneDEL.png)
+![UneDELavecAlimentation](img/laboratoireUneDEL.png)
+
+<details>
+    <summary>schéma du circuit sur papier</summary>
+
+- Reproduisez le circuit dans un schéma sur papier quadrillé.
+
+**Schéma de Pièces électroniques** sur : https://everycircuit.com/circuit/5388164933615616
+
+![schemaUneDELavecAlimentation](img/schemaPiecesElectroniques.png)
+
+</details>
 
 ### Étape 3 - Mesure de la tension
 

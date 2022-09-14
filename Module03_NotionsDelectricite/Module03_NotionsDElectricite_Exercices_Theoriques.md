@@ -46,6 +46,11 @@ R<sub> T</sub> = 220 + 440 + 660 = 1320 &#8486;
 
 </details>
 
+DONC: Résistances en série: corollaire de la 2ième loi de Kirchhoff
+
+``` La tension totale d'un circuit en série est la somme des tensions sur chaque résistance```
+
+
 ### Qestions
 
 - Quel est le rapport de tensions entre la résistance de 660 Ω et de 220 Ω ? Expliquez
@@ -67,6 +72,15 @@ R<sub> T</sub> = 220 + 440 + 660 = 1320 &#8486;
 
 R<sub> T</sub> = 73,3 &#8486;  
 U1 = U2 = U3 = 6 V  
+
+corollaire de la 2ième loi de Kirchhoff
+
+DONC Résistances en parallèles: corollaire de la 2ième loi de Kirchhoff
+
+``` Dans un circuit en parallèle, la tension est la même sur toutes les résistances```
+ 
+``` Le courant d'une résistance est caldulée par la formule``` I<sub>r</sub> ``` = V``` <sub>r</sub> ``` / R ```
+
 
 **Simulation** sur : https://everycircuit.com/circuit/6639643174633472
 
@@ -103,7 +117,7 @@ Une petite erreur volontaire s'est glissée dans le branchement. Pouvez-vous la 
 
 À l'aide de l'illustration
 
-- Effectuez le calcul de R<sub>T</sub> pour le circuit complet
+- Effectuez le calcul de  ``` R``` <sub>T</sub> pour le circuit complet
 
 <details>
     <summary>Indices 1 / 2</summary>
@@ -160,3 +174,12 @@ R<sub> T</sub> = 980  &#8486;
 **Simulation** sur : https://everycircuit.com/circuit/5048864597606400
 
 </details>
+
+
+### Exercice 3.3 - Puissance
+
+La puissance représente l'énergie consommée par un équipement. Le calcul permet de déterminer la tolérance totale avant d'abimer la pièce.
+
+- Calculez la puissance, en ```mWatts```, consommée par  la résistance de 580 &#8486;.
+
+- Selon les spécifications du fabriquant, la pièce installée a une caractéristique de ``` 1/2 Watt ```. Pouvez-vous l'utilser sans danger?
