@@ -3,7 +3,9 @@
 Objectifs :
 
 - Assembler des circuits de résistances en série, en parallèle ou en circuits combinés
+
 - Mesurer les valeurs de résistance équivalente
+
 - Comparer les valeurs mesurées aux valeurs calculées
 
 ![Rejoignez la résistance !](./img/resistance_meme.png)

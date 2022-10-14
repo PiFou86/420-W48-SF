@@ -11,7 +11,9 @@ Dans ce module vous allez calculer les valeurs d'intensité, tension et résista
 À l'aide de l'illustration
 
 - Effectuez le calcul de R<sub> T</sub>, la résistance équivalente
+
 - Calculez le courant I<sub> T</sub> qui circule dans le circuit
+
 - Calculez la tension aux bornes de chaque résistance
 
 <details>

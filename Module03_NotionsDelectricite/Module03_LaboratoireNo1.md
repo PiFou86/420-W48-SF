@@ -10,8 +10,11 @@ Objectifs :
 ### Matériel
 
 - Bloc d'alimentation variable et ses accessoires
+
 - 1 multimètre et ses accessoires
+
 - 1 carré de mousse
+
 - 1 mini breadbord
 - Ensemble de câbles de couleurs et longueurs variées
 - 2 résistances de 680 &#8486;
