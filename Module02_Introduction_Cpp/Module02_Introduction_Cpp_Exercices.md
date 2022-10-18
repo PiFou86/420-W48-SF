@@ -236,7 +236,7 @@ void Flasher::FaireClignoter(int p_nombreCycles) (0x4cc)
 
 - Créez la classe "DEL"
 
-![Classe DEL](img/del_declaration.png)
+![Classe DEL](img/del_declaration.png)  
 
 - Testez-la
 
@@ -281,3 +281,23 @@ Pour hériter d'une classe en C++, il vous suffit de l'indiquer à la déclarati
 - Testez l'affichage du SOS
 - Modifiez la création de l'objet pour créer un objet de type ```MorseDEL```
 - Testez l'affichage du SOS
+
+### Exercice 3.4 - Et si on conversait (facultatif)
+
+- Dans cet exercice, vous allez simuler la transmission d'in texte en code morse.
+#### Exercice 3.4.1 Afficher le code morse d'un texte.
+
+-Ajoutez la méthode afficherMonTexte(```texteAEmettre```) à l'exercice pour transmettre une chaîne de caractères en morse  à la console et sur la DEL. La chaîne de caractères en passée en paramètre.
+
+Au choix, le paramètre peut être passé par référence ou par adresse, mais non par valeur. 
+
+![SortieCodeMorse](img/SortieCodeMorse.png)
+#### Exercice 3.4.2 Transmettre le son morse d'un texte.
+
+- Utilissez le buzzer pour émettre le son correspondant au code morse (image tirée du logiciel Fritzing). 
+
+![Buzzer](img/Tone_Fritzing.png)
+
+Aidez-vous de du projet hub Arduino:
+
+https://create.arduino.cc/projecthub/HiHiHiHiiHiiIiH/star-wars-on-a-buzzer-0814f2

@@ -3,24 +3,27 @@
 Objectifs :
 
 - Assembler des circuits de résistances en série, en parallèle ou en circuits combinés
-- Mesurer les valeurs de résistance
+
+- Mesurer les valeurs de résistance équivalente
+
 - Comparer les valeurs mesurées aux valeurs calculées
 
 ![Rejoignez la résistance !](./img/resistance_meme.png)
 
 (Auteur inconnu : image Facebook)
 
-## Vue globale du montage final à la fin des exercices Schéma complet du montage
+## Vue globale du montage final à la fin des exercices
 
-Les images suivantes présentent plusieurs vues du montage final. La version soudée est vous permet de mieux suivre le chemin du courant en vous basant sur les traits blanc, les fils et les résistances. La version sur breadboard est similaire à ce que vous devriez cabler. La dernière image présente le schéma du montage.
+La première image montre un circuit de résistances en série et en parallèle sur une plaquette soudée.
 
-Le montage en série est marqué "S". Le montage en parallèle est marqué "//"
+La deuxième image représente le montaque que vous allez effectuer.
+La troisième image représente le **schéma du montage** tel qu'il est documenté. 
 
-![Circuits de résistances version soudée](img/circuitsSerieParallele.png)
+Résistances soudées![Circuits de résistances version soudée](img/circuitsSerieParallele.png)
 
-![Circuits de résistances breadboard](img/circuitSerieParalelle.png)
+Sur Breadboard ![Circuits de résistances breadboard](img/circuitSerieParalelle.png)
 
-![Circuits de résistances schéma](img/circuitSerieParalelleSchema.png)
+Schéma de circuits  ![Circuits de résistances schéma](img/circuitSerieParalelleSchema.png)
 
 ## Préparation des prochains exercices
 
@@ -43,30 +46,32 @@ Le montage en série est marqué "S". Le montage en parallèle est marqué "//"
 - Branchez le bloc d'alimentation dans une prise du secteur
 - Tournez le bouton de tension jusqu'à une valeur de 5 Volt
 - Court-circuitez les deux connecteurs, puis tournez le bouton du courant jusqu'à une valeur de 0,5 A (500 mA). **NE PAS DÉPASSER**
-- Fermez le bloc d'alimentation
+- Fermez l'alimentation
 - Débranchez les deux connecteurs
 
 ## Exercice 1 - Circuit de résistances en série
 
 ### Étape 1 -  Assemblage du circuit
 
-Dans cette étape, vous allez construire un circuit avec 2 résistances en série pour alimenter une DEL
+Dans cette étape, vous allez construire un circuit de résistances en série pour alimenter une DEL. Aidez-vous des images précédentes.
 
 - Sur la breadboard, construire le circuit de 2 résistances de 510 &#8486; branchées en série.
 - Ajoutez une DEL rouge.
 
 ### Étape 2 - Mesure de la résistance
 
-- Sur votre cahier de laboratoire, tracez le schéma du montage et calculez la valeur de la résistance équivalente.
+- Sur votre cahier de laboratoire, dessinez le **schéma du montage** et calculez la valeur de la résistance équivalente.
+
 - Avec l'Ohmmètre, mesurez la valeur de la résistance totale des 2 résistances ensemble. Notez cette valeur dans votre cahier de laboratoire.
+
 - Obtenez-vous le même résultat?
 
 ### Étape 3 - Mesure du courant
 
-- Sur votre cahier de laboratoire, calculez la valeur théorique du courant qui passe dans le circuit.
-- Configurez votre multimètre en mode ampèremètre.
-- Complétez le circuit pour alimenter la DEL.
-- Branchez l'ampèremètre.
+- Sur votre cahier de laboratoire, calculez la valeur théorique du courant qui passe dans le circuit pour une tension de 5 Volts.
+
+- Aidez-vous du laboratoireNo1 pour brancher le multimètre en mode ampèremètre.
+
 - Alimentez le circuit. Notez cette valeur dans votre cahier de laboratoire.
 - Obtenez-vous le même résultat?
 
@@ -74,28 +79,30 @@ Dans cette étape, vous allez construire un circuit avec 2 résistances en séri
 
 ### Étape 1 - Assemblage du circuit
 
-Dans cette étape, vous allez construire un circuit avec 2 résistances en parallèle.
+Dans cette étape, vous allez construire un circuit avec 2 résistances en parallèle. Aidez-vous des images précédentes.
 
-- Sur la breadboard, construire le circuit de 2 résistances de 510 &#8486; branchées en parallèle.
-- Ajoutez une DEL rouge.
+- Sur la breadboard, construire le circuit de 2 résistances de 510 &#8486; branchées en parallèle. 
+- Ajoutez une DEL verte.
 
 ### Étape 2 - Mesure de la résistance
 
-- Sur votre cahier de laboratoire, tracez le schéma du montage // et calculez la valeur de la résistance équivalente.
+- Sur votre cahier de laboratoire, dessinez le **schéma du montage** et calculez la valeur de la résistance équivalente.
+
 - Avec l'Ohmmètre, mesurez la valeur de la résistance totale des 2 résistances montées en //. Notez cette valeur dans votre cahier de laboratoire.
+
 - Obtenez-vous le même résultat?
 
 ### Étape 3 - Mesure du courant
 
-- Sur votre cahier de laboratoire, calculez la valeur théorique du courant qui passe dans le circuit.
-- Pour mesurer le courant du circuit en parallèle, vous devez débrancher une partie du circuit en en série. Quel fil devez-vous débrancher? Notez cette réponse dans votre cahier de laboratoire.
-- Configurez votre multimètre en mode ampèremètre.
-- Branchez l'ampèremètre.
+- Sur votre cahier de laboratoire, calculez la valeur théorique du courant qui passe dans le circuit pour une tension d'alimentation de 5 Volts.
+
+- Aidez-vous du laboratoireNo1 pour brancher le multimètre en mode ampèremètre.
+
 - Alimentez le circuit. Notez cette valeur dans votre cahier de laboratoire.
 - Obtenez-vous le même résultat?
 
 ### Étape 4 - Discussion
 
-- Rebranchez le fil débranché dans l'étape précédente en série.
-- Mesurez le courant total des deux circuits. Notez cette valeur dans votre cahier de laboratoire.
-- Comment expliquez-vous que l'éclairage des 2 DELs soient si différents? Discutez-en en équipe. Auriez-vous eu une façon théorique de le découvrir ? Si oui, expliquez le cheminement.
+- Comment expliquez-vous que l'éclairage des 2 DELs soient si différents? Discutez-en en équipe. Auriez-vous eu une façon théorique de le découvrir ? 
+
+Si oui, expliquez le cheminement.
