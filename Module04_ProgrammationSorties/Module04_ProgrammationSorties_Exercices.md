@@ -186,19 +186,19 @@ void delay(unsigned long ms)
 
 ```cpp
 unsigned long dureeActionMS = 0;
-uint32_t dateDernierDecrementdureeActionMs = 0;
+uint32_t dateDernierDecrementdureeActionUs = 0;
 int etapeCycle = 0;
 int dureeAllumee = 1000;  // ms
 int dureeEteinte = 500;   // ms
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
-  dateDernierDecrementdureeActionMs = micros();
+  dateDernierDecrementdureeActionUs = micros();
 }
 
 void loop() {
-  while (dureeActionMS > 0 && (micros() - dateDernierDecrementdureeActionMs) >= 1000) {
+  while (dureeActionMS > 0 && (micros() - dateDernierDecrementdureeActionUs) >= 1000) {
     dureeActionMS--;
-    dateDernierDecrementdureeActionMs += 1000;
+    dateDernierDecrementdureeActionUs += 1000;
   }
 
   if (dureeActionMS == 0) {
@@ -233,8 +233,7 @@ Dans cette partie, nous allons créer la classe "DELClignotante" qui aura pour r
     - prend en paramètre la durée où la DEL est allumée
     - prend en paramètre la durée où la DEL est éteinte
     - garde la configuration de rapport de cycle et les durées allumées / éteinte
-    - configure le port en sortie
-  - "loop" : qui contrôle s'il faut changer d'étape dans le cycle courant : allumée ou éteinte
+  - "tick" : qui contrôle s'il faut changer d'étape dans le cycle courant : allumée ou éteinte
 - Testez votre classe en créant :
   - Un pointeur global de DELClignotante (ie en dehors des fonctions setup et loop)
   - Dans la fonction setup, créez une instance de DELClignotante que vous affecterez à votre variable globale
@@ -242,9 +241,10 @@ Dans cette partie, nous allons créer la classe "DELClignotante" qui aura pour r
 - Branchez maintenant votre arduino à votre platine d'expérimentation :
   - pin 10 de l'arduino sur la DEL 0 de votre platine
   - pin 11 de l'arduino sur la DEL 4 de votre platine
-- Créez deux objets de type DELClignotante :
+- À partir de votre classe Program, créez deux objets de type DELClignotante :
   - Le premier a une dureeAllumee = 500 et une dureeEteinte = 500
   - Le second a une dureeAllumee = 600 et une dureeEteinte = 600
+- Ajoutez le code nécessaire pour faire fonctionner le clignotement (voir méthode loop de "DELClignotante")
 
 ![Diagramme de classes](../images/Module04_ProgrammationSorties/diag/DELClignotante/DELClignotante_diagclasses.png)
 

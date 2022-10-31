@@ -10,14 +10,15 @@ note left of main_cpp
     main.cpp et les fonctions setup / loop.
      - Déclarez un pointeur de Program
      - Dans la fonction setup : 
-        - Allouer un Program et l'affecter au pointeur
-        - Appelez la méthode setup du pointeur
+        - Allouer un Program et l'affecter au pointeur : le constructeur va initialiser ses données membres
      - Dans la fontion loop :
         - Appelez la méthode loop du pointeur
 end note
 
 class Program {
-    + setup()
+    - m_DELClignotante1 : DELClignotante *
+    - m_DELClignotante2 : DELClignotante *
+    + ctor()
     + loop()
 }
 
@@ -37,7 +38,7 @@ class DELClignotante {
     - m_dureeEteinte : int
     ...
     + DELClignotante(p_pin : int, p_rapportCycle : float, p_dureeAllumee : int, p_dureeEteinte : int)
-    + loop()
+    + tick()
 }
 
 main_cpp --> Program : create
