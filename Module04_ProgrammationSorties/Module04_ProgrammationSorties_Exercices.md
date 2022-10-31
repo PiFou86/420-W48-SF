@@ -242,9 +242,10 @@ Dans cette partie, nous allons créer la classe "DELClignotante" qui aura pour r
 - Branchez maintenant votre arduino à votre platine d'expérimentation :
   - pin 10 de l'arduino sur la DEL 0 de votre platine
   - pin 11 de l'arduino sur la DEL 4 de votre platine
-- Créez deux objets de type DELClignotante :
+- À partir de votre classe Program, créez deux objets de type DELClignotante :
   - Le premier a une dureeAllumee = 500 et une dureeEteinte = 500
   - Le second a une dureeAllumee = 600 et une dureeEteinte = 600
+- Ajoutez le code nécessaire pour faire fonctionner le clignotement (voir méthode loop de "DELClignotante")
 
 ![Diagramme de classes](../images/Module04_ProgrammationSorties/diag/DELClignotante/DELClignotante_diagclasses.png)
 
