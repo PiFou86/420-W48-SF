@@ -1,4 +1,4 @@
-# Module 10 - EEPROM
+# Module 7 - EEPROM
 
 ## Exercice 1 - Enregistrement du statut d'une DEL
 
