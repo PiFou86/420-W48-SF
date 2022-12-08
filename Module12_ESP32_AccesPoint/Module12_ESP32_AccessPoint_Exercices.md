@@ -12,22 +12,22 @@ Enfin, le MCU transmettra des informations lues sur un périphérique. Pour la c
 
 NOTE IMPORTANTE: si vous utilisez votre PC comme client, celui-ci ne pourra PAS se relier à votre routeur domestique par WiFi. Si votre PC n'est pas relié par RJ45, vous perdez donc l'accès à Internet ! Choisissez cette option si vous disposer d'un second ordinateur.
 
-## Exercice 1 - Mon point d'access avec un ESP32 - 15 mins
+## Exercice 1 - Mon point d'accès avec un ESP32 - 15 mins
 
 Cet exercice a pour but de démontrer le fonctionnement d'un ESP32 en point d'accès grâce à la librairie Wifi.h.
 
 - Créez la nouvelle application platformIO ```AMOC_Module12_HelloAC```.
-- Utilisez le programme "main.cpp"  du GitHub .../AMOC_Module12_AccessPointPrepCours/src
+- Utilisez le programme "main.cpp" du GitHub .../AMOC_Module12_ configurationPointPrepCours/src
 - Configurez un fichier d'authentification config.h à votre projet. Le nom du SSID choisi est ```ESP32AP_<VotreNumeroMatricule>```. Le mot de passe sera ```12345678```
 
 NOTE : ce mot de passe est peu sécuritaire, mais nous permet de faire des tests dans un réseau privé et isolé.
 
 - Compilez et exécutez le programme hello.cpp.
-- Mémorisez l'adresse IP de votre point d'access ```ESP32AP_<VotreNumeroMatricule>``` à partir de la console
+- Mémorisez l'adresse IP de votre point d'accès ```ESP32AP_<VotreNumeroMatricule>``` à partir de la console
 - Comme vous l'avez configurée dans le code, le résultat de l'adresse IP sera toujours 192.168.4.1
 - Sur votre cellulaire, repérez et utilisez le réseau Esp32AP.
 
-![ConnexionAccessPoint](img/ConnexionAccessPoint.png)
+![ConnexionaccèsPoint](img/ConnexionaccèsPoint.png)
 
 - A l'aide du bouton (i), consultez l'adresse IP de votre client Wi-Fi.
 
@@ -40,7 +40,7 @@ Cette adresse DOIT se trouver sur le même réseau que l'adresse IP de votre poi
 - Combien cela fait-il de stations potentielles ?
 
 <details>
-    <summary>Indice</summary>
+ <summary>Indice</summary>
 
 La librairie ```Wifi.h``` possèdes le code d'un service DHCP. Le code est configuré pour que le réseau soit 192.168.4.0/24 avec 192.168.4.1 comme passerelle par défaut.
 
@@ -48,9 +48,9 @@ La librairie ```Wifi.h``` possèdes le code d'un service DHCP. Le code est confi
 
 </details>
 
-## Exercice 2 - Mon point d'access avec un ESP32 - 10 mins
+## Exercice 2 - Mon point d'accès avec un ESP32 - 10 mins
 
-Votre point d'access ESP32 utilise la majorité du code de vos exercices du module ```ServeurWeb```. Vous pouvez donc répliquer vos exercices précédents.
+Votre point d'accès ESP32 utilise la majorité du code de vos exercices du module ```ServeurWeb```. Vous pouvez donc répliquer vos exercices précédents.
 
 - Faire une copie de l'application platformIO ```AMOC_Module11_ServeurWeb``` dans une nouvelle application nommée ```AMOC_Module12_AP```
 - Utilisez le code de l'application ```AMOC_Module12_AP```
@@ -65,7 +65,7 @@ Votre point d'access ESP32 utilise la majorité du code de vos exercices du modu
 - Ouvrez un navigateur web; lancez une requête web à l'adresse IP du point d'accès
 
 <details>
-    <summary>Dépannage</summary>
+ <summary>Dépannage</summary>
 
 - Utilisez l'application "lite ping" sur votre cellulaire
 - Lancez la recherche ping vers l'adresse IP du point d'accès ```ESP32AP_<VotreNumeroMatricule>```. Les requêtes doivent réussir
@@ -91,7 +91,7 @@ Dans cet exercice, vous allez remplacer le contrôle de la borne No 2 par le con
 ![Interface2DELs](img/Interface2DELs.png)
 
 <details>
-    <summary>Indice</summary>
+ <summary>Indice</summary>
 
 Analyser les fichiers de votre application. Repérez les endroits en référence avec la DEL No2. Adaptez le code pour 2 bornes.
 
@@ -105,11 +105,11 @@ Si la tension se situe entre 0 V et 1,6 V, votre MCU allume la DEL verte et affi
 
 Si la tension se situe entre 1,7 V et 3,3 V (max), votre MCU allume la DEL rouge et affiche alors ```DEL Rouge allumée``` sur la page web du client connecté.
 
-## Exercice 5 Définir le profil différent d'un point d'accès  - 10 mins (optionnel)
+## Exercice 5 Définir le profil différent d'un point d'accès - 10 mins (optionnel)
 
-Dans cet exercice, vous allez modifier les configations du point d'accès ESP32.
+Dans cet exercice, vous allez modifier les configurations du point d'accès ESP32.
 
-Sans configuraton précise, la classe ```WiFi``` initie un résau sans mot de passe avec les valeurs suivantes:
+Sans configuration précise, la classe ```WiFi``` initie un réseau sans mot de passe avec les valeurs suivantes:
 
 - Passerelle par défaut: ```192.168.4.1```
 - Masque de sous-réseau 255.255.255.0
@@ -119,8 +119,8 @@ Ces règles d'usage ont trois inconvénients, dans le mode pratique :
 
 - Ces valeurs par défaut sont assez connues, donc attaquées facilement (sic)
 - Sans mot de passe, les accès sont ouverts
-- Si deux MCUs ESP32 sont voisins, il y aura confusion de connexion entre les clients et les points d'acces.
+- Si deux MCUs ESP32 sont voisins, il y aura confusion de connexion entre les clients et les points d'accès.
 
 La méthode ```WiFi.softAPConfig()``` permet d'outrepasser ces contraintes. Elle permet de définir le SSID, l'adresse IP de la passerelle par défaut, le masque de sous-réseau et d'autres paramètres de démarrage du point d'accès
 
-Votre tâche, si vous acceptez de la prendre, consiste à définir le réseau 10.10.1.1/24 avec le SSIP ```Esp32MissionImpossible``` et le mot de passe ```Sijedevaisvousdireoujallaisceneseraientplusdesvacances.```
+Votre tâche, si vous acceptez de la prendre, consiste à définir le réseau 10.10.1.1/24 avec le SSID ```Esp32MissionImpossible``` et le mot de passe ```Sijedevaisvousdireoujallaisceneseraientplusdesvacances.```
