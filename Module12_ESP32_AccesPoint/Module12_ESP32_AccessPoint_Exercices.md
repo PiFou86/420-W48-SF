@@ -17,7 +17,7 @@ NOTE IMPORTANTE: si vous utilisez votre PC comme client, celui-ci ne pourra PAS 
 Cet exercice a pour but de démontrer le fonctionnement d'un ESP32 en point d'accès grâce à la librairie Wifi.h.
 
 - Créez la nouvelle application platformIO ```AMOC_Module12_HelloAC```.
-- Utilisez le programme "main.cpp" du GitHub .../AMOC_Module12_ configurationPointPrepCours/src
+- Utilisez le programme "main.cpp" du GitHub .../AMOC_Module12_ESP32_AP_SrvWeb_PrepCours/src
 - Configurez un fichier d'authentification config.h à votre projet. Le nom du SSID choisi est ```ESP32AP_<VotreNumeroMatricule>```. Le mot de passe sera ```12345678```
 
 NOTE : ce mot de passe est peu sécuritaire, mais nous permet de faire des tests dans un réseau privé et isolé.
@@ -27,7 +27,7 @@ NOTE : ce mot de passe est peu sécuritaire, mais nous permet de faire des tests
 - Comme vous l'avez configurée dans le code, le résultat de l'adresse IP sera toujours 192.168.4.1
 - Sur votre cellulaire, repérez et utilisez le réseau Esp32AP.
 
-![ConnexionaccèsPoint](img/ConnexionaccèsPoint.png)
+![ConnexionAccessPoint](img/ConnexionAccessPoint.png)
 
 - A l'aide du bouton (i), consultez l'adresse IP de votre client Wi-Fi.
 
@@ -40,7 +40,7 @@ Cette adresse DOIT se trouver sur le même réseau que l'adresse IP de votre poi
 - Combien cela fait-il de stations potentielles ?
 
 <details>
- <summary>Indice</summary>
+    <summary>Indice</summary>
 
 La librairie ```Wifi.h``` possèdes le code d'un service DHCP. Le code est configuré pour que le réseau soit 192.168.4.0/24 avec 192.168.4.1 comme passerelle par défaut.
 
@@ -67,7 +67,7 @@ Votre point d'accès ESP32 utilise la majorité du code de vos exercices du modu
 <details>
  <summary>Dépannage</summary>
 
-- Utilisez l'application "lite ping" sur votre cellulaire
+- Utilisez l'application "Network Ping lite" sur votre cellulaire
 - Lancez la recherche ping vers l'adresse IP du point d'accès ```ESP32AP_<VotreNumeroMatricule>```. Les requêtes doivent réussir
 
 ![PingEsp32AP](img/PingEsp32AP.png)
