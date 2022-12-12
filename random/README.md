@@ -16,7 +16,16 @@ Si votre ordinateur ne possède PAS de carte réseau filée Ethernet, consultez 
 
 ## Système de fichiers
 
-SPIFFS a modifié sa façon de transiger avec les répertoires À VALIDER. Une solution est de retourner sur l'ancienne version du module ESP32 (attention que d'autres versions plus récentes ne soient pas installées)
+SPIFFS a modifié sa façon de transiger avec les répertoires À VALIDER. Une solution est de retourner sur l'ancienne version du module ESP32 (attention que d'autres versions plus récentes ne soient pas installées).
+
+Par exemple, pour forcer la version de la plateforme pour l'ESP32 à la version 3.5 vous pouvez ajouter le texte suivant dans votre fichier platformio.ini :
+
+```ini
+[env]
+platform = espressif32@~3.5.0
+```
+
+Source : https://docs.platformio.org/en/latest/projectconf/section_env_platform.html 
 
 ## Home assistant
 
