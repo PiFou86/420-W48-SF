@@ -155,7 +155,7 @@ Créez un nouveau programme qui allume et éteigne la del à une fréquence suff
 
 ## Exercice 4 - SOS en morse
 
-Créez un nouveau programme qui se sert de la DEL afin d'afficher la séquence  ```SOS ``` qui, en morse, se traduit par   ```...---...```". Un ```tiret -```, appelé  ```long``` correspond à la durée de 3 ```points .``` appelé  ```court```. Le changement de lettre (ici, représenté par un espace ("  ") correspond à un temps équivalent à 3 ```court```. Considérez une durée de *0,2 seconde* équivalente à un ```court```.
+Créez un nouveau programme qui se sert de la DEL afin d'afficher la séquence  ```SOS ``` qui, en morse, se traduit par   ```... --- ...```". Un ```tiret -```, appelé  ```long``` correspond à la durée de 3 ```points .``` appelé  ```court```. Le changement de lettre (ici, représenté par un espace ("  ") correspond à un temps équivalent à 3 ```court```. Considérez une durée de *0,2 seconde* équivalente à un ```court```.
 
 ## Exercice 5 - D’où viennent les valeurs LED_BUILTIN, HIGH, LOW, etc.
 
