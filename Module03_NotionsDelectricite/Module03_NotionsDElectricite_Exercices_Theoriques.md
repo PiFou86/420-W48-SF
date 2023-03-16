@@ -22,8 +22,8 @@ Dans ce module vous allez calculer les valeurs d'intensité, tension et résista
 R<sub> T</sub> = 220 &#8486; + 220 &#8486; = 440 &#8486;  
 I<sub> T</sub> = 6 V / 440 &#8486; = 13,6 mA
 
-U1 = 220 mA * 13,43 &#8486; = 3 V  
-U2 = 220 mA * 13,43 &#8486; = 3 V  
+U1 = 220 &#8486; * 13,6 mA = 3 V  
+U2 = 220 &#8486; * 13,6 mA = 3 V  
 
 **Simulation** sur : https://everycircuit.com/embed/6709376909574144
 
