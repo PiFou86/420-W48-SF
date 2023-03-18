@@ -174,7 +174,6 @@ R<sub> T</sub> = 980  &#8486;
 
 </details>
 
-
 ### Exercice 3.3 - Puissance
 
 La puissance représente l'énergie consommée par un équipement. Le calcul permet de déterminer la tolérance totale avant d'abimer la pièce.
