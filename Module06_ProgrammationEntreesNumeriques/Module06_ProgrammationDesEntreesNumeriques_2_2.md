@@ -138,8 +138,8 @@ Dans cet exercice, vous allez passer votre code impératif en code objet. Pour c
 - Copiez le répertoire de votre projet "AMOC_Module06_ProgrammationEntreesNumeriques_GradateurClasses" vers un nouveau projet "AMOC_Module06_ProgrammationEntreesNumeriques_GradateurClignotantClasses"
 - Modifiez la classe "DEL" afin qu'elle implante une nouvelle méthode qui permet de faire clignoter une DEL. La méthode doit prendre en paramètres le temps où la DEL est allumée et le temps où la DEL est éteinte.
 - Modifiez la classe "Program" ainsi que les autres classes nécessaires afin que la pression sur le bouton fasse clignoter une DEL de votre choix avec un temps dépendant de l'intensité sélectionnée :
-  - 0% : DEL allumée
-  - 25% : DEL allumée 250ms, DEL éteinte 250ms
-  - 50% : DEL allumée 500ms, DEL éteinte 500ms
-  - 75% : DEL allumée 750ms, DEL éteinte 750ms
-  - 100% : DEL éteinte
+  - DEL allumée à 100%
+  - DEL allumée à 25%, 750ms, DEL éteinte 250ms
+  - DEL allumée à 50%, 500ms, DEL éteinte 500ms
+  - DEL allumée à 75%, 250ms, DEL éteinte 750ms
+  - DEL éteinte
