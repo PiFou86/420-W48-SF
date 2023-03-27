@@ -52,7 +52,6 @@ DONC: Résistances en série: corollaire de la 2ième loi de Kirchhoff
 
 ``` La tension totale d'un circuit en série est la somme des tensions sur chaque résistance```
 
-
 ### Qestions
 
 - Quel est le rapport de tensions entre la résistance de 660 Ω et de 220 Ω ? Expliquez
@@ -74,8 +73,6 @@ DONC: Résistances en série: corollaire de la 2ième loi de Kirchhoff
 
 R<sub> T</sub> = 73,3 &#8486;  
 U1 = U2 = U3 = 6 V  
-
-corollaire de la 2ième loi de Kirchhoff
 
 DONC Résistances en parallèles: corollaire de la 2ième loi de Kirchhoff
 
@@ -176,7 +173,6 @@ R<sub> T</sub> = 980  &#8486;
 **Simulation** sur : https://everycircuit.com/circuit/5048864597606400
 
 </details>
-
 
 ### Exercice 3.3 - Puissance
 
