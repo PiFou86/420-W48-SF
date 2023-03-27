@@ -50,7 +50,7 @@ Dans cette étape, vous allez construire un circuit pour alimenter une DEL et me
 
 **Schéma de Pièces électroniques** sur : https://everycircuit.com/circuit/5388164933615616
 
-![schemaUneDELavecAlimentation](img/schemaPiecesElectroniques.png)
+![schemaUneDELavecAlimentation](img/piecesElectroniques.png)
 
 </details>
 
