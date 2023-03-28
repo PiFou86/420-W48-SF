@@ -120,8 +120,8 @@ Si vous voulez avoir un temps plus proche de votre code, vous pouvez optimiser l
 Vous pouvez même simplifier encore les macros en écrivant directement :
 
 ```cpp
-#define debutCode (PORTD |= 4)
-#define finCode (PORTD &= ~4)
+#define debutCode (PORTD &= ~4)
+#define finCode (PORTD |= 4)
 ```
 
 </details>
