@@ -92,7 +92,7 @@ Observer le temps d'execution d'un code.
 
 ### Observations
 
-- Démarrez un nouveau projet PIO. Nommez-le "AMOC_Module04_Temps d'execution"
+- Démarrez un nouveau projet PIO. Nommez-le "AMOC_Module04_Temps_dexecution"
 - Tapez le code suivant dans la méthode loop :
 
 ![Mesure du temps avec modulo](img/mesure_temps_modulo.png)
@@ -120,8 +120,8 @@ Si vous voulez avoir un temps plus proche de votre code, vous pouvez optimiser l
 Vous pouvez même simplifier encore les macros en écrivant directement :
 
 ```cpp
-#define debutCode (PORTD |= 4)
-#define finCode (PORTD &= ~4)
+#define debutCode (PORTD &= ~4)
+#define finCode (PORTD |= 4)
 ```
 
 </details>
