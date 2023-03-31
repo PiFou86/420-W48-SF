@@ -67,7 +67,7 @@ Avec la macro `DEBUG_STRING_(x)`, le programmeur n'inscrit qu'une ligne de code 
 
 A gauche, texte original, à droite, texte généré par le préprocesseur
 
-![](img/afficherS_3.png) ![](img/afficherS_2.png)
+![S3](img/afficherS_3.png) ![S2](img/afficherS_2.png)
 
 ### Supprimer les traces du débogueur
 
