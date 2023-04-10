@@ -1,6 +1,4 @@
 @startuml dc_Bouton
-skinparam maxMessageSize 50
-
 class Program {
     - m_bouton : Bouton*
     ...
@@ -12,12 +10,12 @@ class Bouton {
     - m_pin : uint8_t
     - m_actionBoutonPresse : Action*
     ...
-    + ctor(p_pinBouton : int, p_actionBoutonPresse : Action*)
+    + ctor(p_pinBouton : uint8_t, p_actionBoutonPresse : Action*)
     + void tick()
 }
 
 abstract class Action {
-    + void executer() {abstract}
+    + void {abstract} executer()
 }
 
 class ActionModifierIntesiteDEL {
@@ -28,22 +26,21 @@ class ActionModifierIntesiteDEL {
     + void executer()
 }
 
-Action <|-- ActionModifierIntesiteDEL
-
 class DEL {
-    - m_pin : uint8_t
+    - m_pinDEL: uint8_t
     ...
-    + ctor(p_pin : uint8_t)
-    + allumer()
-    + allumer(p_pourcentageIntensite : float)
-    + eteindre()
+    + ctor(p_pinDEL : uint8_t)
+    + void allumer()
+    + void allumer(p_pourcentageIntensite : float)
+    + void eteindre()
 }
 
-DEL "1" <-right- "1" ActionModifierIntesiteDEL
-Bouton "1" <-left- "1" Program
-ActionModifierIntesiteDEL "1" <-left- "1" Bouton
 Program ..> DEL : create
-Program ..> Bouton : create
 Program ..> ActionModifierIntesiteDEL : create
+Program .> Bouton : create
+Program "1" -> "1" Bouton
+ActionModifierIntesiteDEL "1" -l> "1" DEL
+Bouton "1" --> "1" ActionModifierIntesiteDEL
+ActionModifierIntesiteDEL -u-|> Action
 
 @enduml
