@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <main>
+        <div class="container col-xl-10">
+            <div class="row align-items-center g-lg-5 py-5">
+                <div class="col-md-10 mx-auto col-lg-5">
+                    <div class="p-4 p-md-5 border rounded-3 bg-light">
+                        <div class="mb-3">
+                            Mon site fonctionne !
+                        </div>
+                        <div class="mb-3" id="statutDEL">
+
+                        </div>
+                        <div class="mb-3">
+                            <button id="btAllumer" class="w-100 btn btn-lg btn-danger">Allumer</button>
+                        </div>
+                        <div class="mb-3">
+                            <button id="btEteindre" class="w-100 btn btn-lg btn-success">Éteindre</button>
+                        </div>
+                        <hr class="my-4">
+                        <small class="text-muted">Site diffusé par votre ESP32.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+        // Vieux style avec XMLHttpRequest
+        // function allumer() {
+        //     var xhttp = new XMLHttpRequest();
+        //     xhttp.onreadystatechange = () => {
+        //         if (xhttp.readyState == 4) {
+        //             if (xhttp.status == 200) {
+        //                 document.getElementById("statutDEL").innerHTML = xhttp.responseText;
+        //             } else {
+        //                 console.log("Erreur: " + xhttp.responseText);
+        //             }
+        //         }
+        //     }
+        //     xhttp.open("GET", "allumer", true);
+        //     xhttp.send();
+        // }
+
+        // function eteindre() {
+        //     var xhttp = new XMLHttpRequest();
+        //     xhttp.onreadystatechange = () => {
+        //         if (xhttp.readyState == 4) {
+        //             if (xhttp.status == 200) {
+        //                 document.getElementById("statutDEL").innerHTML = xhttp.responseText;
+        //             } else {
+        //                 console.log("Erreur: " + xhttp.responseText);
+        //             }
+        //         }
+        //     }
+        //     xhttp.open("GET", "eteindre", true);
+        //     xhttp.send();
+        // }
+
+        window.addEventListener("load", (event) => {
+            document.getElementById("btAllumer").addEventListener("click", allumer);
+            document.getElementById("btEteindre").addEventListener("click", eteindre);
+        });
+
+        // Nouveau style avec fetch
+        async function allumer() {
+            try {
+                const reponse = await fetch('allumer');
+                afficherStatutDEL(await reponse.json());
+            } catch (error) {
+                afficherMessage("Erreur: " + error.message);
+            }
+        }
+
+        async function eteindre() {
+            try {
+                const reponse = await fetch('eteindre');
+                afficherStatutDEL(await reponse.json());
+            } catch (error) {
+                afficherMessage("Erreur: " + error.message);
+            }
+        }
+
+        function afficherMessage(p_message) {
+            document.getElementById("statutDEL").innerHTML = p_message;
+        }
+
+        function afficherStatutDEL(p_statutDEL) {
+            document.getElementById("statutDEL").innerHTML = (p_statutDEL.etat == "allumee") ? "La DEL est allumée." : "La DEL est éteinte.";
+        }
+    </script>
+</body>
+
+</html>
