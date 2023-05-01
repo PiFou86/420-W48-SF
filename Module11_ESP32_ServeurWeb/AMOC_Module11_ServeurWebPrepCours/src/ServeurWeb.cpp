@@ -1,7 +1,6 @@
 #include "ServeurWeb.h"
 
 #include <Arduino.h>
-#include <SPIFFS.h>
 #include <WebServer.h>
 #include <detail/RequestHandlersImpl.h>
 
@@ -10,8 +9,40 @@
 // - permettrait de gagner du temps de traitement car
 // potentiellement déjà dans la cache du navigateur
 
+
+#ifdef FS_LITTLEFS
+
+#include <LittleFS.h>
+
+#define FS LittleFS
+
+#else
+
+#include <SPIFFS.h>
+#define FS SPIFFS
+
+#endif
+
+String toURI(const String &path) {
+#ifdef FS_LITTLEFS
+  return path;
+#else
+  // PFL : Le but est ici de gommer les problèmes de SPIFFS qui ne supporte plus les
+  // noms de fichiers avec des / pour simuler des répertoires
+  // Pour que le fichier HTML fonctionne toujours, vous allons simplement changer l'URI des fichiers
+  if (path.endsWith(".css")) {
+    return String("/css") + path;
+  } else if (path.endsWith(".js")) {
+    return String("/js") + path;
+  }
+
+  return path;
+#endif
+}
+
+
 ServeurWeb::ServeurWeb() {
-  SPIFFS.begin();
+  FS.begin(true);
 
   pinMode(2, OUTPUT);
 
@@ -42,26 +73,26 @@ void ServeurWeb::afficherRacine() {
 }
 
 void ServeurWeb::ajouterFichiersStatiques(String const& p_debutNomFichier) {
-  File racine = SPIFFS.open("/");
-  ajouterFichiersStatiques(p_debutNomFichier, racine);
+  File racine = FS.open("/");
+  ajouterFichiersStatiques(p_debutNomFichier, "", racine);
 }
 
 void ServeurWeb::ajouterFichiersStatiques(String const& p_debutNomFichier,
+                                          String const& p_repertoireCourant,
                                           File& p_repertoire) {
   if (!p_repertoire) return;
 
-  Serial.println(String("Traitement du répertoire: ") + p_repertoire.name());
-
+  Serial.println(String("Traitement du répertoire : ") + p_repertoire.name());
 
   File fichier = p_repertoire.openNextFile();
   while (fichier) {
-    String nomFichier = String(fichier.name());
+    String nomFichier = p_repertoireCourant + "/" + String(fichier.name());
     if (fichier.isDirectory()) {
-      ajouterFichiersStatiques(p_debutNomFichier, fichier);
+      ajouterFichiersStatiques(p_debutNomFichier, p_repertoireCourant + "/" + fichier.name(), fichier);
     } else {
       if (nomFichier.startsWith(p_debutNomFichier)) {
-        Serial.println(String("Ajout du fichier statique: " + nomFichier));
-        this->m_webServer->serveStatic(nomFichier.c_str(), SPIFFS,
+        Serial.println(String("Ajout du fichier statique : ") + nomFichier + " pour l'URI " + toURI(nomFichier));
+        this->m_webServer->serveStatic(toURI(nomFichier).c_str(), FS,
                                        nomFichier.c_str());
       }
     }
@@ -79,11 +110,11 @@ void ServeurWeb::ressourceNonTrouvee(const String& p_nomRessource) {
 }
 
 void ServeurWeb::allumer() {
-  digitalWrite(2, HIGH);
-  this->m_webServer->send(200, "text/plain", "DEL allumée");
+  digitalWrite(LED_BUILTIN, HIGH);
+  this->m_webServer->send(200, "application/json", "{ \"etat\": \"allumee\" }");
 }
 
 void ServeurWeb::eteindre() {
-  digitalWrite(2, LOW);
-  this->m_webServer->send(200, "text/plain", "DEL éteinte");
+  digitalWrite(LED_BUILTIN, LOW);
+  this->m_webServer->send(200, "application/json", "{ \"etat\": \"eteinte\" }");
 }

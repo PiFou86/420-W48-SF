@@ -23,10 +23,10 @@
 
                         </div>
                         <div class="mb-3">
-                            <button class="w-100 btn btn-lg btn-danger" onclick="allumer()">Allumer</button>
+                            <button id="btAllumer" class="w-100 btn btn-lg btn-danger">Allumer</button>
                         </div>
                         <div class="mb-3">
-                            <button class="w-100 btn btn-lg btn-success" onclick="eteindre()">Éteindre</button>
+                            <button id="btEteindre" class="w-100 btn btn-lg btn-success">Éteindre</button>
                         </div>
                         <hr class="my-4">
                         <small class="text-muted">Site diffusé par votre ESP32.</small>
@@ -39,34 +39,67 @@
     <script src="js/bootstrap.min.js"></script>
 
     <script>
-        function allumer() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = () => {
-                if (xhttp.readyState == 4) {
-                    if (xhttp.status == 200) {
-                        document.getElementById("statutDEL").innerHTML = xhttp.responseText;
-                    } else {
-                        console.log("Erreur: " + xhttp.responseText);
-                    }
-                }
+        // Vieux style avec XMLHttpRequest
+        // function allumer() {
+        //     var xhttp = new XMLHttpRequest();
+        //     xhttp.onreadystatechange = () => {
+        //         if (xhttp.readyState == 4) {
+        //             if (xhttp.status == 200) {
+        //                 document.getElementById("statutDEL").innerHTML = xhttp.responseText;
+        //             } else {
+        //                 console.log("Erreur: " + xhttp.responseText);
+        //             }
+        //         }
+        //     }
+        //     xhttp.open("GET", "allumer", true);
+        //     xhttp.send();
+        // }
+
+        // function eteindre() {
+        //     var xhttp = new XMLHttpRequest();
+        //     xhttp.onreadystatechange = () => {
+        //         if (xhttp.readyState == 4) {
+        //             if (xhttp.status == 200) {
+        //                 document.getElementById("statutDEL").innerHTML = xhttp.responseText;
+        //             } else {
+        //                 console.log("Erreur: " + xhttp.responseText);
+        //             }
+        //         }
+        //     }
+        //     xhttp.open("GET", "eteindre", true);
+        //     xhttp.send();
+        // }
+
+        window.addEventListener("load", (event) => {
+            document.getElementById("btAllumer").addEventListener("click", allumer);
+            document.getElementById("btEteindre").addEventListener("click", eteindre);
+        });
+
+        // Nouveau style avec fetch
+        async function allumer() {
+            try {
+                const reponse = await fetch('allumer');
+                afficherStatutDEL(await reponse.json());
+            } catch (error) {
+                afficherMessage("Erreur: " + error.message);
             }
-            xhttp.open("GET", "allumer", true);
-            xhttp.send();
         }
 
-        function eteindre() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = () => {
-                if (xhttp.readyState == 4) {
-                    if (xhttp.status == 200) {
-                        document.getElementById("statutDEL").innerHTML = xhttp.responseText;
-                    } else {
-                        console.log("Erreur: " + xhttp.responseText);
-                    }
-                }
+        async function eteindre() {
+            try {
+                const reponse = await fetch('eteindre');
+                afficherStatutDEL(await reponse.json());
+            } catch (error) {
+                afficherMessage("Erreur: " + error.message);
             }
-            xhttp.open("GET", "eteindre", true);
-            xhttp.send();
+        }
+
+        function afficherMessage(p_message) {
+            document.getElementById("statutDEL").innerHTML = p_message;
+        }
+
+        function afficherStatutDEL(p_statutDEL) {
+            document.getElementById("statutDEL").innerHTML = (p_statutDEL.etat == "allumee") ? "La DEL est allumée." : "La DEL est éteinte.";
         }
     </script>
 </body>
