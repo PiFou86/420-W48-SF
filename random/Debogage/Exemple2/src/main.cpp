@@ -1,4 +1,4 @@
-// #include "Macros.h"
+// #include "MesMacros.h"
 #include <Arduino.h>
 
 const int LED_PIN = 13;
@@ -13,16 +13,16 @@ void setup()
    
        digitalWrite(LED_PIN, LOW);
    
-    DBG_LINENUMBER_;
-    DBG_DETAILS_;
+    DEBUG_LINENUMBER_;
+    DEBUG_DETAILS_;
     float var1=3.2;
     int   var2=4;
-    DBG_CONTEXTE_(var1 , var1);
-    DBG_CONTEXTE_(var2 , var2);
-    DBG_CONTEXTE_(var2 , var2%2);
-    DBG_CONTEXTE_(var2 , var2<<2);
-    DBG_CONTEXTE_(var2 , decaler(&var2, 2));
-    DBG_LINENUMBER_;
+    DEBUG_CONTEXTE_(var1 , var1);
+    DEBUG_CONTEXTE_(var2 , var2);
+    DEBUG_CONTEXTE_(var2 , var2%2);
+    DEBUG_CONTEXTE_(var2 , var2<<2);
+    DEBUG_CONTEXTE_(var2 , decaler(&var2, 2));
+    DEBUG_LINENUMBER_;
     Serial.println("\nfin");   
 }
 

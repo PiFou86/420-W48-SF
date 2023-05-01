@@ -28,15 +28,14 @@ void afficherTiret() {
 }
 void afficherSOS() {             // Dit Dit Dit Dash Dash Dash Dit Dit Dit 
    if (DEBUG_) {
-       DEBUG_STRING_("S");
+        Serial.print("S");
    }
     afficherPoint();
     afficherPoint();
     afficherPoint();
     delay(3*DELAIS_BASE);
-  
-   if (DEBUG_) {
-       DEBUG_STRING_("O");
+    if (DEBUG_) {
+        Serial.print("O");
    }
     afficherTiret();
     afficherTiret();
@@ -44,7 +43,7 @@ void afficherSOS() {             // Dit Dit Dit Dash Dash Dash Dit Dit Dit
     delay(3*DELAIS_BASE);
 
     if (DEBUG_) {
-       DEBUG_STRING_("S");
+        Serial.print("S");
     }
     afficherPoint();
     afficherPoint();
@@ -65,7 +64,6 @@ void setup()
    }
 */
     afficherSOS();
-
 /*   if (DEBUG_) {
        DEBUG_STRING_("retour de afficherSOS()");
    }
