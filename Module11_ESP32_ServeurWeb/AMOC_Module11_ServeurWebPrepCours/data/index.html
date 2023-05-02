@@ -5,9 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- PFL : Code pour les fallbacks de Bootstrap trouvé ici : https://www.jeremyknight.me/posts/2021/2021-01-08-bootstrap-5-cdn-fallback/ -->
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css"
+    onerror="this.onerror=null;this.href='css/bootstrap.min.css';this.removeAttribute('integrity');this.removeAttribute('crossorigin');"
+    integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>Hello, world!</title>
+    <title>Contrôleur DEL par WiFi</title>
 </head>
 
 <body>
@@ -17,7 +22,7 @@
                 <div class="col-md-10 mx-auto col-lg-5">
                     <div class="p-4 p-md-5 border rounded-3 bg-light">
                         <div class="mb-3">
-                            Mon site fonctionne !
+                            Contrôle de la DEL interne :
                         </div>
                         <div class="mb-3" id="statutDEL">
 
@@ -36,7 +41,14 @@
         </div>
     </main>
 
-    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        if (!window.bootstrap) { // the bootstrap object is not present
+            var newScript = document.createElement("script");
+            newScript.setAttribute("src", "js/bootstrap.min.js");
+            document.getElementsByTagName("head")[0].appendChild(newScript);
+        }
+    </script>
 
     <script>
         // Vieux style avec XMLHttpRequest
