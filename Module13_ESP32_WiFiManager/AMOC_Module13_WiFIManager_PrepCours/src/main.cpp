@@ -5,7 +5,7 @@
 WiFiManager wm;
 char const* SSIDPortail = "ConfigurationESP32";
 char const* motPasseAPPortail = "Bonjour01.+";
-IPAddress adresseIPPortail(192, 168, 23, 1);
+IPAddress adresseIPPortail(192, 168, 23, 2);
 IPAddress passerellePortail(192, 168, 23, 1);
 IPAddress masqueReseauPortail(255, 255, 255, 0);
 WebServer serveurWeb;
