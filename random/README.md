@@ -31,6 +31,14 @@ Code exemple de test et utilisation de l'afficheur OLED 128x64. Ce composant n'e
 - [Utilitaires de développement et démos](https://github.com/PiFou86/420-W48-SF-Utilitaires-Demo) : projet contenant des exemples de codes faire du débogage. Au menu, classes de journalisation, console sur le port série pour réaliser des affichages sur ce qui est connecté, la configuration réseau etc.
 - [Pool monitoring](https://github.com/PiFou86/pool-monitoring/) : projet personne de monitoring de piscine avec ESP32 et capteurs BME280, DS18B20, etc.
 
+## ESP32 
+
+Voici un schéma des broches de l'ESP32 :
+
+![ESP32 Pinout](img/pinout.png)
+
+(Adapté de : https://randomnerdtutorials.com/esp32-pinout-reference-gpios/  à la plaquette utilisée en cours)
+
 ## Problèmes communs
 
 ### Compilation
