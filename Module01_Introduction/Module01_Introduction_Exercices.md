@@ -168,7 +168,7 @@ Créez un nouveau programme qui se sert de la DEL afin d'afficher la séquence  
   - HIGH
   - LOW
 - Retournez dans votre fichier "main.cpp", placez vous sur la constante LED_BUILTIN et faites un "Go to definition" et notez la valeur.
-- Lisez la déclaration de la macro  ```sqr```, notez ses paramètres et son algorithme.
+- Lisez la déclaration de la macro  ```sq```, notez ses paramètres et son algorithme.
 
 Les programmes en C/C++ compilés avec PlatformIO demandent d'inclure l'instruction ```#include <Arduino.h>```. Cette consigne informe le compilateur que des informations incluses dans le fichier <Arduino.h> sont nécessaires au programme. C'est le cas pour les constantes HIGH, LOW et bien d'autres.
 
