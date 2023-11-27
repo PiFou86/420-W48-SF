@@ -19,6 +19,6 @@ Vous devez créer une montage et un programme qui compte le nombre de pression e
 - Validez que votre montage et codez votre programme
 - Testez votre montage et votre programme
 
-### Exercice 2.2 - Version non écologique (Optionnel)
+### Exercice 2.2 - Version écologique (Optionnel)
 
 Votre conception de programme précédent ne permet pas de réinitialiser les compteurs. Imaginez et codez une façon de résoudre ce problème et de permettre de réutiliser votre matériel pour une autre exposition.
