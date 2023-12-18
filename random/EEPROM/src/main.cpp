@@ -3,7 +3,7 @@
 
 #include "SauvegardeDonneesEEPROM.h"
 
-struct MyStruct {
+struct MaStructure {
   int a;
   int b;
 };
@@ -12,13 +12,14 @@ void setup() {
   Serial.begin(115200);
   EEPROM.begin();
 
-  MyStruct myStruct;
-  myStruct.a = 0x1234;
-  myStruct.b = 0x4321;
-  SauvegardeDonneesEEPROM<MyStruct> sauvegardeDonneesEEPROM(0x6666);
+  MaStructure maStructure;
+  maStructure.a = 0x1234;
+  maStructure.b = 0x4321;
+  SauvegardeDonneesEEPROM<MaStructure> sauvegardeDonneesEEPROM(0x6666);
   sauvegardeDonneesEEPROM.afficherContenuEEPROM();
-  for (size_t i = 0; i < 1024; i++) {
-    sauvegardeDonneesEEPROM.donnees(myStruct);
+  //for (size_t i = 0; i < 1024; i++) {
+  for (size_t i = 0; i < 2; i++) {
+    sauvegardeDonneesEEPROM.donnees(maStructure);
     if (sauvegardeDonneesEEPROM.sauvegarder()) {
       Serial.println("Sauvegarder OK");
     } else {
