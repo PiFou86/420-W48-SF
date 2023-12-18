@@ -6,6 +6,7 @@
 struct MaStructure {
   int a;
   int b;
+  char c[16];
 };
 
 void setup() {
@@ -15,7 +16,8 @@ void setup() {
   MaStructure maStructure;
   maStructure.a = 0x1234;
   maStructure.b = 0x4321;
-  SauvegardeDonneesEEPROM<MaStructure> sauvegardeDonneesEEPROM(0x6666);
+  strcpy(maStructure.c, "Chocolatine !");
+  SauvegardeDonneesEEPROM<MaStructure> sauvegardeDonneesEEPROM(0x0666);
   sauvegardeDonneesEEPROM.afficherContenuEEPROM();
   //for (size_t i = 0; i < 1024; i++) {
   for (size_t i = 0; i < 2; i++) {
