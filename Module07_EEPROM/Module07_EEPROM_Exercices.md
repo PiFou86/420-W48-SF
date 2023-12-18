@@ -1,5 +1,7 @@
 # Module 7 - EEPROM
 
+Vous trouverez beaucoup de code générique qui gère les déplacements en mémoire et le CRC pour éviter les erreurs lecture et limiter les écritures dans le [répertoire random](https://github.com/PiFou86/420-W48-SF/tree/main/random) dans la [partie EEPROM](https://github.com/PiFou86/420-W48-SF/tree/main/random#eeprom)
+
 ## Exercice 1 - Enregistrement du statut d'une DEL
 
 Vous devez créer un montage et un programme qui permet de faire varier l'intensité d'un éclairage à partir d'un bouton poussoir. Si un coupure de courant survient, le montage doit retrouver ses anciennes valeurs.
