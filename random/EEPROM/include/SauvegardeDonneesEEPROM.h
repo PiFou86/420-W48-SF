@@ -4,13 +4,26 @@
 #include <CRC16.h>
 #include <EEPROM.h>
 
+#include "SauvegardeDonnees.h"
 #include "stringUtil.h"
 
-#include "SauvegardeDonnees.h"
+// Pour les couleurs voir : https://en.wikipedia.org/wiki/ANSI_escape_code
+// Pour voir les couleurs, modifier le fichier platformio.ini et ajouter "monitor_filters = direct"
+
+// Pour désactiver la couleur mettre la ligne suivante en commentaire
+#define USE_COLOR_TERMINAL
+#define TEXT_BLUE "\033[34m"
+#define TEXT_GREEN "\033[32m"
+#define TEXT_RED "\033[31m"
+#define TEXT_YELLOW "\033[33m"
+#define TEXT_RESET "\033[0m"
+#define TEXT_BG_BLACK "\033[40m"
+#define TEXT_BOLD "\033[1m"
 
 // Organisation EEPROM :
-// || signature app (2 octets) || adresse debut donnees (2 octets) || ... 
-// || nombre ecritures (2 octets) || crc donnees utilisateur (2 octets) || donnees utilisateur (sizeof(TypeDonneesASauvegarder) octets) || ... ||
+// || signature app (2 octets) || adresse debut donnees (2 octets) || ...
+// || nombre ecritures (2 octets) || crc donnees utilisateur (2 octets) ||
+// donnees utilisateur (sizeof(TypeDonneesASauvegarder) octets) || ... ||
 inline String padLeft(String p_texte, uint16_t p_tailleMin,
                       char p_remplissage = ' ');
 
@@ -179,15 +192,24 @@ void SauvegardeDonneesEEPROM<TypeDonneesASauvegarder>::afficherContenuEEPROM() {
   EEPROM.get(ADRESSE_SIGNATURE_APP, signatureApp);
   EEPROM.get(ADRESSE_ADRESSE_DEBUT_DONNEES, adresseDonnees);
   EEPROM.get(adresseCompteurEcritures(adresseDonnees), compteurEcritures);
-  EEPROM.get(adresseCRCDonneesUtilisateur(adresseDonnees), crcDonneesUtilisateur);
+  EEPROM.get(adresseCRCDonneesUtilisateur(adresseDonnees),
+             crcDonneesUtilisateur);
 
   Serial.println("Taille donnees : " + String(tailleDonnees()));
-  Serial.println("Signature app : 0x" + padLeft(String(signatureApp, HEX), 4, '0'));
-  Serial.println("Adresse debut donnees : 0x" + padLeft(String(adresseDonnees, HEX), 4, '0'));
-  Serial.println("Adresse CRC donnees utilisateur : 0x" + padLeft(String(adresseCRCDonneesUtilisateur(adresseDonnees), HEX), 4, '0'));
-  Serial.println("Adresse debut donnees utilisateur : 0x" + padLeft(String(adresseDonneesUtilisateur(adresseDonnees), HEX), 4, '0'));
+  Serial.println("Signature app : 0x" +
+                 padLeft(String(signatureApp, HEX), 4, '0'));
+  Serial.println("Adresse debut donnees : 0x" +
+                 padLeft(String(adresseDonnees, HEX), 4, '0'));
+  Serial.println(
+      "Adresse CRC donnees utilisateur : 0x" +
+      padLeft(String(adresseCRCDonneesUtilisateur(adresseDonnees), HEX), 4,
+              '0'));
+  Serial.println(
+      "Adresse debut donnees utilisateur : 0x" +
+      padLeft(String(adresseDonneesUtilisateur(adresseDonnees), HEX), 4, '0'));
   Serial.println("Compteur ecritures : " + String(compteurEcritures, DEC));
-  Serial.println("CRC donnees utilisateur : 0x" + padLeft(String(crcDonneesUtilisateur, HEX), 4, '0'));
+  Serial.println("CRC donnees utilisateur : 0x" +
+                 padLeft(String(crcDonneesUtilisateur, HEX), 4, '0'));
   Serial.println();
 
   Serial.println("Contenu de l'EEPROM :");
@@ -204,8 +226,39 @@ void SauvegardeDonneesEEPROM<TypeDonneesASauvegarder>::afficherContenuEEPROM() {
     Serial.print(padLeft(String((uint16_t)adresse, HEX), 4, '0'));
     for (uint16_t offset = 0;
          offset < lineOffset && adresse + offset < EEPROM.length(); ++offset) {
+      uint16_t adresseAAfficher = adresse + offset;
+#if defined(USE_COLOR_TERMINAL)
+      if (adresseAAfficher == ADRESSE_SIGNATURE_APP ||
+          adresseAAfficher == ADRESSE_SIGNATURE_APP + 1) {
+        Serial.print(TEXT_BOLD);
+        Serial.print(TEXT_BG_BLACK);
+        Serial.print(TEXT_BLUE);
+      } else if (adresseAAfficher == adresseDonnees ||
+                 adresseAAfficher == adresseDonnees + 1) {
+        Serial.print(TEXT_BOLD);
+        Serial.print(TEXT_BG_BLACK);
+        Serial.print(TEXT_BLUE);
+      } else if (adresseAAfficher ==
+                     adresseCRCDonneesUtilisateur(adresseDonnees) ||
+                 adresseAAfficher ==
+                     adresseCRCDonneesUtilisateur(adresseDonnees) + 1) {
+        Serial.print(TEXT_BOLD);
+        Serial.print(TEXT_BG_BLACK);
+        Serial.print(TEXT_YELLOW);
+      } else if (adresseAAfficher >=
+                     adresseDonneesUtilisateur(adresseDonnees) &&
+                 adresseAAfficher < adresseDonneesUtilisateur(adresseDonnees) +
+                                        sizeof(TypeDonneesASauvegarder)) {
+        Serial.print(TEXT_BOLD);
+        Serial.print(TEXT_BG_BLACK);
+        Serial.print(TEXT_GREEN);
+      }
+#endif
       Serial.print("  " +
-                   padLeft(String(EEPROM.read(adresse + offset), HEX), 2, '0'));
+                   padLeft(String(EEPROM.read(adresseAAfficher), HEX), 2, '0'));
+#if defined(USE_COLOR_TERMINAL)
+      Serial.print(TEXT_RESET);
+#endif
     }
 
     Serial.print("  |  ");
