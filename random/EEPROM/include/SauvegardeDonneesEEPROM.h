@@ -233,6 +233,11 @@ void SauvegardeDonneesEEPROM<TypeDonneesASauvegarder>::afficherContenuEEPROM() {
         Serial.print(TEXT_BOLD);
         Serial.print(TEXT_BG_BLACK);
         Serial.print(TEXT_BLUE);
+      } else if (adresseAAfficher == ADRESSE_ADRESSE_DEBUT_DONNEES ||
+                 adresseAAfficher == ADRESSE_ADRESSE_DEBUT_DONNEES + 1) {
+        Serial.print(TEXT_BOLD);
+        Serial.print(TEXT_BG_BLACK);
+        Serial.print(TEXT_YELLOW);
       } else if (adresseAAfficher == adresseDonnees ||
                  adresseAAfficher == adresseDonnees + 1) {
         Serial.print(TEXT_BOLD);
