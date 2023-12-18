@@ -10,6 +10,8 @@ Quelques exemples de code pour déboguer votre code en C++ sans outil supplémen
 
 Code exemple de test et utilisation de la mémoire EEPROM avec CRC et déplacement dans la mémoire pour économiser les cycles d'écriture.
 
+![Console de débugage couleur avec les valeurs de l'EEPROM](img/EEPROM_debug.png)
+
 ### I2C_Explique
 
 Explication plus avancée et détaillée de l'interface I2C.

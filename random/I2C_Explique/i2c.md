@@ -111,6 +111,9 @@ Ce mécanisme est expliqué un peu plus loin.
 
 ![BusI2C](img/OverView2.png)
 
+![Implantation](img/ImplantationI2C.png)
+
+
 </details>
 
 Chaque périphérique est identifié par une adresse unique. Cette adresse est codée sur 7 bits (une version étendue est possible sur 10 bits). Le LCD "1602" est reconnue à l'adresse ```0X27``` , le senseur de température "BME280" est reconnu à l'adresse ```0X76```. C'est l'industrie de l'électronique qui attribue ces valeurs.
