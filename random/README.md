@@ -6,6 +6,10 @@
 
 Quelques exemples de code pour déboguer votre code en C++ sans outil supplémentaires (old school). Vous avez un exemple de classe utilitaire de journalisation dans le projet [Utilitaires de développement et démos](https://github.com/PiFou86/420-W48-SF-Utilitaires-Demo).
 
+### EEPROM
+
+Code exemple de test et utilisation de la mémoire EEPROM avec CRC et déplacement dans la mémoire pour économiser les cycles d'écriture.
+
 ### I2C_Explique
 
 Explication plus avancée et détaillée de l'interface I2C.
