@@ -7,6 +7,10 @@
 #include "SauvegardeDonnees.h"
 #include "stringUtil.h"
 
+// Pour les couleurs voir : https://en.wikipedia.org/wiki/ANSI_escape_code
+// Pour voir les couleurs, modifier le fichier platformio.ini et ajouter "monitor_filters = direct"
+
+// Pour désactiver la couleur mettre la ligne suivante en commentaire
 #define USE_COLOR_TERMINAL
 #define TEXT_BLUE "\033[34m"
 #define TEXT_GREEN "\033[32m"
