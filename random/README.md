@@ -6,6 +6,10 @@
 
 Quelques exemples de code pour déboguer votre code en C++ sans outil supplémentaires (old school). Vous avez un exemple de classe utilitaire de journalisation dans le projet [Utilitaires de développement et démos](https://github.com/PiFou86/420-W48-SF-Utilitaires-Demo).
 
+### EEPROM
+
+Code exemple de test et utilisation de la mémoire EEPROM avec CRC et déplacement dans la mémoire pour économiser les cycles d'écriture.
+
 ### I2C_Explique
 
 Explication plus avancée et détaillée de l'interface I2C.
@@ -31,7 +35,7 @@ Code exemple de test et utilisation de l'afficheur OLED 128x64. Ce composant n'e
 - [Utilitaires de développement et démos](https://github.com/PiFou86/420-W48-SF-Utilitaires-Demo) : projet contenant des exemples de codes faire du débogage. Au menu, classes de journalisation, console sur le port série pour réaliser des affichages sur ce qui est connecté, la configuration réseau etc.
 - [Pool monitoring](https://github.com/PiFou86/pool-monitoring/) : projet personne de monitoring de piscine avec ESP32 et capteurs BME280, DS18B20, etc.
 
-## ESP32 
+## ESP32
 
 Voici un schéma des broches de l'ESP32 :
 
@@ -45,7 +49,7 @@ Voici un schéma des broches de l'ESP32 :
 
 #### Résolution de dépendances
 
-Il est possible que Pio ne trouve pas toutes dépendances des bibliothèques. Pour forcer une recherche approndondie, vous pouvez utiliser le paramètre ```lib_ldf_mode``` avec la valeur ```deep+``` décrit dans la documentation : [lib-ldf-mode](https://docs.platformio.org/en/stable/projectconf/section_env_library.html#lib-ldf-mode).
+Il est possible que Pio ne trouve pas toutes dépendances des bibliothèques. Pour forcer une recherche approfondie, vous pouvez utiliser le paramètre ```lib_ldf_mode``` avec la valeur ```deep+``` décrit dans la documentation : [lib-ldf-mode](https://docs.platformio.org/en/stable/projectconf/section_env_library.html#lib-ldf-mode).
 
 ### Réseau
 
