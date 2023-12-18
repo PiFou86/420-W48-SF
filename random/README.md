@@ -20,6 +20,8 @@ Données :
 - 0x000006 - 0x000007 = 0xACAA : CRC des données qui suivent
 - 0x000008 - 0x00100B = 0x1234, 0x4321, "Chocolatine !" : valeur de la structure à sauvegarder. Notez que c'est un tableau de caractères de capacité fixe et non un String ni un char*
 
+[Lien de simulation WokWi](https://wokwi.com/projects/384484359495267329).
+
 ### I2C_Explique
 
 Explication plus avancée et détaillée de l'interface I2C.
