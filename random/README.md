@@ -12,6 +12,14 @@ Code exemple de test et utilisation de la mémoire EEPROM avec CRC et déplaceme
 
 ![Console de débugage couleur avec les valeurs de l'EEPROM](img/EEPROM_debug.png)
 
+Données :
+
+- 0x000000 - 0x000001 = 0x0666 : signature de l'application
+- 0x000002 - 0x000003 = 0x0004 : valeur de l'adresse du début des données. Cette valeur est mobile si on dépasse un certain nombre d'écritures
+- 0x000004 - 0x000005 = 0x0002 : nombre d'écriture supposée qui est différent de réel car on utilise put et non write
+- 0x000006 - 0x000007 = 0xACAA : CRC des données qui suivent
+- 0x000008 - 0x00100B = 0x1234, 0x4321, "Chocolatine !" : valeur de la structure à sauvegarder. Notez que c'est un tableau de caractères de capacité fixe et non un String ni un char*
+
 ### I2C_Explique
 
 Explication plus avancée et détaillée de l'interface I2C.
