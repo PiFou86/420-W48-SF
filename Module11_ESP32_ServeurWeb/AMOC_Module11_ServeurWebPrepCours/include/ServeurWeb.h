@@ -16,6 +16,7 @@ class ServeurWeb {
 
   void ajouterFichiersStatiques(String const& p_debutNomFichier);
   void ajouterFichiersStatiques(String const& p_debutNomFichier,
+                                String const& p_repertoireCourant,
                                 File& p_fichier);
                                 
   void ressourceNonTrouvee(String const& p_nomFichier);

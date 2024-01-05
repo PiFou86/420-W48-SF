@@ -6,6 +6,22 @@
 
 Quelques exemples de code pour déboguer votre code en C++ sans outil supplémentaires (old school). Vous avez un exemple de classe utilitaire de journalisation dans le projet [Utilitaires de développement et démos](https://github.com/PiFou86/420-W48-SF-Utilitaires-Demo).
 
+### EEPROM
+
+Code exemple de test et utilisation de la mémoire EEPROM avec CRC et déplacement dans la mémoire pour économiser les cycles d'écriture.
+
+![Console de débugage couleur avec les valeurs de l'EEPROM](img/EEPROM_debug.png)
+
+Données :
+
+- 0x000000 - 0x000001 = 0x0666 : signature de l'application
+- 0x000002 - 0x000003 = 0x0004 : valeur de l'adresse du début des données. Cette valeur est mobile si on dépasse un certain nombre d'écritures
+- 0x000004 - 0x000005 = 0x0002 : nombre d'écriture supposée qui est différent de réel car on utilise put et non write
+- 0x000006 - 0x000007 = 0xACAA : CRC des données qui suivent
+- 0x000008 - 0x00100B = 0x1234, 0x4321, "Chocolatine !" : valeur de la structure à sauvegarder. Notez que c'est un tableau de caractères de capacité fixe et non un String ni un char*
+
+[Lien de simulation WokWi](https://wokwi.com/projects/384484359495267329).
+
 ### I2C_Explique
 
 Explication plus avancée et détaillée de l'interface I2C.
@@ -31,13 +47,21 @@ Code exemple de test et utilisation de l'afficheur OLED 128x64. Ce composant n'e
 - [Utilitaires de développement et démos](https://github.com/PiFou86/420-W48-SF-Utilitaires-Demo) : projet contenant des exemples de codes faire du débogage. Au menu, classes de journalisation, console sur le port série pour réaliser des affichages sur ce qui est connecté, la configuration réseau etc.
 - [Pool monitoring](https://github.com/PiFou86/pool-monitoring/) : projet personne de monitoring de piscine avec ESP32 et capteurs BME280, DS18B20, etc.
 
+## ESP32
+
+Voici un schéma des broches de l'ESP32 :
+
+![ESP32 Pinout](img/pinout.png)
+
+(Adapté de : https://randomnerdtutorials.com/esp32-pinout-reference-gpios/  à la plaquette utilisée en cours)
+
 ## Problèmes communs
 
 ### Compilation
 
 #### Résolution de dépendances
 
-Il est possible que Pio ne trouve pas toutes dépendances des bibliothèques. Pour forcer une recherche approndondie, vous pouvez utiliser le paramètre ```lib_ldf_mode``` avec la valeur ```deep+``` décrit dans la documentation : [lib-ldf-mode](https://docs.platformio.org/en/stable/projectconf/section_env_library.html#lib-ldf-mode).
+Il est possible que Pio ne trouve pas toutes dépendances des bibliothèques. Pour forcer une recherche approfondie, vous pouvez utiliser le paramètre ```lib_ldf_mode``` avec la valeur ```deep+``` décrit dans la documentation : [lib-ldf-mode](https://docs.platformio.org/en/stable/projectconf/section_env_library.html#lib-ldf-mode).
 
 ### Réseau
 

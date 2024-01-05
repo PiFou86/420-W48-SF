@@ -1,0 +1,50 @@
+@startuml EEPROM
+
+class NavigationStatistiques {
+    - m_nombreAvions : int
+    - m_nombrePassagers : long
+    - m_nomPilote : char[26]
+
+    + nombreAvions(p_nombreAvions : int)
+    + nombrePassagers(p_nombrePassagers : long)
+    + nomPilote(p_nomPilote : char[26])
+    + nombreAvions() : int
+    + nombrePassagers() : long
+    + nomPilote() : char[26] 
+}
+
+class NavigationStatistiquesSauvegarde {
+    - m_donnees : NavigationStatistiques
+    + <<virtual>> sauvegarder() = 0
+    + <<virtual>> charger() = 0
+    + donnees(p_donnees : const NavigationStatistiques&)
+    + donnees() : NavigationStatistiques
+}
+
+class NavigationStatistiquesSauvegardeEEPROM {
+    - m_adresse : int
+    + <<virtual>> sauvegarder()
+    + <<virtual>> charger()
+}
+
+class SauvegardeDonnees<TypeDonnee> {
+    - m_donnees : TypeDonnee
+    + <<virtual>> sauvegarder() = 0
+    + <<virtual>> charger() = 0
+    + void donnees(p_donnees : const TypeDonnee&)
+    + donnees() : TypeDonnee
+}
+
+class SauvegardeDonneesEEPROM<TypeDonnee> {
+    - m_adresse : int
+    + <<virtual>> sauvegarder()
+    + <<virtual>> charger()
+}
+
+NavigationStatistiquesSauvegarde <|-- NavigationStatistiquesSauvegardeEEPROM
+NavigationStatistiquesSauvegarde .right.> NavigationStatistiques
+
+SauvegardeDonnees <|-- SauvegardeDonneesEEPROM
+SauvegardeDonnees .right.> TypeDonnee
+
+@enduml

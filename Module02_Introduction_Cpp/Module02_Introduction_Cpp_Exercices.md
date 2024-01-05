@@ -300,4 +300,4 @@ Au choix, le paramètre peut être passé par référence ou par adresse, mais n
 
 Aidez-vous de du projet hub Arduino:
 
-https://create.arduino.cc/projecthub/HiHiHiHiiHiiIiH/star-wars-on-a-buzzer-0814f2
+[Star Wars on a Buzzer](https://projecthub.arduino.cc/HiHiHiHiiHiiIiH/star-wars-on-a-buzzer-e70139)
