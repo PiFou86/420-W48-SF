@@ -2,30 +2,31 @@
 
 ## Objectifs
 
-Dans ces exercices, vous allez utiliser un ordinateur ou votre cellulaire pour vous connecter à votre ESP32. Votre ESP32 sera configuré comme un point d'accès sans-fil, sans lien avec internet
+Dans ces exercices, vous allez utiliser un ordinateur ou votre cellulaire pour vous connecter à votre ESP32. Votre ESP32 sera configuré comme un point d'accès sans-fil, sans lien avec internet.
 
 En premier lieu, il faudra démontrer que le ESP32 est bien configuré comme un point d'accès. C'est le classique "Hello World!" qui sera envoyé au client.
 
-Par la suite, l'ESP32 agira comme la version Serveur Web dans une activité précédente.
+Par la suite, l'ESP32 agira aussi comme serveur Web dans une activité précédente.
 
 Enfin, le MCU transmettra des informations lues sur un périphérique. Pour la cause, nous utiliserons un potentiomètre comme périphérique d'entrée analogique.
 
-NOTE IMPORTANTE: si vous utilisez votre PC comme client, celui-ci ne pourra PAS se relier à votre routeur domestique par WiFi. Si votre PC n'est pas relié par RJ45, vous perdez donc l'accès à Internet ! Choisissez cette option si vous disposer d'un second ordinateur.
+NOTE IMPORTANTE: il est préférable d'effectuer les tests avec votre cellulaire. Ainsi, votre PC pourra maintenir un lien internet avec votre routeur.
 
 ## Exercice 1 - Mon point d'accès avec un ESP32 - 15 mins
 
 Cet exercice a pour but de démontrer le fonctionnement d'un ESP32 en point d'accès grâce à la librairie Wifi.h.
 
-- Créez la nouvelle application platformIO ```AMOC_Module12_HelloAC```.
-- Utilisez le programme "main.cpp" du GitHub .../AMOC_Module12_ESP32_AP_SrvWeb_PrepCours/src
-- Configurez un fichier d'authentification config.h à votre projet. Le nom du SSID choisi est ```ESP32AP_<VotreNumeroMatricule>```. Le mot de passe sera ```12345678```
+- Créez la nouvelle application PlatformIO ```AMOC_Module12_HelloAC```.
+- Utilisez le programme "main.cpp" du GitHub -->.../AMOC_Module12_ESP32_AP_SrvWeb_PrepCours/src
+Le nom du SSID choisi est ```ESP32AP_<VotreNumeroMatricule>```. Le mot de passe sera ```12345678```.
 
-NOTE : ce mot de passe est peu sécuritaire, mais nous permet de faire des tests dans un réseau privé et isolé.
+- - Inscrire ces deux données dans un fichier d'authentification ```config.h``` intégré à vos projets futurs.
 
-- Compilez et exécutez le programme hello.cpp.
+NOTE : ce mot de passe est peu sécuritaire, mais nous permet de faire des tests dans un réseau privé et isolé. Dans un prochain module, une méthode sécuritaire sera proposée.
+
+- Compilez et exécutez le programme.
 - Mémorisez l'adresse IP de votre point d'accès ```ESP32AP_<VotreNumeroMatricule>``` à partir de la console
-- Comme vous l'avez configurée dans le code, le résultat de l'adresse IP sera toujours 192.168.4.1
-- Sur votre cellulaire, repérez et utilisez le réseau Esp32AP.
+- Sur votre cellulaire, repérez et utilisez votre réseau Esp32AP.
 
 ![ConnexionAccessPoint](img/ConnexionAccessPoint.png)
 
@@ -35,31 +36,22 @@ Cette adresse DOIT se trouver sur le même réseau que l'adresse IP de votre poi
 
 ### À observer et à répondre
 
-- Quel protocole fournit une adresse du réseau 192.168.4.0/24 au cellulaire?
+- Quel protocole fournit une adresse du réseau 192.168.23.0/24 au cellulaire?
 - Quelles sont les adresses possibles pour les stations se connectant à ce point d'accès ?
 - Combien cela fait-il de stations potentielles ?
-
-<details>
-    <summary>Indice</summary>
-
-La librairie ```Wifi.h``` possèdes le code d'un service DHCP. Le code est configuré pour que le réseau soit 192.168.4.0/24 avec 192.168.4.1 comme passerelle par défaut.
-
-À partir du CIDR (/24), vous observez que le masque réseau est 255.255.255.0. Vous pouvez en déduire l'adresse réseau, ainsi que l'adresse de broadcast. Une adresse est utilisée par le point d'accès.
-
-</details>
 
 ## Exercice 2 - Mon point d'accès avec un ESP32 - 10 mins
 
 Votre point d'accès ESP32 utilise la majorité du code de vos exercices du module ```ServeurWeb```. Vous pouvez donc répliquer vos exercices précédents.
 
-- Faire une copie de l'application platformIO ```AMOC_Module11_ServeurWeb``` dans une nouvelle application nommée ```AMOC_Module12_AP```
+- Faites une copie de l'application PlatformIO ```AMOC_Module11_ServeurWeb``` dans une nouvelle application nommée ```AMOC_Module12_AP```
 - Utilisez le code de l'application ```AMOC_Module12_AP```
 
 ### Étape 1 - Configurer le point d'accès ESP32
 
 - Modifiez la connexion réseau pour une connexion au point d'accès ```ESP32AP_<VotreNumeroMatricule>```. Inspirez-vous de l'exercice 1
 
-### Étape 2 - Accéder au point d'accès ```ESP32AP_<VotreNumeroMatricule>```
+### Étape 2 - Accéder au point d'accès
 
 - Sur votre cellulaire, accédez au réseau ```ESP32AP_<VotreNumeroMatricule>```
 - Ouvrez un navigateur web; lancez une requête web à l'adresse IP du point d'accès
@@ -67,10 +59,10 @@ Votre point d'accès ESP32 utilise la majorité du code de vos exercices du modu
 <details>
  <summary>Dépannage</summary>
 
-- Utilisez l'application "Network Ping lite" sur votre cellulaire
+- Utilisez l'application "Network Analyser" sur votre cellulaire
 - Lancez la recherche ping vers l'adresse IP du point d'accès ```ESP32AP_<VotreNumeroMatricule>```. Les requêtes doivent réussir
 
-![PingEsp32AP](img/PingEsp32AP.png)
+![PingEsp32AP](img/AnalyseurReseau.png)
 
 </details>
 
@@ -83,9 +75,9 @@ Dans cet exercice, vous allez remplacer le contrôle de la borne No 2 par le con
 ### Matériel et montage
 
 - Plaquette d'expérimentation avec fils Dupont de branchement
-- Branchez des fils dupont entre les bornes 25 et 26 de votre MCU et deux borniers de DELs de votre plaquette. Reliez le fil noir à la prise de terre (GND)
-- Modifiez le code de votre application Pio pour remplacer la borne NO 2 par la borne No 25
-- Compilez et exécutez le programme. (La DEL reliée au GPIO NO 25 remplace la DEL No 2)
+- Branchez des fils Dupont entre les bornes 25 et 26 de votre MCU et deux borniers de DELs de votre plaquette. Reliez le fil noir à la prise de terre (GND)
+- Modifiez le code de votre application PlattfromIO pour remplacer la borne NO 2 par la borne No 25
+- Compilez et exécutez le programme.
 - Modifiez le code pour pouvoir allumer et éteindre 2 DELs de votre plaquette. Votre interface html aura donc 4 boutons
 
 ![Interface2DELs](img/Interface2DELs.png)
@@ -93,7 +85,7 @@ Dans cet exercice, vous allez remplacer le contrôle de la borne No 2 par le con
 <details>
  <summary>Indice</summary>
 
-Analyser les fichiers de votre application. Repérez les endroits en référence avec la DEL No2. Adaptez le code pour 2 bornes.
+Analysez les fichiers de votre application. Repérez les endroits en référence avec la DEL No2. Adaptez le code pour 2 bornes.
 
 </details>
 
@@ -121,6 +113,16 @@ Ces règles d'usage ont trois inconvénients, dans le mode pratique :
 - Sans mot de passe, les accès sont ouverts
 - Si deux MCUs ESP32 sont voisins, il y aura confusion de connexion entre les clients et les points d'accès.
 
-La méthode ```WiFi.softAPConfig()``` permet d'outrepasser ces contraintes. Elle permet de définir le SSID, l'adresse IP de la passerelle par défaut, le masque de sous-réseau et d'autres paramètres de démarrage du point d'accès
+<details>
+ <summary>Indice</summary>
 
-Votre tâche, si vous acceptez de la prendre, consiste à définir le réseau 10.10.1.1/24 avec le SSID ```Esp32MissionImpossible``` et le mot de passe ```Sijedevaisvousdireoujallaisceneseraientplusdesvacances.```
+La librairie ```Wifi``` possède un fonction DHCP pour l'attibution dynamique des adresses IP des clients qui se connectent au pont d'accès. Consultez le lien suivant: https://github.com/arduino-libraries/WiFi/blob/master/docs/readme.md.
+
+Voici une liste d'autres exemples que vous pourrez adapter à vos projets.
+- redéfinir le réseau par défaut (cet exercice);
+- fournir une liste des réseaux à proximité;
+- utiliser le protocole NTP.
+
+</details>
+
+Votre tâche, si vous acceptez de la prendre, consiste à définir le point d'accès avec la valeur 10.10.1.1/24 avec le SSID ```Esp32MissionImpossible``` et le mot de passe ```Sijedevaisvousdireoujallaisceneseraientplusdesvacances.```
