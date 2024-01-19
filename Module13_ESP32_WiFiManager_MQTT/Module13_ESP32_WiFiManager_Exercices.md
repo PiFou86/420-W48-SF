@@ -87,3 +87,64 @@ La façon conventionnelle de faire cette opération consiste à appuyer sur un b
 - Appuyez sur le bouton "reset" pour amorcer le programme depuis le début
 
 Le programme devrait passer en mode équivalente à l'étape 2
+
+## Exercice 4 -  MQTT
+
+### Exercice 4.1 - Mise en place
+
+- Créez votre serveur MQTT à partir de docker-compose :
+  - Placez vous dans le répertoire ```AMOC_Module13_MQTT_PrepCours/docker-compose-mosquitto```
+  - ```docker-compose up -d```
+  - Vous devriez voir deux conteneurs avec la commande ```docker ps```
+- Naviguez sur le site http://localhost:4000 pour valider que le serveur est bien en fonction
+- Créez une connexion vers votre serveur MQTT dans MQTT Explorer
+  - Name : Locale
+  - Host : mqtt
+  - Nom d'utilisateur : mqttexplorer
+  - Mot de passe : Bonjour01.+
+  - Cliquez sur "Save" et sur "Connect"
+
+![](img/mqtt_05_ajout_connexion.png)
+
+- Reprenez le code AMOC_Module13_MQTT_PrepCours
+- Modifiez l'adresse IP du serveur MQTT pour qu'elle corresponde à votre serveur MQTT (ipconfig / ifconfig)
+- Envoyez votre code sur l'ESP32
+- Validez que l'ESP32 se connecte bien au WiFi et au serveur MQTT
+- Si tout se passe bien, votre moniteur série devrait ressembler à ceci :
+
+![](img/mqtt_10_connexion_wifi_mqtt_ok.png)
+
+- Validez que la connexion est bien établie dans MQTT Explorer et que vous recevez bien les messages :
+
+![](img/mqtt_20_reception_message_ESP32.png)
+
+- Si vous déconnectez votre ESP32, vous devriez voir le status passer à "offline"
+
+![](img/mqtt_30_testament_execute_ESP32.png)
+
+- Utilisez MQTT explorer pour publier un message dans le sujet "broadcast/led" avec le payload RAW "on" pour allumer la DEL de votre ESP32. Testez aussi avec la valeur "off"
+
+![](img/mqtt_33_renvoi_message_Par_MQTT_Explorer.png)
+
+- Dans le terminal série, vous devriez aussi voir les messages reçu sur l'ESP32.
+
+![](img/mqtt_35_reception_message_MQTT_Explorer.png)
+
+- Une fois les expériences effectuées, analysez le code de l'ESP32 pour comprendre comment tout cela fonctionne
+
+### Exercice 4.2 - Diffusion de la température
+
+- Connectez le BME280 sur les broches I2C de votre ESP32
+- Publiez un message MQTT sur le sujet "ESP32{id}/temperature" avec le message température de la pièce
+- Validez que l'information est reçue sur le serveur MQTT
+- Permettez à l'utilisateur de définir une température maximum au travers du sujet "ESP32{id}/temperature/max" : si la température dépasse cette valeur, la DEL interne s'allume, sinon elle s'éteint
+
+### Exercice 4.3 - Intégration avec WiFiManager
+
+- Modifiez votre code pour que la connexion WiFi et que les informations d'MQTT soient configurées par WiFiManager. Les valeurs doivent être sauvegardées dans un fichier JSON lu au démarrage de l'ESP32 :
+  - Adresse IP du serveur MQTT
+  - Nom d'utilisateur
+  - Mot de passe
+  - Sujet de publication
+  - Sujet de réception
+  - Température maximale de départ
