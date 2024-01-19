@@ -91,8 +91,7 @@ void afficherFichiers(File p_repertoire, int p_nbEspaces) {
     }
     Serial.print(fichier.name());
     Serial.print(" - ");
-    File fichierTest = FS.open(String("/") + fichier.name());
-    Serial.print(fichierTest.isDirectory() ? "Dossier" : "Fichier");
+    Serial.print(fichier.isDirectory() ? "Dossier" : "Fichier");
     if (fichier.isDirectory()) {
       Serial.println("/");
       afficherFichiers(fichier, p_nbEspaces + 1);
