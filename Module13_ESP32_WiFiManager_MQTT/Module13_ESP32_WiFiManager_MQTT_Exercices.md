@@ -1,4 +1,4 @@
-# Module 13 - ESP32 - WiFiManager
+# Module 13 - ESP32 - WiFiManager - MQTT
 
 ## Objectifs
 
