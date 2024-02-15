@@ -12,6 +12,7 @@ Pour des situations complexes, il existe des solutions évoluées. Par contre, p
 - [Partie 2 - Déboguer des variables et des fonctions](debug_partie2.md)
 - [Partie 3 - Suivre l'adresse de variables et les pointeurs](debug_partie3.md) (à venir)
 - [Partie 4 - Déboguer une structure complexe](debug_partie4.md) (à venir)
+- [Bibliothèque et configuration pour déboguer (et bien plus)]([debug_lib.md](https://github.com/PiFou86/420-W48-SF-Utilitaires-Demo))
 
 La partie 1 expose les bases de l'usage de macros et leur application pour tester des programmes. La partie 2 montre quelques exemples de macros pour tester certaines expressions ou algorithmes.
 
