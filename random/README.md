@@ -2,9 +2,11 @@
 
 ## Dans ce dossier
 
-### Debogage
+### Débogage
 
 Quelques exemples de code pour déboguer votre code en C++ sans outil supplémentaires (old school). Vous avez un exemple de classe utilitaire de journalisation dans le projet [Utilitaires de développement et démos](https://github.com/PiFou86/420-W48-SF-Utilitaires-Demo).
+
+Un début de tutoriel est disponible dans le projet [Debogage](Debogage/README.md).
 
 ### EEPROM
 
@@ -65,12 +67,6 @@ Il est possible que Pio ne trouve pas toutes dépendances des bibliothèques. Po
 
 ### Réseau
 
-#### Bridge WiFi
-
-Certains couples "Point d'accès" et "Carte réseau WiFi" fonctionnent mal ensemble et ne permettent pas de créer un bridge fonctionnel dans votre outil de virtualisation favori. Si vous rencontrez des problèmes avec un bridge WiFi, il est conseillé d'utiliser un bridge sur une interface physique. (Référence : https://forums.virtualbox.org/viewtopic.php?t=98133).
-
-Si votre ordinateur ne possède PAS de carte réseau filée Ethernet, consultez votre formateur.
-
 #### Affichage de la configuration actuelle
 
 N'hésitez pas à afficher votre configuration réseau dans la console afin de valider que vous avez bien les bonnes informations.
@@ -90,26 +86,6 @@ platform = espressif32@~3.5.0
 
 Source : https://docs.platformio.org/en/latest/projectconf/section_env_platform.html 
 
-### Home assistant
-
-Depuis la version 2022.06, la déclaration des capteurs (sensors) de type mqtt a été modifiée ([2022.06 - Breaking Changes](https://www.home-assistant.io/blog/2022/06/01/release-20226/#breaking-changes)). Elle passe de :
-
-```yaml
-sensor:
-  - platform: "mqtt"
-    name: "My sensor"
-    state_topic: "some-state-topic"
-```
-
-à
-
-```yaml
-mqtt:
-  sensor:
-    - name: "My sensor"
-      state_topic: "some-state-topic"
-```
-
 ### Consommation d'énergie
 
 L'autonomie énergétique est importante pour les clients. Elle répond aux questions suivantes :
@@ -121,4 +97,34 @@ Pour y arriver, il faut déterminer la consommation moyenne de votre Station Mé
 
 **à chercher**
 
-- autres sources de courant : pannaux solaires, éoliennes, etc
+- autres sources de courant : panneaux solaires, éoliennes, etc
+
+### Home assistant
+
+Home assistant est un logiciel open source qui permet de contrôler des objets connectés (envois de commandes, réception de données).
+
+**Si vous ne respectez pas les consignes de votre formateur, vous risquez de ne pas avoir accès à l'ensemble des fonctionnalités de Home Assistant, et vous ne serez pas soutenu dans vos demandes !**
+
+#### Installation
+
+Il est possible de l'installer sur docker, sur un Raspberry Pi ou un autre ordinateur. Il est donc possible de l'installer dans une machine virtuelle accessible sur le réseau.
+
+Dans le cours, nous utilisons une image préconfigurée pour une machine virtuelle. C'est la solution la plus simple pour avoir un environnement de test. **Ne pas installer la version docker pour ce cours** : vous n'aurez pas accès aux add-ons, dont "Mosquitto MQTT".
+
+Vous pouvez utiliser VirtualBox, VMWare, Hyper-V ou un autre logiciel de virtualisation pour l'installer. La configuration réseau doit être faite pour que la machine virtuelle soit accessible sur le réseau local. Le plus simple est de configurer un pont réseau. [La documentation de Home Assistant explique le processus](https://www.home-assistant.io/installation/windows). (Environ 10 minutes)
+
+#### Pont WiFi - Ne pas faire !
+
+Certains couples "Point d'accès" et "Carte réseau WiFi" fonctionnent mal ensemble et ne permettent pas de créer un bridge fonctionnel dans votre outil de virtualisation favori. Il est conseillé (**et obligatoire dans le cours**) d'utiliser un pont sur une interface physique. (Référence : https://forums.virtualbox.org/viewtopic.php?t=98133).
+
+**Si votre ordinateur ne possède PAS de carte réseau filée Ethernet, consultez votre formateur !**
+
+**En résumer, ne pas utiliser de pont WiFi pour la machine virtuelle, utilisez une vraie carte réseau !**
+
+#### Intégration à MQTT
+
+Home assistant peut être intégré à un serveur MQTT. MQTT est un protocole de messagerie qui permet de transmettre des messages entre des objets connectés.
+
+Madame Michou (personna fictif qui a peu de connaissance en informatique) aimerait que son objet connecté soit facilement intégré à Home Assistant. Pour l'aider, on va utiliser le principe de découverte automatique. Cela permet de configurer automatiquement les objets connectés dans Home Assistant ou tout autre logiciel compatible avec MQTT ("auto-discovery").
+
+[Un résumé des étapes pour intégrer un objet connecté à Home Assistant avec du code pour l'ESP32 est disponible ici](IntegrationMQTT/README.md).
