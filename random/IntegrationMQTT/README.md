@@ -4,13 +4,13 @@ MQTT est un protocole de messagerie qui permet de transmettre des messages entre
 
 ## Prérequis
 
-- Avoir réalisé le [Module 13](Module13_ESP32_WiFiManager_MQTT)
+- Avoir réalisé le [Module 13](https://github.com/PiFou86/420-W48-SF/blob/main/Module13_ESP32_WiFiManager_MQTT/Module13_ESP32_WiFiManager_MQTT_Exercices.md)
 - [Avoir installé Home Assistant sur une machine virtuelle](https://www.home-assistant.io/installation/windows)
 - **Ordinateur connecté au réseau filaire**
 - [Avoir installé le complément Mosquitto MQTT](https://www.home-assistant.io/integrations/mqtt)
 - Avoir créé un utilisateur MQTT dans Home Assistant qui va être propre à votre objet connecté
 - Avoir un projet PlatformIO vierge configuré pour l'ESP32
-- Y installer la librairie [PubSubClient](https://pubsubclient.knolleary.net) (Voir [Module 13](Module13_ESP32_WiFiManager_MQTT))
+- Y installer la librairie [PubSubClient](https://pubsubclient.knolleary.net) (Voir [Module 13](https://github.com/PiFou86/420-W48-SF/blob/main/Module13_ESP32_WiFiManager_MQTT/Module13_ESP32_WiFiManager_MQTT_Exercices.md))
 
 ## Notion de testaments (Will)
 
