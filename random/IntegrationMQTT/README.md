@@ -249,7 +249,7 @@ Charge utile (payload) :
 
 ### Simulation de l'appareil (Des envois de l'ESP32)
 
-Ici nous allons simuler ce que l'ESP32 devrait envoyer dans MQTT pour être découvert par Home Assistant.
+Ici nous allons simuler ce que l'ESP32 devrait envoyer dans MQTT pour être découvert par Home Assistant et être considéré comme disponible avec des valeurs par défaut.
 
 Pour simuler l'envoi des messages de découverte, nous allons utiliser un client MQTT qui permet d'envoyer des messages. Vous pouvez utiliser le client MQTT intégré à Home Assistant (`Paramètres > Appareils et services > MQTT > Configurer`) (ou un autre client MQTT externe comme [MQTT Explorer](https://mqtt-explorer.com)).
 
