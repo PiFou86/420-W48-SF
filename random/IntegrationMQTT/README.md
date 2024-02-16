@@ -247,7 +247,7 @@ Charge utile (payload) :
 }
 ```
 
-### Simulation
+### Simulation de l'appareil (Des envois de l'ESP32)
 
 Ici nous allons simuler ce que l'ESP32 devrait envoyer dans MQTT pour être découvert par Home Assistant.
 
