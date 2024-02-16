@@ -142,7 +142,7 @@ Les messages de découverte doivent être envoyés dans le sujet (topic) `homeas
 
 Nous allons ici reprendre l'exemple du capteur de température. Lorsque le message de découverte est envoyé, Home Assistant va créer automatiquement une entité avec les informations fournies dans le message. Vous pourrez retrouver cette entité dans l'interface de Home Assistant dans `Paramètres > Appareils et services > MQTT`. Il y aura écrit "1 appareil". En cliquant dessus, vous pourrez voir les entités créées automatiquement.
 
-Pour accélérer le processus de tests, nous allons simuler l'envoi de messages de découverte. Pour ce faire, nous allons utiliser un client MQTT qui permet d'envoyer des messages. Vous pouvez utiliser le client MQTT intégré à Home Assistant (`Paramètres > Appareils et services > MQTT > Configurer`) ou un client MQTT externe comme [MQTT Explorer](https://mqtt-explorer.com).
+Pour accélérer le processus de tests, nous allons simuler l'envoi de messages de découverte. Pour ce faire, nous allons utiliser un client MQTT qui permet d'envoyer des messages. Vous pouvez utiliser le client MQTT intégré à Home Assistant (`Paramètres > Appareils et services > MQTT > Configurer`) (ou un autre client MQTT externe comme [MQTT Explorer](https://mqtt-explorer.com)).
 
 La section suivante présente les trois (3) messages de découverte pour notre exemple. Elle est suivie par les étapes pour les envoyer et de simuler l'état de l'appareil et des entités.
 
@@ -249,7 +249,9 @@ Charge utile (payload) :
 
 ### Simulation
 
-Pour simuler l'envoi des messages de découverte, nous allons utiliser un client MQTT qui permet d'envoyer des messages. Vous pouvez utiliser le client MQTT intégré à Home Assistant (`Paramètres > Appareils et services > MQTT > Configurer`) ou un client MQTT externe comme [MQTT Explorer](https://mqtt-explorer.com).
+Ici nous allons simuler ce que l'ESP32 devrait envoyer dans MQTT pour être découvert par Home Assistant.
+
+Pour simuler l'envoi des messages de découverte, nous allons utiliser un client MQTT qui permet d'envoyer des messages. Vous pouvez utiliser le client MQTT intégré à Home Assistant (`Paramètres > Appareils et services > MQTT > Configurer`) (ou un autre client MQTT externe comme [MQTT Explorer](https://mqtt-explorer.com)).
 
 1. Connectez-vous à votre serveur MQTT avec votre client
 2. Écoutez le sujet (topic) `homeassistant/#` pour vérifier que le message est bien reçu dans les étapes subséquentes
@@ -271,7 +273,7 @@ Pour simuler l'envoi des messages de découverte, nous allons utiliser un client
 
 ## Création de vos messages de découverte
 
-Pour créer vos messages de découverte, **il est vivement conseillé** d'utiliser un client MQTT qui permet d'envoyer des messages. Vous pouvez utiliser le client MQTT intégré à Home Assistant (`Paramètres > Appareils et services > MQTT > Configurer`) ou un client MQTT externe comme [MQTT Explorer](https://mqtt-explorer.com).
+Pour créer vos messages de découverte, **il est vivement conseillé** d'utiliser un client MQTT qui permet d'envoyer des messages. Vous pouvez utiliser le client MQTT intégré à Home Assistant (`Paramètres > Appareils et services > MQTT > Configurer`) (ou un autre client MQTT externe comme [MQTT Explorer](https://mqtt-explorer.com)).
 
 Étapes pour chaque entité `e` :
 
