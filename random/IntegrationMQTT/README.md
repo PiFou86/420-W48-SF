@@ -93,7 +93,7 @@ Les messages de découverte doivent être envoyés dans le sujet (topic) `homeas
 
 ## Comprendre la découverte automatique avec l'exemple précédent avant de créer vos messages
 
-Nous allons ici reprendre l'exemple du capteur de température. Lorsque le message de découverte est envoyé, Home Assistant va créer automatiquement une entité avec les informations fournies dans le message. Vous pourrez retrouver cette entité dans l'interface de Home Assistant dans `Paramètres > Appareils et services > MQTT`. Il y aura écrit "1 appareil". En cliquant dessus, vous pourrez voir les entités créées automatiquement. Le bouton `CONFIGURER` permet d'ajouter des entités, au nombre de trois dans l'interface web. Vous vous assurez de la syntaxe en utilisant l'interface web.
+Nous allons ici reprendre l'exemple du capteur de température. Lorsque le message de découverte est envoyé, Home Assistant va créer automatiquement une entité avec les informations fournies dans le message. Vous pourrez retrouver cette entité dans l'interface de Home Assistant dans `Paramètres > Appareils et services > MQTT`. Il y aura écrit "1 appareil". En cliquant dessus, vous pourrez voir les entités créées automatiquement. Le bouton `CONFIGURER` permet de 'accéder à une page de tests d'MQTT qui permet de publier et de s'abonner à des sujets. Cette page vous permettra de tester l'ajout des entités, au nombre de trois (3) dans l'interface web. Vous vous assurez de la syntaxe en utilisant l'interface web.
 
 Pour accélérer le processus de tests, nous allons simuler l'envoi de messages de découverte. Pour ce faire, nous allons utiliser un client MQTT qui permet d'envoyer des messages. Vous pouvez utiliser le client MQTT intégré à Home Assistant (`Paramètres > Appareils et services > MQTT > Configurer`) (ou un autre client MQTT externe comme [MQTT Explorer](https://mqtt-explorer.com)).
 
@@ -132,7 +132,7 @@ Charge utile (payload) :
   "name": "temperature",
   "unit_of_measurement": "°C",
   "state_topic": "monBidule_d7ae114c/temperature/state",
-   "platform": "mqtt"
+  "platform": "mqtt"
 }
 ```
 
@@ -299,8 +299,7 @@ On peut résumer le fonctionnement de la connexion à MQTT avec testament comme 
 
 ![Schéma de la réception des commandes](img/command.png)
 
-2. Il recommence à l'étape 4. En cas de déconnexion, il fait l'étape 2 et saute à la 4 : il n'est pas nécessaire de refaire les étapes 3.
-
+6. Il recommence à l'étape 4. En cas de déconnexion, il fait l'étape 2 et saute à la 4 : il n'est pas nécessaire de refaire les étapes 3.
 
 ## Schéma résumé de l'intégration
 
