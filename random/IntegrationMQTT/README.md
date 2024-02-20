@@ -12,55 +12,6 @@ MQTT est un protocole de messagerie qui permet de transmettre des messages entre
 - Avoir un projet PlatformIO vierge configuré pour l'ESP32
 - Y installer la librairie [PubSubClient](https://pubsubclient.knolleary.net) (Voir [Module 13](https://github.com/PiFou86/420-W48-SF/blob/main/Module13_ESP32_WiFiManager_MQTT/Module13_ESP32_WiFiManager_MQTT_Exercices.md))
 
-## Notion de testaments (Will)
-
-Lors d'un connexion à MQTT, vous pouvez spécifier un testament. Ce testament consiste à envoyer un message dans un sujet (topic) au moment de la déconnexion. Ce mécanisme peut être utilisé afin de savoir si votre périphérique est disponible (connecté). En résumé, une fois la connexion configurée avec le testament, vous envoyez un message indiquant que le périphérique est disponible (même topic que le testament). À la déconnexion, MQTT va envoyer le message configuré dans le testament pour indiquer l'indisponibilité du périphérique.
-
-Généralement, le sujet (topic) est spécifique à votre périphérique. Dans le cours, nous prendrons l'identifiant de votre périphérique pour le sujet suivi de `/availability`. Exemple : `monBidule_d7ae114c/availability`.
-
-Voici un exemple de code de connexion (le this->m_client est un objet de type PubSubClient et la méthode `setServer` a déjà été appelée) :
-
-```cpp
-if (this->m_client->connect(Configuration.getClientId().c_str(),
-                            Configuration.getMqttUser().c_str(),
-                            Configuration.getMqttPassword().c_str(),
-                            Configuration.getMqttWillTopic().c_str(), 0,
-                            true, "offline")) {
-  // Une fois connecté, le périphérique se déclare comme disponible
-  this->publish(Configuration.getMqttWillTopic().c_str(), "online");
-  Logger.infoln(String(F("MQTT: Connected to MQTT server.")));
-} else {
-  Logger.errorln(String(F("MQTT: Failed to connect to MQTT server.")));
-}
-```
-
-On peut résumer le fonctionnement de la connexion à MQTT avec testament comme suit :
-
-## Flux idéal des actions à réaliser sur l'objet connecté
-
-1. Connexion à votre réseau WiFi (iot_lab pour le cours)
-2. Connexion au serveur MQTT (Nom unique, adresse IP de votre machine virtuelle, port 1883, utilisateur et mot de passe créé dans Home Assistant pour votre objet connecté) :
-   1. Il définit un sujet (topic) pour son testament (will) ainsi qu'un message (`offline`)
-   2. Il envoie un message pour indiquer qu'il est disponible (`online`)
-
-![Schéma de la connexion à MQTT avec testament](img/availability.png)
-
-3. Pour chaque entité `e` (capteur, actionneur, etc.) :
-   1. Il déclare les informations de l'entité `e` dans un message JSON qui suit un format spécifique à Home assistant dans un sujet (topic) lui aussi spécifique à Home assistant. Ce message contient la même section qui décrit votre appareil (`device` voir plus bas).
-   2. Il s'abonne à un sujet (topic) pour recevoir des commandes (S'il y a lieu)
-
-![Schéma de la déclaration des entités](img/autodiscovery.png)
-
-4. Il publie les valeurs des capteurs et les états des autres entités dans les sujets (topics) déclarés à l'étape 3 (`state_topic` voir plus bas)
-
-![Schéma de la publication des valeurs](img/values.png)
-
-5. S'il y a lieu, il reçoit des commandes dans les sujets (topics) déclarés à l'étape 3 (`command_topic` voir plus bas). Il met à jour l'état de l'entité en conséquence (Si nécessaire).
-
-![Schéma de la réception des commandes](img/command.png)
-
-2. Il recommence à l'étape 4. En cas de déconnexion, il fait l'étape 2 et saute à la 4 : il n'est pas nécessaire de refaire les étapes 3.
-
 ## Exemple utilisé pour la suite
 
 Dans la suite nous allons nous baser sur un appareil qui a un (1) capteur et deux (2) contrôles (les contrôles ne sont pas obligatoires dans votre TP !) :
@@ -94,6 +45,8 @@ Les informations de l'appareil (`device`) sont les suivantes :
 - `sw_version` : Version du logiciel de l'appareil (Affiché dans l'interface de Home Assistant)
 
 **Attention : en cas d'erreur dans le message de découverte, Home Assistant ne va pas vous avertir et va ignorer le message. Il est donc important de vérifier que les entités sont bien créées dans l'interface de Home Assistant.**
+
+Plus loin dans le texte, vous trouverez un outil pour ce dépannage.
 
 ## Exemple de message de découverte pour le capteur de température
 
@@ -140,7 +93,7 @@ Les messages de découverte doivent être envoyés dans le sujet (topic) `homeas
 
 ## Comprendre la découverte automatique avec l'exemple précédent avant de créer vos messages
 
-Nous allons ici reprendre l'exemple du capteur de température. Lorsque le message de découverte est envoyé, Home Assistant va créer automatiquement une entité avec les informations fournies dans le message. Vous pourrez retrouver cette entité dans l'interface de Home Assistant dans `Paramètres > Appareils et services > MQTT`. Il y aura écrit "1 appareil". En cliquant dessus, vous pourrez voir les entités créées automatiquement.
+Nous allons ici reprendre l'exemple du capteur de température. Lorsque le message de découverte est envoyé, Home Assistant va créer automatiquement une entité avec les informations fournies dans le message. Vous pourrez retrouver cette entité dans l'interface de Home Assistant dans `Paramètres > Appareils et services > MQTT`. Il y aura écrit "1 appareil". En cliquant dessus, vous pourrez voir les entités créées automatiquement. Le bouton `CONFIGURER` permet de 'accéder à une page de tests d'MQTT qui permet de publier et de s'abonner à des sujets. Cette page vous permettra de tester l'ajout des entités, au nombre de trois (3) dans l'interface web. Vous vous assurez de la syntaxe en utilisant l'interface web.
 
 Pour accélérer le processus de tests, nous allons simuler l'envoi de messages de découverte. Pour ce faire, nous allons utiliser un client MQTT qui permet d'envoyer des messages. Vous pouvez utiliser le client MQTT intégré à Home Assistant (`Paramètres > Appareils et services > MQTT > Configurer`) (ou un autre client MQTT externe comme [MQTT Explorer](https://mqtt-explorer.com)).
 
@@ -263,13 +216,26 @@ Pour simuler l'envoi des messages de découverte, nous allons utiliser un client
    2. `monBidule_d7ae114c/temperature/state` : `23.23` pour simuler une température de 23.3°C
    3. `monBidule_d7ae114c/temperature_max` : `4.23` pour simuler une température maximale de 4.23°C
    4. `monBidule_d7ae114c/chauffage` : `ON` pour simuler un chauffage allumé
-7. Validez que l'appareil et les entités sont bien mis à jour dans Home Assistant. Si ce n'est pas le cas, vérifiez que les messages sont bien formatés et que les sujets (topics) sont bien respectés et recommencez à l'étape 6.
+
+ Dans l'affichage suivant, vous pouvez voir le capteur et deux (2) contrôles.
 
 ![L'appareil dans Home Assistant](img/autodiscovery_exemple_configuration.png)
 
-8. Dans l'affichage précédent, vous pouvez voir l'affichage du capteur et de deux (2) contrôles. Modifiez les deux (2) contrôles et validez que les valeurs sont bien envoyées à l'appareil en observant les messages reçus dans votre client MQTT.
+7. Modifiez les deux (2) contrôles et validez que les valeurs sont bien envoyées à l'appareil en observant les messages reçus dans votre client MQTT.
 
 ![Les messages des commandes reçus par le client](img/autodiscovery_exemple_ecoute.png)
+
+8. Vérifiez les informations détaillées sur les entités de `Mon bidule System` en cliquant sur MQTT INFO
+
+Si une entité est absente, ceci indique que le format du message est incompris!
+
+![Les messages des commandes reçus par le client](img/autodiscovery_exemple_info.png)
+
+### Vue générale des entités
+
+Le tableau de bord `Aperçu` offre une vue générale des entités. Il est disponible à partir de la barre latérale.
+
+Cliquez sur AJOUTER AU TABLEAU DE BORD.
 
 ## Création de vos messages de découverte
 
@@ -283,6 +249,57 @@ Pour créer vos messages de découverte, **il est vivement conseillé** d'utilis
 4. Envoyez un nouveau message dans le sujet (topic) `homeassistant/<device_class>/<unique_id>/config` (Dans l'exemple précédent `homeassistant/sensor/monBidule_d7ae114c_temperature/config`)
 5. Validez si le message est bien reçu dans votre client MQTT et validez que l'appareil et l'enité sont bien créés dans Home Assistant. Si ce n'est pas le cas, vérifiez que le message est bien formaté et que le sujet (topic) est bien respecté et recommencez à l'étape 4.
 6. Recommencez à l'étape 1 pour l'enité suivante. Notez que la section `device` est la même pour toutes les entités de l'appareil.
+
+7. Pratiquez! Ajoutez l'entité  `humidity`, de type `slider` , avec l'icône `mdi:air-humidifier` à votre appareil `Mon bidule System`
+
+## Notion de testaments (Will)
+
+Lors d'un connexion à MQTT, vous pouvez spécifier un testament. Ce testament consiste à envoyer un message dans un sujet (topic) au moment de la déconnexion. Ce mécanisme peut être utilisé afin de savoir si votre périphérique est disponible (connecté). En résumé, une fois la connexion configurée avec le testament, vous envoyez un message indiquant que le périphérique est disponible (même topic que le testament). À la déconnexion, MQTT va envoyer le message configuré dans le testament pour indiquer l'indisponibilité du périphérique.
+
+Généralement, le sujet (topic) est spécifique à votre périphérique. Dans le cours, nous prendrons l'identifiant de votre périphérique pour le sujet suivi de `/availability`. Exemple : `monBidule_d7ae114c/availability`.
+
+Voici un exemple de code de connexion (le this->m_client est un objet de type PubSubClient et la méthode `setServer` a déjà été appelée) :
+
+```cpp
+if (this->m_client->connect(Configuration.getClientId().c_str(),
+                            Configuration.getMqttUser().c_str(),
+                            Configuration.getMqttPassword().c_str(),
+                            Configuration.getMqttWillTopic().c_str(), 0,
+                            true, "offline")) {
+  // Une fois connecté, le périphérique se déclare comme disponible
+  this->publish(Configuration.getMqttWillTopic().c_str(), "online");
+  Logger.infoln(String(F("MQTT: Connected to MQTT server.")));
+} else {
+  Logger.errorln(String(F("MQTT: Failed to connect to MQTT server.")));
+}
+```
+
+On peut résumer le fonctionnement de la connexion à MQTT avec testament comme suit :
+
+## Flux idéal des actions à réaliser sur l'objet connecté
+
+1. Connexion à votre réseau FILÉ (iot_lab pour le cours)
+2. Connexion au serveur MQTT (Nom unique, adresse IP de votre machine virtuelle, port 1883, utilisateur et mot de passe créé dans Home Assistant pour votre objet connecté) :
+   1. Il définit un sujet (topic) pour son testament (will) ainsi qu'un message (`offline`)
+   2. Il envoie un message pour indiquer qu'il est disponible (`online`)
+
+![Schéma de la connexion à MQTT avec testament](img/availability.png)
+
+3. Pour chaque entité `e` (capteur, actionneur, etc.) :
+   1. Il déclare les informations de l'entité `e` dans un message JSON qui suit un format spécifique à Home assistant dans un sujet (topic) lui aussi spécifique à Home assistant. Ce message contient la même section qui décrit votre appareil (`device` voir plus bas).
+   2. Il s'abonne à un sujet (topic) pour recevoir des commandes (S'il y a lieu)
+
+![Schéma de la déclaration des entités](img/autodiscovery.png)
+
+4. Il publie les valeurs des capteurs et les états des autres entités dans les sujets (topics) déclarés à l'étape 3 (`state_topic` voir plus bas)
+
+![Schéma de la publication des valeurs](img/values.png)
+
+5. S'il y a lieu, il reçoit des commandes dans les sujets (topics) déclarés à l'étape 3 (`command_topic` voir plus bas). Il met à jour l'état de l'entité en conséquence (Si nécessaire).
+
+![Schéma de la réception des commandes](img/command.png)
+
+6. Il recommence à l'étape 4. En cas de déconnexion, il fait l'étape 2 et saute à la 4 : il n'est pas nécessaire de refaire les étapes 3.
 
 ## Schéma résumé de l'intégration
 
