@@ -41,7 +41,7 @@ Dans cette étape, vous allez construire un circuit pour alimenter une DEL et me
 - Construisez le circuit d'alimentation de la DEL en série avec une résistance de 680 &#8486; sur la Breadboard.
 - Alimentez le circuit; la DEL doit s'allumer, sinon dépannez votre circuit.
 
-![UneDELavecAlimentation](img/laboratoireUneDEL.png)
+![UneDELavecAlimentation](../img/laboratoireUneDEL.png)
 
 <details>
     <summary>schéma du circuit sur papier</summary>
@@ -50,7 +50,7 @@ Dans cette étape, vous allez construire un circuit pour alimenter une DEL et me
 
 **Schéma de Pièces électroniques** sur : https://everycircuit.com/circuit/5388164933615616
 
-![schemaUneDELavecAlimentation](img/piecesElectroniques.png)
+![schemaUneDELavecAlimentation](../img/piecesElectroniques.png)
 
 </details>
 
@@ -63,7 +63,7 @@ Dans cette étape, vous allez construire un circuit pour alimenter une DEL et me
 <details>
     <summary>Branchement du Voltmètre</summary>
 
-![Mesure de la tension](img/mesureDeLaTension.png)
+![Mesure de la tension](../img/mesureDeLaTension.png)
 
 </details>
 
@@ -83,7 +83,7 @@ La vidéo https://youtu.be/nh9mXn2TT9U doit avoir été visionnée auparavant.
 <details>
     <summary>Mesure du courant</summary>
 
-![Mesure du courant](img/mesureDuCourant.png)
+![Mesure du courant](../img/mesureDuCourant.png)
 
 </details>
 
@@ -105,9 +105,9 @@ La vidéo https://youtu.be/nh9mXn2TT9U doit avoir été visionnée auparavant.
 <details>
     <summary>Schéma du circuit</summary>
 
-![circuit 2 DELs](img/Circuit2DELs.png)
+![circuit 2 DELs](../img/Circuit2DELs.png)
 
-![circuit 2 DELs](img/deuxDELs.png)
+![circuit 2 DELs](../img/deuxDELs.png)
 
 </details>
 
