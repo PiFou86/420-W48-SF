@@ -133,3 +133,29 @@ Home assistant peut être intégré à un serveur MQTT. MQTT est un protocole de
 Madame Michou (personna fictif qui a peu de connaissance en informatique) aimerait que son objet connecté soit facilement intégré à Home Assistant. Pour l'aider, on va utiliser le principe de découverte automatique. Cela permet de configurer automatiquement les objets connectés dans Home Assistant ou tout autre logiciel compatible avec MQTT ("auto-discovery").
 
 [Un résumé des étapes pour intégrer un objet connecté à Home Assistant avec du code pour l'ESP32 est disponible ici](IntegrationMQTT/README.md).
+
+## Pour aller plus loin
+
+### Garder de l'information avec des portes logiques
+
+Il est possible de garder de l'information avec des portes logiques. Cela peut être utile pour garder des informations entre deux cycles de fonctionnement. 
+
+Pour cela, on peut construire un circuit RS (Reset/Set) avec des portes logiques. La sortie de ce circuit est l'information que l'on veut garder. Cette information est représentée par la lettre Q. Le montage donne Q et non Q (not Q) qui est l'inverse de Q.
+
+<a href="https://everycircuit.com/circuit/5349777566597120">RS latch - EveryCircuit</a><br>
+<iframe width="560" height="360" src="https://everycircuit.com/embed/5349777566597120" frameborder="0"></iframe>
+
+Le circuit ci-dessus ne garde pas l'information entre deux cycles de fonctionnement. Pour garder l'information nous allons simplement ajouter un bouton de plus (Enable) qui permet de bloquer ou de débloquer le changement d'état.
+
+<a href="https://everycircuit.com/circuit/5244890270924800">RS latch - EN - EveryCircuit</a><br>
+<iframe width="560" height="360" src="https://everycircuit.com/embed/5244890270924800" frameborder="0"></iframe>
+
+Ce circuit nécessite deux entrées pour un seul bit. Pour stocker plus d'information, on peut utiliser des bascules D (D latch). Une bascule D est composée de deux portes logiques. La bascule D est une bascule RS avec une entrée Enable.
+
+<a href="https://everycircuit.com/circuit/6595159269310464">D latch - EN - 1 bit - EveryCircuit</a><br>
+<iframe width="560" height="360" src="https://everycircuit.com/embed/6595159269310464" frameborder="0"></iframe>
+
+On peut maintenant stocker 1 bit, on peut facilement étendre le circuit pour stocker plus d'information. La démonstration ci-dessous montre comment stocker 4 bits.
+
+<a href="https://everycircuit.com/circuit/6581981034577920">D latch - EN - 4 bits - EveryCircuit</a><br>
+<iframe width="560" height="360" src="https://everycircuit.com/embed/6581981034577920" frameborder="0"></iframe>
