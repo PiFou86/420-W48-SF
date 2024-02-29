@@ -14,14 +14,14 @@ Objectifs :
 <details>
     <summary>Générateur de basses fréquences</summary>
 
-![Générateur basses fréquences](img/gbfControles.jpg)
+![Générateur basses fréquences](../img/gbfControles.jpg)
 
 </details>
 
 <details>
     <summary>Oscilloscope</summary>
 
-![Parties de l'oscilloscope](img/oscilloscope.png)
+![Parties de l'oscilloscope](../img/oscilloscope.png)
 
 </details>
 
@@ -58,7 +58,7 @@ Dans cette étape, vous utiliserez les boutons WAVE, F1, F2 et F4 pour obtenir u
 Vous utiliserez l'oscilloscope pour mesurer les valeurs de tensions et de période d'une onde produite par le GbF.
 
 - Branchez l'oscilloscope dans le secteur.
-- Branchez un câble BNC mâle-mâle ![conncteurBnc](img/connecteurBNC.png) entre la sortie **_CH1_** du GbF et l'entrée jaune de l'oscilloscope. C'est un accessoire du GbF.
+- Branchez un câble BNC mâle-mâle ![conncteurBnc](../img/connecteurBNC.png) entre la sortie **_CH1_** du GbF et l'entrée jaune de l'oscilloscope. C'est un accessoire du GbF.
 
 #### Fins ajustements
 
@@ -72,7 +72,7 @@ Avec ces ajustements, un cycle de l'onde débute aux croissement des axes X et Y
 <details>
     <summary>Onde sinusoïdale</summary>
 
-![Oscilloscope configuré comme ci-dessus](img/SinusBase.png)
+![Oscilloscope configuré comme ci-dessus](../img/SinusBase.png)
 
 </details>
 
@@ -87,7 +87,7 @@ Le rapport cyclique joue un rôle important dans le contrôle des périphérique
 
 Sur l'image suivante, le rapport de cycle est t1 / T :
 
-![Définition du rapport cyclique](img/rapportCyclique.png)
+![Définition du rapport cyclique](../img/rapportCyclique.png)
 
 ### Étape 1 - Rapport cyclique
 
@@ -99,7 +99,7 @@ Sur l'image suivante, le rapport de cycle est t1 / T :
 <details>
     <summary>Example de rapport cyclique de 25 %</summary>
 
-![Oscilloscope PWM25%](img/PWM25PourCent.png)
+![Oscilloscope PWM25%](../img/PWM25PourCent.png)
 
 </details>
   
@@ -121,7 +121,7 @@ Sur l'image suivante, le rapport de cycle est t1 / T :
 
 La transformée de Fourier (FT) permet de calculer le spectre d'un signal : on passe d'un mode temporel à un mode fréquentiel. La FT est utilisée dans votre vie de tous les jours : compression d'images et de vidéos, égaliseur, filtrage de sons parasites, etc.
 
-![Transformée de Fourier](./img/fft.png)
+![Transformée de Fourier](../img/fft.png)
 
 Sur l'image précédente, on voit un signal complexe qui est décomposé ici en 3 sinusoïdes de fréquences différentes par la transformée de Fourier.
 
