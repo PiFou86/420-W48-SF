@@ -10,7 +10,7 @@ Exercices supplémentaires à garder si le temps le permet.
 
 ### Montage du circuit
 
-![MontageTinkerCad](img/rs_220_440_660_A_V.png)
+![MontageTinkerCad](../img/rs_220_440_660_A_V.png)
 
 - Matériel
   - bloc d'alimentation
@@ -23,7 +23,7 @@ Exercices supplémentaires à garder si le temps le permet.
 
 ### Étape 1 - 3 Résistances en série
 
-![3 Resistances en Série](img/rs_220_440_660.png)
+![3 Resistances en Série](../img/rs_220_440_660.png)
 
 - Insérez les 3 résistances du schéma dans le circuit TinkerCad
 - Placez le voltmètre aux bornes de la première résistance.
@@ -33,7 +33,7 @@ Exercices supplémentaires à garder si le temps le permet.
 
 ### Étape 2 - 3 Résistances en parallèle
 
-![3 Resistances en Série](img/rp_220_220_220.png)
+![3 Resistances en Série](../img/rp_220_220_220.png)
 
 - Modifiez votre circuit pour représenter le schéma.
 - Placez  l'ampèremètre dans  voltmètre sur chacune des résistances.
@@ -42,7 +42,7 @@ Exercices supplémentaires à garder si le temps le permet.
 <details>
     <summary>Solution</summary>
 
-![3 résistances en parallèle sous Tinkercad](img/rp_220_220_220_tinkercad_solution.png)
+![3 résistances en parallèle sous Tinkercad](../img/rp_220_220_220_tinkercad_solution.png)
 
 </details>
 
@@ -57,7 +57,7 @@ Dans cet exercice, vous pourrez tracer la courbe de la fiche technique d'une del
 
 ### Montage du circuit
 
-![CourbeDelRouge](img/CourbeDelRouge.png)
+![CourbeDelRouge](../img/CourbeDelRouge.png)
 
     circuit de test pour une del
 
