@@ -6,7 +6,7 @@ Dans ce module vous allez calculer les valeurs d'intensité, tension et résista
 
 ### Étape 1 - 2 Résistances en série
 
-![2 Resistances en Série](img/rs_220_220.png)
+![2 Resistances en Série](../img/rs_220_440_660.png)
 
 À l'aide de l'illustration
 
@@ -31,7 +31,7 @@ U2 = 220 &#8486; * 13,6 mA = 3 V
 
 ### Étape 2 - 3 Résistances en série
 
-![3 Résistances en Série](img/rs_220_440_660.png)
+![3 Résistances en Série](../img/rs_220_440_660.png)
 
 À l'aide de l'illustration
 
@@ -60,7 +60,7 @@ DONC: Résistances en série: corollaire de la 2ième loi de Kirchhoff
 
 ### Exercice 2.1 - 3 Résistances en parallèle
 
-![3 Résistances en parallèle](img/rp_220_220_220.png)
+![3 Résistances en parallèle](../img/rp_220_220_220.png)
 
 À l'aide de l'illustration
 
@@ -87,7 +87,7 @@ DONC Résistances en parallèles: corollaire de la 2ième loi de Kirchhoff
 
 ### Exercice 2.2 - 3 Résistances en parallèle
 
-![3 Resistances en parallèle](img/rp_220_220_440.png)
+![3 Resistances en parallèle](../img/rp_220_220_440.png)
 
 À l'aide de l'illustration
 
@@ -111,7 +111,7 @@ Une petite erreur volontaire s'est glissée dans le branchement. Pouvez-vous la 
 
 ### Exercice 3.1 - 3 Résistances
 
-![Circuit combiné 2 3](img/rs_220_rp_440_440.png)
+![Circuit combiné 2 3](../img/rs_220_rp_440_440.png)
 
 
 À l'aide de l'illustration
@@ -139,7 +139,7 @@ Une petite erreur volontaire s'est glissée dans le branchement. Pouvez-vous la 
 
 2. le courant est calculé à partir de la formule U / R2 et U /R3
 
-![Indice Circuit combiné 2 3](img/rs_220_rp_440_440_Indice.png)
+![Indice Circuit combiné 2 3](../img/rs_220_rp_440_440_Indice.png)
 
 </details>
 
@@ -155,7 +155,7 @@ U2 = U3 = 220 * 0.0136 = 3V  (220 = R<sub> équivalent</sub>)
 
 ### Exercice 3.2 - 5 Résistances
 
-![Indice Circuit combiné 2 3](img/rs_580_220_rp_440_440_1K.png)
+![Indice Circuit combiné 2 3](../img/rs_580_220_rp_440_440_1K.png)
 
     Circuit combiné, 5 résistances
 
