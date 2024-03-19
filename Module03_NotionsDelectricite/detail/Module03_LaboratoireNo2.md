@@ -8,7 +8,7 @@ Objectifs :
 
 - Comparer les valeurs mesurées aux valeurs calculées
 
-![Rejoignez la résistance !](./img/resistance_meme.png)
+![Rejoignez la résistance !](../img/resistance_meme.png)
 
 (Auteur inconnu : image Facebook)
 
@@ -19,11 +19,11 @@ La première image montre un circuit de résistances en série et en parallèle 
 La deuxième image représente le montaque que vous allez effectuer.
 La troisième image représente le **schéma du montage** tel qu'il est documenté. 
 
-Résistances soudées![Circuits de résistances version soudée](img/circuitsSerieParallele.png)
+Résistances soudées![Circuits de résistances version soudée](../img/circuitsSerieParallele.png)
 
-Sur Breadboard ![Circuits de résistances breadboard](img/circuitSerieParalelle.png)
+Sur Breadboard ![Circuits de résistances breadboard](../img/circuitSerieParalelle.png)
 
-Schéma de circuits  ![Circuits de résistances schéma](img/circuitSerieParalelleSchema.png)
+Schéma de circuits  ![Circuits de résistances schéma](../img/circuitSerieParalelleSchema.png)
 
 ## Préparation des prochains exercices
 
