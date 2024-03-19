@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-#define DEMO 1
+#define DEMO 3
 
 #if DEMO == 1
 #define DEMO_MESURE_TEMPS
