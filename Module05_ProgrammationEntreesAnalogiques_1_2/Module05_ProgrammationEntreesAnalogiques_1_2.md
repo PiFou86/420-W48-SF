@@ -120,7 +120,7 @@ Soit le diagramme de classes suivant :
   - Déclarez la variable globale "program" de type pointeur de "Program"
   - Dans la fonction "setup", créez un objet de type "Program" et affectez son adresse au pointeur précédemment créé
   - Dans la fonction "loop", appelez la méthode "loop" de l'objet pointé par "program"
-- Écrivez la classe abstraite "Temporisation". Elle déclare simplement la méthode "tick" qui doit être redéfinie par ses classes filles. Cette méthode doit être exécutée à chaque fois que l'on peut, soit dans la méthode loop de la classe "Program"
+- Écrivez la classe abstraite "Tache". Elle déclare simplement la méthode "tick" qui doit être redéfinie par ses classes filles. Cette méthode doit être exécutée à chaque fois que l'on peut, soit dans la méthode loop de la classe "Program"
 - Écrivez la classe "DEL", ainsi que ses méthodes. La fonction "pinMode" est appelée dans le constructeur de cette classe.
 - Dans la classe "Program", créez trois pointeurs de "DEL", un pour chaque couleur. Ces objets sont créés dans le constructeur de "Program". Les pins sont conservées dans des constantes appartenant au même fichier.
 - Créez les classes "DetecteurDistance" et "DetecteurDistanceUltrason" (Ces classes étant abstraites, elles ne contiennent rien mise à part des déclarations)

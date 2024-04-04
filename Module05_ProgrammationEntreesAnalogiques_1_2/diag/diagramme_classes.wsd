@@ -1,7 +1,7 @@
 @startuml dc_DetecteurDistance
 skinparam maxMessageSize 50
 
-abstract class Temporisation {
+abstract class Tache {
     + void tick() {abstract}
 }
 
@@ -84,8 +84,8 @@ class AlerteDistance {
     + ctor(p_detecteurDistance : DetecteurDistance*, p_distanceAlerte : double, p_distanceAvertissement : double, p_actionAlerte : Action*, p_actionAvertissement : Action*, p_actionSecuritaire : Action*)
 }
 
-Temporisation <|-- AlerteDistance
-Temporisation <|-- DEL
+Tache <|-- AlerteDistance
+Tache <|-- DEL
 
 AlerteDistance "1" -left-> "1" DetecteurDistance
 AlerteDistance "1" -right-> "3" Action
