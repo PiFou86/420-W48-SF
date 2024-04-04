@@ -185,7 +185,7 @@ void delay(unsigned long ms)
 - En s'inspirant de cette fonction et en considérant que la fonction "loop" est similaire à une boucle, on peut déduire le programme impératif suivant :
 
 ```cpp
-unsigned long dureeActionMS = 0;
+int dureeActionMS = 0;
 uint32_t dateDernierDecrementdureeActionUs = 0;
 int etapeCycle = 0;
 int dureeAllumee = 1000;  // ms
@@ -201,7 +201,7 @@ void loop() {
     dateDernierDecrementdureeActionUs += 1000;
   }
 
-  if (dureeActionMS == 0) {
+  if (dureeActionMS <= 0) {
     switch (etapeCycle) {
       case 0:  // allumer
         digitalWrite(LED_BUILTIN, HIGH);
