@@ -6,7 +6,7 @@ Dans ce module vous allez calculer les valeurs d'intensité, tension et résista
 
 ### Étape 1 - 2 Résistances en série
 
-![2 Resistances en Série](../img/rs_220_440_660.png)
+![2 Resistances en Série](../img/rs_220_220.png)
 
 À l'aide de l'illustration
 

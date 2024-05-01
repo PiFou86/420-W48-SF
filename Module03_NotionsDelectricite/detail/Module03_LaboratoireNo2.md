@@ -82,7 +82,7 @@ Dans cette étape, vous allez construire un circuit de résistances en série po
 Dans cette étape, vous allez construire un circuit avec 2 résistances en parallèle. Aidez-vous des images précédentes.
 
 - Sur la breadboard, construire le circuit de 2 résistances de 510 &#8486; branchées en parallèle. 
-- Ajoutez une DEL verte.
+- Ajoutez une DEL rouge.
 
 ### Étape 2 - Mesure de la résistance
 
