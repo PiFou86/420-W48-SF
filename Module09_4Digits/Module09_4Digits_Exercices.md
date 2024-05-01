@@ -37,7 +37,7 @@ Le but de ce programme est de pouvoir compter et afficher un compteur qui s'incr
 #### Étape 3 - Compteur décimal
 
 - Dans la classe "Affichage4Digits", complétez la méthode publique "valeurSegment" pour qu'elle puisse maintenant prendre une valeur entre 0 et 9.
-- Écrivez la méthode "afficherDecimal" qui prend un entier et qui affiche ce nombre sur le 4 digits (comment décomposer un nombre ?)
+- Écrivez la méthode "afficherEntier" qui prend un entier et qui affiche ce nombre sur le 4 digits (comment décomposer un nombre ?)
 - Écrivez un programme principal qui compte en binaire de "0000" à "9999" et qui affiche le résultat sur le 4 digits (attendre 100 millisecondes entre chaque incrément)
 
 <details>
