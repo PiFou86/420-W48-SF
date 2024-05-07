@@ -99,7 +99,7 @@ Dans vos routes, il faut ajouter les headers CORS. Pour cela, avant d'appeler la
 
 ### Exercice 1.5 - Votre collègue n'est pas prêt ou vous travaillez seul de chez vous ?
 
-Si votre collègue n'est pas prêt ou que la situation vous oblige à travailler seul, vous pouvez utiliser un serveur web local. Pour cela, vous allez devoir connecter votre ESP32 à votre réseau WiFi local. Ce point est traité dans le point 4.1.1. La première étape est donc de valider que vous y arrivez bien et que votre ESP32 et votre ordinateur sont sur le même réseau. Pour vous aidez, récupérez l'adresse IP de votre ESP32 sur votre trace ainsi que l'adresse IP de votre ordinateur à l'aide des commandes ```ipconfig``` (Windows), ```ifconfig``` (Mac / Linux) ou ```ip a``` (Linux si ifconfig non installé).
+Si votre collègue n'est pas prêt ou que la situation vous oblige à travailler seul, vous pouvez utiliser un serveur web local. Pour cela, vous allez devoir connecter votre ESP32 à votre réseau WiFi local. Ce point est traité dans le point 1.1. La première étape est donc de valider que vous y arrivez bien et que votre ESP32 et votre ordinateur sont sur le même réseau. Pour vous aidez, récupérez l'adresse IP de votre ESP32 sur votre trace ainsi que l'adresse IP de votre ordinateur à l'aide des commandes ```ipconfig``` (Windows), ```ifconfig``` (Mac / Linux) ou ```ip a``` (Linux si ifconfig non installé).
 
 Ensuite récupérez la solution Visual Studio "M13_CoeurReacteurCSharp" qui se trouve à la racine de ce module.
 
@@ -147,7 +147,7 @@ Le deuxième montage comprend un ESP32, un bouton et deux DELs (une rouge, une v
 
 ### Exercice 2.2 - Affichage du statut du coeur du réacteur
 
-- Écrivez le code qui permet d'interroger l'API REST décrite dans la section 4.1.2 afin de savoir si le réacteur est actif ou au repos.
+- Écrivez le code qui permet d'interroger l'API REST décrite dans la section 1.2 afin de savoir si le réacteur est actif ou au repos.
 - Écrivez le code qui permet d'aller chercher cet état toute les 2000 millisecondes. Ce temps doit être facilement paramétrable. Une fois le statut récupéré, vous devez afficher le statut à l'aide de la DEL verte ou rouge.
 
 ### Exercice 2.3 - Prise en charge du bouton
@@ -184,7 +184,7 @@ if (codeRetour == HTTP_CODE_OK) {
 
 ### Exercice 2.4 - Votre collègue n'est pas prêt ou vous travaillez seul de chez vous ?
 
-Si votre collègue n'est pas prêt ou que la situation vous oblige à travailler seul, vous pouvez utiliser un serveur web local. Pour cela, vous allez devoir connecter votre ESP32 à votre réseau WiFi local. Ce point est traité dans le point 4.2.1. La première étape est donc de valider que vous y arrivez bien et que votre ESP32 et votre ordinateur sont sur le même réseau. Pour vous aidez, récupérez l'adresse IP de votre ESP32 sur votre trace ainsi que l'adresse IP de votre ordinateur à l'aide des commandes ```ipconfig``` (Windows), ```ifconfig``` (Mac / Linux) ou ```ip a``` (Linux si ifconfig non installé).
+Si votre collègue n'est pas prêt ou que la situation vous oblige à travailler seul, vous pouvez utiliser un serveur web local. Pour cela, vous allez devoir connecter votre ESP32 à votre réseau WiFi local. Ce point est traité dans le point 2.1. La première étape est donc de valider que vous y arrivez bien et que votre ESP32 et votre ordinateur sont sur le même réseau. Pour vous aidez, récupérez l'adresse IP de votre ESP32 sur votre trace ainsi que l'adresse IP de votre ordinateur à l'aide des commandes ```ipconfig``` (Windows), ```ifconfig``` (Mac / Linux) ou ```ip a``` (Linux si ifconfig non installé).
 
 Ensuite récupérez la solution Visual Studio "M13_CoeurReacteurCSharp" qui se trouve à la racine de ce module.
 
