@@ -284,7 +284,7 @@ Pour hériter d'une classe en C++, il vous suffit de l'indiquer à la déclarati
 
 ### Exercice 3.4 - Et si on conversait (facultatif)
 
-- Dans cet exercice, vous allez simuler la transmission d'in texte en code morse.
+- Dans cet exercice, vous allez simuler la transmission d'un texte en code morse.
 #### Exercice 3.4.1 Afficher le code morse d'un texte.
 
 -Ajoutez la méthode afficherMonTexte(```texteAEmettre```) à l'exercice pour transmettre une chaîne de caractères en morse  à la console et sur la DEL. La chaîne de caractères en passée en paramètre.
