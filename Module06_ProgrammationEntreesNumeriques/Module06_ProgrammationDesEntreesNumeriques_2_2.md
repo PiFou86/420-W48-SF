@@ -48,7 +48,7 @@ Fréquence = 16 MHz => 16 000 000 unités d'instruction / s
 
 => 16 instructions en 1 μs
 
-=> 1 600 instructions en 1 μs
+=> 1 600 instructions en 100 μs
 </details>
 
 ### Étape 2 - Montage du circuit
