@@ -164,7 +164,7 @@ Dans vos projet PIO, nous vous demandons d'avoir une classe par couple de fichie
 
 ![Déclaration flasher](img/flasher_declaration.png)
 
-![Définition flasher](img/flasher_definition.png)
+![Définition flasher](https://github.com/user-attachments/assets/107d5f38-089b-4ba5-888b-fe5193f82c4f)
 
 - Testez votre classe en déclarant la variable "flasher" avec le type "Flasher" en dehors de toute fonction
 
@@ -284,7 +284,7 @@ Pour hériter d'une classe en C++, il vous suffit de l'indiquer à la déclarati
 
 ### Exercice 3.4 - Et si on conversait (facultatif)
 
-- Dans cet exercice, vous allez simuler la transmission d'in texte en code morse.
+- Dans cet exercice, vous allez simuler la transmission d'un texte en code morse.
 #### Exercice 3.4.1 Afficher le code morse d'un texte.
 
 -Ajoutez la méthode afficherMonTexte(```texteAEmettre```) à l'exercice pour transmettre une chaîne de caractères en morse  à la console et sur la DEL. La chaîne de caractères en passée en paramètre.
@@ -301,3 +301,16 @@ Au choix, le paramètre peut être passé par référence ou par adresse, mais n
 Aidez-vous de du projet hub Arduino:
 
 [Star Wars on a Buzzer](https://projecthub.arduino.cc/HiHiHiHiiHiiIiH/star-wars-on-a-buzzer-e70139)
+
+## Complément mémoire
+
+Comme vous avez pu le constater, les adresses ne débutent pas à 0 ou à 0x7FF. Vous avez des adresses en 0x8FA. Nous pouvons en déduire que la pile débute autour de l'adresse 0x8FF et s'étend vers 0x0. Quand nous observons les allocations de mémoire dans le tas (`new` / `malloc`), les adresses s'étendent de 0x100 vers 0x8FF.
+
+Voici un schéma de la mémoire proposé par l'article https://www.arnabkumardas.com/arduino-tutorial/avr-memory-architecture/ :
+
+![Organisation de la mémoire](https://github.com/user-attachments/assets/05e0c404-709d-42fa-8f0f-07aa09c033d6)
+
+Si nous plaçons les adresses de la SRAM suivant le type de données que nous plaçons, voici ce que cela donne :
+
+![Oragnisation du tas et de la pile pour le ATmega328P](https://github.com/user-attachments/assets/d9e2107d-b1dd-400b-b409-9b63b7d50311)
+
