@@ -137,6 +137,16 @@ Une fois les problèmes résolus, la partie réseau devrait ressembler à :
 
 ![Utilisation du client web pour un ESP32 - Pas de problème - Réseau](img/ex4_simulateur_client_web_reseau_ok.png)
 
+### Exercice 1.6 - Moniteur série
+
+Implantez un interpréteur de commandes qui vous permet d'activer et de désactiver le coeur du réacteur avec les commandes suivantes :
+
+- coeur-reacteur statut : renvoie le statut du réacteur
+- coeur-reacteur activer : active le coeur du réacteur
+- coeur-reacteur desactiver : desactive le coeur du réacteur
+
+Pour implanter cet interpréteur de commandes, vous référer au code donné en cours et à la bibliothèque utilitaire : https://github.com/PiFou86/420-W48-SF-Utilitaires-Demo
+
 ## Exercice 2 - Périphérique client
 
 Le deuxième montage comprend un ESP32, un bouton et deux DELs (une rouge, une verte). La DEL verte permet d'indiquer que le coeur du réacteur est au repos. La DEL rouge indique que le coeur du réacteur est actif. Pour connaître l'état du réacteur, vous devez utiliser l'API REST de votre collègue (n'oubliez pas de vous connecter sur le même réseau !). À l'appui du bouton, si le coeur du réacteur est au repos, il devient actif. Si le coeur du réacteur est actif, il devient au repos.
@@ -205,3 +215,13 @@ Si ce n'est pas le cas :
 - Validez que vous êtes capable d'effectuer une requête ICMP de votre ordinateur vers l'ESP32 (Ping)
 - Validez que l'application web est bien démarrée et que vous pouvez y accéder
 - Validez que vos requête respectent bien l'API REST définie plus haut avec les bonnes routes avec les bons verbes
+
+### Exercice 2.5 - Moniteur série
+
+Implantez un interpréteur de commandes qui vous permet d'activer et de désactiver le coeur du réacteur avec les commandes suivantes :
+
+- coeur-reacteur statut : renvoie le statut du réacteur
+- coeur-reacteur activer : active le coeur du réacteur
+- coeur-reacteur desactiver : desactive le coeur du réacteur
+
+Pour implanter cet interpréteur de commandes, vous référer au code donné en cours et à la bibliothèque utilitaire : https://github.com/PiFou86/420-W48-SF-Utilitaires-Demo
