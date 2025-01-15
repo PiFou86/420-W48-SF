@@ -19,7 +19,8 @@ void setup() {
   wm.setAPCallback([](WiFiManager* p_wiFiManager) {
     Serial.println("Connexion au réseau WiFi échouée, on lance le portail !");
   });
-
+  
+  wm.setConnectTimeout(10);
   wm.setConfigPortalTimeout(180);
 
   wm.setSaveParamsCallback([&paramerePersonnalise]() {
@@ -39,7 +40,8 @@ void setup() {
 
   wm.setAPStaticIPConfig(adresseIPPortail, passerellePortail,
                          masqueReseauPortail);
-
+  
+  
   wm.setParamsPage(true);
 
   // Pour le débug, on peut forcer l'effacement de la configuration du WiFi
