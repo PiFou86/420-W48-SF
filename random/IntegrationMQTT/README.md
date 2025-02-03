@@ -19,8 +19,9 @@ Dans la suite nous allons nous baser sur un appareil qui a un (1) capteur et deu
 - un capteur de température (ESP -> Hass)
 - une valeur maximum de température (set : Hass -> ESP)
 - un bouton on/off pour allumer / éteindre un chauffage (set: Hass -> ESP)
+- une valeur de type "select" (set : Hass -> ESP)
 
-Pour définir cette configuration, on va devoir envoyer trois (3) messages dans MQTT, un par entité.
+Pour définir cette configuration, on va devoir envoyer quatre (4) messages dans MQTT, un par entité.
 
 ## Format des messages de découverte (auto-discovery) pour Home Assistant
 
@@ -93,19 +94,20 @@ Les messages de découverte doivent être envoyés dans le sujet (topic) `homeas
 
 ## Comprendre la découverte automatique avec l'exemple précédent avant de créer vos messages
 
-Nous allons ici reprendre l'exemple du capteur de température. Lorsque le message de découverte est envoyé, Home Assistant va créer automatiquement une entité avec les informations fournies dans le message. Vous pourrez retrouver cette entité dans l'interface de Home Assistant dans `Paramètres > Appareils et services > MQTT`. Il y aura écrit "1 appareil". En cliquant dessus, vous pourrez voir les entités créées automatiquement. Le bouton `CONFIGURER` permet de 'accéder à une page de tests d'MQTT qui permet de publier et de s'abonner à des sujets. Cette page vous permettra de tester l'ajout des entités, au nombre de trois (3) dans l'interface web. Vous vous assurez de la syntaxe en utilisant l'interface web.
+Nous allons ici reprendre l'exemple du capteur de température. Lorsque le message de découverte est envoyé, Home Assistant va créer automatiquement une entité avec les informations fournies dans le message. Vous pourrez retrouver cette entité dans l'interface de Home Assistant dans `Paramètres > Appareils et services > MQTT`. Il y aura écrit "1 appareil". En cliquant dessus, vous pourrez voir les entités créées automatiquement. Le bouton `CONFIGURER` permet de 'accéder à une page de tests d'MQTT qui permet de publier et de s'abonner à des sujets. Cette page vous permettra de tester l'ajout des entités, au nombre de quatre (4) dans l'interface web. Vous vous assurez de la syntaxe en utilisant l'interface web.
 
 Pour accélérer le processus de tests, nous allons simuler l'envoi de messages de découverte. Pour ce faire, nous allons utiliser un client MQTT qui permet d'envoyer des messages. Vous pouvez utiliser le client MQTT intégré à Home Assistant (`Paramètres > Appareils et services > MQTT > Configurer`) (ou un autre client MQTT externe comme [MQTT Explorer](https://mqtt-explorer.com)).
 
-La section suivante présente les trois (3) messages de découverte pour notre exemple. Elle est suivie par les étapes pour les envoyer et de simuler l'état de l'appareil et des entités.
+La section suivante présente les quatre (4) messages de découverte pour notre exemple. Elle est suivie par les étapes pour les envoyer et de simuler l'état de l'appareil et des entités.
 
 ### Messages de découverte
 
-Les trois (3) messages de découverte pour notre exemple sont données ci-dessous. Ils déclarent respectivement :
+Les quatre (4) messages de découverte pour notre exemple sont données ci-dessous. Ils déclarent respectivement :
 
 1. Un capteur de température
 2. Un contrôle de valeur numérique (Température maximum)
 3. Un bouton on/off (Allumer / éteindre un chauffage)
+4. Un champ "select" pour choisir un goûter qui sera donné par l'ESP pour les enfants
 
 #### Message de déclaration du capteur de température
 
@@ -200,6 +202,41 @@ Charge utile (payload) :
 }
 ```
 
+#### Message de déclaration du champ "select" pour le choix du goûter
+
+Sujet (topic) :
+
+```json
+homeassistant/select/monBidule_d7ae114c_gouter_type/config
+```
+
+Charge utile (payload) :
+
+```json
+{
+    "availability_topic": "monBidule_d7ae114c/availability",
+    "device": {
+        "identifiers": "d7ae114c",
+        "manufacturer": "PFL Technology",
+        "model": "Mon bidule v0.1",
+        "name": "Mon bidule System",
+        "sw_version": "f76f4640798cf77257362636b100103d"
+    },
+    "device_class": "select",
+    "unique_id": "monBidule_d7ae114c_gouter_type",
+    "name": "Type goûter",
+    "state_topic": "monBidule_d7ae114c/gouter_type/state",
+    "command_topic": "monBidule_d7ae114c/gouter_type/command",
+    "options": [
+        "chocolatine",
+        "pomme",
+        "banane",
+        "fraises"
+    ],
+    "platform": "mqtt"
+}
+```
+
 ### Simulation de l'appareil (Des envois de l'ESP32)
 
 Ici nous allons simuler ce que l'ESP32 devrait envoyer dans MQTT pour être découvert par Home Assistant et être considéré comme disponible avec des valeurs par défaut.
@@ -208,7 +245,7 @@ Pour simuler l'envoi des messages de découverte, nous allons utiliser un client
 
 1. Connectez-vous à votre serveur MQTT avec votre client
 2. Écoutez le sujet (topic) `homeassistant/#` pour vérifier que le message est bien reçu dans les étapes subséquentes
-3. Envoyez les trois (3) messages de découverte dans les sujets (topics) respectifs
+3. Envoyez les quatre (4) messages de découverte dans les sujets (topics) respectifs
 4. Validez si les messages sont bien reçus dans votre client MQTT et validez que les appareils et les entités sont bien créés dans Home Assistant. Si ce n'est pas le cas, vérifiez que les messages sont bien formatés et que les sujets (topics) sont bien respectés et recommencez à l'étape 3.
 5. Écoutez le sujet (topic) `monBidule_d7ae114c/#` pour vérifier que les messages sont bien reçus dans les étapes subséquentes
 6. Pour simuler l'état de l'appareil et des entités, envoyez des messages dans les sujets (topics) `monBidule_d7ae114c/availability`, `monBidule_d7ae114c/temperature/state`, `monBidule_d7ae114c/temperature_max` et `monBidule_d7ae114c/chauffage` pour simuler l'état de l'appareil et des entités. Vous pouvez aussi utiliser le client MQTT intégré à Home Assistant (`Paramètres > Appareils et services > MQTT > Configurer`) pour envoyer des messages :
