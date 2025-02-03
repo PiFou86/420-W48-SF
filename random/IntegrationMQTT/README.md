@@ -253,14 +253,17 @@ Pour simuler l'envoi des messages de découverte, nous allons utiliser un client
    2. `monBidule_d7ae114c/temperature/state` : `23.23` pour simuler une température de 23.3°C
    3. `monBidule_d7ae114c/temperature_max` : `4.23` pour simuler une température maximale de 4.23°C
    4. `monBidule_d7ae114c/chauffage` : `ON` pour simuler un chauffage allumé
+   5. `monBidule_d7ae114c/gouter_type/state` : `chocolatine` pour le choix d'un bon goûter
 
  Dans l'affichage suivant, vous pouvez voir le capteur et deux (2) contrôles.
 
-![L'appareil dans Home Assistant](img/autodiscovery_exemple_configuration.png)
+![L'appareil dans Home Assistant](https://github.com/user-attachments/assets/3e25532f-2d62-42d5-97b6-5d92ce9da74a)
 
-7. Modifiez les deux (2) contrôles et validez que les valeurs sont bien envoyées à l'appareil en observant les messages reçus dans votre client MQTT.
+7. Modifiez les trois (3) contrôles et validez que les valeurs sont bien envoyées à l'appareil en observant les messages reçus dans votre client MQTT.
 
-![Les messages des commandes reçus par le client](img/autodiscovery_exemple_ecoute.png)
+![Modication des contrôles](https://github.com/user-attachments/assets/fa2261f8-6f92-4493-8832-12f8f4dd99e9)
+
+![Les messages des commandes reçus par le client](https://github.com/user-attachments/assets/8049e412-a076-4ad3-afbc-c5b78476cf1d)
 
 8. Vérifiez les informations détaillées sur les entités de `Mon bidule System` en cliquant sur MQTT INFO
 
