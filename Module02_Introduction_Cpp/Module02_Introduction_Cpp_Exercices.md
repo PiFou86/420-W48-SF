@@ -32,7 +32,7 @@ Dans PIO, tous vos fichiers d'en-tête (ou de déclarations) doivent se situer d
   - Dans ce fichier, ajoutez les déclarations des fonctions "allumerDELInterne" et "eteindreDELInterne" (N'oubliez pas d'ajouter la directive d'inclusion unique à la première ligne de votre fichier d'en-tête)
 - Ajoutez le fichier de définitions "GestionDELInterne.cpp" dans le répertoire "src"
   - Grâce à la directive de précompilation, incluez le fichier d'en-tête précédemment créé
-  - Déclarez vos deux fonctions
+  - Définissez vos deux fonctions
 - Ouvrez le fichier "main.cpp"
   - Grâce à la directive de précompilation, incluez le fichier d'en-tête précédemment créé
   - Placez-vous dans la fonction "loop" et appelez les fonctions "allumerDELInterne" et "eteindreDELInterne" comme dans votre premier programme Arduino
