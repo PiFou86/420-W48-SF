@@ -100,12 +100,12 @@ Dans ce montage, le bouton poussoir sera alimenté par la borne no 2, la DEL ser
 
 ### Étape 2 - Programmation
 
-- Codez le projet "AMOC_Module06_ProgrammationEntreesNumeriques_Gradateur" : à chaque pression du bouton, la DEL passe d'un état allumé à éteint et inversement. Exemple :
+- Codez le projet "AMOC_Module06_ProgrammationEntreesNumeriques_Gradateur" : à chaque pression du bouton, la DEL passe d'un état allumé à éteint et inversement (Si vous avez lu le cours vous savez où est le code). Exemple :
   - Premier appui : on allume la DEL
   - Deuxième appui : on éteint la DEL
   - Troisième appui : on allume la DEL
   - etc.
-- Modifiez le programme pour que la DEL changent d'intensité de 25 % à chaque fois qu'on appuie sur le bouton. Après 4 appuis successifs, l'intensité doit s'inverser de 25 % et ainsi de suite.
+- (Optionnel) Modifiez le programme pour que la DEL changent d'intensité de 25 % à chaque fois qu'on appuie sur le bouton. Après 4 appuis successifs, l'intensité doit s'inverser de 25 % et ainsi de suite.
 
 <details>
     <summary>Indice intensité</summary>
