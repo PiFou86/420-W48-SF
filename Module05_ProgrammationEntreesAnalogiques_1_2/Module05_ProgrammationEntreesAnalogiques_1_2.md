@@ -87,6 +87,10 @@ Dans cet exercice, nous allons utiliser un détecteur de distance de modèle HC-
 - Créez le projet ```"AMOC_Module05_AfficherDistance"``` pour afficher la distance qui sépare l'Arduino des obstacles à proximité.
 - Utilisez un obstacle simple devant le détecteur pour afficher la distance qui le sépare de l'écran (en cm). Utilisez une règle pour calibrer l'équipement.
 
+L'observation à l'oscilloscope des différents signaux, trigger en jaune, echo en rose, montre comment cela fonctionne au niveau des E/S. Le calcul est aussi détaillé sur l'image (Comment trouver la formule + un exemple) :
+
+![Mesure du code du sonar à l'oscilloscope](img/Observation_Oscilloscope_Sonar.jpg)
+
 ### Exercice 2.3 - Sigaux d'alertes - 15 mins
 
 - Situations :
