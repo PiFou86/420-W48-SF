@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "author": "Léon Pierre-François",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 48.6, "left": 47.4, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -48.1,
+      "left": 301.1,
+      "rotate": 90,
+      "attrs": { "color": "green", "xray": "1", "bounce": "1" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 119.15,
+      "left": 384,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "uno:5V", "r1:2", "red", [ "v28.7", "h3.8" ] ],
+    [ "btn1:1.r", "r1:1", "green", [ "v0" ] ],
+    [ "uno:2", "btn1:1.r", "green", [ "v-19.2", "h61.7" ] ],
+    [ "btn1:2.l", "uno:GND.1", "green", [ "v0", "h-163.4" ] ]
+  ],
+  "dependencies": {}
+}
