@@ -155,3 +155,60 @@ delay(200);
 ```
 
 </details>
+
+### Contributions étudiantes
+
+- Jérémy Corbeil de la cohorte d'hiver 2025, accompagné d'Anthony Mc-Gee-Cloutier, nous a fabriqué un [thérémine](https://fr.wikipedia.org/wiki/Thérémine).
+![Lev_Termen_playing_-_cropped-2](https://github.com/user-attachments/assets/d0859679-e32f-4dc3-baf7-161af57295f3)
+
+<details><summary>Voici son code</summary>
+
+```cpp
+// Jérémy Corbeil - Hiver 2025
+#include <Arduino.h>
+
+const int borneTrigger = 10;
+const int borneEcho = 8;
+float cm;
+long duree, pouces;
+int distance;
+
+int freqID;
+
+const float maxHeight = 35;
+const float frequences[] = {130.9f, 146.8f, 164.8f, 174.6f, 196.0f, 220.0f, 246.9f, 261.6f};
+
+const int borneSon = 3;
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println("démarrage de la console");
+  pinMode(borneEcho, INPUT);
+  pinMode(borneTrigger, OUTPUT);
+  pinMode(borneSon, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(borneTrigger, LOW);
+  delayMicroseconds(2000);
+  digitalWrite(borneTrigger, HIGH);
+  delayMicroseconds(2000);
+  digitalWrite(borneTrigger, LOW);
+  duree = pulseIn(borneEcho, HIGH);
+  cm = (duree/2)/29.1;
+  Serial.print(cm);
+  Serial.println(" cm");
+
+  freqID = cm / maxHeight * 8;
+  Serial.print(freqID);
+  Serial.println(" ");
+
+  if (freqID < 9) {
+    tone(borneSon, frequences[freqID]);
+  } else {
+    noTone(borneSon);
+  }
+}
+```
+    
+</details>
