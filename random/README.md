@@ -12,6 +12,8 @@ Un début de tutoriel est disponible dans le projet [Debogage](Debogage/README.m
 
 Code exemple de test et utilisation de la mémoire EEPROM avec CRC et déplacement dans la mémoire pour économiser les cycles d'écriture.
 
+Le code est maintenant disponible dans un librairie disponible à l'adresse suivante : [https://github.com/PiFou86/UtilifyEEPROM](https://github.com/PiFou86/UtilifyEEPROM).
+
 ![Console de débugage couleur avec les valeurs de l'EEPROM](img/EEPROM_debug.png)
 
 Données :
