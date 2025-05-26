@@ -1,5 +1,7 @@
 #include "Program.h"
 
+#include "Configuration.h"
+
 #include "Action/ActionAfficherStatistiques.h"
 #include "Action/ActionDumpMemory.h"
 #include "Action/ActionEvaluationInsatisfaisant.h"
@@ -13,15 +15,15 @@ Program::Program() : m_taskAggregate(), m_eepromStorage(4242) {
       new ActionAfficherStatistiques(&m_eepromStorage);
 
   PushButton* pushButtonSatisfait =
-      new PushButton(2, new ActionEvaluationSatisfaisant(&m_eepromStorage));
+      new PushButton(PUSHBUTTON_SATISFAISANT_PIN, new ActionEvaluationSatisfaisant(&m_eepromStorage));
   pushButtonSatisfait->callbackKeyUpLongPress(actionAfficherStatistiques);
 
   PushButton* pushButtonPassable =
-      new PushButton(3, new ActionEvaluationPassable(&m_eepromStorage));
+      new PushButton(PUSHBUTTON_PASSABLE_PIN, new ActionEvaluationPassable(&m_eepromStorage));
   pushButtonPassable->callbackKeyUpLongPress(actionAfficherStatistiques);
-  
+
   PushButton* pushButtonInsatisfait =
-      new PushButton(4, new ActionEvaluationInsatisfaisant(&m_eepromStorage));
+      new PushButton(PUSHBUTTON_INSATISFAISANT_PIN, new ActionEvaluationInsatisfaisant(&m_eepromStorage));
   pushButtonInsatisfait->callbackKeyUpLongPress(actionDumpMemory);
 
   this->m_taskAggregate.addTask(pushButtonSatisfait);
