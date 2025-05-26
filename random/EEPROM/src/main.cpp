@@ -3,6 +3,7 @@
 
 #include "SauvegardeDonneesEEPROM.h"
 
+// Le code est maintenant disponible dans un librairie disponible à l'adresse suivante : [https://github.com/PiFou86/UtilifyEEPROM](https://github.com/PiFou86/UtilifyEEPROM).
 struct MaStructure {
   int a;
   int b;
