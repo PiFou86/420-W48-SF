@@ -30,15 +30,16 @@ void loop() {
 #ifdef MESURE_OSCILLOSCOPE
   lcd.print("ABC");
   // lcd.print("E");
-  delay(5000);
+  delay(1000);
 
   /*
   Analyse oscilloscope "ABC" :
-   1 : 0100 1001  // A : 0100 0001
-   2 : 0100 1101
+  Envoi de 4bits en 3 étapes (préparation, envoi, validation)
+   1 : 0100 1001  // A : >>0100<< 0001  0x41
+   2 : 0100 1101  
    3 : 0100 1001
 
-   4 : 0001 1001
+   4 : 0001 1001  // A : 0100 >>0001<<  0x41
    5 : 0001 1101
    6 : 0001 1001
 
