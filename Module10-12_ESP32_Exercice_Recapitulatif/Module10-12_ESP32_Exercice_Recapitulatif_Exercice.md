@@ -143,7 +143,7 @@ Implantez un interpréteur de commandes qui vous permet d'activer et de désacti
 - coeur-reacteur activer : active le coeur du réacteur
 - coeur-reacteur desactiver : desactive le coeur du réacteur
 
-Pour implanter cet interpréteur de commandes, vous référer au code donné en cours et à la bibliothèque utilitaire : https://github.com/PiFou86/420-W48-SF-Utilitaires-Demo
+Pour implanter cet interpréteur de commandes, vous référer au code donné en cours et à la bibliothèque utilitaire : https://github.com/PiFou86/UtilifyCommandInterpreter
 
 ## Exercice 2 - Périphérique client
 
@@ -222,4 +222,4 @@ Implantez un interpréteur de commandes qui vous permet d'activer et de désacti
 - coeur-reacteur activer : active le coeur du réacteur
 - coeur-reacteur desactiver : desactive le coeur du réacteur
 
-Pour implanter cet interpréteur de commandes, vous référer au code donné en cours et à la bibliothèque utilitaire : https://github.com/PiFou86/420-W48-SF-Utilitaires-Demo
+Pour implanter cet interpréteur de commandes, vous référer au code donné en cours et à la bibliothèque utilitaire : https://github.com/PiFou86/UtilifyCommandInterpreter
