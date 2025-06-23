@@ -6,8 +6,6 @@ Pour chaque équipe, un étudiant effectue l'Exercice 1, l'autre l'Exercice 2. L
 
 Ce travail doit s'effectuer à deux avec deux ESP32. C'est un exercice récapitulatif des modules précédents xsur l'ESP32 et ses possibilités réseau. Il est préparatoire aux prochains travaux pratiques.
 
-Pour cet exercice, vous n'avez pas besoin de "WiFiManager".
-
 Afin de vous facilité le travail à la maison qui sera individuel, nous vous proposons une application .Net MVC qui vous permet de simuler aussi bien le client que le serveur. La solution "M13_CoeurReacteurCSharp" se trouve à la racine de ce dossier. Pour la faire fonctionner, il faut avoir [.Net 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0).
 
 ## Exercice 1 - Réacteur nucléaire - Périphérique serveur
