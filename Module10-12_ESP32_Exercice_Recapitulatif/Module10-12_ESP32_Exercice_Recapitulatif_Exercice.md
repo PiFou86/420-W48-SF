@@ -4,9 +4,7 @@ Le but de cet exercice est de créer deux applications différentes. La premièr
 
 Pour chaque équipe, un étudiant effectue l'Exercice 1, l'autre l'Exercice 2. La remise est individuelle : chacun remet sa partie.
 
-Ce travail doit s'effectuer à deux avec deux ESP32. C'est un exercice récapitulatif des modules précédents sur l'ESP32 et ses possibilités réseau. Il est préparatoire aux prochains travaux pratiques.
-
-Pour cet exercice, vous n'avez pas besoin de "WiFiManager".
+Ce travail doit s'effectuer à deux avec deux ESP32. C'est un exercice récapitulatif des modules précédents xsur l'ESP32 et ses possibilités réseau. Il est préparatoire aux prochains travaux pratiques.
 
 Afin de vous facilité le travail à la maison qui sera individuel, nous vous proposons une application .Net MVC qui vous permet de simuler aussi bien le client que le serveur. La solution "M13_CoeurReacteurCSharp" se trouve à la racine de ce dossier. Pour la faire fonctionner, il faut avoir [.Net 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0).
 
@@ -14,9 +12,9 @@ Afin de vous facilité le travail à la maison qui sera individuel, nous vous pr
 
 Le premier montage comprend un ESP32 et une DEL rouge. Quand l'état du réacteur est "repos", la DEL rouge est éteinte. Quand l'état est "actif", la DEL rouge est allumée.
 
-### Exercice 1.1 - Connection à votre réseau domestique ou création d'un point d'accès en cas d'échec
+### Exercice 1.1 - Connection à votre réseau domestique
 
-Le programme interne doit essayer de se connecter sur votre réseau domestique. S'il n'y arrive pas, il doit créer le point d'accès "IoT_M13_Ex04_<numéroMatricule>".
+Le programme interne doit essayer de se connecter sur votre réseau domestique.
 
 ### Exercice 1.2 - Création de l'API REST
 
@@ -145,15 +143,15 @@ Implantez un interpréteur de commandes qui vous permet d'activer et de désacti
 - coeur-reacteur activer : active le coeur du réacteur
 - coeur-reacteur desactiver : desactive le coeur du réacteur
 
-Pour implanter cet interpréteur de commandes, vous référer au code donné en cours et à la bibliothèque utilitaire : https://github.com/PiFou86/420-W48-SF-Utilitaires-Demo
+Pour implanter cet interpréteur de commandes, vous référer au code donné en cours et à la bibliothèque utilitaire : https://github.com/PiFou86/UtilifyCommandInterpreter
 
 ## Exercice 2 - Périphérique client
 
 Le deuxième montage comprend un ESP32, un bouton et deux DELs (une rouge, une verte). La DEL verte permet d'indiquer que le coeur du réacteur est au repos. La DEL rouge indique que le coeur du réacteur est actif. Pour connaître l'état du réacteur, vous devez utiliser l'API REST de votre collègue (n'oubliez pas de vous connecter sur le même réseau !). À l'appui du bouton, si le coeur du réacteur est au repos, il devient actif. Si le coeur du réacteur est actif, il devient au repos.
 
-### Exercice 2.1 - Connection à votre réseau domestique ou au point d'accès créé par l'équipier
+### Exercice 2.1 - Connection à votre réseau domestique
 
-Écrivez le code qui permet de se connecter sur votre réseau domestique ou sur le point d'accès créé par l'équipier. Gardez le tout configurable facilement car vous risquez de devoir alterner entre votre réseau domestique et le point d'accès créé par votre collègue.
+Écrivez le code qui permet de se connecter sur votre réseau domestique. Gardez le tout configurable facilement car vous risquez de devoir alterner entre votre réseau domestique.
 
 ### Exercice 2.2 - Affichage du statut du coeur du réacteur
 
@@ -224,4 +222,4 @@ Implantez un interpréteur de commandes qui vous permet d'activer et de désacti
 - coeur-reacteur activer : active le coeur du réacteur
 - coeur-reacteur desactiver : desactive le coeur du réacteur
 
-Pour implanter cet interpréteur de commandes, vous référer au code donné en cours et à la bibliothèque utilitaire : https://github.com/PiFou86/420-W48-SF-Utilitaires-Demo
+Pour implanter cet interpréteur de commandes, vous référer au code donné en cours et à la bibliothèque utilitaire : https://github.com/PiFou86/UtilifyCommandInterpreter

@@ -64,9 +64,9 @@ Si cela ne fonctionne pas :
 
 ## Exercice 2 - Initialisation du serveur web ESP32 - 30 mins
 
-### Étape 1 - Installation du système de fichiers SPIFFS pour ESP32
+### Étape 1 - Installation du système de fichiers LittleFS pour ESP32
 
-Dans cette étape, vous allez tester la mise en place des fichiers CSS, JavaScript et HTML dans le système SPIFFS de votre serveur web.
+Dans cette étape, vous allez tester la mise en place des fichiers CSS, JavaScript et HTML dans le système LittleFS de votre serveur web.
 
 - Créez une nouvelle application platformIO ```AMOC_Module11_ServeurWeb```.
 - À la racine du projet, créez un répertoire ```data```
@@ -81,7 +81,7 @@ Dans cette étape, vous allez tester la mise en place des fichiers CSS, JavaScri
 
 ![Téléversement de l'image dans l'ESP32](img/BuildSPIFFS.png)
 
-### Étape 2 - Tester le système de fichiers SPIFFS pour ESP32
+### Étape 2 - Tester le système de fichiers LittleFS pour ESP32
 
 - Utilisez le code suivant pour lister les fichiers présents dans votre mémoire flash :
 
@@ -89,7 +89,7 @@ Dans cette étape, vous allez tester la mise en place des fichiers CSS, JavaScri
     <summary>Code pour lister les fichiers</summary>
 
 <!-- ```cpp
-#include "SPIFFS.h" 
+#include "LittleFS.h" 
 
 void listFilesInDir(File dir, int numTabs = 1);
 
@@ -99,16 +99,16 @@ void setup() {
     delay(500);
  
     Serial.println(F("Inizializing FS..."));
-    if (SPIFFS.begin()){
-        Serial.println(F("SPIFFS mounted correctly."));
+    if (LittleFS.begin()){
+        Serial.println(F("LittleFS mounted correctly."));
     }else{
-        Serial.println(F("!An error occurred during SPIFFS mounting"));
+        Serial.println(F("!An error occurred during LittleFS mounting"));
     }
 
     // Get all information of SPIFFS
  
-    unsigned int totalBytes = SPIFFS.totalBytes();
-    unsigned int usedBytes = SPIFFS.usedBytes();
+    unsigned int totalBytes = LittleFS.totalBytes();
+    unsigned int usedBytes = LittleFS.usedBytes();
  
     Serial.println("===== File system info =====");
  
@@ -123,7 +123,7 @@ void setup() {
     Serial.println();
  
     // Open dir folder
-    File dir = SPIFFS.open("/");
+    File dir = LittleFS.open("/");
     // List file at root
     listFilesInDir(dir);
 }

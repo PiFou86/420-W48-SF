@@ -221,6 +221,11 @@ void loop() {
 
 - Testez ce code et validez son fonctionnement
 
+[La documentation de WLED](https://kno.wled.ge/advanced/custom-features/#timing) revient aussi sur ce problème qui peut se produire en utilisant la fonction `delay` dans leur fonction utilisateur `userLoop` :
+
+![Documentatino timing dans la fonction `userLoop`](https://github.com/user-attachments/assets/05accd3e-2650-403a-a552-25da7345b850)
+
+
 ### Exercice 4.2 - Classe DELClignotante
 
 Dans cette partie, nous allons créer la classe "DELClignotante" qui aura pour responsabilité de gérer le clignotement d'une DEL sans perturber, outre quelques micro-secondes, le fonctionnement du programme principal. Plusieurs instances de cette classe peuvent exister dans un même programme. Le but à la fin est d'avoir deux DELs qui ont des temps de cycle différents.
