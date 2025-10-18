@@ -49,6 +49,7 @@ void setup() {
 
   // Essaie de se connecter au réseau WiFi. Si échec, il lance le portail de
   // configuration. L'appel est bloquant -> rend la main après le timeout
+  //wm.resetSettings();
   wm.autoConnect(SSIDPortail, motPasseAPPortail);
 
   // Pour lancer le portail manuellement

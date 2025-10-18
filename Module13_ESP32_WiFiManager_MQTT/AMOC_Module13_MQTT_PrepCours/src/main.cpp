@@ -27,7 +27,7 @@
 // Windows : ipconfig
 // Linux : ifconfig
 // Mac : ifconfig | grep "inet "
-#define MQTT_SERVER "10.23.209.13"
+#define MQTT_SERVER "10.23.208.140"
 #define MQTT_PORT 1883
 #define MQTT_USER "esp32_demo"
 #define MQTT_PASSWORD "Bonjour01.+"
