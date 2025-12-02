@@ -43,6 +43,15 @@ Observer la MLI à l'oscilloscope. Mesurer les fréquences des E/S des pins supp
 - Modifiez votre programme pour avoir un rapport cyclique de "191"  au niveau de la pin 10
 - Validez ce qui a changé à l'affichage dans l'oscilloscope en recalculant le rapport de cycle
 
+
+<details>
+    <summary><b>Images pour les branchements</b></summary>
+
+<img width="1184" height="864" alt="image" src="https://github.com/user-attachments/assets/30e801a3-a9ed-4a47-8eb1-901694b30b33" />
+<img width="1184" height="864" alt="image" src="https://github.com/user-attachments/assets/93dfc6ca-930c-4bd6-8943-63b8303042e4" />
+
+</details>
+
 ## Exercice 2 - Contrôle de l'intensité d'une DEL
 
 ### Objectif
