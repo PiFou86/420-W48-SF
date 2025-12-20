@@ -126,7 +126,7 @@ Retournez voir [le module 4 sur les sorties au niveau de la section sur le MLI (
 > [!NOTE]
 > `tick()` représente un battement de temps logique. À chaque passage dans loop(), on appelle `tick()` pour permettre au composant de mettre à jour son état interne sans bloquer le programme.
 
-> ![NOTE]
+> [!NOTE]
 > Une `Action` représente une fonction. Sur l’Arduino Uno R3, il n’est pas possible de capturer `this` dans une lambda. Pour éviter les variables globales, nous utilisons donc des classes héritées d’`Action`, permettant d’encapsuler des données membres sur lesquelles la méthode executer() agit. Cette pratique ne sera pas nécessaire avec la version de C++ utilisée pour l'ESP32.
 
 Dans cet exercice, vous allez passer votre code impératif en code objet. Pour cela vous allez coder les classes du diagramme précédent. La classe "Program" permet de "ranger" le code de "main.cpp". Le constructeur de "Program" correspond à la fonction "setup", la méthode "loop" de "Program" correspond à la fonction "loop".
