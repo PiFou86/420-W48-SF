@@ -260,6 +260,9 @@ Dans cette partie, nous allons créer la classe "DELClignotante" qui aura pour r
   - Le second a une dureeAllumee = 600 et une dureeEteinte = 600
 - Ajoutez le code nécessaire pour faire fonctionner le clignotement (voir méthode loop de "DELClignotante")
 
+> [!NOTE]
+> `tick()` représente un battement de temps logique. À chaque passage dans loop(), on appelle `tick()` pour permettre au composant de mettre à jour son état interne sans bloquer le programme.
+
 ![Diagramme de classes](../images/Module04_ProgrammationSorties/diag/DELClignotante/DELClignotante_diagclasses.png)
 
 Fin !
