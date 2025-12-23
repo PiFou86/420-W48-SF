@@ -23,7 +23,7 @@ class Program {
 }
 
 class DEL {
-    - p_pin : int
+    - m_pin : int
     - m_rapportCycle : float
     ...
     + DEL(p_pin : int, p_rapportCycle : float)
