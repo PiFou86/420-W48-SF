@@ -16,9 +16,9 @@ Vous devez créer un montage et un programme qui comptent le nombre de pressions
 
 ### Exercice 1.1 - Version non écologique
 
-- Effectuez schéma et ensuite un montage qui comprend trois boutons et une DEL
+- Dessiner votre schéma et ensuite effectuer le montage qui comprendra trois boutons et une DEL
 - Utilisez la bibliothèque [UtilifyDigitalInput](https://github.com/PiFou86/UtilifyDigitalInput.git) pour gérer les boutons (voir le README de la bibliothèque pour les exemples d'utilisation)
-- Validez que votre montage et codez votre programme
+- Validez votre montage et codez votre programme
 - Testez votre montage et votre programme
 
 ### Exercice 1.2 - Version écologique
