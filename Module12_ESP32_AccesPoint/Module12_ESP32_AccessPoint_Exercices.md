@@ -66,8 +66,6 @@ Votre point d'accès ESP32 utilise la majorité du code de vos exercices du modu
 
 </details>
 
-- Votre navigateur se trouve dans les mêmes conditions que l'exercice 3 du module_11. Vous pouvez allumer ou éteindre la DEL No 2.
-
 ## Exercice 3 - Contrôler deux DELs à distance - 15 mins
 
 Dans cet exercice, vous allez remplacer le contrôle de la borne No 2 par le contrôle des 2 bornes GPIO 25 et GPIO 26. Si vous avez fait l'exercice optionnel du module précédent, vous pouvez réutilisez son code.
