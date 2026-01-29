@@ -58,7 +58,6 @@ ServeurWeb::ServeurWeb(/* ... */) {
                         [this]() { /* ... */ });
   this->m_webServer->on(Uri("/coeur-reacteur"), HTTPMethod::HTTP_PUT,
                         [this]() { /* ... */ });
-                        });
   this->m_webServer->on(UriRegex(".*"), HTTPMethod::HTTP_OPTIONS,
                         [this]() {
                           this->optionsCors();
