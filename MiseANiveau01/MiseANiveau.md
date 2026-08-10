@@ -1,11 +1,27 @@
 # Mise à niveau 01 - Mathématiques pour microcontrôleurs 
 
+## Ce qui sera vu
+
+- Convertir des nombres entre les bases décimale, binaire et hexadécimale.
+- Représenter un pictogramme sous forme d'octets en mémoire.
+- Appliquer des décalages de bits vers la gauche et vers la droite.
+- Regrouper deux valeurs de quatre bits dans un octet.
+- Relier les opérateurs logiques ET et OU à des circuits et à des expressions binaires.
+
+## Prérequis
+
+- Cette mise à niveau est une **remédiation ciblée** à utiliser selon le diagnostic ou les besoins des exercices suivants.
+- Savoir effectuer les quatre opérations arithmétiques de base sans logiciel spécialisé.
+- Comprendre la valeur de position des chiffres dans un nombre décimal.
+- Disposer d'une feuille, d'un crayon et des gabarits mentionnés dans les exercices.
+
 ## Exercice 1 - Conversion de base
 
-- NOTE: pour que l'exercice soit représentatif, utilisez une feuille de papaier et NON un logiciel de  conversion!
+- NOTE : pour que l'exercice soit représentatif, utilisez une feuille de papier et NON un logiciel de conversion.
 
 ### Étape 1 - Conversion de base 10 aux base 2 et 16
-- Convertir les nombres suivants de la base 10 vers les bases 2 et 16. Au besoin, combler les chiffres avec des zéro sgnificatifs à gauche
+
+- Convertissez les nombres suivants de la base 10 vers les bases 2 et 16. Au besoin, ajoutez des zéros significatifs à gauche.
 
 |base 10|   base 2  | base 16 |
 |:-----:|-----------|---------|
@@ -61,7 +77,7 @@ byte[] chiffre1 = new byte[] {
 
 ### Étape 1 - Décalage à droite
 
-- Effecuter les opérations suivantes en vous servant du gabarit suivant sur papier
+- Effectuez les opérations suivantes sur papier à l'aide du gabarit.
 
 ![decalage a droite](img/DecalageADroite.PNG)
 
@@ -71,7 +87,7 @@ byte[] chiffre1 = new byte[] {
 
 ### Étape 2 - Décalage à gauche
 
-- Effecuter les opérations suivantes en vous servant du gabarit suivant sur papier
+- Effectuez les opérations suivantes sur papier à l'aide du gabarit.
 
 ![decalage a gauche](img/DecalageAGauche.PNG)
 
@@ -84,7 +100,7 @@ byte[] chiffre1 = new byte[] {
 
 - Pour comprimer deux chiffres dans un octet, nous effectuons la fonction suivante
 
-Résultat = (premier_chiffre << 4) | deuxiême_chiffre
+Résultat = (premier_chiffre << 4) | deuxième_chiffre
 
 - Appliquez cette fonction pour compresser les chiffres 5 avec 10
 
@@ -97,11 +113,11 @@ Résultat = (premier_chiffre << 4) | deuxiême_chiffre
 
    Intervalle est [ 0 à F] 
    
-   parce que dans ce mode de compresson, chaque chiffre est limité à 4 bits
+   parce que, dans ce mode de compression, chaque chiffre est limité à 4 bits.
 
 </details>
 
-## Exercice 3 -  Opérateurs logiques
+## Exercice 4 - Opérateurs logiques
 
 ### Étape 1 - Opérateur OU 
 
@@ -111,7 +127,7 @@ https://everycircuit.com/circuit/4835472285892608
 
 https://everycircuit.com/circuit/5763413663547392
 
-### Étape 3 - Operateurs ET avec OU combinés
+### Étape 3 - Opérateurs ET et OU combinés
 
 https://everycircuit.com/circuit/6545510028279808
 
@@ -126,7 +142,3 @@ https://everycircuit.com/circuit/6545510028279808
 
 - fonction L = a & b & ( c| d )
 ![Destruction](img/FonctionA_ET_B_OU_C_ET_D.png)
-
-
-
-

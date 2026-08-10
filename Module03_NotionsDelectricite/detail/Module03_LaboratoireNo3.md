@@ -1,10 +1,19 @@
 # Module 03 - Notions d'Électricité - Laboratoire #3 - Introduction à l'oscilloscope
 
-Objectifs :
+## Ce qui sera vu
 
-- Manipuler le générateur de basses fréquences
-- Contrôler les ondes émises, en forme, fréquence et amplitude
-- Mesurer différents rapports cycliques d'une onde carrée
+- Configurer un générateur de basses fréquences pour produire une forme d'onde déterminée.
+- Régler la fréquence et l'amplitude du signal, puis vérifier les valeurs obtenues.
+- Afficher et stabiliser un signal avec l'oscilloscope.
+- Mesurer la période, la fréquence et le rapport cyclique d'une onde carrée.
+- Comparer plusieurs représentations fréquentielles d'un signal.
+
+## Prérequis
+
+- Connaître les notions de tension, période, fréquence, amplitude et rapport cyclique.
+- Savoir convertir les secondes, millisecondes, hertz et kilohertz.
+- Avoir reçu la démonstration de sécurité et de branchement du générateur et de l'oscilloscope.
+- Disposer des sondes et des deux appareils indiqués dans la section Matériel.
 
 ## Matériel
 
@@ -40,18 +49,18 @@ Dans ce laboratoire, nous explorerons ces quatre fonctions en usage sur le canal
 
 Pour faciliter les observations, vous allez "camoufler" le canal CH2. Procédez comme suit
 
-- Appuyez sur **_CH2_**. Le canal CH2 bascule au niveau de sa configuraton. Cliquez à nouveau sur CH2; le témoin lumineux s'éteind; de cette façon, la borne n'envoie aucun signal de sortie.
+- Appuyez sur **_CH2_**. Le canal CH2 passe en mode de configuration. Appuyez à nouveau sur CH2 : le témoin lumineux s'éteint et la borne n'envoie plus de signal.
 - Appuyez sur **_WAVE_**. Tournez 3 fois la molette. Le format **_DC_** s'affiche. Une ligne droite parcoure l'axe horizontal.
 
 En tout temps, fermez l'appareil pour obtenir la configuration de base du GbF.
 
 ### Étape 2 -  Configuration d'ondes
 
-Dans cette étape, vous utiliserez les boutons WAVE, F1, F2 et F4 pour obtenir une onde sinusoidale, de 1 000 Hz (1 KHz), avec une tension maximale de 2 Volt.
+Dans cette étape, vous utiliserez les boutons WAVE, F1, F2 et F4 pour obtenir une onde sinusoïdale de 1 000 Hz (1 kHz), avec une tension maximale de 2 V.
 
-- Appuyez sur **_CH1_**. Le canal CH1 bascule au niveau de sa configuraton.
+- Appuyez sur **_CH1_**. Le canal CH1 passe en mode de configuration.
 - Changez la fréquence pour 1 000 Hz en appuyant sur F1. Appuyez 4 fois au centre de la molette pour faire passer successivement l'unité de fréquence de Khz à Hz. Utilisez les boutons **_>_** et **_<_** pour changer le chiffre de l'unité de mesure.
-- Diminuez la tension de l'onde pour une valeur de 2 Volt.  
+- Diminuez la tension de l'onde à 2 V.
 
 ### Étape 3 -  Usage de l'oscilloscope
 
@@ -83,7 +92,7 @@ Avec ces ajustements, un cycle de l'onde débute aux croissement des axes X et Y
 
 ## Exercice 2 - Rapport cyclique
 
-Le rapport cyclique joue un rôle important dans le contrôle des périphériques. Plus le rapport cyclique est faible, moins de courant circule dans les équipements. C'est ainsi qu'on contrôle la vitesse de moteurs, l'éclairage de DELs, etc.
+Le rapport cyclique joue un rôle important dans le contrôle des périphériques. Plus il est faible, plus la valeur moyenne du signal appliqué diminue. On peut ainsi contrôler la vitesse d'un moteur ou l'intensité d'une DEL.
 
 Sur l'image suivante, le rapport de cycle est t1 / T :
 
@@ -160,7 +169,7 @@ Votre oscilloscope est capable d'appliquer des fonctions mathématiques sur un s
 
 ### Étape 3 - Observation d'un signal carré
 
-- Refaite les manipulations précédentes mais cette fois-ci en modifiant la forme d'onde pour le type CMOS.
+- Refaites les manipulations précédentes en choisissant cette fois une forme d'onde de type CMOS.
 - Qu'observez-vous ?
 - Dessinez la forme du signal d'entré ainsi que sa FFT dans votre cahier de laboratoire.
 

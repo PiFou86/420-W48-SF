@@ -1,13 +1,24 @@
 # Module 04 - Programmation des sorties
 
-Objectifs :
+## Ce qui sera vu
 
-- Comprendre la notion de modulation de largeur d'impulsions (PWM) : observation du signal, tension moyenne
-- Détourner certains outils pour s'aider à comprendre notre code
+- Produire un signal modulé en largeur d'impulsion et l'observer à l'oscilloscope.
+- Mesurer la période, la fréquence et le rapport cyclique d'une sortie PWM.
+- Faire varier la luminosité d'une DEL avec `analogWrite`.
+- Mesurer le temps d'exécution d'une portion de programme à l'aide d'une sortie numérique.
+- Remplacer les attentes bloquantes `delay` par une gestion du temps fondée sur `millis`, puis encapsuler ce comportement dans une classe simple.
+
+## Prérequis
+
+- Avoir terminé le module 01 et savoir compiler, téléverser et tester un projet PlatformIO sur Arduino UNO.
+- Connaître les fonctions, les conditions et les classes simples en C++; utiliser la remédiation du module 02 au besoin.
+- Connaître les notions de tension, période, fréquence et rapport cyclique vues au module 03.
+- Savoir brancher une DEL avec sa résistance et utiliser l'oscilloscope selon les consignes de sécurité.
+- Disposer d'une Arduino UNO, de la platine d'expérimentation, des composants et d'une sonde d'oscilloscope.
 
 ## Exercice 1 - Observation du MLI
 
-Les entrées/sorties numériques peuvent simuler une sortie analogique grâce à la technologie MLI. Vous allez observer les sorties des pins de l'arduino à l'oscilloscope.
+Les entrées/sorties numériques peuvent simuler une sortie analogique grâce à la MLI. Vous allez observer à l'oscilloscope les sorties des broches de l'Arduino.
 
 ![Duty cycle](img/DutyCycle.png)
 
@@ -23,7 +34,7 @@ Observer la MLI à l'oscilloscope. Mesurer les fréquences des E/S des pins supp
 
 ### Observations
 
-- Sur votre Arduino, repérez les 6 bornes digitales qui permettent la MLI (Elles sont identifiées avec un ~)
+- Sur votre Arduino, repérez les six broches numériques qui permettent la MLI; elles sont identifiées par un `~`.
 - Démarrez un nouveau projet PIO. Nommez-le "AMOC_Module04_Observation_MLI"
 - Écrivez un programme qui :
   - Configure ces 6 bornes en sorties
@@ -39,8 +50,8 @@ Observer la MLI à l'oscilloscope. Mesurer les fréquences des E/S des pins supp
       - Appuyez sur le bouton "Add" : le temps s'affiche en bas à gauche ("Prd")
   - Déduisez-en la fréquence
   - Validez que le rapport cyclique est bien de 50% (temps haut)
-  - Sur votre cahier de laboratoire, notez le numéro de la pin, le temps d'une période, le temps haut, le temps bas, ainsi que la fréquence observée
-- Modifiez votre programme pour avoir un rapport cyclique de "191"  au niveau de la pin 10
+  - Dans votre cahier de laboratoire, notez le numéro de la broche, la durée d'une période, les temps haut et bas ainsi que la fréquence observée.
+- Modifiez votre programme pour appliquer la valeur `191` à la broche 10.
 - Validez ce qui a changé à l'affichage dans l'oscilloscope en recalculant le rapport de cycle
 
 
@@ -79,11 +90,11 @@ Représentation schématique :
 ![Représentation schématique](img/FadeSchema.PNG)
 
 - **AVANT d'alimenter votre circuit** :
-  - Connectez la pin GND de votre arduino à la pin GND de votre platine d'expérimentation
-  - Connectez la pin 9 de votre arduino à la pin 0 de votre platine d'expérimentations.
+  - Connectez la broche GND de votre Arduino à la broche GND de votre platine d'expérimentation.
+  - Connectez la broche 9 de votre Arduino à la broche 0 de votre platine d'expérimentation.
 
 - Démarrez un nouveau projet PIO. Nommez-le "AMOC_Module04_VariationMLI"
-- Écrivez un programme pour pour faire varier l'intensité de 0 à 255 avec un pas de 5 toute les 500ms
+- Écrivez un programme pour faire varier l'intensité de 0 à 255, par pas de 5, toutes les 500 ms.
 - Envoyez le programme sur votre Arduino
 - Validez que l'intensité de la DEL varie
 
@@ -106,20 +117,20 @@ Observer le temps d'execution d'un code.
 
 ![Mesure du temps avec modulo](img/mesure_temps_modulo.png)
 
-- Téléverser le programme sur votre arduino et mesure le temps d'exécution d'un "tour de boucle" (i.e. d'appel de la fonction loop)
+- Téléversez le programme sur votre Arduino et mesurez le temps d'exécution d'un tour de boucle, c'est-à-dire d'un appel de la fonction `loop`.
 - Notez ce temps dans votre cahier de laboratoire
 - Modifiez la fonction loop pour :
 
 ![Mesure du temps avec modulo](img/mesure_temps_if.png)
 
-- Téléverser le programme sur votre arduino et mesure le temps d'exécution d'un "tour de boucle" (i.e. d'appel de la fonction loop)
+- Téléversez le programme sur votre Arduino et mesurez le temps d'exécution d'un tour de boucle, c'est-à-dire d'un appel de la fonction `loop`.
 - Notez ce temps dans votre cahier de laboratoire
 - Écrivez votre hypothèse dans votre cahier de laboratoire
 
 <details>
     <summary><b>Optimisation - Mesure plus proche de la réalité</b>(Optionnel)</summary>
 
-Si vous voulez avoir un temps plus proche de votre code, vous pouvez optimiser le temps d'écriture sur le port de sortie en écrivant directement dans les registres plutôt qu'en passant par la fonction "digitalWrite" de la bibliothèque Arduino. Pour cela, vous pouvez utiliser les macros suivantes qui ont seulement besoin du numéro de la pin :
+Pour obtenir une mesure plus proche du temps d'exécution réel, vous pouvez écrire directement dans les registres plutôt que d'utiliser la fonction `digitalWrite` de la bibliothèque Arduino. Les macros suivantes nécessitent seulement le numéro de la broche :
 
 ```cpp
 #define etatHaut(pin) ((pin) < 8 ? PORTD |= (1 << (pin)) : PORTB |= (1 << (pin - 8)))
@@ -156,7 +167,7 @@ void delay(unsigned long ms)
 }
 ```
 
-La fonction yield peut-être complexe et permettre par exemple de lire sur un port série, s'occuper des connexions réseau, etc.
+La fonction `yield` peut être complexe et permettre, par exemple, de lire un port série ou de gérer des connexions réseau.
 
 Pour l'arduino UNO, la fonction "yield" est définie comme suit (fichier "hooks.c") :
 
@@ -237,12 +248,12 @@ void loop() {
 
 ### Exercice 4.2 - Classe DELClignotante
 
-Dans cette partie, nous allons créer la classe "DELClignotante" qui aura pour responsabilité de gérer le clignotement d'une DEL sans perturber, outre quelques micro-secondes, le fonctionnement du programme principal. Plusieurs instances de cette classe peuvent exister dans un même programme. Le but à la fin est d'avoir deux DELs qui ont des temps de cycle différents.
+Dans cette partie, nous allons créer la classe `DELClignotante`, responsable du clignotement d'une DEL sans perturber le programme principal, hormis pendant quelques microsecondes. Plusieurs instances peuvent coexister afin de gérer deux DEL ayant des cycles différents.
 
-- Récupérez votre classe DEL du module 02 et modifiez là pour qu'elle puisse prendre le MLI en charge
+- Récupérez votre classe DEL du module 02 et modifiez-la pour qu'elle puisse prendre la MLI en charge.
 - Créez la classe "DELClignotante" qui hérite de la classe DEL et qui implante le code de l'exercice précédent dans les méthodes suivantes (Diagramme de classes ci-après) :
   - Constructeur d'initialisation :
-    - prend en paramètre la pin de la DEL
+    - prend en paramètre la broche de la DEL
     - prend en paramètre un rapport de cycle en % pour l'intensité de la DEL
     - prend en paramètre la durée où la DEL est allumée
     - prend en paramètre la durée où la DEL est éteinte

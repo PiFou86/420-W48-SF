@@ -1,18 +1,35 @@
 # Exercice récapitulatif - On coupe le fil !
 
+## Ce qui sera vu
+
+- Concevoir deux applications ESP32 complémentaires jouant les rôles de serveur et de client.
+- Exposer une ressource avec une API REST utilisant GET, PUT et OPTIONS.
+- Échanger un état JSON entre deux microcontrôleurs sur le réseau local.
+- Prendre en charge CORS et vérifier les réponses HTTP attendues.
+- Intégrer une DEL côté serveur et un bouton côté client.
+- Tester individuellement un rôle à l'aide du simulateur fourni lorsque le second ESP32 n'est pas disponible.
+
+## Prérequis
+
+- Avoir réalisé les modules 10 à 12 : connexion Wi-Fi, client HTTP, serveur Web et point d'accès ESP32.
+- Maîtriser les bases de REST, HTTP, JSON, CORS et de l'adressage IP acquises dans les cours précédents.
+- Savoir commander une DEL et lire un bouton sans rebond.
+- Travailler en équipe de deux avec deux ESP32 pour le scénario complet; le simulateur est une solution de remplacement individuelle.
+- Disposer d'identifiants réseau configurés sans les publier dans le dépôt.
+
 Le but de cet exercice est de créer deux applications différentes. La première simule un réacteur nucléaire qui peut être contrôlé à distance par une API REST. Le second simule le contrôle à distance du réacteur.
 
 Pour chaque équipe, un étudiant effectue l'Exercice 1, l'autre l'Exercice 2. La remise est individuelle : chacun remet sa partie.
 
-Ce travail doit s'effectuer à deux avec deux ESP32. C'est un exercice récapitulatif des modules précédents xsur l'ESP32 et ses possibilités réseau. Il est préparatoire aux prochains travaux pratiques.
+Ce travail s'effectue en équipe de deux avec deux ESP32. Il récapitule les modules précédents sur l'ESP32 et ses possibilités réseau, et prépare aux prochains travaux pratiques.
 
-Afin de vous facilité le travail à la maison qui sera individuel, nous vous proposons une application .Net MVC qui vous permet de simuler aussi bien le client que le serveur. La solution "M13_CoeurReacteurCSharp" se trouve à la racine de ce dossier. Pour la faire fonctionner, il faut avoir [.Net 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0).
+Afin de faciliter le travail individuel à la maison, une application .NET MVC permet de simuler le client ou le serveur. La solution `M13_CoeurReacteurCSharp` se trouve à la racine de ce dossier. Elle nécessite [.NET 6.0](https://dotnet.microsoft.com/en-us/download/dotnet/6.0).
 
 ## Exercice 1 - Réacteur nucléaire - Périphérique serveur
 
 Le premier montage comprend un ESP32 et une DEL rouge. Quand l'état du réacteur est "repos", la DEL rouge est éteinte. Quand l'état est "actif", la DEL rouge est allumée.
 
-### Exercice 1.1 - Connection à votre réseau domestique
+### Exercice 1.1 - Connexion à votre réseau domestique
 
 Le programme interne doit essayer de se connecter sur votre réseau domestique.
 
@@ -26,7 +43,7 @@ L'API est définie comme suit :
 |-----------------|---------|-------------------------------------------------------|
 | /coeur-reacteur | GET     | Renvoie l'état du coeur du réacteur - code 200        |
 | /coeur-reacteur | PUT     | Permet de modifier l'état du coeur et renvoie le nouvel état - code 200 |
-| *               | OPTIONS | Permet de fournir les options de communication pour la ressource - code 204 : le code de cette route est donnée plus bas |
+| *               | OPTIONS | Fournit les options de communication pour la ressource — code 204; le code de cette route est donné plus bas |
 
 L'objet d'état doit être au format suivant :
 ```json
@@ -97,9 +114,9 @@ Dans vos routes, il faut ajouter les headers CORS. Pour cela, avant d'appeler la
 
 ### Exercice 1.5 - Votre collègue n'est pas prêt ou vous travaillez seul de chez vous ?
 
-Si votre collègue n'est pas prêt ou que la situation vous oblige à travailler seul, vous pouvez utiliser un serveur web local. Pour cela, vous allez devoir connecter votre ESP32 à votre réseau WiFi local. Ce point est traité dans le point 1.1. La première étape est donc de valider que vous y arrivez bien et que votre ESP32 et votre ordinateur sont sur le même réseau. Pour vous aidez, récupérez l'adresse IP de votre ESP32 sur votre trace ainsi que l'adresse IP de votre ordinateur à l'aide des commandes ```ipconfig``` (Windows), ```ifconfig``` (Mac / Linux) ou ```ip a``` (Linux si ifconfig non installé).
+Si votre collègue n'est pas prêt ou si vous devez travailler seul, utilisez le serveur Web local. Connectez votre ESP32 à votre réseau Wi-Fi, comme à l'étape 1.1, puis vérifiez que l'ESP32 et l'ordinateur sont sur le même réseau. Relevez l'adresse IP de l'ESP32 dans le moniteur série et celle de l'ordinateur avec `ipconfig` (Windows), `ifconfig` (macOS/Linux) ou `ip a` (Linux si `ifconfig` n'est pas installé).
 
-Ensuite récupérez la solution Visual Studio "M13_CoeurReacteurCSharp" qui se trouve à la racine de ce module.
+Récupérez ensuite la solution Visual Studio `M13_CoeurReacteurCSharp`, située à la racine de ce module.
 
 Pour lancer l'application, vous pouvez soit passer par Visual Studio en ouvrant la solution ou vous pouvez lancer l'exécution dans une console en vous plaçant dans le répertoire du projet et en tapant la commande ```dotnet run```.
 
@@ -122,7 +139,7 @@ Dans le cas d'une telle erreur, ouvrez le mode développeur du navigateur et aff
 
 - Validez que vous êtes bien connecté à votre réseau WiFi local
 - Validez que vous êtes capable d'effectuer une requête ICMP de votre ordinateur vers l'ESP32 (Ping)
-- Validez que votre l'API de votre ESP32 répond sur les bonnes routes avec les bons verbes
+- Vérifiez que l'API de votre ESP32 répond sur les bonnes routes avec les bonnes méthodes HTTP.
 - Validez que l'application web est bien démarrée et que vous pouvez y accéder
 - Validez que vous avez bien ajouté les entêtes pour désactiver les sécurités pour CORS
 
@@ -147,20 +164,20 @@ Pour implanter cet interpréteur de commandes, vous référer au code donné en 
 
 ## Exercice 2 - Périphérique client
 
-Le deuxième montage comprend un ESP32, un bouton et deux DELs (une rouge, une verte). La DEL verte permet d'indiquer que le coeur du réacteur est au repos. La DEL rouge indique que le coeur du réacteur est actif. Pour connaître l'état du réacteur, vous devez utiliser l'API REST de votre collègue (n'oubliez pas de vous connecter sur le même réseau !). À l'appui du bouton, si le coeur du réacteur est au repos, il devient actif. Si le coeur du réacteur est actif, il devient au repos.
+Le deuxième montage comprend un ESP32, un bouton et deux DEL, une rouge et une verte. La DEL verte indique que le cœur du réacteur est au repos; la DEL rouge indique qu'il est actif. Pour connaître son état, utilisez l'API REST de votre collègue sur le même réseau. Une pression sur le bouton fait passer le réacteur du repos à l'état actif, ou inversement.
 
-### Exercice 2.1 - Connection à votre réseau domestique
+### Exercice 2.1 - Connexion à votre réseau domestique
 
 Écrivez le code qui permet de se connecter sur votre réseau domestique. Gardez le tout configurable facilement car vous risquez de devoir alterner entre votre réseau domestique.
 
 ### Exercice 2.2 - Affichage du statut du coeur du réacteur
 
 - Écrivez le code qui permet d'interroger l'API REST décrite dans la section 1.2 afin de savoir si le réacteur est actif ou au repos.
-- Écrivez le code qui permet d'aller chercher cet état toute les 2000 millisecondes. Ce temps doit être facilement paramétrable. Une fois le statut récupéré, vous devez afficher le statut à l'aide de la DEL verte ou rouge.
+- Écrivez le code qui récupère cet état toutes les 2 000 ms. Cette durée doit être facilement configurable. Affichez ensuite l'état à l'aide de la DEL verte ou rouge.
 
 ### Exercice 2.3 - Prise en charge du bouton
 
-- Écrivez le code qui permet de détecter l'appui sur le bouton. À l'appuie sur le bouton poussoir, vous devez valider le statut actuel du réacteur et ensuite envoyer le bon ordre au réacteur à l'aide d'une requête ```PUT``` :
+- Écrivez le code qui détecte l'appui sur le bouton. Lors d'une pression, vérifiez l'état actuel du réacteur, puis envoyez la commande appropriée avec une requête `PUT` :
 
   - Si le coeur est déjà actif, envoyez une requête de mise en repos
   - Si le coeur est au repos, envoyez une requête d'activation
@@ -168,7 +185,7 @@ Le deuxième montage comprend un ESP32, un bouton et deux DELs (une rouge, une v
 <details>
     <summary>Envoi d'une requête PUT</summary>
 
-Il faut biensur explorer la documentation de la bibliothèque HTTPClient pour comprendre comment envoyer une requête PUT. Voici un exemple de code qui permet d'envoyer une requête PUT :
+Il faut bien sûr consulter la documentation de la bibliothèque HTTPClient pour comprendre comment envoyer une requête PUT. Voici un exemple :
 
 ```cpp
 #include <HTTPClient.h>
@@ -192,9 +209,9 @@ if (codeRetour == HTTP_CODE_OK) {
 
 ### Exercice 2.4 - Votre collègue n'est pas prêt ou vous travaillez seul de chez vous ?
 
-Si votre collègue n'est pas prêt ou que la situation vous oblige à travailler seul, vous pouvez utiliser un serveur web local. Pour cela, vous allez devoir connecter votre ESP32 à votre réseau WiFi local. Ce point est traité dans le point 2.1. La première étape est donc de valider que vous y arrivez bien et que votre ESP32 et votre ordinateur sont sur le même réseau. Pour vous aidez, récupérez l'adresse IP de votre ESP32 sur votre trace ainsi que l'adresse IP de votre ordinateur à l'aide des commandes ```ipconfig``` (Windows), ```ifconfig``` (Mac / Linux) ou ```ip a``` (Linux si ifconfig non installé).
+Si votre collègue n'est pas prêt ou si vous devez travailler seul, utilisez le serveur Web local. Connectez votre ESP32 à votre réseau Wi-Fi, comme à l'étape 2.1, puis vérifiez que l'ESP32 et l'ordinateur sont sur le même réseau. Relevez l'adresse IP de l'ESP32 dans le moniteur série et celle de l'ordinateur avec `ipconfig` (Windows), `ifconfig` (macOS/Linux) ou `ip a` (Linux si `ifconfig` n'est pas installé).
 
-Ensuite récupérez la solution Visual Studio "M13_CoeurReacteurCSharp" qui se trouve à la racine de ce module.
+Récupérez ensuite la solution Visual Studio `M13_CoeurReacteurCSharp`, située à la racine de ce module.
 
 Pour lancer l'application, vous pouvez soit passer par Visual Studio en ouvrant la solution ou vous pouvez lancer l'exécution dans une console en vous plaçant dans le répertoire du projet et en tapant la commande ```dotnet run```.
 
@@ -212,7 +229,7 @@ Si ce n'est pas le cas :
 - Validez que vous êtes bien connecté à votre réseau WiFi local
 - Validez que vous êtes capable d'effectuer une requête ICMP de votre ordinateur vers l'ESP32 (Ping)
 - Validez que l'application web est bien démarrée et que vous pouvez y accéder
-- Validez que vos requête respectent bien l'API REST définie plus haut avec les bonnes routes avec les bons verbes
+- Vérifiez que vos requêtes respectent l'API REST définie plus haut, avec les bonnes routes et les bonnes méthodes HTTP.
 
 ### Exercice 2.5 - Moniteur série
 

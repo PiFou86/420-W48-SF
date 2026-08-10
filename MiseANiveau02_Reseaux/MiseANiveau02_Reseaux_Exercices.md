@@ -1,10 +1,21 @@
-# Mise à niveau 02 - Configuration et Dépannage de Réseaux 
+# Mise à niveau 02 - Configuration et dépannage de réseaux
 
-Objectifs:
+## Ce qui sera vu
 
-- Distinguer adresse IP locale et adresse IP publique
-- Déterminer l'adresse IP de périphériques sur le réseau local ou sur le réseau publique
-- Configurer une VM sur un réseau en mode Bridged et NAT
+- Distinguer une adresse IP locale d'une adresse IP publique.
+- Relever l'adresse, le masque, la passerelle, le serveur DHCP et le serveur DNS d'un poste.
+- Vérifier que deux périphériques appartiennent au même réseau et tester leur accessibilité.
+- Comparer les modes NAT et pont (`bridged`) d'une machine virtuelle.
+- Configurer et diagnostiquer la connexion réseau d'une machine virtuelle.
+- Réaliser, en extension optionnelle, quelques vérifications depuis un appareil mobile.
+
+## Prérequis
+
+- Cette mise à niveau est une **remédiation ciblée** : les réseaux ont déjà été étudiés dans les cours précédents.
+- Connaître les notions d'adresse IP, masque, passerelle, DHCP, DNS et routage.
+- Savoir utiliser un terminal et les commandes réseau usuelles de son système d'exploitation.
+- Disposer d'une machine virtuelle fonctionnelle et d'un hyperviseur déjà installé.
+- Avoir l'autorisation d'utiliser le réseau de laboratoire; ne pas analyser un réseau ou un appareil sans autorisation.
 
 ***NOTE: afin de simplifier la lecture, l'expression PC désigne soit votre PC de table ou votre PC portable.***
 
@@ -24,11 +35,11 @@ Objectifs:
 
 ## Exercice 3 - Configuration de réseaux pour une VM
 
-Les images présentées dans cet exercice utilisent le logiciel ```VMware Workstation```. L'usage du logiciel ```Oracle VM Virtualbox``` est possible; les images sont différentes mais les fonctions semblables.
+Les images de cet exercice utilisent le logiciel `VMware Workstation`. Vous pouvez aussi utiliser `Oracle VM VirtualBox`; les images seront différentes, mais les fonctions sont semblables.
 
 ### Exercice 3.1 - Configuration des modes Bridged et NAT
 
-- Sur le PC hôte, démarrez le logiciel ```VMware Workstation```. Configurez 2 modes de connexion Réseau : ```Bridged``` et ```NAT```. 
+- Sur le PC hôte, démarrez `VMware Workstation`. Configurez deux modes de connexion réseau : pont (`bridged`) et NAT.
 
 <details>
     <summary>Configuration des réseaux </summary>
@@ -37,9 +48,9 @@ Les images présentées dans cet exercice utilisent le logiciel ```VMware Workst
 
 </details>
 
-Pour le mode "Bridged", choisir la carte Ethernet de votre PC. Ne PAS utiliser la valeur AUTOMATIQUE. 
+Pour le mode pont (`bridged`), choisissez la carte Ethernet de votre PC. N'utilisez pas la valeur automatique.
 
-- Pour Le mode NAT,  configurez le réseau ```192.168.202.0```. Activez le protocole DHCP pour propager des adresses dans l'intervalle ```50 à 254```.
+- Pour le mode NAT, configurez le réseau `192.168.202.0`. Activez le protocole DHCP pour attribuer des adresses dans l'intervalle de 50 à 254.
 
 ### Exercice 3.2 - Connexion de la VM en mode NAT
 
@@ -54,7 +65,7 @@ Pour le mode "Bridged", choisir la carte Ethernet de votre PC. Ne PAS utiliser l
 ![Configuration NAT de la VM 2/2](img/VMSettingPartie2.png)
 </details>
 
-- Sur votre VM, utilisez une commande appropriée pour déterminer l'adresse IP reçu par le protocole DHCP. Une valeur correspondante dans le réseau 192.168.202.0 devrait apparaître. Sinon, reprendre cet exercice au début.
+- Dans votre VM, utilisez une commande appropriée pour déterminer l'adresse IP reçue par DHCP. Une adresse du réseau `192.168.202.0` devrait apparaître. Sinon, reprenez cet exercice depuis le début.
 
 ### Exercice 3.3 - Connexion de la VM en mode Bridged
 
@@ -73,7 +84,7 @@ Pour le mode "Bridged", choisir la carte Ethernet de votre PC. Ne PAS utiliser l
 
 ### Exercice 4.2 - Rejoindre un site Internet sur une tablette ou un cellulaire
 
-- Installez le logiciel ```network ping lite``` sur votre tablette ou votre cellulaire
-- Utilisez la fonction  ```ping``` du logiciel pour tracer la route jusqu'à google.com. Combien de sauts a-t-il fallut ?
+- Installez le logiciel `Network Ping Lite` sur votre tablette ou votre téléphone.
+- Utilisez la fonction `ping` du logiciel pour tracer la route jusqu'à `google.com`. Combien de sauts a-t-il fallu?
 - Quelle est l'adresse IP publique de ce site de Google ?
 - Utilisez la fonction  ```Port scanning``` du logiciel pour déterminer les ports TCP écoutés par google.com

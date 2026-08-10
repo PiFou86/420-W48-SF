@@ -1,18 +1,33 @@
 # Module 7 - EEPROM
 
+## Ce qui sera vu
+
+- Conserver des compteurs en mémoire EEPROM malgré une coupure d'alimentation.
+- Lire les boutons et confirmer la prise en compte d'un choix avec une DEL.
+- Structurer les données persistantes et les afficher dans le moniteur série.
+- Observer la limite du nombre d'écritures d'une EEPROM.
+- Répartir les écritures afin de réduire l'usure prématurée de la mémoire.
+
+## Prérequis
+
+- Savoir lire plusieurs boutons sans rebond et commander une DEL, comme au module 06.
+- Connaître les classes C++ simples et l'utilisation d'une bibliothèque PlatformIO.
+- Savoir choisir un type entier adapté à une valeur maximale annoncée.
+- Disposer d'une Arduino UNO, de trois boutons, d'une DEL et de la bibliothèque demandée.
+
 <!-- 
 ## Exercice 1 - Enregistrement du statut d'une DEL
 
-Vous devez créer un montage et un programme qui permet de faire varier l'intensité d'un éclairage à partir d'un bouton poussoir. Si un coupure de courant survient, le montage doit retrouver ses anciennes valeurs.
+Vous devez créer un montage et un programme qui permettent de faire varier l'intensité d'un éclairage à partir d'un bouton-poussoir. Si une coupure de courant survient, le montage doit retrouver ses anciennes valeurs.
 
-- Effectuez schéma électrique et ensuite le montage qui comprend un bouton et une DEL. La puissance de la DEL doit pouvoir varier : à chaque pression du bouton l'intensité de la DEL augment de 20%. Une fois arrivée à 100%, une pression supplémentaire fait passer l'intensité à 0%.
+- Réalisez le schéma électrique, puis le montage comprenant un bouton et une DEL. À chaque pression du bouton, l'intensité de la DEL augmente de 20 %. Lorsqu'elle atteint 100 %, une pression supplémentaire la ramène à 0 %.
 - Validez que votre montage et codez votre programme
 - Testez votre montage et votre programme
 - Modifiez votre programme afin qu'à chaque pression du bouton, vous sauvegardez l'intensité de la DEL dans l'EEPROM. Au démarrage de votre programme, l'intensité doit être lue de sorte que si une coupure de courant survient, au redémarrage de votre MCU, la DEL doit récupérer son intensité. -->
 
 ## Exercice 1 - Nombre de pressions
 
-Vous devez créer un montage et un programme qui comptent le nombre de pressions effectuées sur 3 boutons. Chaque bouton correspond à l'appréciation des visiteurs d'une exposition : "Moment agréable mais sans plus", "J'ai passé un excellent moments" et "J'ai passé un excellent moment et je la recommande !". À l'appui d'une des boutons, une DEL clignote 2 fois afin d'indiquer à l'utilisateur que son choix a été comptabilisé. (Nous ne sommes pas loin d'une version simplifiée d'une machine à voter !). Si l'utilisateur appuie sur un des boutons plus de 3 secondes, le nombre de pressions de chaque bouton est affiché sur la console série. L'exposition devrait être visible par au plus 150 000 visiteurs au total. Une coupure de courant ne doit pas effacer les statistiques.
+Vous devez créer un montage et un programme qui comptent le nombre de pressions sur trois boutons. Chaque bouton correspond à l'appréciation des visiteurs d'une exposition : « Moment agréable, mais sans plus », « J'ai passé un excellent moment » et « J'ai passé un excellent moment et je la recommande! ». Lorsqu'un bouton est pressé, une DEL clignote deux fois pour confirmer que le choix a été comptabilisé. Si l'utilisateur maintient un bouton pendant plus de trois secondes, le nombre de pressions de chaque bouton est affiché dans le moniteur série. L'exposition devrait accueillir au plus 150 000 visiteurs. Une coupure de courant ne doit pas effacer les statistiques.
 
 ### Exercice 1.1 - Version non écologique
 
@@ -23,6 +38,6 @@ Vous devez créer un montage et un programme qui comptent le nombre de pressions
 
 ### Exercice 1.2 - Version écologique
 
-Votre conception de programme précédent ne permet pas de valider le nombre d'écritures dans l'EEPROM. L'EEPROM a une durée de vie limitée (environ 100 000 écritures). Pour augmenter la durée de vie de l'EEPROM, il est préférable d'enregistrer le nombre d'écriture l'adresse de départ des données. Les données doivent inclure le nombre d'écritures en plus des autres données. Une fois un nombre d'écritures atteint, il faut changer d'adresse de stockage. Il est donc préférable de créer une classe qui gère l'écriture et la lecture des données dans l'EEPROM.
+La conception précédente ne permet pas de suivre le nombre d'écritures dans l'EEPROM. Celle-ci a une durée de vie limitée, soit environ 100 000 écritures par cellule. Pour mieux répartir l'usure, enregistrez le nombre d'écritures avec les autres données et changez d'adresse de stockage lorsqu'un seuil est atteint. Créez une classe qui gère la lecture et l'écriture de ces données dans l'EEPROM.
 
 Pour cette version plus écologique, vous devez utiliser la bibliothèque [UtilifyEEPROM](https://github.com/PiFou86/UtilifyEEPROM.git). Basez-vous sur le code exemple du fichier README pour adapter votre code.

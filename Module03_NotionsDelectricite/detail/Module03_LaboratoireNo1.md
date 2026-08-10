@@ -1,9 +1,20 @@
 # Module 03 - Notions d'électricité - Laboratoire #1 - U = RI
 
-Objectifs :
+## Ce qui sera vu
 
-- Assembler des circuits sur une breadbord
-- Mesurer les valeurs de résistances, de courant et de tensions à l'aide du multimètre
+- Assembler sur une plaquette d'expérimentation un circuit comportant une résistance et une ou deux DEL.
+- Régler une alimentation à 5 V et limiter son courant à 0,5 A.
+- Mesurer la tension et le courant avec un multimètre branché correctement.
+- Appliquer la loi d'Ohm et comparer les résultats calculés aux mesures.
+- Documenter le montage et formuler une courte conclusion à partir des observations.
+
+## Prérequis
+
+- Connaître les grandeurs tension, courant et résistance ainsi que leurs unités.
+- Savoir appliquer la relation `U = RI` et convertir des ampères en milliampères.
+- Reconnaître la polarité d'une DEL et le branchement en série.
+- Avoir lu les règles de sécurité du laboratoire et faire vérifier le montage avant de l'alimenter.
+- Disposer du bloc d'alimentation, du multimètre, de la plaquette et des composants indiqués dans la section Matériel.
 
 ## Exercice 1 - Assemblage d'un circuit
 
@@ -15,7 +26,7 @@ Objectifs :
 
 - 1 carré de mousse
 
-- 1 mini breadbord
+- 1 mini-plaquette d'expérimentation
 - Ensemble de câbles de couleurs et longueurs variées
 - 2 résistances de 680 &#8486;
 - 1 DEL de couleur rouge
@@ -28,7 +39,7 @@ Objectifs :
 - Tournez les boutons de tension au minimum
 - Tournez les boutons de courant au minimum
 - Branchez le bloc d'alimentation dans une prise du secteur
-- Tournez les boutons de tension jusqu'à atteindre une valeur de 5 Volts (à plus ou moins 0,05 Volt)
+- Tournez les boutons de tension jusqu'à atteindre 5 V (à plus ou moins 0,05 V).
 - Court-circuitez les deux connecteurs rouge et noir, puis tournez le bouton du courant jusqu'à atteindre une valeur de 0,5 A (500 mA). NE PAS DÉPASSER
 - Éteindre le bloc d'alimentation
 - Débranchez les deux connecteurs rouge et noir
@@ -38,7 +49,7 @@ Objectifs :
 Dans cette étape, vous allez construire un circuit pour alimenter une DEL et mesurer le courant qui circule dans le circuit.
 
 - Branchez les deux connecteurs à prise alligator sur le bloc d'alimentation comme dans l'exercice précédent.
-- Construisez le circuit d'alimentation de la DEL en série avec une résistance de 680 &#8486; sur la Breadboard.
+- Construisez sur la plaquette d'expérimentation le circuit d'alimentation de la DEL en série avec une résistance de 680 &#8486;.
 - Alimentez le circuit; la DEL doit s'allumer, sinon dépannez votre circuit.
 
 ![UneDELavecAlimentation](../img/laboratoireUneDEL.png)
@@ -78,7 +89,7 @@ Dans cette étape, vous allez construire un circuit pour alimenter une DEL et me
 La vidéo https://youtu.be/nh9mXn2TT9U doit avoir été visionnée auparavant.
 
 - Configurez le multimètre en mode ampèremètre.
-- Branchez-le **en série**. avec la borne négative du bloc d'alimentation
+- Branchez-le **en série** avec la borne négative du bloc d'alimentation.
 
 <details>
     <summary>Mesure du courant</summary>
@@ -95,19 +106,19 @@ La vidéo https://youtu.be/nh9mXn2TT9U doit avoir été visionnée auparavant.
 
 -La valeur mesurée est-elle comparable à la valeur calculée à l'étape précédente? Expliquez.
 
-## Exercice 2 - Assemblage d'un circuit à deux DELs
+## Exercice 2 - Assemblage d'un circuit à deux DEL
 
-### Étape 1 - Circuit avec 2 DELs
+### Étape 1 - Circuit avec deux DEL
 
-- Ajoutez un autre circuit composée de la  DEL verte et d'une résistance de 680 &#8486;
-- Testez le circuit (les deux DELs doivent s'allumer)
+- Ajoutez un autre circuit composé de la DEL verte et d'une résistance de 680 &#8486;.
+- Testez le circuit; les deux DEL doivent s'allumer.
 
 <details>
     <summary>Schéma du circuit</summary>
 
-![circuit 2 DELs](../img/Circuit2DELs.png)
+![Circuit à deux DEL](../img/Circuit2DELs.png)
 
-![circuit 2 DELs](../img/deuxDELs.png)
+![Circuit à deux DEL](../img/deuxDELs.png)
 
 </details>
 
@@ -116,4 +127,4 @@ La vidéo https://youtu.be/nh9mXn2TT9U doit avoir été visionnée auparavant.
 - Notez la valeur du courant total dans votre cahier de laboratoire.
 - Mesurez le courant du circuit de la DEL verte seule.
 - Notez la valeur du courant dans votre cahier de laboratoire.
-- Comparez la valeur du courant total avec les valeurs du courant du circuit des DELs rouge et verte. Quelle conclusion pouvez-vous tirer?
+- Comparez le courant total aux courants des circuits des DEL rouge et verte. Quelle conclusion pouvez-vous tirer?

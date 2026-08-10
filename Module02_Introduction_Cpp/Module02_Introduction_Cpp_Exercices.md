@@ -1,8 +1,23 @@
 # Module 02 - Introduction au C++ - Vous allez avoir des étoiles plein les yeux !
 
+## Ce qui sera vu
+
+- Organiser un projet PlatformIO en séparant déclarations et définitions dans des fichiers `.h` et `.cpp`.
+- Réactiver l'usage des constantes, des macros et des fonctions dans un programme Arduino.
+- Comparer le passage d'un objet par copie, par référence et par pointeur.
+- Créer des classes simples, puis réinvestir l'héritage dans une application Morse.
+- Compiler, téléverser et observer le comportement du programme sur la carte et dans le moniteur série.
+
+## Prérequis
+
+- Ce module est une **remédiation optionnelle** : le C++ a déjà été étudié dans les cours précédents.
+- Savoir déclarer des variables et des fonctions, utiliser des conditions et écrire une boucle.
+- Avoir réalisé la prise en main de PlatformIO et de la carte Arduino du module 01.
+- Suivre seulement les exercices prescrits lorsque le diagnostic révèle une lacune; le parcours complet n'est pas requis pour tous.
+
 Pour l'ensemble de ces exercices, vous allez utiliser :
 
-- Visual studio code avec PlatformIO
+- Visual Studio Code avec PlatformIO
 - Votre plaquette de développement Arduino UNO
 - Son câble USB
 - Un café ou thé
@@ -18,13 +33,13 @@ Dans cet exercice, nous allons reprendre le code de votre premier programme Ardu
 
 Nous allons chercher à séparer correctement les déclarations des fonctions "allumerDELInterne" et "eteindreDELInterne" en déclarations et en définitions. Nous allons ensuite utiliser ce code dans la fonction "main" qui se situe dans le fichier "main.cpp".
 
-Dans PIO, tous vos fichiers d'en-tête (ou de déclarations) doivent se situer dans le répertoire "include". Ils seront accessibles grâce aux instructions de précompilation ```#include "Nom du fichier"```. Les fichiers d'en-tête du système ou des bibliothèques que vous utiliserez plus tard sont accessibles grâce aux instructions de prépomcpilation ```#include <Nom du fichier>``` comme par exemple la bibliothèque "Arduino" avec les instructions ```#include <Arduino.h>```.
+Dans PIO, tous vos fichiers d'en-tête (ou de déclarations) doivent se trouver dans le répertoire `include`. Ils sont accessibles avec la directive de précompilation `#include "NomDuFichier.h"`. Les fichiers d'en-tête du système ou des bibliothèques sont inclus avec des chevrons, par exemple `#include <Arduino.h>`.
 
 ***Version courte :***
 
 - Créez les fichiers "GestionDELInterne.h" et "GestionDELInterne.cpp" en les plaçant respectivement dans les répertoires "include" et "src".
 - Répartissez les déclarations et définitions des fonctions (allumer/eteindre)DELInterne dans les deux fichiers précédemment créés.
-- Dans le fichier "main.cpp", incluez le fichier d'en-tête et appeler les fonctions (allumer/eteindre)DELInterne afin d'avoir un fonctionnement équivalent au code de votre premier programme Arduino.
+- Dans le fichier `main.cpp`, incluez le fichier d'en-tête et appelez les fonctions `allumerDELInterne` et `eteindreDELInterne` afin d'obtenir un fonctionnement équivalent à celui de votre premier programme Arduino.
 
 ***Version longue :***
 
@@ -47,8 +62,8 @@ Nous allons modifier le code afin de supprimer les deux valeurs numériques "500
 
 On utilise principalement deux façons en C/C++ pour déclarer des constantes :
 
-- En utilisant des directives de pré-compilation : les "constantes" sont remplacées avant le processus de compilation. En fait, on définit une macro qui sera exécuté durant la phase de pré-compilation
-- En utilisant le mot clef "const" : la variable déclarée est constante donc son contenu est immuable
+- En utilisant des directives de précompilation : les « constantes » sont remplacées avant la compilation. On définit alors une macro qui sera exécutée durant la phase de précompilation.
+- En utilisant le mot-clé `const` : la variable déclarée est constante; son contenu est donc immuable.
 
 #### Exercice 1.2.1 - Déclaration de macro
 
@@ -78,7 +93,7 @@ Exemple extrait du fichier "Arduino.h" : ```#define sq(x) ((x)*(x))```
 Dans cet exemple l'utilisation du paramètre ```x``` est encadrée par des parenthèses car ```x``` pourrait contenir une expression complexe du type ```3 + 4```.
 
 - Créez le fichier d'en-tête "MesMacros.h"
-- En vous basant sur cet exemple, écrivez les macros "calculerMinimum" et "calculerMaximum" qui prennent chacune deux paramètres qui renvoient respectivement la plus petit et la plus grande valeur.
+- En vous basant sur cet exemple, écrivez les macros `calculerMinimum` et `calculerMaximum`. Elles prennent chacune deux paramètres et renvoient respectivement la plus petite et la plus grande valeur.
 - Ouvrez le fichier "Arduino.h" et validez que vos macros sont comparables aux macros "min" et "max".
 
 ### Exercice 1.3 - S.O.S.
@@ -90,7 +105,7 @@ Dans cet exemple l'utilisation du paramètre ```x``` est encadrée par des paren
 
 ## Exercice 2 - Tu tires ou tu pointes ?
 
-Dans cet exercice, vous allez jouer avec les références et les pointeurs afin de mieux comprendre de quoi il en retourne.
+Dans cet exercice, vous allez manipuler les références et les pointeurs afin de mieux comprendre leur fonctionnement.
 
 ### Exercice 2.1 - Préambule - Affichage d'information sur le moniteur série
 
@@ -172,7 +187,7 @@ Dans vos projet PIO, nous vous demandons d'avoir une classe par couple de fichie
 
 - Quels sont les constructeurs / opérateurs / méthodes appelées ?
 - Déplacez la déclaration de la variable "flasher" avant la fonction "setup"
-- Dans la fonction "setup", ajoutez la creation de la variable "flasherDuSetup" avec la même DEL mais 200ms de temporisation :
+- Dans la fonction `setup`, créez la variable `flasherDuSetup` avec la même DEL, mais avec une temporisation de 200 ms :
 
 ![Operateur d'affection](img/flasher_ctor_affectation.png)
 
@@ -242,7 +257,7 @@ void Flasher::FaireClignoter(int p_nombreCycles) (0x4cc)
 
 ### Exercice 3.3 - Après la morsure, l'héritage !
 
-En C++, vous devez indiquer qu'une méthode peut-être redéfinie en précédent sa déclaration par le mot clef "virtual". Ce mot clef n'est pas présent au moment de la définition. Le caractère virtuel d'une méthode est automatiquement hérité : il n'est alors pas obligatoire de le spécifier dans les déclarations des méthodes dans les classes filles. Cependant, comme bonne pratique, nous allons toujours l'indiquer de manière explicite.
+En C++, vous devez indiquer qu'une méthode peut être redéfinie en faisant précéder sa déclaration du mot-clé `virtual`. Ce mot-clé n'est pas présent au moment de la définition. Le caractère virtuel d'une méthode est automatiquement hérité : il n'est donc pas obligatoire de le répéter dans les classes filles. Par bonne pratique, nous allons toutefois toujours l'indiquer explicitement.
 
 Une méthode peut être considérée comme abstraite si elle est virtuelle et que sa déclaration se termine par "= 0". On parle alors de méthode virtuelle pure. Une méthode abstraite n'est jamais définie. Une classe contenant une méthode abstraite est abstraite. Une classe abstraite ne peut pas être instanciée.
 
@@ -271,7 +286,7 @@ Pour hériter d'une classe en C++, il vous suffit de l'indiquer à la déclarati
 
 - Créez la classe concrète ```MorseDEL``` :
   - Elle hérite de la classe Morse
-  - Elle a un constructeur d'initialisation qui prend la pin d'une DEL pour l'affichage
+  - Elle possède un constructeur qui reçoit le numéro de la broche reliée à la DEL.
   - Elle redéfinit les méthodes ```afficherPoint``` et ```afficherTrait``` : la durée d'allumage de la DEL détermine si c'est un point ou un trait
 
 #### Exercice 3.3.4 - Utilisons nos classes
@@ -298,7 +313,7 @@ Au choix, le paramètre peut être passé par référence ou par adresse, mais n
 
 ![Buzzer](img/Tone_Fritzing.png)
 
-Aidez-vous de du projet hub Arduino:
+Aidez-vous du projet Arduino Project Hub :
 
 [Star Wars on a Buzzer](https://projecthub.arduino.cc/HiHiHiHiiHiiIiH/star-wars-on-a-buzzer-e70139)
 
@@ -312,5 +327,4 @@ Voici un schéma de la mémoire proposé par l'article https://www.arnabkumardas
 
 Si nous plaçons les adresses de la SRAM suivant le type de données que nous plaçons, voici ce que cela donne :
 
-![Oragnisation du tas et de la pile pour le ATmega328P](https://github.com/user-attachments/assets/d9e2107d-b1dd-400b-b409-9b63b7d50311)
-
+![Organisation du tas et de la pile pour l'ATmega328P](https://github.com/user-attachments/assets/d9e2107d-b1dd-400b-b409-9b63b7d50311)

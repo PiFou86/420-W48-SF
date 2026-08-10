@@ -1,14 +1,21 @@
 # Module 14 - Interruptions
 
-## Objectifs
+## Ce qui sera vu
 
-Dans ces exercices, vous allez mettre en oeuvre une routine d'interruption qui réagit à l'appui d'un bouton-poussoir.
+- Déclencher une routine d'interruption lors de l'appui d'un bouton.
+- Garder la routine d'interruption courte et reporter le traitement dans la boucle principale.
+- Réduire l'effet des rebonds sur le décompte des pressions.
+- Partager fiablement une valeur entre la routine d'interruption et le programme principal.
+- Activer et désactiver une interruption de façon contrôlée.
+- Observer les limites d'une interruption dans un scénario d'intégration.
 
-Votre routine de base compte le nombre d'appuis du bouton et l'affiche sur la console. Par la suite, vous allez y incorporer du code pour éliminer les rebonds.
+## Prérequis
 
-Enfin, vous allez y ajouter des mécanismes pour augmenter la fiabilité des résultats.
-
-Rappelons que les routines d'interruption ne sont reliées au programme en cours d'exécution que par un passage obligé avec les registres du processeur. Cette contrainte fait en sorte qu'il peut arriver une différence entre la valeur d'une variable durant l'interruption et durant le traitement principal.
+- Savoir programmer et téléverser une application sur ESP32.
+- Savoir brancher et lire un bouton, reconnaître ses rebonds et gérer le temps sans bloquer la boucle principale.
+- Connaître la portée et la durée de vie des variables en C++.
+- Comprendre qu'une donnée partagée peut changer en dehors du déroulement normal du programme.
+- Disposer de l'ESP32 et de la plaquette d'expérimentation utilisées dans les modules précédents.
 
 ## Exercice 1 - Interruption de base
 
@@ -16,13 +23,13 @@ Rappelons que les routines d'interruption ne sont reliées au programme en cours
 
 Branchez votre plaquette à votre ESP32 de la façon suivante :
 
-- Borne No 14 à une des trois bornes des boutons-poussoirs
-- Alimentation ```3,3V``` du ESP32 vers alimentation de la plaquette (VCC)
-- Prise de terre du ESP32 vers la prise de terre de la plaquette (GND)
+- Reliez la broche 14 à l'une des trois bornes d'un bouton-poussoir.
+- Reliez l'alimentation `3,3 V` de l'ESP32 à l'alimentation de la plaquette (VCC).
+- Reliez la masse de l'ESP32 à celle de la plaquette (GND).
 
 ### Étape 2 - Programmation d'une interruption
 
-- Créez la nouvelle application platformIO ```AMOC_M014_ESP32_Interruption```
+- Créez l'application PlatformIO `AMOC_M014_ESP32_Interruption`.
 - Ajoutez les instructions pour afficher ce décompte à toutes les 2 secondes. Au passage, faire clignoter la DEL No 2 pour marquer le temps.
 - Le décompte des appuis doit se faire au moment de l'appui du bouton
 - Ajoutez les instructions pour afficher ce décompte à toutes les 2 secondes. Au passage, faire clignoter la DEL No 2 pour marquer le temps.

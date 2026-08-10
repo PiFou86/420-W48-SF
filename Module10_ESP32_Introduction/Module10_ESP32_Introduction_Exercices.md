@@ -1,4 +1,20 @@
-# Module 10 - Client Web avec le microcontrôleur Esp32
+# Module 10 - Client Web avec le microcontrôleur ESP32
+
+## Ce qui sera vu
+
+- Créer et téléverser un premier projet PlatformIO sur une carte ESP32.
+- Repérer les différences utiles entre les bornes et bibliothèques de l'Arduino UNO et de l'ESP32.
+- Connecter l'ESP32 à un réseau Wi-Fi et afficher les paramètres de connexion.
+- Envoyer une requête HTTP, recevoir une réponse et en extraire une donnée JSON.
+- Réutiliser, en extension, ces données sur un afficheur ou avec un service météorologique.
+
+## Prérequis
+
+- Maîtriser le cycle créer–compiler–téléverser–tester avec PlatformIO.
+- Posséder les bases du C++, du Web, de HTTP, de JSON et des réseaux IP vues dans les cours précédents.
+- Savoir distinguer une adresse locale d'une adresse publique et disposer d'un réseau Wi-Fi autorisé.
+- Savoir brancher les périphériques déjà utilisés, notamment l'afficheur LCD si l'extension est réalisée.
+- Disposer d'une carte ESP32 et des identifiants de connexion conservés hors du code partagé.
 
 ## Matériel pour les exercices suivants
 
@@ -7,16 +23,16 @@
 - Afficheur LCD
 - Fils Dupont, mâle-femelle
 
-```Mise en garde :``` Respectez le choix des librairies à installer dans les exercices. Il existe différentes versions; celles proposées ont été testées par vos enseignants.  
+**Mise en garde :** respectez le choix des bibliothèques à installer. Il existe différentes versions; celles qui sont proposées ont été testées par vos enseignants.
 
 ## Exercice 1 - Faire clignoter la DEL interne
 
-Le but de cet exercice est de se familiariser avec les bornes du microcôntroleur et des libraires adaptées à l'ESP32.
+Le but de cet exercice est de vous familiariser avec les broches du microcontrôleur et les bibliothèques adaptées à l'ESP32.
 
-Créez une nouvelle application platformIO ```AMOC_Module10_DELInterneClignoter``` dont la fonction principale est de faire clignoter la DEL soudée sur le ESP32 à toutes les 1/2 secondes.
+Créez une application PlatformIO `AMOC_Module10_DELInterneClignoter` qui fait clignoter la DEL intégrée à l'ESP32 toutes les 0,5 seconde.
 
 <!-- 
-## Exercice 2 - Contrôle de l'intensité de DELs
+## Exercice 2 - Contrôle de l'intensité de DEL
 
 ### Brancher le matériel
 
@@ -44,7 +60,7 @@ Modifiez l'application platformIO ```AMOC_Module10_DELInterneClignoter``` pour q
 
 ### Objectifs
 
-- Connecter le client Web ESP32 à internet
+- Connecter le client Web ESP32 à Internet.
 - Collecter des données d'un site web en format JSON.
 
 ### Matériel
@@ -55,20 +71,20 @@ Modifiez l'application platformIO ```AMOC_Module10_DELInterneClignoter``` pour q
 
 ### Brancher le matériel
 
-- Branchement des bornes I2c entre ESP32 et le LCD.
+- Branchement des broches I²C entre l'ESP32 et l'afficheur LCD.
 
 #### Étape 1 - Connexion internet
 
-- Créez le projet Platformio ```AMOC_Module10_Client_Web```
+- Créez le projet PlatformIO `AMOC_Module10_Client_Web`.
 - Le programme doit fonctionner comme suit :
-  - À l'aide de la méthode "WiFi.begin" de la librairie "Wifi.h", établir une connexion Wifi entre votre ESP32 et votre routeur domestique.
+  - À l'aide de la méthode `WiFi.begin` de la bibliothèque `WiFi.h`, établissez une connexion Wi-Fi entre votre ESP32 et votre routeur.
   - Ajoutez une boucle pour 30 tentatives. En cas d'échec, le programme se termine avec un message d'erreur.
   
 #### Étape 2 - Obtenir l'adresse IP publique 
 
 Le programme se poursuit de la façon suivante :
 
-- Une routine est appelée pour obtenir diverses informations sur la connexion internet de l'ESP32 à partir de la ressource web ```https://ifconfig.co/json```. La librairie ```HTTPClient``` sert à cette étape.
+- Une routine obtient différentes informations sur la connexion Internet de l'ESP32 à partir de la ressource `https://ifconfig.co/json`. La bibliothèque `HTTPClient` est utilisée à cette étape.
 - Cette routine retourne une chaîne qui est du type String. Cette chaîne contient alors tout le texte descriptif de la connexion en JSON, sauf si une erreur s'est produite.
 
 ![AdresseIPPublique](img/IPPubliqueEnJSON.png)
@@ -84,11 +100,11 @@ Le programme se poursuit de la façon suivante:
 
 ### Objectif
 
-Le but de ce programme est d'extraire des données météo pour les afficher dans le moniteur Série.
+Le but de ce programme est d'extraire des données météorologiques et de les afficher dans le moniteur série.
 
 #### Étape 1 - Obtenir des informations météo
 
-- Créez le projet Platformio ```AMOC_Module10_Meteo_Montreal```
+- Créez le projet PlatformIO `AMOC_Module10_Meteo_Montreal`.
 - Basez-vous sur l'exercice précédent pour obtenir des données JSON du lien  ```https://api.open-meteo.com/v1/forecast?latitude=45.5017&longitude=-73.5672&hourly=temperature_2m```.
 
 #### Étape 2 - Extraire des données  météo

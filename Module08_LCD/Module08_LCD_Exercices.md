@@ -1,14 +1,24 @@
 # Module 08 - Programmation de l'afficheur à Cristaux liquides (LCD)
 
-Objectifs :
+## Ce qui sera vu
 
-- Installer une librairie dans platformIO
-- Configurer ou vérifier l'adressage I2C d'un composant
-- Programmer un afficheur LCD pour effectuer divers effets visuels, tels que clignotement, déplacement latéral ou vertical
+- Brancher un afficheur LCD 1602A à l'Arduino avec le bus I²C.
+- Détecter et vérifier l'adresse I²C du module.
+- Installer et configurer une bibliothèque d'affichage dans PlatformIO.
+- Afficher du texte et expérimenter le clignotement ainsi que les déplacements du contenu.
+- Encapsuler l'affichage dans une classe, puis présenter l'état de plusieurs routes.
+
+## Prérequis
+
+- Savoir créer, compiler et téléverser un projet PlatformIO sur Arduino UNO.
+- Connaître les classes C++ simples et l'installation d'une bibliothèque.
+- Savoir reconnaître VCC, GND et les conducteurs de données d'un montage.
+- Connaître le principe d'une adresse de périphérique sur un bus partagé; aucun détail avancé d'I²C n'est requis.
+- Disposer de l'afficheur LCD 1602A avec interface I²C et de quatre fils adaptés.
 
 Pour l'ensemble de ces exercices, vous allez utiliser :
 
-- Visual studio code avec PlatformIO
+- Visual Studio Code avec PlatformIO
 - Votre plaquette de développement Arduino UNO
 - Votre plaquette d'expérimentation
 - Votre afficheur LCD, modèle 1602A
@@ -18,23 +28,23 @@ Pour l'ensemble de ces exercices, vous allez utiliser :
 
 ## Préparation de votre environnement matériel
 
-Pur ces exercices, vous aurez besoin de 4 fils Dupont femelle-femelle. Séparez l'ensemble d'une natte en gardant collés les 2 premiers brins (noir et blanc) de l'ensemble ou les 2 derniers brins (rouge et brun).
+Pour ces exercices, vous aurez besoin de quatre fils Dupont femelle-femelle. Séparez une natte en gardant ensemble les deux premiers brins (noir et blanc) ou les deux derniers (rouge et brun).
 
 ![BranchementAfficheurLCD](img/branchementLCDI2C.png)
 
 ## Exercice 1 -  Afficheur LCD avec le protocole I2C
 
-Le module 1602A est un afficheur à cristaux liquides (LCD) de format 16 caractèrs sur 2 rangées.
+Le module 1602A est un afficheur à cristaux liquides (LCD) de 16 caractères sur 2 lignes.
 
-Son branchement et sa programmation sont facilités par l'usage du protocole I2C. Grâce à ce protoocole, 4 fils suffisent : 2 pour l'alimentation ( ```VCC``` et  ```GND```) et 2 pour le transfert de données (```SCL``` et ```SDA``` )
+Son branchement et sa programmation sont facilités par le protocole I²C. Quatre fils suffisent : deux pour l'alimentation (`VCC` et `GND`) et deux pour les données (`SCL` et `SDA`).
 
 ### Étape 1 - Branchement
 
 Branchez les fils en respectant la convention :
 
-- Rouge pour alimentation 5 V (couleur peut varié selon la disponibilité)
+- Rouge pour l'alimentation 5 V (la couleur peut varier selon la disponibilité).
 
-- noir pour retour du courant (GND) (couleur peut varié selon la disponibilité)
+- Noir pour la masse GND (la couleur peut varier selon la disponibilité).
 
 - CouleurX pour SCL (pour moi, il s'agit d'orange)
 
@@ -50,7 +60,7 @@ Complétez le montage en reliant le composant 1602_IIC à votre plaquette. Obser
 
 Dans cette étape, vous allez identifier l'adresse I2C de votre afficheur LCD.
 
-Créez une nouvelle application platformIO ```IdentificationLCD```. Un modèle de programme est disponible dans le répertoire LCD_PreparationCours.
+Créez une nouvelle application PlatformIO `IdentificationLCD`. Un modèle est disponible dans le répertoire `LCD_PreparationCours`.
 
 Compilez et exécutez le programme.
 
@@ -72,18 +82,18 @@ VOUS NE POUVEZ PAS POURSUIVRE si vous ne connaissez pas l'adresse I2C de votre p
 
 ## Exercice 2 -  Programmes de test
 
-### Étape 1 - Installation d'une librairie LiquidCrystal_I2C
+### Étape 1 - Installation de la bibliothèque LiquidCrystal_I2C
 
-- Importez le projet ```TestLCD``` dans PlateformIO.  Vous trouverez ce projet sur github.com/PiFou86/420-W48-SF/ dans random/TestLCD/
+- Importez le projet `TestLCD` dans PlatformIO. Vous trouverez ce projet dans le dossier `random/TestLCD/` du dépôt.
 
-- Aidez-vous des directives de librairies dans https://platformio.org/lib/show/576/LiquidCrystal_I2C/installation
+- Consultez les directives d'installation de la bibliothèque sur [PlatformIO](https://platformio.org/lib/show/576/LiquidCrystal_I2C/installation).
 
 <details>
     <summary>Indice</summary>
 
-L'onglet Installation donne la liste des dépendances à ajouter dans le fichier de configuration platformIO.ini de l'application.
+L'onglet **Installation** donne la liste des dépendances à ajouter au fichier `platformio.ini` de l'application.
 
-L'onglet Headers donne l'entête ```#include``` de la librairie à ajouter dans le programme "main.cpp"
+L'onglet **Headers** donne la directive `#include` de la bibliothèque à ajouter dans le programme `main.cpp`.
 
 </details>
 
@@ -106,18 +116,18 @@ Pour tester une connexion I2C, utilisez le code suivant, au démarrage:
 
 ## Exercice 3 - Programmation avec la classe LCDI2C 
 
-### Méthodes de la librairie liquidcrystal-i2c
+### Méthodes de la bibliothèque LiquidCrystal_I2C
 
 Plusieurs méthodes permettent le contrôle et l'affichage d'un écran LCD
 
 - Consultez https://www.arduino.cc/reference/en/libraries/liquidcrystal-i2c/
 
-- Un lien vers ```Read the documentation``` offre de  l'aide sur les méthodes disponibles de la librairie. Vous pourrez compter jusqu'à 20 méthodes différentes!
+- Le lien **Read the documentation** donne accès à la description des méthodes de la bibliothèque. Vous pourrez en compter jusqu'à 20.
 
 <details>
     <summary>Liste des méthodes</summary>
 
-- La liste des méthodes est donné dans le fichier ```keywords.txt``` du site web  
+- La liste des méthodes est donnée dans le fichier `keywords.txt` du site Web.
 </details>
 
 Quelle méthode efface les caractères et positionne le curseur en position (0,0) de l'écran?
@@ -146,7 +156,7 @@ Quelle méthode efface les caractères et positionne le curseur en position (0,0
 
 ### Étape 2 -  État des routes
 
-Votre prochaine tache consiste à afficher un message sur un panneau d'information sur les autoroutes.
+Votre prochaine tâche consiste à afficher un message sur un panneau d'information routière.
 
 - Le but du programme est d'afficher un message d'information parmi une liste de 6 messages entreposés dans la mémoire EEPROM.
 - A toutes les 30 secondes, un nouveau message, choisi au hasard, apparaît dans l'écran.

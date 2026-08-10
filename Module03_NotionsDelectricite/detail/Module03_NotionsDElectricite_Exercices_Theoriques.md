@@ -1,6 +1,19 @@
 # Module 03 - Notions d'Électricité
 
-Dans ce module vous allez calculer les valeurs d'intensité, tension et résistances dans certains montages.
+## Ce qui sera vu
+
+- Calculer la résistance équivalente de résistances en série et en parallèle.
+- Calculer le courant total et la tension aux bornes des composants.
+- Appliquer les lois de Kirchhoff à des circuits simples.
+- Vérifier la cohérence des résultats à l'aide des unités et des relations entre grandeurs.
+- Résoudre, en extension optionnelle, des circuits combinés et des problèmes de puissance.
+
+## Prérequis
+
+- Manipuler les fractions, les nombres décimaux et les puissances de dix.
+- Isoler une variable dans une équation simple.
+- Connaître les unités volt, ampère, milliampère, ohm et watt.
+- Avoir accès à une calculatrice; aucun montage ni prérequis en programmation n'est nécessaire.
 
 ## Exercice 1 - Résistances en série
 
@@ -48,11 +61,11 @@ R<sub> T</sub> = 220 + 440 + 660 = 1320 &#8486;
 
 </details>
 
-DONC: Résistances en série: corollaire de la 2ième loi de Kirchhoff
+Donc, pour les résistances en série, selon la deuxième loi de Kirchhoff :
 
 ``` La tension totale d'un circuit en série est la somme des tensions sur chaque résistance```
 
-### Qestions
+### Questions
 
 - Quel est le rapport de tensions entre la résistance de 660 Ω et de 220 Ω ? Expliquez
 
@@ -74,11 +87,11 @@ DONC: Résistances en série: corollaire de la 2ième loi de Kirchhoff
 R<sub> T</sub> = 73,3 &#8486;  
 U1 = U2 = U3 = 6 V  
 
-DONC Résistances en parallèles: corollaire de la 2ième loi de Kirchhoff
+Donc, pour les résistances en parallèle, selon la deuxième loi de Kirchhoff :
 
 ``` Dans un circuit en parallèle, la tension est la même sur toutes les résistances```
  
-``` Le courant d'une résistance est caldulée par la formule``` I<sub>r</sub> ``` = V``` <sub>r</sub> ``` / R ```
+```Le courant dans une résistance est calculé avec la formule``` I<sub>r</sub> ``` = U``` <sub>r</sub> ``` / R```
 
 
 **Simulation** sur : https://everycircuit.com/circuit/6639643174633472
@@ -123,7 +136,7 @@ Une petite erreur volontaire s'est glissée dans le branchement. Pouvez-vous la 
 
 1. Effectuez le calcul de R<sub>équivalent</sub> pour les 2 résistances en parallèle
 
-2. La résistance R<sub>T</sub> est donné par la résistance de 220 Ω en série avec R<sub>équivalent</sub>.
+2. La résistance R<sub>T</sub> est donnée par la résistance de 220 Ω en série avec R<sub>équivalent</sub>.
 
 </details>
 
@@ -176,7 +189,7 @@ R<sub> T</sub> = 980  &#8486;
 
 ### Exercice 3.3 - Puissance
 
-La puissance représente l'énergie consommée par un équipement. Le calcul permet de déterminer la tolérance totale avant d'abimer la pièce.
+La puissance représente l'énergie consommée par un équipement. Le calcul permet de déterminer la limite à respecter pour éviter d'abîmer la pièce.
 
 - Calculez la puissance, en ```mWatts```, consommée par  la résistance de 580 &#8486;.
 

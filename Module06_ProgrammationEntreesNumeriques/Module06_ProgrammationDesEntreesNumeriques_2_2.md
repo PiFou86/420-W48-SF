@@ -1,9 +1,25 @@
 # Module 06 - Programmation des entrées numériques 2 / 2
 
+## Ce qui sera vu
+
+- Observer les rebonds d'un bouton-poussoir avec un oscilloscope.
+- Configurer et lire une entrée numérique avec une résistance de rappel interne.
+- Filtrer les rebonds afin de compter fiablement les pressions.
+- Encapsuler le comportement d'un bouton dans une classe C++.
+- Faire progresser plusieurs tâches à tour de rôle sans bloquer la boucle principale.
+
+## Prérequis
+
+- Savoir compiler, téléverser et tester un projet PlatformIO sur Arduino UNO.
+- Connaître les fonctions, les classes simples et le passage du temps avec `millis`; utiliser la remédiation C++ au besoin.
+- Savoir brancher une DEL et un bouton sur la plaquette d'expérimentation.
+- Connaître la période et la fréquence, puis savoir effectuer une mesure simple à l'oscilloscope.
+- Disposer d'une Arduino UNO, de la plaquette, de boutons, de fils et d'un oscilloscope partagé.
+
 Pour l'ensemble de ces exercices, vous allez utiliser :
 
 - Un oscilloscope pour deux
-- Visual studio code avec PlatformIO
+- Visual Studio Code avec PlatformIO
 - Votre plaquette de développement Arduino UNO
 - Ou votre plaquette d'expérimentation
 - Fils de branchement
@@ -14,7 +30,7 @@ Pour l'ensemble de ces exercices, vous allez utiliser :
 
 ### Étape 1 - Calculs et hypothèses
 
-- Sur votre cahier de laboratoire, calculez le temps minimal d'exécution d'une instruction sachant que l'Arduino Uno tourne à 16 Mhz
+- Dans votre cahier de laboratoire, calculez le temps minimal d'exécution d'une instruction, sachant que l'Arduino Uno fonctionne à 16 MHz.
 - En admettant qu'une instruction s'exécute toujours avec cette base de temps (ce qui est faux !), toujours sur votre cahier de laboratoire, calculez combien d'instructions s'exécutent en 1 μs et en 100 μs ?
 - Si un carreau d'oscilloscope représente 100 μs, combien d'instructions pourraient s'exécuter sur la durée mesurée sur tout l'écran ?
 
@@ -117,7 +133,7 @@ Retournez voir [le module 4 sur les sorties au niveau de la section sur le MLI (
 ### Étape 3 - Ajout d'un deuxième bouton (Optionnel, i.e. une fois que les tous les autres exercices sont terminés)
 
 - Ajoutez un nouveau bouton qui permet de lire les pressions sur la borne 4.
-- Modifiez votre programme pour que la luminosité diminue par pas de 25 % en cas de pression sur le bouton de la borne 2 et augment de 25 % en cas de pression sur le bouton de la borne 4.
+- Modifiez votre programme pour que la luminosité diminue par pas de 25 % lors d'une pression sur le bouton de la borne 2 et augmente de 25 % lors d'une pression sur celui de la borne 4.
 
 ## Exercice 3 - On va faire plus classe !
 
@@ -129,7 +145,7 @@ Retournez voir [le module 4 sur les sorties au niveau de la section sur le MLI (
 > [!NOTE]
 > Une `Action` représente une fonction. Sur l’Arduino Uno R3, il n’est pas possible de capturer `this` dans une lambda. Pour éviter les variables globales, nous utilisons donc des classes héritées d’`Action`, permettant d’encapsuler des données membres sur lesquelles la méthode executer() agit. Cette pratique ne sera pas nécessaire avec la version de C++ utilisée pour l'ESP32.
 
-Dans cet exercice, vous allez passer votre code impératif en code objet. Pour cela vous allez coder les classes du diagramme précédent. La classe "Program" permet de "ranger" le code de "main.cpp". Le constructeur de "Program" correspond à la fonction "setup", la méthode "loop" de "Program" correspond à la fonction "loop".
+Dans cet exercice, vous allez transformer votre code impératif en code objet. Pour cela, vous programmerez les classes du diagramme précédent. La classe `Program` permet d'organiser le code de `main.cpp`. Son constructeur correspond à la fonction `setup`, et sa méthode `loop` à la fonction `loop` du programme Arduino.
 
 - Copiez le répertoire de votre projet "AMOC_Module06_ProgrammationEntreesNumeriques_Gradateur" vers un nouveau projet "AMOC_Module06_ProgrammationEntreesNumeriques_GradateurClasses"
 - Écrivez la classe abstraite "Action"

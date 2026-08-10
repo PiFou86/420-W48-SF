@@ -1,29 +1,35 @@
 # Module 11 - ESP32 - Serveur web
 
-## Objectifs
+## Ce qui sera vu
 
-Dans ces exercices, vous aurez à modifier votre fichier index.html en :
+- Héberger un serveur HTTP minimal sur l'ESP32 et répondre à une requête GET.
+- Charger et servir des fichiers locaux avec LittleFS.
+- Adapter une page HTML et ses appels JavaScript asynchrones à une API embarquée.
+- Commander une DEL à distance et publier son état sous une forme exploitable par le client.
+- Conserver les ressources Web sur l'ESP32 plutôt que dépendre de services externes.
+- Réaliser, en extension optionnelle, une interface configurable pour plusieurs actionneurs.
 
-- Modifiant le code HTML et en utilisant judicieusement "Bootstrap"
-- Modifiant le code JavaScript des appels asynchrones
+## Prérequis
 
-À l'aide de votre ordinateur ou de votre cellulaire connecté au réseau, vous pourrez alors allumer ou éteindre des DELs.
+- Avoir terminé le module 10 et savoir connecter l'ESP32 au réseau local.
+- Maîtriser les bases de HTTP, HTML, JavaScript et JSON acquises dans les cours précédents.
+- Connaître les classes et les fichiers C++ ainsi que l'organisation d'un projet PlatformIO.
+- Disposer d'un ordinateur ou d'un téléphone connecté au même réseau que l'ESP32.
+- Savoir conserver les identifiants Wi-Fi dans un fichier de configuration non publié.
 
-Afin de rendre votre ESP32 autonome, vous ne devez pas inclure de ressources externes dans votre code HTML. Les ressources doivent être servies à partir de votre ESP32. C'est à dire, qu'ici, il ne faut PAS utiliser les fichiers .css et .js à partir de sites web comme "Bootstrap" ou un de ses CDN.
+Les fichiers `Program.cpp`, `Webserveur.cpp` et `index.html` seront modifiés. Les ressources CSS et JavaScript nécessaires doivent être servies localement par l'ESP32, sans dépendance à un CDN.
 
-Vous aurez à modifier les classes "Program.cpp", "Webserveur.cpp" et "index.html" pour répondre à ces exercices.
+## Exercice 1 - Mon premier serveur Web sur l'ESP32 - 30 min
 
-## Exercice 1 - Mon premier serveur web sur l'ESP32 - 30 mins
-
-Pour cet exercice, vous devez reprendre le code des notes de cours et les simplifier afin de répondre à une requête HTTP avec le verbe GET (Ex. enlever la partie sur la gestion de fichiers).
+Pour cet exercice, reprenez le code des notes de cours et simplifiez-le afin de répondre à une requête HTTP avec la méthode GET. Retirez, par exemple, la gestion des fichiers.
 
 ### Étape 1 - Installation d'un serveur web
 
-Dans cette étape, votre serveur web ESP32 affichera un court message HTML sur un client web. Ce client web peut être utilisé à partir de votre cellulaire ou à partir de votre PC.
+Dans cette étape, le serveur Web de l'ESP32 transmettra un court message HTML à un navigateur utilisé depuis un téléphone ou un ordinateur.
 
-- Créez une nouvelle application platformIO ```AMOC_Module11_HelloWeb```.
+- Créez une application PlatformIO `AMOC_Module11_HelloWeb`.
 - Écrivez le code pour vous connecter à votre réseau local avec votre SSID ainsi que votre mot de passe (Voir module 10)
-- Affichez le statut de votre connexion WiFi et l'adresse IP de l'ESP sur le port série
+- Affichez l'état de la connexion Wi-Fi et l'adresse IP de l'ESP32 dans le moniteur série.
 - Écrivez un serveur web minimum qui affiche "Bonjour à partir de mon ESP32 !" à la demande d'affichage de la page "/" (Voir méthode ```on``` de la classe ```WebServer``` du cours)
 
 ### Étape 2 - Affichage d'une page web sur un client web
@@ -45,11 +51,9 @@ Dans cette étape, votre serveur web ESP32 affichera un court message HTML sur u
 Si cela ne fonctionne pas :
 
 - Validez que vous avez bien la bonne adresse IP
-- Validez que votre ordinateur ou votre cellulaire est bien connecté sur le même réseau :
-  - Même réseau WiFi
-  - Ou à un réseau WiFi connecté sur le réseau filaire sur lequel vous êtes
-  - ET que vous avec le même début d'adresse IP en considérant les premières valeurs d'une taille données par votre masque réseau (Exemple : 192.168.1.x pour les deux périphériques si votre CIDR est /24, c'est à dire que le masque est 255.255.255.0)
-- Validez que vous appelez bien la méthode ```handleResquest``` à chaque appel de la fonction ```loop``` par le cadriciel "Arduino"
+- Vérifiez que votre ordinateur ou votre téléphone est connecté au même réseau Wi-Fi que l'ESP32, ou à un réseau filaire qui lui est relié.
+- Vérifiez que les adresses IP appartiennent au même sous-réseau. Par exemple, avec un préfixe `/24` et un masque `255.255.255.0`, les deux adresses peuvent commencer par `192.168.1`.
+- Vérifiez que la méthode `handleResquest` est appelée à chaque passage dans la fonction `loop` du cadriciel Arduino.
 - Validez que vous demandez bien la ressource qui est déclarée dans votre enregistrement de route ```on(URI, Verbe, Fonction)```
 - Ajoutez une fonction à l'événement ```onNotFound``` qui affiche la ressource non trouvée sur le port série en utilisant la méthode ```uri``` de votre objet ```WebServer```
 
@@ -62,13 +66,13 @@ Si cela ne fonctionne pas :
 
 </details>
 
-## Exercice 2 - Initialisation du serveur web ESP32 - 30 mins
+## Exercice 2 - Initialisation du serveur Web ESP32 - 30 min
 
 ### Étape 1 - Installation du système de fichiers LittleFS pour ESP32
 
 Dans cette étape, vous allez tester la mise en place des fichiers CSS, JavaScript et HTML dans le système LittleFS de votre serveur web.
 
-- Créez une nouvelle application platformIO ```AMOC_Module11_ServeurWeb```.
+- Créez une application PlatformIO `AMOC_Module11_ServeurWeb`.
 - À la racine du projet, créez un répertoire ```data```
 
 ![Structure SPIFFS](img/structure_SPIFFS.png)
@@ -170,7 +174,7 @@ Vous devriez avoir le résultat suivant dans votre moniteur série :
 
 </details>
 
-## Exercice 3 - Contrôler une DEL à distance - 15 mins
+## Exercice 3 - Contrôler une DEL à distance - 15 min
 
 - Reprenez le projet Pio "AMOC_Module11_ServeurWebPrepCours" présent à la racine du module
 - Téléversez et exécutez le programme
@@ -179,7 +183,7 @@ Vous devriez avoir le résultat suivant dans votre moniteur série :
 
 - Notez l'adresse IP du serveur Web.
 
-- À l'aide de votre cellulaire ou de votre PC, ouvrez un navigateur web. Entrez l'adresse IP du serveur web. Vous pourrez alors allumer ou éteindre la DEL No2 sur la carte ESP32. Les boutons Allumer et Éteindre sont déjà programmés et fonctionnels.
+- Depuis votre téléphone ou votre ordinateur, ouvrez un navigateur Web et entrez l'adresse IP du serveur. Vous pourrez alors allumer ou éteindre la DEL 2 de l'ESP32. Les boutons **Allumer** et **Éteindre** sont déjà programmés.
 
 <details>
     <summary>Diagramme de séquence</summary>
@@ -208,21 +212,21 @@ Dans cette étape, vous devez modifier votre programme pour ajouter la route "/a
 }
 ```
 
-- Ajoutez la route et codez les méthodes. N'oubliez pas de renvoyer les bons code de statut
+- Ajoutez la route et programmez les méthodes. N'oubliez pas de renvoyer les bons codes d'état.
 - Intégrez l'appel à cette fonctionnalité au chargement de la page et affichez le statut sur la page
 
 ### Étape 2 - Modification des routes existantes
 
-Modifier les routes "/allumer" et "/eteindre" pour n'avoir plus que la seule route "/actionneurs/1" avec le verbe "PUT" :
+Modifiez les routes `/allumer` et `/eteindre` pour ne conserver que la route `/actionneurs/1` avec la méthode PUT :
 
-- L'état est maintenant demandé dans un document json. Ce document est le même que celui présenté à l'étape 1. Quand vous recevez un json avec un état à "allume" ou à "eteint", modifiez l'état de la DEL pour le faire correspondre à ce qui est demandé.
-- Pour accéder au corp de la requête, utilisez la méthode "arg" de votre objet "WebServer" avec comme paramètres "plain" : ```this->m_webServer->arg("plain");```
-- N'oubliez pas de renvoyer les bons code de statut
+- L'état est maintenant transmis dans un document JSON identique à celui de l'étape 1. Lorsque vous recevez la valeur `allume` ou `eteint`, modifiez l'état de la DEL en conséquence.
+- Pour accéder au corps de la requête, utilisez la méthode `arg` de votre objet `WebServer` avec le paramètre `plain` : `this->m_webServer->arg("plain");`
+- N'oubliez pas de renvoyer les bons codes d'état.
 - La route doit renvoyer le nouvel état de la DEL en json
 
 ### Étape 3 - Modifier l'interface
 
-- Modifiez l'interface pour élimer les deux boutons et les remplacer par un bouton unique à changement d'état comme illustré dans l'image :
+- Modifiez l'interface pour éliminer les deux boutons et les remplacer par un bouton unique à changement d'état, comme dans l'image :
 
 ![](img/boutons_changement_etat1.png)
 
@@ -233,7 +237,7 @@ Modifier les routes "/allumer" et "/eteindre" pour n'avoir plus que la seule rou
 
 </details>
 
-## Exercice 5 - Paramétrer l'application (Optionnel) - 3h
+## Exercice 5 - Paramétrer l'application (optionnel) - 3 h
 
 Dans cet exercice, nous allons généraliser la notion d'actionneurs ainsi que le nombre d'actionneurs disponibles sur une page.
 
@@ -252,7 +256,7 @@ Pour cet exercice, nous vous demandons de vous baser sur le diagramme de classes
 
 ![Enregistrement des actionneurs](img/serveurweb_gen.png)
 
-- Vous devez modifier les routes de l'exercices précédent afin que l'identifiant ne soit plus codé en dur dans l'URI. Pour cela, un enregistrement de ressource similaire à :
+- Modifiez les routes de l'exercice précédent afin que l'identifiant ne soit plus codé en dur dans l'URI. Utilisez un enregistrement de ressource semblable à celui-ci :
 
 ```cpp
 this->m_webServer->on(UriBraces("/actionneurs/{}"), HTTPMethod::HTTP_PUT,

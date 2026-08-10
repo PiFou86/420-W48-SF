@@ -38,3 +38,10 @@ bin/
 *.exe
 *.out
 *.app
+
+PLAN*.md
+ANALYSE*.md
+JOURNAL_VALIDATION.md
+RAPPORT_VALIDATION_DOCUMENT.md
+VALIDATION_EXERCICES_QCM.md
+continuer.sh
